@@ -1,0 +1,86 @@
+
+{% assign results_posts = site.tags.data %}
+
+{% assign first_result_post = results_posts|sort: pull_request_issue_id| first %}
+{% assign base_repository = first_result_post.repository %}
+{% assign base_branch_url = "https://github.com/" | append: base_repository | append: "/tree" %}
+{% assign base_pull_request_url = "https://github.com/" | append: base_repository | append: "/pull" %}
+{% assign base_release_url = "https://github.com/" | append: base_repository | append: "/releases/tag" %}
+
+{% assign tag_names_list = "" %}
+{% for p in results_posts %}
+  {% if p.tag_name %}
+
+    {% assign tag_names = tag_names_list | split: ',' | sort %}
+
+    {% if tag_names contains p.tag_name %}
+    {% else %}
+      {% if tag_names_list == "" %}
+        {% assign tag_names_list = p.tag_name %}
+      {% else %}
+        {% capture tag_names_list %}{{tag_names_list}},{{p.tag_name}}{% endcapture %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% assign tag_names = tag_names_list | split: ',' | sort %}
+
+
+{% assign branch_names_list = "" %}
+{% for p in results_posts %}
+  {% if p.branch_name %}
+    {% assign branch_names = branch_names_list | split: ',' | sort %}
+    {% if branch_names contains p.branch_name %}
+    {% else %}
+      {% if branch_names_list == "" %}
+        {% assign branch_names_list = p.branch_name %}
+      {% else %}
+        {% capture branch_names_list %}{{branch_names_list}},{{p.branch_name}}{% endcapture %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% assign branch_names = branch_names_list | split: ',' | sort %}
+
+{% assign pull_request_issue_ids_list = "" %}
+{% for p in results_posts %}
+  {% if p.pull_request_issue_id and p.pull_request_issue_id != "" %}
+    {% assign pull_request_issue_ids = pull_request_issue_ids_list | split: ',' | sort %}
+
+    {% if pull_request_issue_ids contains p.pull_request_issue_id %}
+    {% else %}
+      {% if pull_request_issue_ids_list == "" %}
+        {% assign pull_request_issue_ids_list = p.pull_request_issue_id %}
+      {% else %}
+        {% capture pull_request_issue_ids_list %}{{pull_request_issue_ids_list}},{{p.pull_request_issue_id}}{% endcapture %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% assign pull_request_issue_ids = pull_request_issue_ids_list | split: ',' | sort %}
+
+
+{% assign device_ids_list = "" %}
+{% for p in results_posts %}
+  {% if p.device_id %}
+    {% assign device_ids = device_ids_list | split: ',' | sort %}
+    {% if device_ids contains p.device_id %}
+    {% else %}
+      {% if device_ids_list == "" %}
+        {% assign device_ids_list = p.device_id %}
+      {% else %}
+        {% capture device_ids_list %}{{device_ids_list}},{{p.device_id}}{% endcapture %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% assign device_ids = device_ids_list | split: ',' | sort %}
+
+
+
+
+

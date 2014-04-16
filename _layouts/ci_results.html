@@ -1,0 +1,150 @@
+---
+---
+
+<!DOCTYPE HTML>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+
+<head>
+{% include common.html %}
+
+</head>
+
+
+<body>
+
+{% include header.html %}
+
+
+<ol class="breadcrumb">
+  <li><a href="..">Dashboard</a></li>
+  <li>Results</li>
+</ol>
+
+
+
+<script type="text/javascript">
+results_data = {{ content | json }}
+</script>
+
+
+<div class="page-header">
+  <h1>Build Results</h1>
+  {% if page.pending %}<h4>BUILD PENDING</h4>{% else %}<h4>BUILD COMPLETED</h4>{% endif %}
+  {{ page.title }}
+</div>
+
+<a id="build">
+  <div class="alert {% if page.build_error_count > 0 %}alert-danger{% elsif page.build_warning_count > 0 %}alert-warning{% else %}alert-success{% endif %}">
+    <span class="badge pull-right">{{ page.build_warning_count | plus: page.build_error_count }}</span>
+    <big>Build Messages</big>
+  </div>
+</a>
+
+
+<table class="table table-striped">
+  <th><td>location</td><td>message</td></th>
+
+<script type="text/javascript">
+var repo = "{{ page.repository }}"
+{% if page.tag_name %}
+var ref = "{{ page.tag_name }}";
+{% else %}
+var ref = "{{ page.commit_sha }}"
+{% endif %}
+
+function format_error_rows(data)
+{
+  var result = "";
+  for (var i = 0; i < data.length; ++i) {
+    var url = "https://github.com/" + repo + "/blob/" + ref + "/" + data[i].filename + "#L" + data[i].linenumber;
+
+    result += "<tr><td>" + data[i].messagetype + "</td><td><a href='" + url + "'>" + data[i].filename + ":" + data[i].linenumber + ":" + data[i].colnumber + "</a></td><td><code>" + data[i].message.replace(/\n/g, "<br/>") + "</code></td></tr>";
+  }
+
+  return result;
+}
+
+document.writeln(format_error_rows(results_data.build_results));
+
+
+</script>
+
+</table>
+
+
+{% if page.test_count == 0 %}
+{% assign test_percent = 100 %}
+{% else %}
+{% assign test_percent = page.test_passed_count | divided_by: page.test_count | times: 100.0 %}
+{% endif %}
+{% assign test_failure_count = page.test_count | minus: page.test_passed_count %}
+
+
+{% if test_percent < 90.0 %}
+  {% assign alert_class = "alert-danger" %}
+{% elsif page.test_run == false %}
+  {% assign alert_class = "alert-danger" %}
+{% elsif test_percent < 99.999 %}
+  {% assign alert_class = "alert-warning" %}
+{% else %}
+  {% assign alert_class = "alert-success" %}
+{% endif %}
+
+<a id="test">
+  <div class="alert {{alert_class}}">
+    <span class="badge pull-right">{{test_failure_count}}</span>
+    <big>Test Results</big>
+    {% if  page.test_run == false %}
+    <br/><small>Not Run</small>
+    {% endif %}
+  </div>
+</a>
+
+
+<table class="table table-striped">
+  <th><td>name</td><td>time</td></th>
+
+<script type="text/javascript">
+for (var i = 0; i < results_data.test_results.length; ++i) {
+  document.writeln("<tr><td>" + results_data.test_results[i].status + "</td><td>" + results_data.test_results[i].name + "</td><td>" + results_data.test_results[i].time + "</td></tr>");
+  if (results_data.test_results[i].status == "failed" && results_data.test_results[i].output) {
+    document.writeln("<tr><td></td><td colspan=2><table  class='table table-striped'>");
+    document.writeln("<tr><td colspan=3>"+results_data.test_results[i].output.replace(/\n/g, "<br/>")+"</td></tr>");
+    if (results_data.test_results[i].parsed_errors) {
+      document.writeln(format_error_rows(results_data.test_results[i].parsed_errors));
+    }
+    document.writeln("</table></td></tr>");
+  } 
+
+
+}
+
+</script>
+
+</table>
+
+{% if page.is_release %}
+
+<a id="package">
+  <div class="alert {% if page.release_packaged == false or page.package_error_count > 0 %}alert-danger{% elsif page.package_warning_count > 0 %}alert-warning{% else %}alert-success{% endif %}">
+    <span class="badge pull-right">{{ page.package_warning_count | plus: page.package_error_count }}</span>
+    <big>Package Messages</big>
+  </div>
+</a>
+
+
+<table class="table table-striped">
+  <th><td>location</td><td>message</td></th>
+
+<script type="text/javascript">
+
+document.writeln(format_error_rows(results_data.package_results));
+
+</script>
+
+</table>
+
+{% endif %}
+
+</body>
+

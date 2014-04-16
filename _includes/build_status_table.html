@@ -1,0 +1,110 @@
+{% if table_type == "branch" %}
+  {% assign table_cols = "Build,Test" | split: "," %}
+  {% assign keys = branch_names %}
+  {% assign base_url = base_branch_url %}
+{% elsif table_type == "pull_request" %}
+  {% assign table_cols = "Build,Test" | split: "," %}
+  {% assign keys = pull_request_issue_ids %} 
+  {% assign base_url = base_pull_request_url %}
+{% elsif table_type == "release" %}
+  {% assign table_cols = "Build,Test,Package" | split: "," %}
+  {% assign keys = tag_names %}
+  {% assign base_url = base_release_url %}
+{% endif %}
+
+
+
+
+{% assign num_table_cols = table_cols|size %}
+<table class="table">
+  <tr>
+    <th></th>
+    {% for device_id in device_ids %}
+      <th  style="border-left:2px solid gray" colspan={{ num_table_cols }}>{{device_id}}</th>
+    {% endfor %}
+  </tr>
+  <tr>
+    <td></td>
+    {% for device_id in device_ids %}
+      {% for col in table_cols %}
+      <td {% if forloop.first %}style="border-left:2px solid gray"{% endif %}>{{ col }}</td>
+      {% endfor %}
+    {% endfor %}
+  </tr>
+
+  {% for key in keys %}
+  <tr>
+    <td><a href="{{ base_url }}/{{ key }}">{{ key }}</a></td>
+    {% for device_id in device_ids %}
+      {% assign found_post = false %}
+
+      {% for post in results_posts %}
+        {% if table_type == "release" %}{% assign test_key = post.tag_name %}{% endif %}
+        {% if table_type == "branch" %}{% assign test_key = post.branch_name %}{% assign is_branch = true %}{% else %}{% assign is_branch = false %}{% endif %}
+        {% if table_type == "pull_request" %}{% assign test_key = post.pull_request_issue_id %}{% endif %}
+        {% if post.pull_request_issue_id and post.pull_request_issue_id != "" %}{% assign has_pull_request_id = true %}{% else %}{% assign has_pull_request_id = false %}{% endif %}
+
+
+        {% if test_key == key and post.device_id == device_id and found_post != true %}
+
+          {% if has_pull_request_id and is_branch %}
+            {% assign cont = false %}
+          {% else %}
+            {% assign cont = true %}
+          {% endif %}
+
+          {% if cont == true %}
+
+            {% assign found_post = true %}
+
+            {% assign build_url = "." | append: post.url | append: "#build" %}
+
+            {% if post.pending %}<td style="border-left:2px solid gray" class="alert alert-warning">Pending</td>
+            {% elsif post.build_error_count > 0 %}<td style="border-left:2px solid gray" class="alert alert-danger"><a href="{{build_url}}">Errors / Warnings<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a></td>
+            {% elsif post.build_warning_count > 0 %}<td style="border-left:2px solid gray" class="alert alert-warning"><a href="{{build_url}}">Warnings<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a></td>
+            {% else %}<td style="border-left:2px solid gray" class="alert alert-success"><a href="{{build_url}}">Succeeded<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a></td>
+            {% endif %}
+
+            {% if post.test_count == 0 %}
+            {% assign test_percent = 100 %}
+            {% else %}
+            {% assign test_percent = post.test_passed_count | divided_by: post.test_count | times: 100.0 %}
+            {% endif %}
+            {% assign test_failure_count = post.test_count | minus: post.test_passed_count %}
+
+
+            {% assign test_url = "." | append: post.url | append: "#test" %}
+
+            {% if post.pending %}<td class="alert alert-warning">Pending</td>
+            {% elsif post.test_run != true %}<td class="alert alert-danger"><a href="{{test_url}}">Not Run<span class="badge pull-right">NA</span></a></td>
+            {% elsif test_percent >= 99.999 %}<td class="alert alert-success"><a href="{{test_url}}">Success<span class="badge pull-right">{{test_failure_count}}</span></a></td>
+            {% elsif test_percent >= 90 %}<td class="alert alert-warning"><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_failure_count}}</span></a></td>
+            {% else %}<td class="alert alert-danger"><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_failure_count}}</span></a></td>
+            {% endif %}
+
+            {% assign package_url = "." | append: post.url | append: "#package" %}
+
+            {% if num_table_cols > 2 %}
+              {% if post.pending %}<td class="alert alert-warning">Pending</td>
+              {% elsif post.release_packaged == false or post.package_error_count > 0 %}<td class="alert alert-danger"><a href="{{package_url}}">Errors / Warnings<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a></td>
+              {% elsif post.package_warning_count > 0 %}<td class="alert alert-warning"><a href="{{package_url}}">Warnings<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a></td>
+              {% else %}<td class="alert alert-success"><a href="{{package_url}}">Succeeded<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a></td>
+              {% endif %}
+            {% endif %}
+
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      {% if found_post == false %}
+        {% for i in (1..num_table_cols) %}
+          <td  {% if forloop.first %}style="border-left:2px solid gray"{% endif %} class="alert alert-info">No Data</td>
+        {% endfor %}
+      {% endif %}
+
+    {% endfor %}
+  </tr>
+  {% endfor %}
+</table>
+
+

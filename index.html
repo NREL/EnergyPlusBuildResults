@@ -1,0 +1,49 @@
+---
+title: Home Page
+---
+
+<!DOCTYPE HTML>
+
+<head>
+{% include common.html %}
+
+</head>
+
+
+<body>
+
+{% include header.html %}
+
+<ol class="breadcrumb">
+  <li>Dashboard</li>
+</ol>
+
+
+<div class="page-header">
+  <h1>Dashboard for {{base_repository}}</h1>
+</div>
+
+<div class="well well-sm">
+  <h3>Branches</h3>
+</div>
+
+{% assign table_type = "branch" %}
+{% include build_status_table.html %}
+
+<div class="well well_sm">
+  <h3>Pull Requests</h3>
+</div>
+
+{% assign table_type = "pull_request" %}
+{% include build_status_table.html %}
+
+<div class="well well-sm">
+  <h3>Releases</h3>
+</div>
+
+{% assign table_type = "release" %}
+{% include build_status_table.html %}
+
+
+
+</body>
