@@ -16,7 +16,7 @@
 
 
 <ol class="breadcrumb">
-  <li><a href="..">Dashboard</a></li>
+  <li><a href="../index.html">Dashboard</a></li>
   <li>Results</li>
 </ol>
 
@@ -58,7 +58,7 @@ function format_error_rows(data)
   for (var i = 0; i < data.length; ++i) {
     var url = "https://github.com/" + repo + "/blob/" + ref + "/" + data[i].filename + "#L" + data[i].linenumber;
 
-    result += "<tr><td>" + data[i].messagetype + "</td><td><a href='" + url + "'>" + data[i].filename + ":" + data[i].linenumber + ":" + data[i].colnumber + "</a></td><td><code>" + data[i].message.replace(/\n/g, "<br/>") + "</code></td></tr>";
+    result += "<tr><td>" + data[i].messagetype + "</td><td><h6><a href='" + url + "'>" + data[i].filename + ":" + data[i].linenumber + ":" + data[i].colnumber + "</a></h6></td><td><code>" + data[i].message.replace(/\n/g, "<br/>") + "</code></td></tr>";
   }
 
   return result;

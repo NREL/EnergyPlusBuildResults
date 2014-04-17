@@ -23,22 +23,22 @@ title: Home Page
   <h1>Dashboard for {{base_repository}}</h1>
 </div>
 
-<div class="well well-sm">
-  <h3>Branches</h3>
+<div class="alert alert-info">
+  <h4>Branches</h4>
 </div>
 
 {% assign table_type = "branch" %}
 {% include build_status_table.html %}
 
-<div class="well well_sm">
-  <h3>Pull Requests</h3>
+<div class="alert alert-info">
+  <h4>Pull Requests</h4>
 </div>
 
 {% assign table_type = "pull_request" %}
 {% include build_status_table.html %}
 
-<div class="well well-sm">
-  <h3>Releases</h3>
+<div class="alert alert-info">
+  <h4>Releases</h4>
 </div>
 
 {% assign table_type = "release" %}
