@@ -80,7 +80,23 @@
 
 {% assign device_ids = device_ids_list | split: ',' | sort %}
 
+{% assign analysis_list = "" %}
+{% for d in device_ids %}
+  {% assign is_analysis = false %}
+  {% for p in results_posts %}
+    {% if p.device_id == d %}
+      {% if p.analyze_only  %}
+        {{p.analyze_only}} {{p.device_id}}
+        {% assign is_analysis = true %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  {% if analysis_list == "" %}
+    {% assign analysis_list = is_analysis %}
+  {% else %}
+    {% capture analysis_list %}{{analysis_list}},{{is_analysis}}{% endcapture %}
+  {% endif %}
+{% endfor %}
 
-
-
+{% assign analysis_array = analysis_list | split: ',' %}
 

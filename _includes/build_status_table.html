@@ -20,14 +20,27 @@
   <tr>
     <th></th>
     {% for device_id in device_ids %}
-      <th style="border-left:2px solid gray" colspan={{ num_table_cols }}><h4>{{device_id}}</h4></th>
+      {% if analysis_array[forloop.index0] == "true" %}
+        {% assign colspan = 1 %}
+      {% else %}
+        {% assign colspan = num_table_cols %}
+      {% endif %}
+      <th style="border-left:2px solid gray" colspan={{ colspan }}><h4>{{device_id}}</h4></th>
     {% endfor %}
   </tr>
   <tr>
     <td></td>
     {% for device_id in device_ids %}
+      {% if analysis_array[forloop.index0] == "true" %}
+        {% assign analysis_only = true %} 
+      {% else %}
+        {% assign analysis_only = false %}
+      {% endif %}
+
       {% for col in table_cols %}
-      <td {% if forloop.first %}style="border-left:2px solid gray"{% endif %}><h5>{{ col }}</h5></td>
+        {% if col == "Build" or analysis_only == false  %}
+          <td {% if forloop.first %}style="border-left:2px solid gray"{% endif %}><h5>{{ col }}</h5></td>
+        {% endif %}
       {% endfor %}
     {% endfor %}
   </tr>
@@ -37,6 +50,12 @@
     <td><h5><a href="{{ base_url }}/{{ key }}">{{ key }}</a></h5></td>
     {% for device_id in device_ids %}
       {% assign found_post = false %}
+      {% if analysis_array[forloop.index0] == "true" %}
+        {% assign analysis_only = true %} 
+      {% else %}
+        {% assign analysis_only = false %}
+      {% endif %}
+
 
       {% for post in results_posts %}
         {% if table_type == "release" %}{% assign test_key = post.tag_name %}{% endif %}
@@ -79,16 +98,18 @@
 
             {% assign test_url = "." | append: post.url | append: "#test" %}
 
-            {% if post.pending %}<td class="alert alert-warning"><h6>Pending</h6></td>
-            {% elsif post.test_run != true %}<td class="alert alert-danger"><h6><a href="{{test_url}}">Not Run<span class="badge pull-right">NA</span></h6></a></td>
-            {% elsif test_percent >= 99.999 %}<td class="alert alert-success"><h6><a href="{{test_url}}">Success<span class="badge pull-right">{{test_failure_count}}</span></a></h6></td>
-            {% elsif test_percent >= 90 %}<td class="alert alert-warning"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_failure_count}}</span></a></h6></td>
-            {% else %}<td class="alert alert-danger"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_failure_count}}</span></a></h6></td>
+            {% if analysis_only == false %}
+              {% if post.pending %}<td class="alert alert-warning"><h6>Pending</h6></td>
+              {% elsif post.test_run != true %}<td class="alert alert-danger"><h6><a href="{{test_url}}">Not Run<span class="badge pull-right">NA</span></h6></a></td>
+              {% elsif test_percent >= 99.999 %}<td class="alert alert-success"><h6><a href="{{test_url}}">Success<span class="badge pull-right">{{test_failure_count}}</span></a></h6></td>
+              {% elsif test_percent >= 90 %}<td class="alert alert-warning"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_failure_count}}</span></a></h6></td>
+              {% else %}<td class="alert alert-danger"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_failure_count}}</span></a></h6></td>
+              {% endif %}
             {% endif %}
 
             {% assign package_url = "." | append: post.url | append: "#package" %}
 
-            {% if num_table_cols > 2 %}
+            {% if analysis_only == false and num_table_cols > 2 %}
               {% if post.pending %}<td class="alert alert-warning"><h6>Pending</h6></td>
               {% elsif post.release_packaged == false or post.package_error_count > 0 %}<td class="alert alert-danger"><h6><a href="{{package_url}}">Errors / Warnings<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a></h6></td>
               {% elsif post.package_warning_count > 0 %}<td class="alert alert-warning"><h6><a href="{{package_url}}">Warnings<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a>i</h6></td>
@@ -101,7 +122,13 @@
       {% endfor %}
 
       {% if found_post == false %}
-        {% for i in (1..num_table_cols) %}
+        {% if analysis_array[forloop.index0] == "true" %}
+          {% assign num_cols = 1 %}
+        {% else %}
+          {% assign num_cols = num_table_cols %}
+        {% endif %}
+
+        {% for i in (1..num_cols) %}
         <td  {% if forloop.first %}style="border-left:2px solid gray"{% endif %} class="alert alert-info"><h6>No Data</h6></td>
         {% endfor %}
       {% endif %}
