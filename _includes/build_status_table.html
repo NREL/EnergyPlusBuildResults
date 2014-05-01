@@ -25,7 +25,7 @@
       {% else %}
         {% assign colspan = num_table_cols %}
       {% endif %}
-      <th style="border-left:2px solid gray" colspan={{ colspan }}><h4>{{device_id}}</h4></th>
+      <th style="border-left:2px solid gray" colspan={{ colspan }}><h4>{{device_id | replace: "-", " "}}</h4></th>
     {% endfor %}
   </tr>
   <tr>

@@ -1,6 +1,14 @@
 
 {% assign results_posts = site.tags.data %}
 
+{% comment %}
+
+This builds up the data lists used for displaying the dashboards.
+
+the "minus: 0" is used to convert the date string into an integer for the > comparisons
+
+{% endcomment %}
+
 {% assign first_result_post = results_posts|sort: pull_request_issue_id| first %}
 {% assign base_repository = first_result_post.repository %}
 {% assign base_branch_url = "https://github.com/" | append: base_repository | append: "/tree" %}
@@ -9,7 +17,8 @@
 
 {% assign tag_names_list = "" %}
 {% for p in results_posts %}
-  {% if p.tag_name %}
+  {% assign post_date = p.date | date: "%s" | minus: 0 %}
+  {% if p.tag_name and post_date > min_date %}
 
     {% assign tag_names = tag_names_list | split: ',' | sort %}
 
@@ -29,7 +38,8 @@
 
 {% assign branch_names_list = "" %}
 {% for p in results_posts %}
-  {% if p.branch_name %}
+  {% assign post_date = p.date | date: "%s" | minus: 0%}
+  {% if p.branch_name and post_date > min_date %}
     {% assign branch_names = branch_names_list | split: ',' | sort %}
     {% if branch_names contains p.branch_name %}
     {% else %}
@@ -46,7 +56,8 @@
 
 {% assign pull_request_issue_ids_list = "" %}
 {% for p in results_posts %}
-  {% if p.pull_request_issue_id and p.pull_request_issue_id != "" %}
+  {% assign post_date = p.date | date: "%s" | minus: 0%}
+  {% if p.pull_request_issue_id and p.pull_request_issue_id != "" and post_date > min_date %}
     {% assign pull_request_issue_ids = pull_request_issue_ids_list | split: ',' | sort %}
 
     {% if pull_request_issue_ids contains p.pull_request_issue_id %}
@@ -65,7 +76,8 @@
 
 {% assign device_ids_list = "" %}
 {% for p in results_posts %}
-  {% if p.device_id %}
+  {% assign post_date = p.date | date: "%s" | minus: 0 %}
+  {% if p.device_id and post_date > min_date %}
     {% assign device_ids = device_ids_list | split: ',' | sort %}
     {% if device_ids contains p.device_id %}
     {% else %}
