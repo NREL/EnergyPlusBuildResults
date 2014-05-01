@@ -86,7 +86,6 @@
   {% for p in results_posts %}
     {% if p.device_id == d %}
       {% if p.analyze_only  %}
-        {{p.analyze_only}} {{p.device_id}}
         {% assign is_analysis = true %}
       {% endif %}
     {% endif %}
