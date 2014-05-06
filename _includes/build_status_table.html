@@ -115,9 +115,13 @@
             {% if post.test_count == 0 %}
             {% assign test_percent = 100 %}
             {% else %}
-            {% assign test_percent = post.test_passed_count | divided_by: post.test_count | times: 100.0 %}
+            {% assign test_percent = post.test_passed_count | times: 1.0 | divided_by: post.test_count | times: 100.0 %}
             {% endif %}
             {% assign test_failure_count = post.test_count | minus: post.test_passed_count %}
+
+            {% capture test_percent_string %}{{test_percent}}{% endcapture %}
+            {% assign test_percent_string = test_percent_string | split: "." | first %}
+
 
 
             {% assign test_url = "." | append: post.url | append: "#test" %}
@@ -125,9 +129,9 @@
             {% if analysis_only == false %}
               {% if post.pending %}<td class="warning"><h6>Pending</h6></td>
               {% elsif post.test_run != true %}<td class="danger"><h6><a href="{{test_url}}">Not Run<span class="badge pull-right">NA</span></h6></a></td>
-              {% elsif test_percent >= 99.999 %}<td class="success"><h6><a href="{{test_url}}">Success<span class="badge pull-right">{{test_percent}}%</span></a></h6></td>
-              {% elsif test_percent >= 90 %}<td class="warning"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_percent}}%</span></a></h6></td>
-              {% else %}<td class="danger"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_percent}}%</span></a></h6></td>
+              {% elsif test_percent >= 99.999 %}<td class="success"><h6><a href="{{test_url}}">Success<span class="badge pull-right">{{test_percent_string}}%</span></a></h6></td>
+              {% elsif test_percent >= 90 %}<td class="warning"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_percent_string}}%</span></a></h6></td>
+              {% else %}<td class="danger"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_percent_string}}%</span></a></h6></td>
               {% endif %}
             {% endif %}
 
