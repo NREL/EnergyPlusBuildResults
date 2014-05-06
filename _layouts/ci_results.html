@@ -82,20 +82,28 @@ var ref = "{{ page.tag_name }}";
 var ref = "{{ page.commit_sha }}"
 {% endif %}
 
+function get_label_type(stat)
+{
+  var labeltype="info";
+  if (stat.search(/warn/i) != -1)
+  {
+    labeltype = "warning";
+  } else if (stat.search(/err/i) != -1 || stat.search(/fail/i) != -1) {
+    labeltype = "danger";
+  } else if (stat.search(/pass/i) != -1) {
+    labeltype = "success";
+  }
+
+  return labeltype;
+}
+
 function format_error_rows(data)
 {
   var result = "";
   for (var i = 0; i < data.length; ++i) {
     var url = "https://github.com/" + repo + "/blob/" + ref + "/" + data[i].filename + "#L" + data[i].linenumber;
 
-    var labeltype="info";
-    if (data[i].messagetype.search(/warn/i) != -1)
-    {
-      labeltype = "warning";
-    } else if (data[i].messagetype.search(/err/i) != -1) {
-      labeltype = "danger";
-    }
-
+    var labeltype = get_label_type(data[i].messagetype);
 
     result += "<tr><td><span class='label label-" + labeltype + "'>" + data[i].messagetype + "</span></td><td><h6><a href='" + url + "'>" + data[i].filename + ":" + data[i].linenumber + ":" + data[i].colnumber + "</a></h6></td><td><code>" + data[i].message.replace(/\n/g, "<br/>") + "</code></td></tr>";
   }
@@ -145,7 +153,8 @@ document.writeln(format_error_rows(results_data.build_results));
 
 <script type="text/javascript">
 for (var i = 0; i < results_data.test_results.length; ++i) {
-  document.writeln("<tr><td>" + results_data.test_results[i].status + "</td><td>" + results_data.test_results[i].name + "</td><td>" + results_data.test_results[i].time + "</td></tr>");
+  var labeltype = get_label_type(results_data.test_results[i].status);
+  document.writeln("<tr><td><span class='label label-" + labeltype + "'>" + results_data.test_results[i].status + "</span></td><td>" + results_data.test_results[i].name + "</td><td>" + results_data.test_results[i].time + "</td></tr>");
   if (results_data.test_results[i].status == "failed" && results_data.test_results[i].output) {
     document.writeln("<tr><td></td><td colspan=2><table  class='table table-striped'>");
     document.writeln("<tr><td colspan=3>"+results_data.test_results[i].output.replace(/\n/g, "<br/>")+"</td></tr>");
