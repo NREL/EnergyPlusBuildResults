@@ -25,7 +25,14 @@
       {% else %}
         {% assign colspan = num_table_cols %}
       {% endif %}
-      <th style="border-left:2px solid gray" colspan={{ colspan }}><h4>{{device_id | replace: "-", " "}}</h4></th>
+      <th style="border-left:2px solid gray" colspan={{ colspan }}><h4>
+          {{device_id | replace: "-", " "}}
+          <br/>
+          {% if device_id contains "Win" %}<i class="fa fa-windows">
+          {% elsif device_id contains "Linux" %}<i class="fa fa-linux">
+          {% elsif device_id contains "Mac" %}<i class="fa fa-apple">
+          {% endif %}
+      </h4></th>
     {% endfor %}
   </tr>
   <tr>
@@ -47,7 +54,24 @@
 
   {% for key in keys %}
   <tr>
-    <td><h5><a href="{{ base_url }}/{{ key }}">{{ key }}</a></h5></td>
+    {% assign latest_date = 0 %}
+    {% assign latest_sha = "" %}
+    {% for post in results_posts %}
+      {% if table_type == "release" %}{% assign test_key = post.tag_name %}{% endif %}
+      {% if table_type == "branch" %}{% assign test_key = post.branch_name %}{% endif %}
+      {% if table_type == "pull_request" %}{% assign test_key = post.pull_request_issue_id %}{% endif %}
+      {% if test_key == key %}
+        {% assign post_date = post.date | date: "%s" | minus: 0 %}
+        {% if post_date > latest_date %}
+          {% assign latest_date = post_date %}
+          {% assign latest_sha = post.commit_sha %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    <td><h5><a href="{{ base_url }}/{{ key }}">{{ key }}</a><small><br/>{{ latest_sha | truncate: 12 }}</small>
+</h5></td>
+
     {% for device_id in device_ids %}
       {% assign found_post = false %}
       {% if analysis_array[forloop.index0] == "true" %}
@@ -78,15 +102,15 @@
 
             {% assign build_url = "." | append: post.url | append: "#build" %}
 
-            {% if post.pending %}<td style="border-left:2px solid gray" class="alert alert-warning"><h6>Pending
-            {% elsif post.build_error_count > 0 %}<td style="border-left:2px solid gray" class="alert alert-danger"><h6><a href="{{build_url}}">Errors / Warnings<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
-            {% elsif post.build_warning_count > 0 %}<td style="border-left:2px solid gray" class="alert alert-warning"><h6><a href="{{build_url}}">Warnings<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
-            {% else %}<td style="border-left:2px solid gray" class="alert alert-success"><h6><a href="{{build_url}}">Succeeded<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
+            {% if post.pending %}<td style="border-left:2px solid gray" class="warning"><h6>Pending
+            {% elsif post.build_error_count > 0 %}<td style="border-left:2px solid gray" class="danger"><h6><a href="{{build_url}}">Errors / Warnings<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
+            {% elsif post.build_warning_count > 0 %}<td style="border-left:2px solid gray" class="warning"><h6><a href="{{build_url}}">Warnings<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
+            {% else %}<td style="border-left:2px solid gray" class="success"><h6><a href="{{build_url}}">Succeeded<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
             {% endif %}
-            <br/>
-            <small>{{post.date}}<br/>{{ post.commit_sha | truncate: 12 }}</small>
-          </h6>
-          </td>
+              <br/>
+              <small>{{post.date}}<br/>{{ post.commit_sha | truncate: 12 }}</small>{% if post.commit_sha != latest_sha %} <span title="Build is out of date."><i class="fa fa-clock-o"></i></span>{% endif %}
+            </h6>
+            </td>
 
             {% if post.test_count == 0 %}
             {% assign test_percent = 100 %}
@@ -99,21 +123,21 @@
             {% assign test_url = "." | append: post.url | append: "#test" %}
 
             {% if analysis_only == false %}
-              {% if post.pending %}<td class="alert alert-warning"><h6>Pending</h6></td>
-              {% elsif post.test_run != true %}<td class="alert alert-danger"><h6><a href="{{test_url}}">Not Run<span class="badge pull-right">NA</span></h6></a></td>
-              {% elsif test_percent >= 99.999 %}<td class="alert alert-success"><h6><a href="{{test_url}}">Success<span class="badge pull-right">{{test_failure_count}}</span></a></h6></td>
-              {% elsif test_percent >= 90 %}<td class="alert alert-warning"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_failure_count}}</span></a></h6></td>
-              {% else %}<td class="alert alert-danger"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_failure_count}}</span></a></h6></td>
+              {% if post.pending %}<td class="warning"><h6>Pending</h6></td>
+              {% elsif post.test_run != true %}<td class="danger"><h6><a href="{{test_url}}">Not Run<span class="badge pull-right">NA</span></h6></a></td>
+              {% elsif test_percent >= 99.999 %}<td class="success"><h6><a href="{{test_url}}">Success<span class="badge pull-right">{{test_percent}}%</span></a></h6></td>
+              {% elsif test_percent >= 90 %}<td class="warning"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_percent}}%</span></a></h6></td>
+              {% else %}<td class="danger"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_percent}}%</span></a></h6></td>
               {% endif %}
             {% endif %}
 
             {% assign package_url = "." | append: post.url | append: "#package" %}
 
             {% if analysis_only == false and num_table_cols > 2 %}
-              {% if post.pending %}<td class="alert alert-warning"><h6>Pending</h6></td>
-              {% elsif post.release_packaged == false or post.package_error_count > 0 %}<td class="alert alert-danger"><h6><a href="{{package_url}}">Errors / Warnings<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a></h6></td>
-              {% elsif post.package_warning_count > 0 %}<td class="alert alert-warning"><h6><a href="{{package_url}}">Warnings<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a>i</h6></td>
-              {% else %}<td class="alert alert-success"><h6><a href="{{package_url}}">Succeeded<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a></h6></td>
+              {% if post.pending %}<td class="warning"><h6>Pending</h6></td>
+              {% elsif post.release_packaged == false or post.package_error_count > 0 %}<td class="danger"><h6><a href="{{package_url}}">Errors / Warnings<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a></h6></td>
+              {% elsif post.package_warning_count > 0 %}<td class="warning"><h6><a href="{{package_url}}">Warnings<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a>i</h6></td>
+              {% else %}<td class="success"><h6><a href="{{package_url}}">Succeeded<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a></h6></td>
               {% endif %}
             {% endif %}
 
@@ -129,7 +153,7 @@
         {% endif %}
 
         {% for i in (1..num_cols) %}
-        <td  {% if forloop.first %}style="border-left:2px solid gray"{% endif %} class="alert alert-info"><h6>No Data</h6></td>
+        <td  {% if forloop.first %}style="border-left:2px solid gray"{% endif %} class="info"><h6>No Data</h6></td>
         {% endfor %}
       {% endif %}
 

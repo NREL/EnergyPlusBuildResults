@@ -66,7 +66,7 @@ results_data.build_results.sort(compare_data);
 <a id="build">
   <div class="alert {% if page.build_error_count > 0 %}alert-danger{% elsif page.build_warning_count > 0 %}alert-warning{% else %}alert-success{% endif %}">
     <span class="badge pull-right">{{ page.build_warning_count | plus: page.build_error_count }}</span>
-    <big>Build Messages</big>
+    <big>Build Messages (time: {{ page.build_time }}s)</big>
   </div>
 </a>
 
@@ -132,7 +132,7 @@ document.writeln(format_error_rows(results_data.build_results));
 <a id="test">
   <div class="alert {{alert_class}}">
     <span class="badge pull-right">{{test_failure_count}}</span>
-    <big>Test Results</big>
+    <big>Test Results (time: {{ page.test_time }}s)</big>
     {% if  page.test_run == false %}
     <br/><small>Not Run</small>
     {% endif %}
@@ -184,6 +184,8 @@ document.writeln(format_error_rows(results_data.package_results));
 </table>
 
 {% endif %}
+
+{% include footer.html %}
 
 </body>
 
