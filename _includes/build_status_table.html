@@ -69,7 +69,7 @@
       {% endif %}
     {% endfor %}
 
-    <td><h5><a href="{{ base_url }}/{{ key }}">{{ key }}</a><small><br/>{{ latest_sha | truncate: 12 }}</small>
+    <td><h5><a href="{{ base_url }}/{{ key }}">{{ key }}</a><small><br/><a href="{{base_commit_url}}/{{latest_sha}}">{{ latest_sha | truncate: 12 }}</a></small>
 </h5></td>
 
     {% for device_id in device_ids %}
@@ -108,7 +108,7 @@
             {% else %}<td style="border-left:2px solid gray" class="success"><h6><a href="{{build_url}}">Succeeded<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
             {% endif %}
               <br/>
-              <small>{{post.date}}<br/>{{ post.commit_sha | truncate: 12 }}</small>{% if post.commit_sha != latest_sha %} <span title="Build is out of date."><i class="fa fa-clock-o"></i></span>{% endif %}
+              <small>{{post.date}}<br/><a href="{{base_commit_url}}/{{post.commit_sha}}">{{ post.commit_sha | truncate: 12 }}</a></small>{% if post.commit_sha != latest_sha %} <span title="Build is out of date."><i class="fa fa-clock-o"></i></span>{% endif %}
             </h6>
             </td>
 
