@@ -8,28 +8,41 @@ var line = d3.svg.line()
   .x(function(d) { return x(d.x); })
   .y(function(d) { return y(d.y); });
 
-  function sparkline(elemId, data) {
-    x.domain(d3.extent(data, function(d) { return d.x; }));
-    y.domain(d3.extent(data, function(d) { return d.y; }));
+function sparkline(elemId, data) {
+  x.domain(d3.extent(data, function(d) { return d.x; }));
+  y.domain(d3.extent(data, function(d) { return d.y; }));
 
-    var svg = d3.select(elemId)
-      .append('svg')
-      .attr('width', width)
-      .attr('height', height)
-      .append('g')
-      .attr('transform', 'translate(0, 2)');
-    svg.append('path')
-      .datum(data)
-      .attr('class', 'path')
-      .attr('d', line);
-    /*
-       svg.append('circle')
-       .attr('class', 'sparkcircle')
-       .attr('cx', x(data[0].x))
-       .attr('cy', y(data[0].y))
-       .attr('r', 1.5); 
-     */
+  var svg = d3.select(elemId)
+    .append('svg')
+    .attr('width', width)
+    .attr('height', height)
+    .append('g')
+    .attr('transform', 'translate(0, 2)');
+
+  svg.append('path')
+    .datum(data)
+    .attr('class', 'path')
+    .attr('d', line);
+ 
+  for (var i = 0; i < data.length; ++i)
+  {
+    svg.append('circle')
+      .attr('class', 'circle')
+      .attr('cx', x(data[i].x))
+      .attr('cy', y(data[i].y))
+      .attr('r', 1.7);
+
+    svg.append('a').attr("xlink:href", "{{ base_commit_url }}/" + data[i].sha)
+      .append('circle')
+        .attr('class', 'mouse-over-circle')
+        .attr('cx', x(data[i].x))
+        .attr('cy', y(data[i].y))
+        .attr('r', 5.5)
+        .append('svg:title')
+          .text(data[i].y + " messages\nsha: " + data[i].sha);
+        
   }
+}
 </script>
 
 {% if table_type == "branch" %}
@@ -126,6 +139,7 @@ var line = d3.svg.line()
 
       {% assign build_message_counts_list = "" %}
       {% assign test_message_counts_list = "" %}
+      {% assign shas_list = "" %}
       {% for post in results_posts %}
         {% if table_type == "release" %}{% assign test_key = post.tag_name %}{% endif %}
         {% if table_type == "branch" %}{% assign test_key = post.branch_name %}{% endif %}
@@ -146,12 +160,27 @@ var line = d3.svg.line()
           {% else %}
             {% capture build_message_counts_list %}{{build_message_counts_list}},{{build_message_count}}{% endcapture %}
           {% endif %}
+
+          {% if shas_list == "" %}
+            {% capture shas_list %}{{post.commit_sha}}{% endcapture %}
+          {% else %}
+            {% capture shas_list %}{{shas_list}},{{post.commit_sha}}{% endcapture %}
+          {% endif %}
         {% endif %}
 
       {% endfor %}
 
       {% assign build_message_counts = build_message_counts_list | split: ',' %}
       {% assign test_message_counts = test_message_counts_list | split: ',' %}
+      {% assign shas = shas_list | split: ',' %}
+
+      <script>
+var shas = [
+{% for sha in shas reversed %}
+"{{ sha }}" {% if forloop.last == false %} , {% endif %}
+{% endfor %}
+ ];
+      </script>
 
 
       {% for post in results_posts %}
@@ -189,7 +218,7 @@ var line = d3.svg.line()
             <script>
 sparkline("#build-status{{device_id | replace: ".", "-"}}{{key}}", [
     {% for bc in build_message_counts reversed %}
-      { x: {{forloop.index}}, y: {{bc}} }
+    { x: {{forloop.index}}, y: {{bc}}, sha: shas[{{forloop.index0}}] }
       {% if forloop.last == false %}
         ,
       {% endif %}
@@ -223,7 +252,7 @@ sparkline("#build-status{{device_id | replace: ".", "-"}}{{key}}", [
             <script>
 sparkline("#test-status{{device_id | replace: ".", "-"}}{{key}}", [
     {% for bc in test_message_counts reversed %}
-      { x: {{forloop.index}}, y: {{bc}} }
+    { x: {{forloop.index}}, y: {{bc}}, sha: shas[{{forloop.index0}}] }
       {% if forloop.last == false %}
         ,
       {% endif %}
