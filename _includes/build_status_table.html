@@ -32,7 +32,14 @@ function sparkline(elemId, data) {
       .attr('cy', y(data[i].y))
       .attr('r', 1.7);
 
-    svg.append('a').attr("xlink:href", "{{ base_commit_url }}/" + data[i].sha)
+    if (i == 0)
+    {
+      var url = "{{ base_commit_url }}/" + data[i].sha;
+    } else {
+      var url = "{{ base_compare_url }}/" + data[i-1].sha + "..." + data[i].sha;
+    }
+
+    svg.append('a').attr("xlink:href", url)
       .append('circle')
         .attr('class', 'mouse-over-circle')
         .attr('cx', x(data[i].x))
