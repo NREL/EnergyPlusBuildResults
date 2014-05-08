@@ -1,3 +1,37 @@
+<script>
+var width = 80;
+var height = 25;
+var x = d3.scale.linear().range([0, width - 2]);
+var y = d3.scale.linear().range([height - 4, 0]);
+var line = d3.svg.line()
+  //  .interpolate("basis")
+  .x(function(d) { return x(d.x); })
+  .y(function(d) { return y(d.y); });
+
+  function sparkline(elemId, data) {
+    x.domain(d3.extent(data, function(d) { return d.x; }));
+    y.domain(d3.extent(data, function(d) { return d.y; }));
+
+    var svg = d3.select(elemId)
+      .append('svg')
+      .attr('width', width)
+      .attr('height', height)
+      .append('g')
+      .attr('transform', 'translate(0, 2)');
+    svg.append('path')
+      .datum(data)
+      .attr('class', 'path')
+      .attr('d', line);
+    /*
+       svg.append('circle')
+       .attr('class', 'sparkcircle')
+       .attr('cx', x(data[0].x))
+       .attr('cy', y(data[0].y))
+       .attr('r', 1.5); 
+     */
+  }
+</script>
+
 {% if table_type == "branch" %}
   {% assign table_cols = "Build,Test" | split: "," %}
   {% assign keys = branch_names %}
@@ -28,9 +62,9 @@
       <th style="border-left:2px solid gray" colspan={{ colspan }}><h4>
           {{device_id | replace: "-", " "}}
           <br/>
-          {% if device_id contains "Win" %}<i class="fa fa-windows">
-          {% elsif device_id contains "Linux" %}<i class="fa fa-linux">
-          {% elsif device_id contains "Mac" %}<i class="fa fa-apple">
+          {% if device_id contains "Win" %}<i class="fa fa-windows"/>
+          {% elsif device_id contains "Linux" %}<i class="fa fa-linux"/>
+          {% elsif device_id contains "Mac" %}<i class="fa fa-apple"/>
           {% endif %}
       </h4></th>
     {% endfor %}
@@ -80,6 +114,45 @@
         {% assign analysis_only = false %}
       {% endif %}
 
+      {% if tag_names_list == "" %}
+        {% assign tag_names_list = p.tag_name %}
+      {% else %}
+        {% capture tag_names_list %}{{tag_names_list}},{{p.tag_name}}{% endcapture %}
+      {% endif %}
+
+
+      {% comment %}  Build counts of messages to building graph and other data {% endcomment %}
+
+
+      {% assign build_message_counts_list = "" %}
+      {% assign test_message_counts_list = "" %}
+      {% for post in results_posts %}
+        {% if table_type == "release" %}{% assign test_key = post.tag_name %}{% endif %}
+        {% if table_type == "branch" %}{% assign test_key = post.branch_name %}{% endif %}
+        {% if table_type == "pull_request" %}{% assign test_key = post.pull_request_issue_id %}{% endif %}
+
+        {% if test_key == key and post.device_id == device_id  %}
+          {% assign test_message_count = post.test_count | minus: post.test_passed_count %}
+          {% assign build_message_count = post.build_error_count | plus: post.build_warning_count %}
+
+          {% if test_message_counts_list == "" %}
+            {% capture test_message_counts_list %}{{test_message_count}}{% endcapture %}
+          {% else %}
+            {% capture test_message_counts_list %}{{test_message_counts_list}},{{test_message_count}}{% endcapture %}
+          {% endif %}
+
+          {% if build_message_counts_list == "" %}
+            {% capture build_message_counts_list %}{{build_message_count}}{% endcapture %}
+          {% else %}
+            {% capture build_message_counts_list %}{{build_message_counts_list}},{{build_message_count}}{% endcapture %}
+          {% endif %}
+        {% endif %}
+
+      {% endfor %}
+
+      {% assign build_message_counts = build_message_counts_list | split: ',' %}
+      {% assign test_message_counts = test_message_counts_list | split: ',' %}
+
 
       {% for post in results_posts %}
         {% if table_type == "release" %}{% assign test_key = post.tag_name %}{% endif %}
@@ -102,15 +175,29 @@
 
             {% assign build_url = "." | append: post.url | append: "#build" %}
 
-            {% if post.pending %}<td style="border-left:2px solid gray" class="warning"><h6>Pending
-            {% elsif post.build_error_count > 0 %}<td style="border-left:2px solid gray" class="danger"><h6><a href="{{build_url}}">Errors / Warnings<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
-            {% elsif post.build_warning_count > 0 %}<td style="border-left:2px solid gray" class="warning"><h6><a href="{{build_url}}">Warnings<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
-            {% else %}<td style="border-left:2px solid gray" class="success"><h6><a href="{{build_url}}">Succeeded<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
+            {% if post.pending %}<td style="border-left:2px solid gray" class="warning"><div class="table-box"><h6>Pending
+            {% elsif post.build_error_count > 0 %}<td style="border-left:2px solid gray" class="danger"><div class="table-box"><h6><a href="{{build_url}}">Errors / Warnings<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
+            {% elsif post.build_warning_count > 0 %}<td style="border-left:2px solid gray" class="warning" ><div class="table-box"><h6><a href="{{build_url}}">Warnings<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
+            {% else %}<td style="border-left:2px solid gray" class="success"><div class="table-box"><h6><a href="{{build_url}}">Succeeded<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
             {% endif %}
               <br/>
               <small>{{post.date}}<br/><a href="{{base_commit_url}}/{{post.commit_sha}}">{{ post.commit_sha | truncate: 12 }}</a></small>{% if post.commit_sha != latest_sha %} <span title="Build is out of date."><i class="fa fa-clock-o"></i></span>{% endif %}
             </h6>
+            <div id="build-status{{device_id | replace: ".", "-"}}{{key}}" class="float-bottom"></div></div>
             </td>
+
+            <script>
+sparkline("#build-status{{device_id | replace: ".", "-"}}{{key}}", [
+    {% for bc in build_message_counts reversed %}
+      { x: {{forloop.index}}, y: {{bc}} }
+      {% if forloop.last == false %}
+        ,
+      {% endif %}
+    {% endfor %}
+
+    ])
+            </script>
+
 
             {% if post.test_count == 0 %}
             {% assign test_percent = 100 %}
@@ -123,26 +210,40 @@
             {% assign test_percent_string = test_percent_string | split: "." | first %}
 
 
-
             {% assign test_url = "." | append: post.url | append: "#test" %}
 
             {% if analysis_only == false %}
-              {% if post.pending %}<td class="warning"><h6>Pending</h6></td>
-              {% elsif post.test_run != true %}<td class="danger"><h6><a href="{{test_url}}">Not Run<span class="badge pull-right">NA</span></h6></a></td>
-              {% elsif test_percent >= 99.999 %}<td class="success"><h6><a href="{{test_url}}">Success<span class="badge pull-right">{{test_percent_string}}%</span></a></h6></td>
-              {% elsif test_percent >= 90 %}<td class="warning"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_percent_string}}%</span></a></h6></td>
-              {% else %}<td class="danger"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_percent_string}}%</span></a></h6></td>
+              {% if post.pending %}<td class="warning"><div class="table-box"><h6>Pending</h6>
+              {% elsif post.test_run != true %}<td class="danger"><div class="table-box"><h6><a href="{{test_url}}">Not Run<span class="badge pull-right">NA</span></h6></a>
+              {% elsif test_percent >= 99.999 %}<td class="success"><div class="table-box"><h6><a href="{{test_url}}">Success<span class="badge pull-right">{{test_percent_string}}%</span></a></h6>
+              {% elsif test_percent >= 90 %}<td class="warning"><div class="table-box"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_percent_string}}%</span></a></h6>
+              {% else %}<td class="danger"><div class="table-box"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_percent_string}}%</span></a></h6>
               {% endif %}
+              <div id="test-status{{device_id | replace: ".", "-"}}{{key}}" class="float-bottom"></div></div></td>
+            <script>
+sparkline("#test-status{{device_id | replace: ".", "-"}}{{key}}", [
+    {% for bc in test_message_counts reversed %}
+      { x: {{forloop.index}}, y: {{bc}} }
+      {% if forloop.last == false %}
+        ,
+      {% endif %}
+    {% endfor %}
+
+    ])
+            </script>
+
             {% endif %}
 
             {% assign package_url = "." | append: post.url | append: "#package" %}
 
             {% if analysis_only == false and num_table_cols > 2 %}
-              {% if post.pending %}<td class="warning"><h6>Pending</h6></td>
-              {% elsif post.release_packaged == false or post.package_error_count > 0 %}<td class="danger"><h6><a href="{{package_url}}">Errors / Warnings<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a></h6></td>
-              {% elsif post.package_warning_count > 0 %}<td class="warning"><h6><a href="{{package_url}}">Warnings<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a>i</h6></td>
-              {% else %}<td class="success"><h6><a href="{{package_url}}">Succeeded<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a></h6></td>
+              {% if post.pending %}<td class="warning"><h6>Pending</h6>
+              {% elsif post.release_packaged == false or post.package_error_count > 0 %}<td class="danger"><h6><a href="{{package_url}}">Errors / Warnings<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a></h6>
+              {% elsif post.package_warning_count > 0 %}<td class="warning"><h6><a href="{{package_url}}">Warnings<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a></h6>
+              {% else %}<td class="success"><h6><a href="{{package_url}}">Succeeded<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a></h6>
               {% endif %}
+              </td>
+ 
             {% endif %}
 
           {% endif %}
