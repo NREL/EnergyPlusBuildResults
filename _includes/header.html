@@ -38,23 +38,52 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
 {% assign tag_names = tag_names_list | split: ',' | sort %}
 
 
+{% assign has_master = false %}
+{% assign has_develop = false %}
+
 {% assign branch_names_list = "" %}
 {% for p in results_posts %}
   {% assign post_date = p.date | date: "%s" | minus: 0%}
   {% if p.branch_name and post_date > min_date %}
-    {% assign branch_names = branch_names_list | split: ',' | sort %}
-    {% if branch_names contains p.branch_name %}
+    {% if p.branch_name == "master" %}
+      {% assign has_master = true %}
+    {% elsif p.branch_name == "develop" %}
+      {% assign has_develop = true %}
     {% else %}
-      {% if branch_names_list == "" %}
-        {% assign branch_names_list = p.branch_name %}
+      {% assign branch_names = branch_names_list | split: ',' | sort %}
+      {% if branch_names contains p.branch_name %}
       {% else %}
-        {% capture branch_names_list %}{{branch_names_list}},{{p.branch_name}}{% endcapture %}
+        {% if branch_names_list == "" %}
+          {% assign branch_names_list = p.branch_name %}
+        {% else %}
+          {% capture branch_names_list %}{{branch_names_list}},{{p.branch_name}}{% endcapture %}
+        {% endif %}
       {% endif %}
     {% endif %}
   {% endif %}
 {% endfor %}
 
 {% assign branch_names = branch_names_list | split: ',' | sort %}
+
+{% assign branch_names_list = branch_names | join: ',' %}
+
+{% if has_develop %}
+  {% if branch_names_list == "" %}
+    {% assign branch_names_list = "develop" %}
+  {% else %}
+    {% capture branch_names_list %}develop,{{branch_names_list}}{% endcapture %}
+  {% endif %}
+{% endif %}
+
+{% if has_master %}
+  {% if branch_names_list == "" %}
+    {% assign branch_names_list = "master" %}
+  {% else %}
+    {% capture branch_names_list %}master,{{branch_names_list}}{% endcapture %}
+  {% endif %}
+{% endif %}
+
+{% assign branch_names = branch_names_list | split: ',' %}
 
 {% assign pull_request_issue_ids_list = "" %}
 {% for p in results_posts %}

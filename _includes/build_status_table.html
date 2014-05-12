@@ -107,7 +107,7 @@ function sparkline(elemId, data) {
   </tr>
 
   {% for key in keys %}
-  <tr>
+  <tr {% if key == "master" or key == "develop" %}style="border-top:2px dashed gray; border-bottom:2px dashed gray"{% endif %}>
     {% assign latest_date = 0 %}
     {% assign latest_sha = "" %}
     {% for post in results_posts %}
@@ -217,7 +217,7 @@ var shas = [
             {% else %}<td style="border-left:2px solid gray" class="success"><div class="table-box"><h6><a href="{{build_url}}">Succeeded<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
             {% endif %}
               <br/>
-              <small>{{post.date}}<br/><a href="{{base_commit_url}}/{{post.commit_sha}}">{{ post.commit_sha | truncate: 12 }}</a></small>{% if post.commit_sha != latest_sha %} <span title="Build is out of date."><i class="fa fa-clock-o"></i></span>{% endif %}
+              <small>{% if post.pending == false and post.build_time %}{{ post.build_time }}s{% endif %}<br/><a href="{{base_commit_url}}/{{post.commit_sha}}">{{ post.commit_sha | truncate: 12 }}</a></small>{% if post.commit_sha != latest_sha %} <span title="Build is out of date."><i class="fa fa-clock-o"></i></span>{% endif %}
             </h6>
             <div id="build-status{{device_id | replace: ".", "-"}}{{key}}" class="float-bottom"></div></div>
             </td>
@@ -249,12 +249,13 @@ sparkline("#build-status{{device_id | replace: ".", "-"}}{{key}}", [
             {% assign test_url = "." | append: post.url | append: "#test" %}
 
             {% if analysis_only == false %}
-              {% if post.pending %}<td class="warning"><div class="table-box"><h6>Pending</h6>
-              {% elsif post.test_run != true %}<td class="danger"><div class="table-box"><h6><a href="{{test_url}}">Not Run<span class="badge pull-right">NA</span></h6></a>
-              {% elsif test_percent >= 99.999 %}<td class="success"><div class="table-box"><h6><a href="{{test_url}}">Success<span class="badge pull-right">{{test_percent_string}}%</span></a></h6>
-              {% elsif test_percent >= 90 %}<td class="warning"><div class="table-box"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_percent_string}}%</span></a></h6>
-              {% else %}<td class="danger"><div class="table-box"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_percent_string}}%</span></a></h6>
+              {% if post.pending %}<td class="warning"><div class="table-box"><h6>Pending
+              {% elsif post.test_run != true %}<td class="danger"><div class="table-box"><h6><a href="{{test_url}}">Not Run<span class="badge pull-right">NA</span></a>
+              {% elsif test_percent >= 99.999 %}<td class="success"><div class="table-box"><h6><a href="{{test_url}}">Success<span class="badge pull-right">{{test_percent_string}}%</span></a>
+              {% elsif test_percent >= 90 %}<td class="warning"><div class="table-box"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_percent_string}}%</span></a>
+              {% else %}<td class="danger"><div class="table-box"><h6><a href="{{test_url}}">Failures<span class="badge pull-right">{{test_percent_string}}%</span></a>
               {% endif %}
+              <small>{% if post.pending == false and post.test_time %}{{ post.test_time }}s{% endif %}</small></h6>
               <div id="test-status{{device_id | replace: ".", "-"}}{{key}}" class="float-bottom"></div></div></td>
             <script>
 sparkline("#test-status{{device_id | replace: ".", "-"}}{{key}}", [
