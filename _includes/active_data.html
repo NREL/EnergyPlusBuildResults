@@ -1,5 +1,5 @@
 
-{% assign num_secs = 10 | times: 24 | times: 60 | times: 60 %}
+{% assign num_secs = 4 | times: 24 | times: 60 | times: 60 %}
 {% assign min_date = site.time | date: "%s" | minus: num_secs %}
 
 {% assign results_posts = site.tags.data %}
