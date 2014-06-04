@@ -308,7 +308,7 @@ function format_test_rows(data)
     ++count;
 
     result += "<tr><td><span class='label label-" + labeltype + "'>" + data[i].status + "</span></td><td>" + data[i].name + "</td><td>" + data[i].time + "</td></tr>";
-    if (data[i].status == "failed" && data[i].output) {
+    if (labeltype != "success" && data[i].output) {
       result += "<tr><td></td><td colspan=2>";
       result += data[i].output.replace(/\n/g, "<br/>");
       if (data[i].parsed_errors) {
