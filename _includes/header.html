@@ -113,7 +113,7 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
     {% if device_ids contains p.device_id %}
     {% else %}
       {% if device_ids_list == "" %}
-        {% assign device_ids_list = p.device_id %}
+        {% capture device_ids_list %}{{p.device_id}}{% endcapture %}
       {% else %}
         {% capture device_ids_list %}{{device_ids_list}},{{p.device_id}}{% endcapture %}
       {% endif %}
@@ -134,7 +134,7 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
     {% endif %}
   {% endfor %}
   {% if analysis_list == "" %}
-    {% assign analysis_list = is_analysis %}
+    {% capture analysis_list %}{{is_analysis}}{% endcapture %}
   {% else %}
     {% capture analysis_list %}{{analysis_list}},{{is_analysis}}{% endcapture %}
   {% endif %}
