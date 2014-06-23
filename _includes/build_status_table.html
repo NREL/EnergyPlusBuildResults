@@ -56,14 +56,17 @@ function sparkline(elemId, data) {
   {% assign table_cols = "Build,Test" | split: "," %}
   {% assign keys = branch_names %}
   {% assign base_url = base_branch_url %}
+  {% assign github_icon = "git-branch" %}
 {% elsif table_type == "pull_request" %}
   {% assign table_cols = "Build,Test" | split: "," %}
   {% assign keys = pull_request_issue_ids %} 
   {% assign base_url = base_pull_request_url %}
+  {% assign github_icon = "git-pull-request" %}
 {% elsif table_type == "release" %}
   {% assign table_cols = "Build,Test,Package" | split: "," %}
   {% assign keys = tag_names %}
   {% assign base_url = base_release_url %}
+  {% assign github_icon = "tag" %}
 {% endif %}
 
 
@@ -123,7 +126,7 @@ function sparkline(elemId, data) {
       {% endif %}
     {% endfor %}
 
-    <td><h5><a href="{{ base_url }}/{{ key }}">{{ key }}</a><small><br/><a href="{{base_commit_url}}/{{latest_sha}}">{{ latest_sha | truncate: 12 }}</a></small>
+    <td><h5><span class="octicon octicon-{{ github_icon }}"></span><a href="{{ base_url }}/{{ key }}">{{ key }}</a><small><br/><a href="{{base_commit_url}}/{{latest_sha}}">{{ latest_sha | truncate: 12 }}</a></small>
 </h5></td>
 
     {% for device_id in device_ids %}
