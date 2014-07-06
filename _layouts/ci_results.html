@@ -141,7 +141,25 @@ analyze_only: {{page.analyze_only}}<br/>
 build_time: {{page.build_time}}<br/>
 test_time: {{page.test_time}}<br/>
 package_time: {{page.package_time}}<br/>
+install_time: {{page.install_time}}<br/>
+machine_name: {{page.machine_name}}<br/>
 <br/>
+
+<script type="text/javascript">
+if ({{page.unhandled_failure}})
+{
+  document.writeln(" \
+  <a id='failure'> \
+    <div class='page-header'> \
+      <h1>Unhandled Failure</h1> \
+    </div> \
+    </a><br/><code>" + results_data.failure + "</code><br/>");
+
+
+
+}
+</script>
+
 
 <a id="build">
   <div class="page-header">
@@ -337,15 +355,11 @@ document.writeln(format_test_rows(results_data.test_results));
 {% if page.is_release %}
 
 <a id="package">
-  <div class="alert {% if page.release_packaged == false or page.package_error_count > 0 %}alert-danger{% elsif page.package_warning_count > 0 %}alert-warning{% else %}alert-success{% endif %}">
-    <span class="badge pull-right">{{ page.package_warning_count | plus: page.package_error_count }}</span>
-    <big>Package Messages</big>
+  <div class="page-header">
+    <h1>Package Messages (time: {{ page.package_time}}s)</h1>
   </div>
 </a>
 
-
-<table class="table table-striped">
-  <th><td>location</td><td>message</td></th>
 
 <script type="text/javascript">
 
@@ -353,7 +367,6 @@ document.writeln(format_error_rows(results_data.package_results));
 
 </script>
 
-</table>
 
 {% endif %}
 

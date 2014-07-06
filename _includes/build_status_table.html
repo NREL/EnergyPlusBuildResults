@@ -83,12 +83,12 @@ function sparkline(elemId, data) {
         {% assign colspan = num_table_cols %}
       {% endif %}
       <th style="border-left:2px solid gray" colspan={{ colspan }}><h4>
-          {{device_id | replace: "-", " "}}
-          <br/>
           {% if device_id contains "Win" %}<i class="fa fa-windows"/>
           {% elsif device_id contains "Linux" %}<i class="fa fa-linux"/>
           {% elsif device_id contains "Mac" %}<i class="fa fa-apple"/>
-          {% endif %}
+          {% endif %} 
+
+          {{device_id | replace: "-", " "}}
       </h4></th>
     {% endfor %}
   </tr>
@@ -113,6 +113,13 @@ function sparkline(elemId, data) {
   <tr {% if key == "master" or key == "develop" %}style="border-top:2px dashed gray; border-bottom:2px dashed gray"{% endif %}>
     {% assign latest_date = 0 %}
     {% assign latest_sha = "" %}
+    {% assign build_has_errors = false %}
+    {% assign build_tests_failed = false %}
+    {% assign build_unhandled_failure = false %}
+    {% assign build_package_has_errors = false %}
+    {% assign build_pending = false %}
+
+
     {% for post in results_posts %}
       {% if table_type == "release" %}{% assign test_key = post.tag_name %}{% endif %}
       {% if table_type == "branch" %}{% assign test_key = post.branch_name %}{% endif %}
@@ -123,10 +130,62 @@ function sparkline(elemId, data) {
           {% assign latest_date = post_date %}
           {% assign latest_sha = post.commit_sha %}
         {% endif %}
+
       {% endif %}
     {% endfor %}
 
-    <td><h5><span class="octicon octicon-{{ github_icon }}"></span><a href="{{ base_url }}/{{ key }}">{{ key }}</a><small><br/><a href="{{base_commit_url}}/{{latest_sha}}">{{ latest_sha | truncate: 12 }}</a></small>
+
+    {% for post in results_posts %}
+      {% if post.commit_sha == latest_sha %}
+        {% if table_type == "release" %}{% assign test_key = post.tag_name %}{% endif %}
+        {% if table_type == "branch" %}{% assign test_key = post.branch_name %}{% endif %}
+        {% if table_type == "pull_request" %}{% assign test_key = post.pull_request_issue_id %}{% endif %}
+        {% if test_key == key %}
+          {% if post.test_count == 0 %}
+            {% assign test_percent = 100 %}
+          {% else %}
+            {% assign test_percent = post.test_passed_count | times: 1.0 | divided_by: post.test_count | times: 100.0 %}
+          {% endif %}
+
+          {% if test_percent < 90.0 %}
+            {% assign build_tests_failed = true %}
+          {% endif %}
+
+          {% if post.pending %}
+            {% assign build_pending = true %}
+          {% endif %}
+
+          {% if post.unhandled_failure %}
+            {% assign build_unhandled_failure = true %}
+          {% endif %}
+
+          {% if post.build_error_count > 0 %}
+            {% assign build_has_errors = true %}
+          {% endif %}
+
+          {% if post.package_error_count > 0 %}
+            {% assign build_package_has_errors = true %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+
+
+    {% if build_tests_failed or build_unhandled_failure or build_has_errors or build_package_has_errors %}
+      {% assign github_status_icon = "x" %}
+      {% assign github_status_color = "text-danger" %}
+    {% elsif build_pending %}
+      {% assign github_status_icon = "hourglass" %}
+      {% assign github_status_color = "text-warning" %}
+    {% else %}
+      {% assign github_status_icon = "check" %}
+      {% assign github_status_color = "text-success" %}
+    {% endif %}
+
+
+
+    <td><h5><span class="octicon octicon-{{ github_icon }}"></span> <a href="{{ base_url }}/{{ key }}">{{ key }}</a><small><br/><a href="{{base_commit_url}}/{{latest_sha}}">{{ latest_sha | truncate: 12 }}</a></small><p class="{{github_status_color}}"><span class="octicon octicon-{{ github_status_icon }}"></span></p>
 </h5></td>
 
     {% for device_id in device_ids %}
@@ -213,8 +272,10 @@ var shas = [
             {% assign found_post = true %}
 
             {% assign build_url = "." | append: post.url | append: "#build" %}
+            {% assign failure_url = "." | append: post.url | append: "#failure" %}
 
             {% if post.pending %}<td style="border-left:2px solid gray" class="warning"><div class="table-box"><h6>Pending
+            {% elsif post.unhandled_failure %}<td style="border-left:2px solid gray" class="danger"><div class="table-box"><h6><a href="{{build_url}}">Unhandled Failure<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
             {% elsif post.build_error_count > 0 %}<td style="border-left:2px solid gray" class="danger"><div class="table-box"><h6><a href="{{build_url}}">Errors / Warnings<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
             {% elsif post.build_warning_count > 0 %}<td style="border-left:2px solid gray" class="warning" ><div class="table-box"><h6><a href="{{build_url}}">Warnings<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
             {% else %}<td style="border-left:2px solid gray" class="success"><div class="table-box"><h6><a href="{{build_url}}">Succeeded<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
@@ -226,6 +287,7 @@ var shas = [
             </td>
 
             <script>
+if ("{{table_type}}" != "release") {
 sparkline("#build-status{{device_id | replace: ".", "-"}}{{key}}", [
     {% for bc in build_message_counts reversed %}
     { x: {{forloop.index}}, y: {{bc}}, sha: shas[{{forloop.index0}}] }
@@ -235,6 +297,7 @@ sparkline("#build-status{{device_id | replace: ".", "-"}}{{key}}", [
     {% endfor %}
 
     ])
+}
             </script>
 
 
@@ -261,7 +324,8 @@ sparkline("#build-status{{device_id | replace: ".", "-"}}{{key}}", [
               <small>{% if post.pending == false and post.test_time %}{{ post.test_time }}s{% endif %}</small></h6>
               <div id="test-status{{device_id | replace: ".", "-"}}{{key}}" class="float-bottom"></div></div></td>
             <script>
-sparkline("#test-status{{device_id | replace: ".", "-"}}{{key}}", [
+if ("{{table_type}}" != "release") {
+  sparkline("#test-status{{device_id | replace: ".", "-"}}{{key}}", [
     {% for bc in test_message_counts reversed %}
     { x: {{forloop.index}}, y: {{bc}}, sha: shas[{{forloop.index0}}] }
       {% if forloop.last == false %}
@@ -270,6 +334,7 @@ sparkline("#test-status{{device_id | replace: ".", "-"}}{{key}}", [
     {% endfor %}
 
     ])
+}
             </script>
 
             {% endif %}
