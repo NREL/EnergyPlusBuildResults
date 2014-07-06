@@ -1,5 +1,7 @@
 
 {% assign results_posts = site.tags.data %}
+{% assign first_result_post = results_posts|sort: pull_request_issue_id| first %}
+{% assign base_repository = first_result_post.repository %}
 
 {% comment %}
 
@@ -9,13 +11,7 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
 
 {% endcomment %}
 
-{% assign first_result_post = results_posts|sort: pull_request_issue_id| first %}
-{% assign base_repository = first_result_post.repository %}
-{% assign base_branch_url = "https://github.com/" | append: base_repository | append: "/tree" %}
-{% assign base_pull_request_url = "https://github.com/" | append: base_repository | append: "/pull" %}
-{% assign base_release_url = "https://github.com/" | append: base_repository | append: "/releases/tag" %}
-{% assign base_commit_url = "https://github.com/" | append: base_repository | append: "/commit" %}
-{% assign base_compare_url = "https://github.com/" | append: base_repository | append: "/compare" %}
+{% include common_variables.html %}
 
 {% assign tag_names_list = "" %}
 {% for p in results_posts %}
