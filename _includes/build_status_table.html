@@ -83,9 +83,9 @@ function sparkline(elemId, data) {
         {% assign colspan = num_table_cols %}
       {% endif %}
       <th style="border-left:2px solid gray" colspan={{ colspan }}><h4>
-          {% if device_id contains "Win" %}<i class="fa fa-windows"/>
-          {% elsif device_id contains "Linux" %}<i class="fa fa-linux"/>
-          {% elsif device_id contains "Mac" %}<i class="fa fa-apple"/>
+          {% if device_id contains "Win" %}<i class="fa fa-windows"></i>
+          {% elsif device_id contains "Linux" %}<i class="fa fa-linux"></i>
+          {% elsif device_id contains "Mac" %}<i class="fa fa-apple"></i>
           {% endif %} 
 
           {{device_id | replace: "-", " "}}
@@ -173,19 +173,19 @@ function sparkline(elemId, data) {
 
 
     {% if build_tests_failed or build_unhandled_failure or build_has_errors or build_package_has_errors %}
-      {% assign github_status_icon = "x" %}
+      {% assign github_status_icon = "octicon octicon-x" %}
       {% assign github_status_color = "text-danger" %}
     {% elsif build_pending %}
-      {% assign github_status_icon = "hourglass" %}
+      {% assign github_status_icon = "fa fa-cog fa-spin" %}
       {% assign github_status_color = "text-warning" %}
     {% else %}
-      {% assign github_status_icon = "check" %}
+      {% assign github_status_icon = "octicon octicon-check" %}
       {% assign github_status_color = "text-success" %}
     {% endif %}
 
 
 
-    <td><h5><span class="octicon octicon-{{ github_icon }}"></span> <a href="{{ base_url }}/{{ key }}">{{ key }}</a><small><br/><a href="{{base_commit_url}}/{{latest_sha}}">{{ latest_sha | truncate: 12 }}</a></small><p class="{{github_status_color}}"><span class="octicon octicon-{{ github_status_icon }}"></span></p>
+    <td><h5><span class="octicon octicon-{{ github_icon }}"></span> <a href="{{ base_url }}/{{ key }}">{{ key }}</a><small><br/><a href="{{base_commit_url}}/{{latest_sha}}">{{ latest_sha | truncate: 12 }}</a></small><p class="{{github_status_color}}"><span class="{{ github_status_icon }}"></span></p>
 </h5></td>
 
     {% for device_id in device_ids %}
