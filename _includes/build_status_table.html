@@ -347,7 +347,7 @@ if ("{{table_type}}" != "release") {
               {% elsif post.package_warning_count > 0 %}<td class="warning"><h6><a href="{{package_url}}">Warnings<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a>
               {% else %}<td class="success"><h6><a href="{{package_url}}">Succeeded<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a>
               {% endif %}
-              <small>{% if post.pending == false and post.test_time %}{{ post.test_time }}s{% endif %}</small></h6>
+              <small>{% if post.pending == false and post.package_time %}{{ post.package_time }}s{% endif %}</small></h6>
 
               {% if post.release_packaged == true %}
               <a href="{{ base_url }}/{{ key }}"><i class="fa fa-cloud-download"></i></a>
