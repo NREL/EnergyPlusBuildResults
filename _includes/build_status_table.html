@@ -122,7 +122,7 @@ function sparkline(elemId, data) {
 
     {% for post in results_posts %}
       {% if table_type == "release" %}{% assign test_key = post.tag_name %}{% endif %}
-      {% if table_type == "branch" %}{% assign test_key = post.branch_name %}{% endif %}
+      {% if table_type == "branch" %}{% if post.pull_request_issue_id != "" %}{% assign test_key = "" %}{% else %}{% assign test_key = post.branch_name %}{% endif %}{% endif %}
       {% if table_type == "pull_request" %}{% assign test_key = post.pull_request_issue_id %}{% endif %}
       {% if test_key == key %}
         {% assign post_date = post.date | date: "%s" | minus: 0 %}
@@ -138,7 +138,7 @@ function sparkline(elemId, data) {
     {% for post in results_posts %}
       {% if post.commit_sha == latest_sha %}
         {% if table_type == "release" %}{% assign test_key = post.tag_name %}{% endif %}
-        {% if table_type == "branch" %}{% assign test_key = post.branch_name %}{% endif %}
+        {% if table_type == "branch" %}{% if post.pull_request_issue_id != "" %}{% assign test_key = "" %}{% else %}{% assign test_key = post.branch_name %}{% endif %}{% endif %}
         {% if table_type == "pull_request" %}{% assign test_key = post.pull_request_issue_id %}{% endif %}
         {% if test_key == key %}
           {% if post.test_count == 0 %}
@@ -211,7 +211,7 @@ function sparkline(elemId, data) {
       {% assign shas_list = "" %}
       {% for post in results_posts %}
         {% if table_type == "release" %}{% assign test_key = post.tag_name %}{% endif %}
-        {% if table_type == "branch" %}{% assign test_key = post.branch_name %}{% endif %}
+        {% if table_type == "branch" %}{% if post.pull_request_issue_id != "" %}{% assign test_key = "" %}{% else %}{% assign test_key = post.branch_name %}{% endif %}{% endif %}
         {% if table_type == "pull_request" %}{% assign test_key = post.pull_request_issue_id %}{% endif %}
 
         {% if test_key == key and post.device_id == device_id  %}
