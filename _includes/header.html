@@ -40,19 +40,22 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
 {% assign branch_names_list = "" %}
 {% for p in results_posts %}
   {% assign post_date = p.date | date: "%s" | minus: 0%}
-  {% if p.branch_name and post_date > min_date %}
-    {% if p.branch_name == "master" %}
-      {% assign has_master = true %}
-    {% elsif p.branch_name == "develop" %}
-      {% assign has_develop = true %}
-    {% else %}
-      {% assign branch_names = branch_names_list | split: ',;,' | sort %}
-      {% if branch_names contains p.branch_name %}
+  {% if p.pull_request_issue_id and p.pull_request_issue_id != "" %}
+  {% else %}
+    {% if p.branch_name and post_date > min_date %}
+      {% if p.branch_name == "master" %}
+        {% assign has_master = true %}
+      {% elsif p.branch_name == "develop" %}
+        {% assign has_develop = true %}
       {% else %}
-        {% if branch_names_list == "" %}
-          {% assign branch_names_list = p.branch_name %}
+        {% assign branch_names = branch_names_list | split: ',;,' | sort %}
+        {% if branch_names contains p.branch_name %}
         {% else %}
-          {% capture branch_names_list %}{{branch_names_list}},;,{{p.branch_name}}{% endcapture %}
+          {% if branch_names_list == "" %}
+            {% assign branch_names_list = p.branch_name %}
+          {% else %}
+            {% capture branch_names_list %}{{branch_names_list}},;,{{p.branch_name}}{% endcapture %}
+          {% endif %}
         {% endif %}
       {% endif %}
     {% endif %}
