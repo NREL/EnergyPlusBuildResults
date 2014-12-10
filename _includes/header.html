@@ -19,21 +19,15 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
   {% assign post_date = p.date | date: "%s" | minus: 0 %}
   {% if p.tag_name and post_date > min_date %}
 
-
     {% if tag_names contains p.tag_name %}
     {% else %}
-      {% if tag_names_list == "" %}
-        {% assign tag_names_list = p.tag_name %}
-      {% else %}
-        {% capture tag_names_list %}{{tag_names_list}};{{p.tag_name}}{% endcapture %}
-      {% endif %}
-
+      {% capture tag_names_list %}{{tag_names_list}};{{p.tag_name}}{% endcapture %}
       {% assign tag_names = tag_names_list | split: ';' %}
     {% endif %}
   {% endif %}
 {% endfor %}
 
-{% assign tag_names = tag_names_list | split: ';' | sort %}
+{% assign tag_names = tag_names_list | remove_first: ';' | split: ';' | sort %}
 
 
 {% assign has_master = false %}
@@ -42,9 +36,9 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
 {% assign branch_names = "" %}
 {% assign branch_names_list = "" %}
 {% for p in results_posts %}
-  {% assign post_date = p.date | date: "%s" | minus: 0%}
   {% if p.pull_request_issue_id and p.pull_request_issue_id != "" %}
   {% else %}
+    {% assign post_date = p.date | date: "%s" | minus: 0%}
     {% if p.branch_name and post_date > min_date %}
       {% if p.branch_name == "master" %}
         {% assign has_master = true %}
@@ -53,12 +47,7 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
       {% else %}
         {% if branch_names contains p.branch_name %}
         {% else %}
-          {% if branch_names_list == "" %}
-            {% assign branch_names_list = p.branch_name %}
-          {% else %}
-            {% capture branch_names_list %}{{branch_names_list}};{{p.branch_name}}{% endcapture %}
-          {% endif %}
-
+          {% capture branch_names_list %}{{branch_names_list}};{{p.branch_name}}{% endcapture %}
           {% assign branch_names = branch_names_list | split: ';' %}
         {% endif %}
       {% endif %}
@@ -66,7 +55,7 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
   {% endif %}
 {% endfor %}
 
-{% assign branch_names = branch_names_list | split: ';' | sort %}
+{% assign branch_names = branch_names_list | remove_first: ';' | split: ';' | sort %}
 
 {% assign branch_names_list = branch_names | join: ';' %}
 
@@ -96,17 +85,13 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
 
     {% if pull_request_issue_ids contains p.pull_request_issue_id %}
     {% else %}
-      {% if pull_request_issue_ids_list == "" %}
-        {% assign pull_request_issue_ids_list = p.pull_request_issue_id %}
-      {% else %}
-        {% capture pull_request_issue_ids_list %}{{pull_request_issue_ids_list}};{{p.pull_request_issue_id}}{% endcapture %}
-      {% endif %}
+      {% capture pull_request_issue_ids_list %}{{pull_request_issue_ids_list}};{{p.pull_request_issue_id}}{% endcapture %}
       {% assign pull_request_issue_ids = pull_request_issue_ids_list | split: ';' %}
     {% endif %}
   {% endif %}
 {% endfor %}
 
-{% assign pull_request_issue_ids = pull_request_issue_ids_list | split: ';' | sort %}
+{% assign pull_request_issue_ids = pull_request_issue_ids_list | remove_first: ';' | split: ';' | sort %}
 
 
 {% assign device_ids = "" %}
@@ -116,17 +101,13 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
   {% if p.device_id and post_date > min_date %}
     {% if device_ids contains p.device_id %}
     {% else %}
-      {% if device_ids_list == "" %}
-        {% capture device_ids_list %}{{p.device_id}}{% endcapture %}
-      {% else %}
-        {% capture device_ids_list %}{{device_ids_list}};{{p.device_id}}{% endcapture %}
-      {% endif %}
+      {% capture device_ids_list %}{{device_ids_list}};{{p.device_id}}{% endcapture %}
       {% assign device_ids = device_ids_list | split: ';' %}
     {% endif %}
   {% endif %}
 {% endfor %}
 
-{% assign device_ids = device_ids_list | split: ';' | sort %}
+{% assign device_ids = device_ids_list | remove_first: ';' | split: ';' | sort %}
 
 {% assign analysis_list = "" %}
 {% for d in device_ids %}
@@ -138,12 +119,8 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
       {% endif %}
     {% endif %}
   {% endfor %}
-  {% if analysis_list == "" %}
-    {% capture analysis_list %}{{is_analysis}}{% endcapture %}
-  {% else %}
-    {% capture analysis_list %}{{analysis_list}};{{is_analysis}}{% endcapture %}
-  {% endif %}
+  {% capture analysis_list %}{{analysis_list}};{{is_analysis}}{% endcapture %}
 {% endfor %}
 
-{% assign analysis_array = analysis_list | split: ';' %}
+{% assign analysis_array = analysis_list | remove_first: ';' | split: ';' %}
 
