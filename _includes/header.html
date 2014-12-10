@@ -16,13 +16,14 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
 {% assign tag_names = "" %}
 {% assign tag_names_list = "" %}
 {% for p in results_posts %}
-  {% assign post_date = p.date | date: "%s" | minus: 0 %}
-  {% if p.tag_name and post_date > min_date %}
-
+  {% if p.tag_name %}
     {% if tag_names contains p.tag_name %}
     {% else %}
-      {% capture tag_names_list %}{{tag_names_list}};{{p.tag_name}}{% endcapture %}
-      {% assign tag_names = tag_names_list | split: ';' %}
+      {% assign post_date = p.date | date: "%s" | minus: 0 %}
+      {% if post_date > min_date %}
+        {% capture tag_names_list %}{{tag_names_list}};{{p.tag_name}}{% endcapture %}
+        {% assign tag_names = tag_names_list | split: ';' %}
+      {% endif %}
     {% endif %}
   {% endif %}
 {% endfor %}
@@ -36,16 +37,15 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
 {% assign branch_names = "" %}
 {% assign branch_names_list = "" %}
 {% for p in results_posts %}
-  {% if p.pull_request_issue_id and p.pull_request_issue_id != "" %}
-  {% else %}
-    {% assign post_date = p.date | date: "%s" | minus: 0%}
-    {% if p.branch_name and post_date > min_date %}
-      {% if p.branch_name == "master" %}
-        {% assign has_master = true %}
-      {% elsif p.branch_name == "develop" %}
-        {% assign has_develop = true %}
-      {% else %}
-        {% if branch_names contains p.branch_name %}
+  {% if p.branch_name %}
+    {% if (p.pull_request_issue_id and p.pull_request_issue_id != "") or branch_names contains p.branch_name %}
+    {% else %}
+      {% assign post_date = p.date | date: "%s" | minus: 0%}
+      {% if post_date > min_date %}
+        {% if p.branch_name == "master" %}
+          {% assign has_master = true %}
+        {% elsif p.branch_name == "develop" %}
+          {% assign has_develop = true %}
         {% else %}
           {% capture branch_names_list %}{{branch_names_list}};{{p.branch_name}}{% endcapture %}
           {% assign branch_names = branch_names_list | split: ';' %}
@@ -80,13 +80,14 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
 {% assign pull_request_issue_ids = "" %}
 {% assign pull_request_issue_ids_list = "" %}
 {% for p in results_posts %}
-  {% assign post_date = p.date | date: "%s" | minus: 0%}
-  {% if p.pull_request_issue_id and p.pull_request_issue_id != "" and post_date > min_date %}
-
+  {% if p.pull_request_issue_id and p.pull_request_issue_id != "" %}
     {% if pull_request_issue_ids contains p.pull_request_issue_id %}
     {% else %}
-      {% capture pull_request_issue_ids_list %}{{pull_request_issue_ids_list}};{{p.pull_request_issue_id}}{% endcapture %}
-      {% assign pull_request_issue_ids = pull_request_issue_ids_list | split: ';' %}
+      {% assign post_date = p.date | date: "%s" | minus: 0%}
+      {% if post_date > min_date %}
+        {% capture pull_request_issue_ids_list %}{{pull_request_issue_ids_list}};{{p.pull_request_issue_id}}{% endcapture %}
+        {% assign pull_request_issue_ids = pull_request_issue_ids_list | split: ';' %}
+      {% endif %}
     {% endif %}
   {% endif %}
 {% endfor %}
@@ -97,12 +98,14 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
 {% assign device_ids = "" %}
 {% assign device_ids_list = "" %}
 {% for p in results_posts %}
-  {% assign post_date = p.date | date: "%s" | minus: 0 %}
-  {% if p.device_id and post_date > min_date %}
+  {% if p.device_id %}
     {% if device_ids contains p.device_id %}
     {% else %}
-      {% capture device_ids_list %}{{device_ids_list}};{{p.device_id}}{% endcapture %}
-      {% assign device_ids = device_ids_list | split: ';' %}
+      {% assign post_date = p.date | date: "%s" | minus: 0 %}
+      {% if post_date > min_date %}
+        {% capture device_ids_list %}{{device_ids_list}};{{p.device_id}}{% endcapture %}
+        {% assign device_ids = device_ids_list | split: ';' %}
+      {% endif %}
     {% endif %}
   {% endif %}
 {% endfor %}
