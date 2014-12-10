@@ -108,7 +108,9 @@ results_data.test_results.sort(compare_test_data);
 <div class="page-header">
   <h1>Build Results</h1>
   {% if page.pending %}<h4>BUILD PENDING</h4>{% else %}<h4>BUILD COMPLETED</h4>{% endif %}
-  {{ page.title }}
+  {{ page.title }}<br/>
+  <!--  <a class="btn btn-danger" href="{{ base_delete_url }}/{{ page.path }}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete Results</a> --!>
+  
 </div>
 
 
@@ -143,6 +145,7 @@ test_time: {{page.test_time}}<br/>
 package_time: {{page.package_time}}<br/>
 install_time: {{page.install_time}}<br/>
 machine_name: {{page.machine_name}}<br/>
+packaging_skipped: {{page.packaging_skipped}}</br>
 <br/>
 
 <script type="text/javascript">
