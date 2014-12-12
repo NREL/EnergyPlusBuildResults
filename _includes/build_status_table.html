@@ -271,10 +271,11 @@ var shas = [
 
             {% assign found_post = true %}
 
+            {% assign post_url = "." | append: post.url %}
             {% assign build_url = "." | append: post.url | append: "#build" %}
             {% assign failure_url = "." | append: post.url | append: "#failure" %}
 
-            {% if post.pending %}<td style="border-left:2px solid gray" class="warning"><div class="table-box"><h6>Pending
+            {% if post.pending %}<td style="border-left:2px solid gray" class="warning"><div class="table-box"><h6><a href="{{post_url}}">Pending</a>
             {% elsif post.unhandled_failure %}<td style="border-left:2px solid gray" class="danger"><div class="table-box"><h6><a href="{{build_url}}">Unhandled Failure<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
             {% elsif post.build_error_count > 0 %}<td style="border-left:2px solid gray" class="danger"><div class="table-box"><h6><a href="{{build_url}}">Errors / Warnings<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
             {% elsif post.build_warning_count > 0 %}<td style="border-left:2px solid gray" class="warning" ><div class="table-box"><h6><a href="{{build_url}}">Warnings<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>

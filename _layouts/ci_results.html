@@ -7,6 +7,7 @@
 <head>
 {% include common.html %}
 {% assign base_repository = page.repository %}
+{% assign results_repository = page.results_repository %}
 {% include common_variables.html %}
 
 </head>
@@ -22,6 +23,11 @@
   <li>Results</li>
 </ol>
 
+
+{% if page.results_repository %}
+<a class="btn btn-danger" href="{{ base_delete_url }}/{{ page.path }}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete results and force rebuild.</a>
+<br/>
+{% endif %}
 
 
 
@@ -109,8 +115,7 @@ results_data.test_results.sort(compare_test_data);
   <h1>Build Results</h1>
   {% if page.pending %}<h4>BUILD PENDING</h4>{% else %}<h4>BUILD COMPLETED</h4>{% endif %}
   {{ page.title }}<br/>
-  <!--  <a class="btn btn-danger" href="{{ base_delete_url }}/{{ page.path }}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete Results</a> --!>
-  
+
 </div>
 
 
