@@ -9,7 +9,7 @@
 {% assign base_repository = page.repository %}
 {% assign results_repository = page.results_repository %}
 {% include common_variables.html %}
-
+<title>{{ page.title }}</title>
 </head>
 
 
@@ -150,7 +150,7 @@ test_time: {{page.test_time}}<br/>
 package_time: {{page.package_time}}<br/>
 install_time: {{page.install_time}}<br/>
 machine_name: {{page.machine_name}}<br/>
-packaging_skipped: {{page.packaging_skipped}}</br>
+packaging_skipped: {{page.packaging_skipped}}<br/>
 <br/>
 
 <script type="text/javascript">

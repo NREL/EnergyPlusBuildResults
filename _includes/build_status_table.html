@@ -276,10 +276,10 @@ var shas = [
             {% assign failure_url = "." | append: post.url | append: "#failure" %}
 
             {% if post.pending %}<td style="border-left:2px solid gray" class="warning"><div class="table-box"><h6><a href="{{post_url}}">Pending</a>
-            {% elsif post.unhandled_failure %}<td style="border-left:2px solid gray" class="danger"><div class="table-box"><h6><a href="{{build_url}}">Unhandled Failure<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
-            {% elsif post.build_error_count > 0 %}<td style="border-left:2px solid gray" class="danger"><div class="table-box"><h6><a href="{{build_url}}">Errors / Warnings<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
-            {% elsif post.build_warning_count > 0 %}<td style="border-left:2px solid gray" class="warning" ><div class="table-box"><h6><a href="{{build_url}}">Warnings<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
-            {% else %}<td style="border-left:2px solid gray" class="success"><div class="table-box"><h6><a href="{{build_url}}">Succeeded<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</a>
+            {% elsif post.unhandled_failure %}<td style="border-left:2px solid gray" class="danger"><div class="table-box"><h6><a href="{{build_url}}">Unhandled Failure<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</span></a>
+            {% elsif post.build_error_count > 0 %}<td style="border-left:2px solid gray" class="danger"><div class="table-box"><h6><a href="{{build_url}}">Errors / Warnings<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</span></a>
+            {% elsif post.build_warning_count > 0 %}<td style="border-left:2px solid gray" class="warning" ><div class="table-box"><h6><a href="{{build_url}}">Warnings<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</span></a>
+            {% else %}<td style="border-left:2px solid gray" class="success"><div class="table-box"><h6><a href="{{build_url}}">Succeeded<span class="badge pull-right">{{post.build_error_count}} / {{post.build_warning_count}}</span></a>
             {% endif %}
               <br/>
               <small>{% if post.pending == false and post.build_time %}{{ post.build_time }}s{% endif %}<br/><a href="{{base_commit_url}}/{{post.commit_sha}}">{{ post.commit_sha | truncate: 12 }}</a></small>{% if post.commit_sha != latest_sha %} <span title="Build is out of date."><i class="fa fa-clock-o"></i></span>{% endif %}
@@ -347,9 +347,9 @@ if ("{{table_type}}" != "release") {
               {% elsif post.packaging_skipped == true %}
               <td class="success"><h6>Packaging Skipped</h6>
               {% elsif post.release_packaged == false or post.package_error_count > 0 %}
-              <td class="danger"><h6><a href="{{package_url}}">Errors / Warnings<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a>
-              {% elsif post.package_warning_count > 0 %}<td class="warning"><h6><a href="{{package_url}}">Warnings<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a>
-              {% else %}<td class="success"><h6><a href="{{package_url}}">Succeeded<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</a>
+              <td class="danger"><h6><a href="{{package_url}}">Errors / Warnings<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</span></a>
+              {% elsif post.package_warning_count > 0 %}<td class="warning"><h6><a href="{{package_url}}">Warnings<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</span></a>
+              {% else %}<td class="success"><h6><a href="{{package_url}}">Succeeded<span class="badge pull-right">{{post.package_error_count}} / {{post.package_warning_count}}</span></a>
               {% endif %}
               <small>{% if post.pending == false and post.package_time %}{{ post.package_time }}s{% endif %}</small></h6>
 
