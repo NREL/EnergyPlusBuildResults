@@ -13,29 +13,26 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
 
 {% include common_variables.html %}
 
-{% assign tag_names = "" %}
-{% assign tag_names_list = "" %}
+{% assign tag_names = "" | split: ";" %}
 {% for p in results_posts %}
   {% if p.tag_name %}
     {% if tag_names contains p.tag_name %}
     {% else %}
       {% assign post_date = p.date | date: "%s" | minus: 0 %}
       {% if post_date > min_date %}
-        {% capture tag_names_list %}{{tag_names_list}};{{p.tag_name}}{% endcapture %}
-        {% assign tag_names = tag_names_list | split: ';' %}
+        {% assign tag_names = tag_names | push: p.tag_name %}
       {% endif %}
     {% endif %}
   {% endif %}
 {% endfor %}
 
-{% assign tag_names = tag_names_list | remove_first: ';' | split: ';' | sort %}
+{% assign tag_names = tag_names | sort %}
 
 
 {% assign has_master = false %}
 {% assign has_develop = false %}
 
-{% assign branch_names = "" %}
-{% assign branch_names_list = "" %}
+{% assign branch_names = "" | split: ";" %}
 {% for p in results_posts %}
   {% if p.branch_name %}
     {% if (p.pull_request_issue_id and p.pull_request_issue_id != "") or branch_names contains p.branch_name %}
@@ -47,15 +44,14 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
         {% elsif p.branch_name == "develop" %}
           {% assign has_develop = true %}
         {% else %}
-          {% capture branch_names_list %}{{branch_names_list}};{{p.branch_name}}{% endcapture %}
-          {% assign branch_names = branch_names_list | split: ';' %}
+          {% assign branch_names = branch_names | push: p.branch_name %}
         {% endif %}
       {% endif %}
     {% endif %}
   {% endif %}
 {% endfor %}
 
-{% assign branch_names = branch_names_list | remove_first: ';' | split: ';' | sort %}
+{% assign branch_names = branch_names | sort %}
 
 {% assign branch_names_list = branch_names | join: ';' %}
 
@@ -77,42 +73,38 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
 
 {% assign branch_names = branch_names_list | split: ';' %}
 
-{% assign pull_request_issue_ids = "" %}
-{% assign pull_request_issue_ids_list = "" %}
+{% assign pull_request_issue_ids = "" | split: ';' %}
 {% for p in results_posts %}
   {% if p.pull_request_issue_id and p.pull_request_issue_id != "" %}
     {% if pull_request_issue_ids contains p.pull_request_issue_id %}
     {% else %}
       {% assign post_date = p.date | date: "%s" | minus: 0%}
       {% if post_date > min_date %}
-        {% capture pull_request_issue_ids_list %}{{pull_request_issue_ids_list}};{{p.pull_request_issue_id}}{% endcapture %}
-        {% assign pull_request_issue_ids = pull_request_issue_ids_list | split: ';' %}
+        {% assign pull_request_issue_ids = pull_request_issue_ids | push: p.pull_request_issue_id %}
       {% endif %}
     {% endif %}
   {% endif %}
 {% endfor %}
 
-{% assign pull_request_issue_ids = pull_request_issue_ids_list | remove_first: ';' | split: ';' | sort %}
+{% assign pull_request_issue_ids = pull_request_issue_ids | sort %}
 
 
-{% assign device_ids = "" %}
-{% assign device_ids_list = "" %}
+{% assign device_ids = "" | split: ';' %}
 {% for p in results_posts %}
   {% if p.device_id %}
     {% if device_ids contains p.device_id %}
     {% else %}
       {% assign post_date = p.date | date: "%s" | minus: 0 %}
       {% if post_date > min_date %}
-        {% capture device_ids_list %}{{device_ids_list}};{{p.device_id}}{% endcapture %}
-        {% assign device_ids = device_ids_list | split: ';' %}
+        {% assign device_ids = device_ids | push: p.device_id %}
       {% endif %}
     {% endif %}
   {% endif %}
 {% endfor %}
 
-{% assign device_ids = device_ids_list | remove_first: ';' | split: ';' | sort %}
+{% assign device_ids = device_ids | sort %}
 
-{% assign analysis_list = "" %}
+{% assign analysis_array = "" | split: ';' %}
 {% for d in device_ids %}
   {% assign is_analysis = false %}
   {% for p in results_posts %}
@@ -122,8 +114,6 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
       {% endif %}
     {% endif %}
   {% endfor %}
-  {% capture analysis_list %}{{analysis_list}};{{is_analysis}}{% endcapture %}
+  {% assign analysis_array = analysis_array | push: is_analysis %}
 {% endfor %}
-
-{% assign analysis_array = analysis_list | remove_first: ';' | split: ';' %}
 
