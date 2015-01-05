@@ -117,3 +117,16 @@ the "minus: 0" is used to convert the date string into an integer for the > comp
   {% assign analysis_array = analysis_array | push: is_analysis %}
 {% endfor %}
 
+{% assign coverage_array = "" | split: ';' %}
+{% for d in device_ids %}
+  {% assign is_coverage = false %}
+  {% for p in results_posts %}
+    {% if p.device_id == d %}
+      {% if p.coverage_enabled %}
+        {% assign is_coverage = true %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  {% assign coverage_array = coverage_array | push: is_coverage %}
+{% endfor %}
+

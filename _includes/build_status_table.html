@@ -77,11 +77,16 @@ function sparkline(elemId, data) {
   <tr>
     <th></th>
     {% for device_id in device_ids %}
-      {% if analysis_array[forloop.index0] == "true" %}
+      {% if analysis_array[forloop.index0] == true %}
         {% assign colspan = 1 %}
       {% else %}
         {% assign colspan = num_table_cols %}
       {% endif %}
+
+      {% if coverage_array[forloop.index0] == true %}
+        {% assign colspan = colspan | plus: 1 %}
+      {% endif %}
+
       <th style="border-left:2px solid gray" colspan={{ colspan }}><h4>
           {% if device_id contains "Win" %}<i class="fa fa-windows"></i>
           {% elsif device_id contains "Linux" %}<i class="fa fa-linux"></i>
@@ -95,7 +100,7 @@ function sparkline(elemId, data) {
   <tr>
     <td></td>
     {% for device_id in device_ids %}
-      {% if analysis_array[forloop.index0] == "true" %}
+      {% if analysis_array[forloop.index0] == true %}
         {% assign analysis_only = true %} 
       {% else %}
         {% assign analysis_only = false %}
@@ -106,6 +111,10 @@ function sparkline(elemId, data) {
           <td {% if forloop.first %}style="border-left:2px solid gray"{% endif %}><h5>{{ col }}</h5></td>
         {% endif %}
       {% endfor %}
+
+      {% if coverage_array[forloop.index0] == true %}
+        <td><h5>Coverage</h5></td>
+      {% endif %}
     {% endfor %}
   </tr>
 
@@ -190,10 +199,16 @@ function sparkline(elemId, data) {
 
     {% for device_id in device_ids %}
       {% assign found_post = false %}
-      {% if analysis_array[forloop.index0] == "true" %}
+      {% if analysis_array[forloop.index0] == true %}
         {% assign analysis_only = true %} 
       {% else %}
         {% assign analysis_only = false %}
+      {% endif %}
+
+      {% if coverage_array[forloop.index0] == true %}
+        {% assign has_coverage = true %} 
+      {% else %}
+        {% assign has_coverage = false %}
       {% endif %}
 
       {% if tag_names_list == "" %}
@@ -361,20 +376,54 @@ if ("{{table_type}}" != "release") {
  
             {% endif %}
 
+            {% assign coverage_url = "." | append: post.url %}
+
+            {% if has_coverage == true %}
+
+              {% if post.coverage_lines == 0 %}
+              {% assign coverage_percent = 0.0 %}
+              {% else %}
+              {% assign coverage_percent = post.coverage_lines | times: 1.0 | divided_by: post.coverage_total_lines | times: 100.0 %}
+              {% endif %}
+
+              {% capture coverage_percent_string %}{{coverage_percent}}{% endcapture %}
+              {% assign coverage_percent_string = coverage_percent_string | split: "." | first %}
+
+              {% if post.pending %}<td class="warning"><h6>Pending</h6>
+              {% elsif post.coverage_warn_limit >= coverage_percent %}
+              <td class="danger"><h6><a href="{{coverage_url}}">Percent Lines Covered<span class="badge pull-right">{{coverage_percent_string}}%</span></a>
+              {% elsif post.coverage_pass_limit >= coverage_percent %}
+              <td class="warning"><h6><a href="{{coverage_url}}">Percent Lines Covered<span class="badge pull-right">{{coverage_percent_string}}%</span></a>
+              {% else %}
+              <td class="success"><h6><a href="{{coverage_url}}">Percent Lines Covered<span class="badge pull-right">{{coverage_percent_string}}%</span></a>
+              {% endif %}
+
+
+              <br/><a href="{{ post.coverage_url }}"><i class="fa fa-eye"></i></a>
+
+              </td>
+            {% endif %}
+
           {% endif %}
         {% endif %}
       {% endfor %}
 
       {% if found_post == false %}
-        {% if analysis_array[forloop.index0] == "true" %}
+        {% if analysis_array[forloop.index0] == true %}
           {% assign num_cols = 1 %}
         {% else %}
           {% assign num_cols = num_table_cols %}
         {% endif %}
 
+        {% if has_coverage == true %}
+        {% assign num_cols = num_cols | plus: 1 %}
+        {% endif %}
+
         {% for i in (1..num_cols) %}
         <td  {% if forloop.first %}style="border-left:2px solid gray"{% endif %} class="info"><h6>No Data</h6></td>
         {% endfor %}
+
+
       {% endif %}
 
     {% endfor %}
