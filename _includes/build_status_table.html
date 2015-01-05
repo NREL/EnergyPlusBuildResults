@@ -221,42 +221,38 @@ function sparkline(elemId, data) {
       {% comment %}  Build counts of messages to building graph and other data {% endcomment %}
 
 
-      {% assign build_message_counts_list = "" %}
-      {% assign test_message_counts_list = "" %}
-      {% assign shas_list = "" %}
+      {% assign build_message_counts = "" | split: ';' %}
+      {% assign test_message_counts = "" | split: ';' %}
+      {% assign coverage_counts = "" | split: ';' %}
+      {% assign shas = "" | split: ';' %}
       {% for post in results_posts %}
-        {% if table_type == "release" %}{% assign test_key = post.tag_name %}{% endif %}
-        {% if table_type == "branch" %}{% if post.pull_request_issue_id != "" %}{% assign test_key = "" %}{% else %}{% assign test_key = post.branch_name %}{% endif %}{% endif %}
-        {% if table_type == "pull_request" %}{% assign test_key = post.pull_request_issue_id %}{% endif %}
+        {% if post.device_id == device_id %}
+          {% if table_type == "release" %}{% assign test_key = post.tag_name %}{% endif %}
+          {% if table_type == "branch" %}{% if post.pull_request_issue_id != "" %}{% assign test_key = "" %}{% else %}{% assign test_key = post.branch_name %}{% endif %}{% endif %}
+          {% if table_type == "pull_request" %}{% assign test_key = post.pull_request_issue_id %}{% endif %}
 
-        {% if test_key == key and post.device_id == device_id  %}
-          {% assign test_message_count = post.test_count | minus: post.test_passed_count %}
-          {% assign build_message_count = post.build_error_count | plus: post.build_warning_count %}
+          {% if test_key == key %}
+            {% assign test_message_count = post.test_count | minus: post.test_passed_count %}
+            {% assign build_message_count = post.build_error_count | plus: post.build_warning_count %}
 
-          {% if test_message_counts_list == "" %}
-            {% capture test_message_counts_list %}{{test_message_count}}{% endcapture %}
-          {% else %}
-            {% capture test_message_counts_list %}{{test_message_counts_list}},{{test_message_count}}{% endcapture %}
-          {% endif %}
+            {% if has_coverage %}
+              {% if post.coverage_lines == 0 %}
+              {% assign coverage_percent = 0.0 %}
+              {% else %}
+              {% assign coverage_percent = post.coverage_lines | times: 1.0 | divided_by: post.coverage_total_lines | times: 100.0 %}
+              {% endif %}
+              
+              {% assign coverage_counts = coverage_counts | push: coverage_percent %}
+            {% endif %}
 
-          {% if build_message_counts_list == "" %}
-            {% capture build_message_counts_list %}{{build_message_count}}{% endcapture %}
-          {% else %}
-            {% capture build_message_counts_list %}{{build_message_counts_list}},{{build_message_count}}{% endcapture %}
-          {% endif %}
-
-          {% if shas_list == "" %}
-            {% capture shas_list %}{{post.commit_sha}}{% endcapture %}
-          {% else %}
-            {% capture shas_list %}{{shas_list}},{{post.commit_sha}}{% endcapture %}
+            {% assign test_message_counts = test_message_counts | push: test_message_count %}
+            {% assign build_message_counts = build_message_counts | push: build_message_count %}
+            {% assign shas = shas | push: post.commit_sha %}
           {% endif %}
         {% endif %}
 
       {% endfor %}
 
-      {% assign build_message_counts = build_message_counts_list | split: ',' %}
-      {% assign test_message_counts = test_message_counts_list | split: ',' %}
-      {% assign shas = shas_list | split: ',' %}
 
       <script>
 var shas = [
@@ -339,6 +335,7 @@ sparkline("#build-status{{device_id | replace: ".", "-"}}{{key}}", [
               {% endif %}
               <small>{% if post.pending == false and post.test_time %}{{ post.test_time }}s{% endif %}</small></h6>
               <div id="test-status{{device_id | replace: ".", "-"}}{{key}}" class="float-bottom"></div></div></td>
+
             <script>
 if ("{{table_type}}" != "release") {
   sparkline("#test-status{{device_id | replace: ".", "-"}}{{key}}", [
@@ -376,10 +373,10 @@ if ("{{table_type}}" != "release") {
  
             {% endif %}
 
-            {% assign coverage_url = "." | append: post.url %}
+            {% assign coverage_url = "." | append: post.url | append: "#coverage" %}
+
 
             {% if has_coverage == true %}
-
               {% if post.coverage_lines == 0 %}
               {% assign coverage_percent = 0.0 %}
               {% else %}
@@ -391,18 +388,32 @@ if ("{{table_type}}" != "release") {
 
               {% if post.pending %}<td class="warning"><h6>Pending</h6>
               {% elsif post.coverage_warn_limit >= coverage_percent %}
-              <td class="danger"><h6><a href="{{coverage_url}}">Percent Lines Covered<span class="badge pull-right">{{coverage_percent_string}}%</span></a>
+              <td class="danger"><div class="table-box"><h6><a href="{{coverage_url}}">Percent Lines Covered<span class="badge pull-right">{{coverage_percent_string}}%</span></a>
               {% elsif post.coverage_pass_limit >= coverage_percent %}
-              <td class="warning"><h6><a href="{{coverage_url}}">Percent Lines Covered<span class="badge pull-right">{{coverage_percent_string}}%</span></a>
+              <td class="warning"><div class="table-box"><h6><a href="{{coverage_url}}">Percent Lines Covered<span class="badge pull-right">{{coverage_percent_string}}%</span></a>
               {% else %}
-              <td class="success"><h6><a href="{{coverage_url}}">Percent Lines Covered<span class="badge pull-right">{{coverage_percent_string}}%</span></a>
+              <td class="success"><div class="table-box"><h6><a href="{{coverage_url}}">Percent Lines Covered<span class="badge pull-right">{{coverage_percent_string}}%</span></a>
               {% endif %}
 
 
-              <br/><a href="{{ post.coverage_url }}"><i class="fa fa-eye"></i></a>
+              <br/><a href="{{ post.coverage_url }}"><i class="fa fa-eye"></i></a></h6>
+              <div id="coverage-status{{device_id | replace: ".", "-"}}{{key}}" class="float-bottom"></div></div></td>
 
-              </td>
+            <script>
+if ("{{table_type}}" != "release") {
+  sparkline("#coverage-status{{device_id | replace: ".", "-"}}{{key}}", [
+    {% for bc in coverage_counts reversed %}
+    { x: {{forloop.index}}, y: {{bc}}, sha: shas[{{forloop.index0}}] }
+      {% if forloop.last == false %}
+        ,
+      {% endif %}
+    {% endfor %}
+
+    ])
+}
+            </script>
             {% endif %}
+
 
           {% endif %}
         {% endif %}

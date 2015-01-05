@@ -383,6 +383,65 @@ document.writeln(format_error_rows(results_data.package_results));
 
 {% endif %}
 
+
+{% if page.coverage_enabled %}
+
+{% if page.coverage_lines == 0 %}
+{% assign coverage_percent = 0.0 %}
+{% else %}
+{% assign coverage_percent = page.coverage_lines | times: 1.0 | divided_by: page.coverage_total_lines | times: 100.0 %}
+{% endif %}
+
+{% capture coverage_percent_string %}{{coverage_percent}}{% endcapture %}
+{% assign coverage_percent_string = coverage_percent_string | split: "." | first %}
+
+{% if page.coverage_functions == 0 %}
+{% assign coverage_functions_percent = 0.0 %}
+{% else %}
+{% assign coverage_functions_percent = page.coverage_functions | times: 1.0 | divided_by: page.coverage_total_functions | times: 100.0 %}
+{% endif %}
+
+{% capture coverage_functions_percent_string %}{{coverage_functions_percent}}{% endcapture %}
+{% assign coverage_functions_percent_string = coverage_functions_percent_string | split: "." | first %}
+
+{% if coverage_functions_percent >= page.coverage_pass_limit %}
+{% assign functions_label_type = "success" %}
+{% elsif coverage_functions_percent >= page.coverage_warn_limit %}
+{% assign functions_label_type = "warning" %}
+{% else %}
+{% assign functions_label_type = "danger" %}
+{% endif %}
+
+{% if coverage_percent >= page.coverage_pass_limit %}
+{% assign lines_label_type = "success" %}
+{% elsif coverage_percent >= page.coverage_warn_limit %}
+{% assign lines_label_type = "warning" %}
+{% else %}
+{% assign lines_label_type = "danger" %}
+{% endif %}
+
+
+<a id="coverage">
+  <div class="page-header">
+    <h1>Coverage {{ coverage_percent_string }}%</h1>
+  </div>
+</a>
+
+coverage pass limit:  {{page.coverage_pass_limit}}%<br/>
+coverage warn limit:  {{page.coverage_warn_limit}}%<br/>
+<br/>
+<a href="{{ page.coverage_url }}">Coverage Details</a>
+<br/>
+
+<br/><p class='alert alert-{{lines_label_type}}'><a href="{{ page.coverage_url }}" class="alert-link">{{ page.coverage_lines }} covered lines</a> of {{ page.coverage_total_lines }} total lines ({{coverage_percent_string}}%)</p>
+<p class='alert alert-{{functions_label_type}}'><a href="{{ page.coverage_url }}" class="alert-link">{{ page.coverage_functions }} covered functions</a> of {{ page.coverage_total_functions }} total functions ({{coverage_functions_percent_string}}%)</p>
+
+<br/><br/>
+<br/><br/>
+
+{% endif %}
+
+
 {% include footer.html %}
 
 </body>
