@@ -386,7 +386,7 @@ if ("{{table_type}}" != "release") {
               {% capture coverage_percent_string %}{{coverage_percent}}{% endcapture %}
               {% assign coverage_percent_string = coverage_percent_string | split: "." | first %}
 
-              {% if post.pending %}<td class="warning"><h6>Pending</h6>
+              {% if post.pending %}<td class="warning"><div class="table-box"><h6>Pending</h6>
               {% elsif post.coverage_warn_limit >= coverage_percent %}
               <td class="danger"><div class="table-box"><h6><a href="{{coverage_url}}">Percent Lines Covered<span class="badge pull-right">{{coverage_percent_string}}%</span></a>
               {% elsif post.coverage_pass_limit >= coverage_percent %}
