@@ -115,48 +115,60 @@ results_data.test_results.sort(compare_test_data);
 
 </div>
 
-
-date: {{page.date}}<br/>
-unhandled_failure: {{page.unhandled_failure}}<br/>
-build_error_count: {{page.build_error_count}}<br/>
-build_warning_count: {{page.build_warning_count}}<br/>
-package_error_count: {{page.package_error_count}}<br/>
-package_warning_count: {{page.package_warning_count}}<br/>
-test_count: {{page.test_count}}<br/>
-test_passed_count: {{page.test_passed_count}}<br/>
-repository: {{page.repository}}<br/>
-compiler: {{page.compiler}}<br/>
-compiler_version: {{page.compiler_version}}<br/>
-architecture: {{page.architecture}}<br/>
-os: {{page.os}}<br/>
-os_release: {{page.os_release}}<br/>
-is_release: {{page.is_release}}<br/>
-release_packaged: {{page.release_packaged}}<br/>
-tag_name: <a href="{{base_release_url}}/{{page.tag_name}}">{{page.tag_name}}</a><br/>
-commit_sha: <a href="{{base_commit_url}}/{{page.commit_sha}}">{{page.commit_sha}}</a><br/>
-branch_name: <a href="{{base_branch_url}}/{{page.branch_name}}">{{page.branch_name}}</a><br/>
-test_run: {{page.test_run}}<br/>
-pull_request_issue_id:  <a href="{{base_pull_request_url}}/{{page.pull_request_issue_id}}">{{page.pull_request_issue_id}}</a><br/>
-pull_request_base_repository: {{page.pull_request_base_repository}}<br/>
-pull_request_base_ref: {{page.pull_request_base_ref}}<br/>
-device_id: {{page.device_id}}<br/>
-pending: {{page.pending}}<br/>
-analyze_only: {{page.analyze_only}}<br/>
-build_time: {{page.build_time}}<br/>
-test_time: {{page.test_time}}<br/>
-package_time: {{page.package_time}}<br/>
-install_time: {{page.install_time}}<br/>
-machine_name: {{page.machine_name}}<br/>
-packaging_skipped: {{page.packaging_skipped}}<br/>
-coverage_enabled: {{page.coverage_enabled}}<br/>
-coverage_pass_limit:  {{page.coverage_pass_limit}}<br/>
-coverage_warn_limit:  {{page.coverage_warn_limit}}<br/>
-coverage_lines:  {{page.coverage_lines}}<br/>
-coverage_total_lines:  {{page.coverage_total_lines}}<br/>
-coverage_functions:  {{page.coverage_functions}}<br/>
-coverage_total_functions:  {{page.coverage_total_functions}}<br/>
-coverage_url: <a href="{{page.coverage_url}}">{{page.coverage_url}}</a><br/>
-<br/>
+<div class='panel panel-info'>
+  <div class='panel-heading'>
+    <h4 class='panel-title'>
+      <a data-toggle='collapse' data-parent='#accordion-variables' href='#collapse-variables'>
+        Test Details
+      </a>
+    </h4>
+  </div>
+  <div id='collapse-variables' class='panel-collapse collapse'>
+    <div class='panel-body'>
+      date: {{page.date}}<br/>
+      unhandled_failure: {{page.unhandled_failure}}<br/>
+      build_error_count: {{page.build_error_count}}<br/>
+      build_warning_count: {{page.build_warning_count}}<br/>
+      package_error_count: {{page.package_error_count}}<br/>
+      package_warning_count: {{page.package_warning_count}}<br/>
+      test_count: {{page.test_count}}<br/>
+      test_passed_count: {{page.test_passed_count}}<br/>
+      repository: {{page.repository}}<br/>
+      compiler: {{page.compiler}}<br/>
+      compiler_version: {{page.compiler_version}}<br/>
+      architecture: {{page.architecture}}<br/>
+      os: {{page.os}}<br/>
+      os_release: {{page.os_release}}<br/>
+      is_release: {{page.is_release}}<br/>
+      release_packaged: {{page.release_packaged}}<br/>
+      tag_name: <a href="{{base_release_url}}/{{page.tag_name}}">{{page.tag_name}}</a><br/>
+      commit_sha: <a href="{{base_commit_url}}/{{page.commit_sha}}">{{page.commit_sha}}</a><br/>
+      branch_name: <a href="{{base_branch_url}}/{{page.branch_name}}">{{page.branch_name}}</a><br/>
+      test_run: {{page.test_run}}<br/>
+      pull_request_issue_id:  <a href="{{base_pull_request_url}}/{{page.pull_request_issue_id}}">{{page.pull_request_issue_id}}</a><br/>
+      pull_request_base_repository: {{page.pull_request_base_repository}}<br/>
+      pull_request_base_ref: {{page.pull_request_base_ref}}<br/>
+      device_id: {{page.device_id}}<br/>
+      pending: {{page.pending}}<br/>
+      analyze_only: {{page.analyze_only}}<br/>
+      build_time: {{page.build_time}}<br/>
+      test_time: {{page.test_time}}<br/>
+      package_time: {{page.package_time}}<br/>
+      install_time: {{page.install_time}}<br/>
+      machine_name: {{page.machine_name}}<br/>
+      packaging_skipped: {{page.packaging_skipped}}<br/>
+      coverage_enabled: {{page.coverage_enabled}}<br/>
+      coverage_pass_limit:  {{page.coverage_pass_limit}}<br/>
+      coverage_warn_limit:  {{page.coverage_warn_limit}}<br/>
+      coverage_lines:  {{page.coverage_lines}}<br/>
+      coverage_total_lines:  {{page.coverage_total_lines}}<br/>
+      coverage_functions:  {{page.coverage_functions}}<br/>
+      coverage_total_functions:  {{page.coverage_total_functions}}<br/>
+      coverage_url: <a href="{{page.coverage_url}}">{{page.coverage_url}}</a><br/>
+      <br/>
+    </div>
+  </div>
+</div>
 
 <script type="text/javascript">
 if ({{page.unhandled_failure}})
