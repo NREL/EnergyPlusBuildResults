@@ -1,6 +1,6 @@
 
 {% assign results_posts = site.tags.data %}
-{% assign first_result_post = results_posts|sort: pull_request_issue_id| first %}
+{% assign first_result_post = results_posts | sort: 'pull_request_issue_id' | first %}
 {% assign base_repository = first_result_post.repository %}
 
 {% comment %}
