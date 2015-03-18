@@ -295,7 +295,7 @@ var shas = [
               <br/>
               <small>{% if post.pending == false and post.build_time %}{{ post.build_time }}s{% endif %}<br/><a href="{{base_commit_url}}/{{post.commit_sha}}">{{ post.commit_sha | truncate: 12 }}</a></small>{% if post.commit_sha != latest_sha %} <span title="Build is out of date."><i class="fa fa-clock-o"></i></span>{% endif %}
             </h6>
-              {% if post.asset_url != "" %}
+              {% if post.asset_url and post.asset_url != "" %}
               <a href="{{ post.asset_url }}"><i class="fa fa-file-text-o"></i></a>
               {% endif %}
             <div id="build-status{{device_id | replace: ".", "-"}}{{key}}" class="float-bottom"></div></div>
