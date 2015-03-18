@@ -434,7 +434,7 @@ if ("{{table_type}}" != "release") {
         {% endif %}
 
         {% for i in (1..num_cols) %}
-        <td  {% if forloop.first %}style="border-left:2px solid gray"{% endif %} class="info"><h6>No Data</h6></td>
+        <td  {% if forloop.first %}style="border-left:2px solid gray"{% endif %} class="info no-data"><h6>No Data</h6></td>
         {% endfor %}
 
 
