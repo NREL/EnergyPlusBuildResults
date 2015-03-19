@@ -53,3 +53,43 @@ path {
 </style>
 
 
+
+<script>
+$(function() {
+$('table').each(function() {
+    var table = $(this);
+    var rows = table.find('tr');
+    var colsToRemove = [];
+    rows.eq(2).find('td.no-data').each(function() {
+      colsToRemove.push($(this)[0].cellIndex);
+      });
+    for (var row = 3; row < rows.length; ++row) {
+      var cells = rows.eq(row).find('td');
+      for (var i = colsToRemove.length - 1; i >= 0; --i) {
+        if (!$(cells[colsToRemove[i]]).hasClass('no-data')) {
+          colsToRemove.splice(i, 1);
+        }
+      }
+    }
+    var headerIndices = [];
+    rows.eq(0).find('th').each(function(index, th) {
+      var colspan = $(th).attr('colspan');
+      if (colspan === undefined) {
+        headerIndices.push(0);
+      } else {
+        headerIndices.push(headerIndices[index - 1] + parseInt(colspan, 10));
+      }
+    });
+
+    colsToRemove.reverse().forEach(function(col) {
+      if (headerIndices.indexOf(col) != -1) {
+        rows.eq(0).find('th').eq(headerIndices.indexOf(col)).remove();
+      }
+      for (var row = 1; row < rows.length; ++row) {
+        rows.eq(row).find('td').eq(col).remove();
+      }
+      });
+});
+});
+</script>
+
