@@ -115,6 +115,22 @@ results_data.test_results.sort(compare_test_data);
 
 </div>
 
+
+{% if page.release_packaged == true %}
+<a href="{{ base_release_url }}/{{ page.tag_name }}"><i class="fa fa-cloud-download"></i> Downloads</a>
+{% endif %}
+
+{% if page.coverage_url and page.coverage_url != "" %}
+<br/><a href="{{ page.coverage_url }}"><i class="fa fa-eye"></i> Coverage</a>
+{% endif %}
+
+{% if page.asset_url and page.asset_url != "" %}
+<br/><a href="{{ page.asset_url }}"><i class="fa fa-file-text-o"></i> Documents</a>
+{% endif %}
+<br/>
+<br/>
+
+
 <div class='panel panel-info'>
   <div class='panel-heading'>
     <h4 class='panel-title'>
