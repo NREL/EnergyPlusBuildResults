@@ -458,7 +458,12 @@ document.writeln(format_error_rows(results_data.package_results));
 coverage pass limit:  {{page.coverage_pass_limit}}%<br/>
 coverage warn limit:  {{page.coverage_warn_limit}}%<br/>
 <br/>
+
+{% if page.coverage_url and page.coverage_url != "" %}
 <a href="{{ page.coverage_url }}">Coverage Details</a>
+{% else %}
+No Coverage Details Uploaded
+{% endif %}
 <br/>
 
 <br/><p class='alert alert-{{lines_label_type}}'><a href="{{ page.coverage_url }}" class="alert-link">{{ page.coverage_lines }} covered lines</a> of {{ page.coverage_total_lines }} total lines ({{coverage_percent_string}}%)</p>
