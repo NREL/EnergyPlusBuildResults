@@ -2,27 +2,194 @@
 title: Home Page
 ---
 
-<!DOCTYPE HTML>
 
 <head>
 {% include common.html %}
 </head>
 
+{% include common_variables.html %}
+
 
 <body>
+  <ol class="breadcrumb">
+    <li>Dashboard</li>
+  </ol>
 
-{% include active_data.html %}
+  <div class="page-header">
+    <h1>Dashboard for {{ dashboard_title }}</h1>
+  </div>
 
-{% include header.html %}
+  <script>
+var data = [
+{% for p in site.posts %} {% capture: jsonstring %}{% for d in p %}{% if d[0] != "next" and d[0] != "previous" and d[0] != "content" and d[0] != "excerpt" %}"{{ d[0] }}":{{ d[1] | jsonify }},{% endif %}{% endfor %}{% endcapture %} { {{ jsonstring }} }, 
+{% endfor %}
+]
 
-<ol class="breadcrumb">
-  <li><a href="full_dashboard.html">Full Dashboard</a></li>
-  <li>Active Dashboard</li>
-</ol>
+var table_types = {
+  BRANCH: 0,
+  PULL_REQUEST: 1,
+  RELEASE: 2
+}
+
+function build_status_table(table_type, table_data)
+{
+  var filtered_data = null;
+  var table_name = "";
+  var field_name = "";
+
+  if (table_type == table_types.BRANCH) {
+    table_name = "Branches";
+    filtered_data = table_data.filter(function(o) { return o.pull_request_issue_id == "" && o.is_release == false });
+    field_name = "branch_name";
+  } else if (table_type == table_types.PULL_REQUEST) {
+    table_name = "External Pull Requests";
+    filtered_data = table_data.filter(function(o) { return o.pull_request_issue_id != "" && o.is_release == false });
+    field_name = "pull_request_issue_id";
+  } else if (table_type == table_types.RELEASE) {
+    table_name = "Releases";
+    filtered_data = table_data.filter(function(o) { return o.is_release == true});
+    field_name = "tag_name";
+  }
+
+  filtered_data.sort(
+      function(lhs, rhs) { 
+        var lhs_tag = lhs[field_name];
+        var rhs_tag = rhs[field_name];
+
+        if (lhs_tag == rhs_tag) {
+          // level 2 comparison here
+          if (lhs.device_id < rhs.device_id) {
+            return -1;
+          } else if (lhs.device_id > rhs.device_id) {
+            return 1;
+          } else if (lhs.device_id == rhs.device_id) {
+            // level 3 comparison here
+            return (new Date(rhs.date) - new Date(lhs.date));
+          }
+        }
+
+        if (field_name != "branch_name" && $.isNumeric(lhs_tag) && $.isNumeric(rhs_tag)) {
+          return lhs_tag - rhs_tag;
+        }
+
+        if (lhs_tag == "master" && rhs_tag != "master") {
+          return -1;
+        } else if (lhs_tag == "develop" && rhs_tag != "master" && rhs_tag != "develop") {
+          return -1;
+        } else if (lhs_tag != "master" && rhs_tag == "master") {
+          return 0;
+        } else if (lhs_tag != "develop" && lhs_tag != "master" && rhs_tag == "develop") {
+          return 1;
+        } else if (lhs_tag < rhs_tag) {
+          return -1;
+        } else if (lhs_tag == rhs_tag) {
+          return 0;
+        } else {
+          return 1;
+        }
+      }
+
+      );
+
+  devices = {};
+  for (var i = 0; i < filtered_data.length; ++i)
+  {
+    var device_id = filtered_data[i].device_id;
+
+    if (!devices.hasOwnProperty(device_id)) {
+      devices[device_id] = {build:false, test:false, package:false, coverage:false};
+    }
+
+    devices[device_id].build = true;
+    devices[device_id].test = devices[device_id].test || !filtered_data[i].analyze_only;
+    devices[device_id].package = devices[device_id].package || filtered_data[i].is_release;
+    devices[device_id].coverage = devices[device_id].coverage || filtered_data[i].coverage_enabled;
+  }
+
+  device_ids = [];
+
+  for (var device_id in devices) {
+    device_ids.push(device_id);
+  }
+
+  device_ids.sort();
 
 
-{% include dashboard.html %}
+  document.writeln("<div class='alert alert-info'><h4>" + table_name + "</h4></div>");
 
-{% include footer.html %}
+  document.writeln("<table class='table'>");
+
+  // device ids
+
+  document.writeln("<tr><th></th>");
+  for (var i = 0; i < device_ids.length; ++i)
+  {
+    var device_id = device_ids[i];
+
+    var colspan = (devices[device_id].build?1:0) + (devices[device_id].test?1:0) + (devices[device_id].package?1:0) + (devices[device_id].coverage?1:0);
+    var icon = function(){
+      if (device_id.indexOf("Win") != -1) {
+        return "<i class='fa fa-windows'></i>";
+      } else if (device_id.indexOf("Linux") != -1) {
+        return "<i class='fa fa-linux'></i>";
+      } else if (device_id.indexOf("Mac") != -1) {
+        return "<i class='fa fa-apple'></i>";
+      } else {
+        return "";
+      }
+    }();
+
+    document.writeln("<th style='border-left:2px solid gray' colspan=" + colspan + "><h4>" +
+        icon + " " + device_id.replace(/-/g, " ") +
+        "</h4></th>");
+  }
+  document.writeln("</tr>");
+
+  // types of builds 
+
+  document.writeln("<tr><td></td>");
+  for (var i = 0; i < device_ids.length; ++i)
+  {
+    var device_id = device_ids[i];
+    document.writeln("<td style='border-left:2px solid gray'><h5>Build</h5></td>");
+
+    if (devices[device_id].test) {
+      document.writeln("<td><h5>Test</h5></td>");
+    }
+
+    if (devices[device_id].package) {
+      document.writeln("<td><h5>Package</h5></td>");
+    }
+
+    if (devices[device_id].coverage) {
+      document.writeln("<td><h5>Coverage</h5></td>");
+    }
+  }
+  document.writeln("</tr>");
+
+
+  // builds
+
+
+  document.writeln("</table>");
+
+
+
+  for (var i = 0; i < filtered_data.length; ++i)
+  {
+    document.writeln(filtered_data[i][field_name] + " " + filtered_data[i].device_id + " " + filtered_data[i].date + " " + filtered_data[i].title + "<br/>")
+  }
+}
+
+build_status_table(table_types.BRANCH, data);
+
+build_status_table(table_types.PULL_REQUEST, data);
+
+build_status_table(table_types.RELEASE, data);
+
+  </script>
+
+ 
+
 
 </body>
