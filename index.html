@@ -25,6 +25,13 @@ var data = [
 {% endfor %}
 ]
 
+var status_types = {
+  SUCCESS: 0,
+  FAIL: 1,
+  WARN: 2
+}
+
+
 var table_types = {
   BRANCH: 0,
   PULL_REQUEST: 1,
@@ -51,45 +58,6 @@ function build_status_table(table_type, table_data)
     field_name = "tag_name";
   }
 
-  filtered_data.sort(
-      function(lhs, rhs) { 
-        var lhs_tag = lhs[field_name];
-        var rhs_tag = rhs[field_name];
-
-        if (lhs_tag == rhs_tag) {
-          // level 2 comparison here
-          if (lhs.device_id < rhs.device_id) {
-            return -1;
-          } else if (lhs.device_id > rhs.device_id) {
-            return 1;
-          } else if (lhs.device_id == rhs.device_id) {
-            // level 3 comparison here
-            return (new Date(rhs.date) - new Date(lhs.date));
-          }
-        }
-
-        if (field_name != "branch_name" && $.isNumeric(lhs_tag) && $.isNumeric(rhs_tag)) {
-          return lhs_tag - rhs_tag;
-        }
-
-        if (lhs_tag == "master" && rhs_tag != "master") {
-          return -1;
-        } else if (lhs_tag == "develop" && rhs_tag != "master" && rhs_tag != "develop") {
-          return -1;
-        } else if (lhs_tag != "master" && rhs_tag == "master") {
-          return 0;
-        } else if (lhs_tag != "develop" && lhs_tag != "master" && rhs_tag == "develop") {
-          return 1;
-        } else if (lhs_tag < rhs_tag) {
-          return -1;
-        } else if (lhs_tag == rhs_tag) {
-          return 0;
-        } else {
-          return 1;
-        }
-      }
-
-      );
 
   devices = {};
   for (var i = 0; i < filtered_data.length; ++i)
@@ -170,15 +138,310 @@ function build_status_table(table_type, table_data)
 
   // builds
 
+  keys = [];
 
-  document.writeln("</table>");
-
-
+  organized_data = {};
 
   for (var i = 0; i < filtered_data.length; ++i)
   {
-    document.writeln(filtered_data[i][field_name] + " " + filtered_data[i].device_id + " " + filtered_data[i].date + " " + filtered_data[i].title + "<br/>")
+    filtered_data[i].js_date = new Date(filtered_data[i].date);
+    var key_name = filtered_data[i][field_name];
+
+    if (keys.indexOf(key_name) == -1) {
+      keys.push(key_name);
+    }
+
+    if (!organized_data.hasOwnProperty(key_name)) {
+      organized_data[key_name] = {};
+      organized_data[key_name].last_date = new Date(0);
+      organized_data[key_name].last_sha = "";
+    }
+
+    var device_id = filtered_data[i].device_id;
+    if (!organized_data[key_name].hasOwnProperty(device_id)) {
+      organized_data[key_name][device_id] = {results: []};
+    }
+    if (organized_data[key_name].last_date < filtered_data[i].js_date) {
+      organized_data[key_name].last_date = filtered_data[i].js_date;
+      organized_data[key_name].last_sha = filtered_data[i].commit_sha;
+    }
+
+    var last_index = organized_data[key_name][device_id].results.push(filtered_data[i]) - 1;
+
+    if (devices[device_id].build) {
+      organized_data[key_name][device_id].results[last_index].build_status = function(){
+        if (filtered_data[i].build_error_count > 0) {
+          return status_types.FAIL;
+        } else if (filtered_data[i].build_warning_count > 0) {
+          return status_types.WARN;
+        } else {
+          return status_types.SUCCESS;
+        }
+      }();
+    }
+
+    if (devices[device_id].package) {
+      organized_data[key_name][device_id].results[last_index].package_status = function(){
+        if (filtered_data[i].package_error_count > 0) {
+          return status_types.FAIL;
+        } else if (filtered_data[i].package_warning_count > 0) {
+          return status_types.WARN;
+        } else {
+          return status_types.SUCCESS;
+        }
+      }();
+    }
+
+    if (devices[device_id].coverage) {
+      organized_data[key_name][device_id].results[last_index].coverage_status = function(){
+        var coverage_percent = 100 * (filtered_data[i].coverage_lines / filtered_data[i].coverage_total_lines);
+        if (coverage_percent >= filtered_data[i].coverage_pass_limit) {
+          return status_types.SUCCESS;
+        } else if (coverage_percent >= filtered_data[i].coverage_warn_limit) {
+          return status_types.WARN;
+        } else {
+          return status_types.FAIL;
+        }
+      }();
+    }
+
+    if (devices[device_id].test) {
+      organized_data[key_name][device_id].results[last_index].test_status = function(){
+        var test_percent = (filtered_data[i].test_count == 0)?(100):(100 * (filtered_data[i].test_count / filtered_data[i].test_passed_count));
+        var test_warn_limit = filtered_data[i].hasOwnProperty("test_warn_limit")?filtered_data[i].test_warn_limit:99.99;
+        var test_pass_limit = filtered_data[i].hasOwnProperty("test_pass_limit")?filtered_data[i].test_pass_limit:90.00;
+
+        if (test_percent >= test_pass_limit) {
+          return status_types.SUCCESS;
+        } else if (test_percent >= test_warn_limit) {
+          return status_types.WARN;
+        } else {
+          return status_types.FAIL;
+        }
+      }();
+    }
   }
+
+
+  keys.sort(
+      function(lhs, rhs) { 
+
+        if (field_name != "branch_name" && $.isNumeric(lhs) && $.isNumeric(rhs)) {
+          return lhs - rhs;
+        }
+
+        if (lhs == "master" && rhs != "master") {
+          return -1;
+        } else if (lhs == "develop" && rhs != "master" && rhs != "develop") {
+          return -1;
+        } else if (lhs != "master" && rhs == "master") {
+          return 1;
+        } else if (lhs != "develop" && lhs != "master" && rhs == "develop") {
+          return 1;
+        } else if (lhs < rhs) {
+          return -1;
+        } else if (lhs == rhs) {
+          return 0;
+        } else {
+          return 1;
+        }
+      }
+
+      );
+
+  for (var i = 0; i < keys.length; ++i)
+  {
+    var key = keys[i];
+
+    var key_status = status_types.SUCCESS;
+    var key_pending = false;
+
+    for (var j = 0; j < device_ids.length; ++j) {
+      var device_id = device_ids[j];
+
+      if (!organized_data[key].hasOwnProperty(device_id)) {
+        organized_data[key][device_id] = {results: []};
+      }
+
+      organized_data[key][device_id].results.sort(
+          function(lhs, rhs) {
+            return lhs.js_date - rhs.js_date;
+          }
+          )
+
+
+      var active_result = 
+        function(){
+          for (var k = 0; k < organized_data[key][device_id].results.length; ++k)
+          {
+            if (organized_data[key][device_id].results[k].commit_sha == organized_data[key].last_sha) {
+              return [k, false];
+            }
+          }
+
+          // else
+          return [organized_data[key][device_id].results.length - 1, true];
+        }();
+
+      organized_data[key][device_id].active_result = active_result[0];
+      organized_data[key][device_id].out_of_date = active_result[1];
+
+      key_pending = key_pending || (active_result[0] > -1 && organized_data[key][device_id].results[active_result[0]].pending);
+
+      var normalize_status = function(lhs, rhs) {
+        if (lhs == status_types.FAIL || rhs == status_types.FAIL) {
+          return status_types.FAIL;
+        } else if (lhs == status_types.WARN || rhs == status_types.WARN) {
+          return status_types.WARN;
+        } else {
+          return status_types.SUCCESS;
+        }
+      };
+
+      if (active_result[0] > -1) {
+        if (organized_data[key][device_id].results[active_result[0]].unhandled_failure) {
+          key_status = status_types.FAIL;
+        } else {
+          key_status = 
+            normalize_status(key_status, 
+                normalize_status(organized_data[key][device_id].results[active_result[0]].build_status,
+                  normalize_status(organized_data[key][device_id].results[active_result[0]].test_status,
+                    normalize_status(organized_data[key][device_id].results[active_result[0]].package_status,
+                      organized_data[key][device_id].results[active_result[0]].coverage_status)
+                    )
+                  )
+                );
+        }
+      }
+
+    }
+
+    organized_data[key].status = key_status;
+    organized_data[key].pending = key_pending;
+  }
+
+
+  var github_icon = "";
+  var base_url = "";
+
+  if (key_name == "branch_name") {
+    github_icon = "<span class='octicon octicon-git-branch'></span>";
+    base_url = "{{ base_branch_url }}";
+  } else if (key_name == "pull_request_issue_id") {
+    github_icon = "<span class='octicon octicon-git-pull-request'></span>";
+    base_url = "{{ base_pull_request_url }}";
+  } else if (key_name == "tag_name") {
+    github_icon = "<span class='octicon octicon-tag'></span>";
+    base_url = "{{ base_release_url }}";
+  }
+
+  for (var i = 0; i < keys.length; ++i)
+  {
+    var key = keys[i];
+    var row_style = function() {
+      if (key == "develop" || key == "master") {
+        return "style='border-top:2px dashed gray; border-bottom:2px dashed gray'";
+      } else {
+        return "";
+      }
+    }();
+    document.writeln("<tr " + row_style +  ">");
+
+    var github_status = 
+      function() {
+        if (organized_data[key].status == status_types.FAIL) {
+          return "<p class='text-danger'><span class='octicon octicon-x'></span></p>";
+        } else if (organized_data[key].pending) {
+          return "<p class='text-warning'><fa fa-cog fa-spin'></span></p>";
+        } else if (organized_data[key].status == status_types.WARN) {
+          return "<p class='text-warning'><span class='octicon octicon-check'></span></p>";
+        } else {
+          return "<p class='text-success'><span class='octicon octicon-check'></span></p>";
+        }
+      }();
+
+
+
+    document.writeln("<td><h5>" + github_icon + "<a href='" + base_url + "/" + key + "'>" + key + "</a><small><br/><a href='{{base_commit_url}}/" + organized_data[key].last_sha + "'>" + organized_data[key].last_sha.substr(0,12) + "...</a></small>" + github_status + "</h5></td>");
+
+    var build_status_cell = function(has_data, num_errors, num_warnings, status_type, num_tests, failure_type, pending, is_left_cell, message_override) {
+      var message = function(){
+        if (!has_data) {
+          return "No Data";
+        } else if (pending) {
+          return "Pending";
+        } else if (message_override != null) {
+          return message_override;
+        } else if (num_errors > 0 && num_warnings > 0) {
+          return failure_type + " / Warnings";
+        } else if (num_errors > 0) {
+          return failure_type;
+        } else if (num_warnings > 0) {
+          return "Warnings";
+        } else {
+          return "Success";
+        }
+      }();
+
+      var cell_class = function(){
+        if (!has_data) {
+          return "info no-data";
+        } else if (pending) {
+          return "warning";
+        } else if (status_type == status_types.WARN) {
+          return "warning";
+        } else if (status_type == status_types.FAIL) {
+          return "danger";
+        } else {
+          return "success";
+        }
+      }();
+
+      return "<td " + (is_left_cell?"style='border-left:2px solid gray'":"") + " class='" + cell_class + "'>" +
+        "<div class='table-box'><h6>" + message + "</h6></div></td>";
+    }
+
+    for (var j = 0; j < device_ids.length; ++j) {
+      var device_id = device_ids[j];
+      var result = null;
+      if (organized_data[key][device_id].active_result > -1) {
+        result = organized_data[key][device_id].results[organized_data[key][device_id].active_result];
+      }
+
+      var pending = result==null?false:result.pending;
+
+      if (devices[device_id].build) {
+        var error_count = result==null?0:result.build_error_count;
+        var warning_count = result==null?0:result.build_warning_count;
+        var status = result==null?null:result.build_status;
+        document.writeln(build_status_cell(result != null, error_count, warning_count, status, null, "Errors", pending, true, null));
+      }
+      if (devices[device_id].test) {
+        var error_count = result==null?0:result.test_error_count;
+        var warning_count = result==null?0:result.test_warning_count;
+        var status = result==null?null:result.test_status;
+        var test_count = result==null?null:result.test_count;
+        document.writeln(build_status_cell(result != null, error_count, warning_count, status, test_count, "Failures", pending, false, null));
+      }
+      if (devices[device_id].package) {
+        var error_count = result==null?0:result.package_error_count;
+        var warning_count = result==null?0:result.package_warning_count;
+        var status = result==null?null:result.package_status;
+        document.writeln(build_status_cell(result != null, error_count, warning_count, status, null, "Errors", pending, false, null));
+      }
+      if (devices[device_id].coverage) {
+        var total_lines = result==null?null:result.coverage_total_lines;
+        document.writeln(build_status_cell(result != null, 0, 0, status, total_lines, "Errors", pending, false, "Percent Lines Covered"));
+      }
+    }
+
+    document.writeln("</tr>");
+  }
+
+
+
+  document.writeln("</table>");
+
 }
 
 build_status_table(table_types.BRANCH, data);
