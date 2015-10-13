@@ -20,6 +20,67 @@ title: Home Page
   </div>
 
   <script>
+var width = 80;
+var height = 25;
+var x = d3.scale.linear().range([0, width - 2]);
+var y = d3.scale.linear().range([height - 4, 0]);
+var line = d3.svg.line()
+  //  .interpolate("basis")
+  .x(function(d) { return x(d.x); })
+  .y(function(d) { return y(d.y); });
+
+function sparkline(elemId, data) {
+  x.domain(d3.extent(data, function(d) { return d.x; }));
+  y.domain(d3.extent(data, function(d) { return d.y; }));
+
+  var svg = d3.select(elemId)
+    .append('svg')
+    .attr('width', width)
+    .attr('height', height)
+    .append('g')
+    .attr('transform', 'translate(0, 2)');
+
+  svg.append('path')
+    .datum(data)
+    .attr('class', 'path')
+    .attr('d', line);
+ 
+  for (var i = 0; i < data.length; ++i)
+  {
+    svg.append('circle')
+      .attr('class', 'circle')
+      .attr('cx', x(data[i].x))
+      .attr('cy', y(data[i].y))
+      .attr('r', 1.7);
+
+    if (i == 0)
+    {
+      var url = "{{ base_commit_url }}/" + data[i].sha;
+    } else {
+      var url = "{{ base_compare_url }}/" + data[i-1].sha + "..." + data[i].sha;
+    }
+
+    svg.append('a').attr("xlink:href", url)
+      .append('circle')
+        .attr('class', 'mouse-over-circle')
+        .attr('cx', x(data[i].x))
+        .attr('cy', y(data[i].y))
+        .attr('r', 5.5)
+        .append('svg:title')
+          .text(data[i].y + " messages\nsha: " + data[i].sha);
+  }
+}
+
+
+
+
+
+var num_sparklines = 0;
+
+
+
+
+
 var data = [
 {% for p in site.posts %} {% capture: jsonstring %}{% for d in p %}{% if d[0] != "next" and d[0] != "previous" and d[0] != "content" and d[0] != "excerpt" %}"{{ d[0] }}":{{ d[1] | jsonify }},{% endif %}{% endfor %}{% endcapture %} { {{ jsonstring }} }, 
 {% endfor %}
@@ -43,19 +104,28 @@ function build_status_table(table_type, table_data)
   var filtered_data = null;
   var table_name = "";
   var field_name = "";
+  var github_icon = "";
+  var base_url = "";
+
 
   if (table_type == table_types.BRANCH) {
     table_name = "Branches";
     filtered_data = table_data.filter(function(o) { return o.pull_request_issue_id == "" && o.is_release == false });
     field_name = "branch_name";
+    github_icon = "<span class='octicon octicon-git-branch'></span>";
+    base_url = "{{ base_branch_url }}";
   } else if (table_type == table_types.PULL_REQUEST) {
     table_name = "External Pull Requests";
     filtered_data = table_data.filter(function(o) { return o.pull_request_issue_id != "" && o.is_release == false });
     field_name = "pull_request_issue_id";
+    github_icon = "<span class='octicon octicon-git-pull-request'></span>";
+    base_url = "{{ base_pull_request_url }}";
   } else if (table_type == table_types.RELEASE) {
     table_name = "Releases";
     filtered_data = table_data.filter(function(o) { return o.is_release == true});
     field_name = "tag_name";
+    github_icon = "<span class='octicon octicon-tag'></span>";
+    base_url = "{{ base_release_url }}";
   }
 
 
@@ -207,6 +277,10 @@ function build_status_table(table_type, table_data)
 
     if (devices[device_id].test) {
       organized_data[key_name][device_id].results[last_index].test_status = function(){
+        if (filtered_data[i].test_run == false) {
+          return status_types.FAIL;
+        }
+
         var test_percent = (filtered_data[i].test_count == 0)?(100):(100 * (filtered_data[i].test_passed_count / filtered_data[i].test_count));
         var test_warn_limit = filtered_data[i].hasOwnProperty("test_warn_limit")?filtered_data[i].test_warn_limit:99.99;
         var test_pass_limit = filtered_data[i].hasOwnProperty("test_pass_limit")?filtered_data[i].test_pass_limit:90.00;
@@ -321,19 +395,6 @@ function build_status_table(table_type, table_data)
   }
 
 
-  var github_icon = "";
-  var base_url = "";
-
-  if (key_name == "branch_name") {
-    github_icon = "<span class='octicon octicon-git-branch'></span>";
-    base_url = "{{ base_branch_url }}";
-  } else if (key_name == "pull_request_issue_id") {
-    github_icon = "<span class='octicon octicon-git-pull-request'></span>";
-    base_url = "{{ base_pull_request_url }}";
-  } else if (key_name == "tag_name") {
-    github_icon = "<span class='octicon octicon-tag'></span>";
-    base_url = "{{ base_release_url }}";
-  }
 
   for (var i = 0; i < keys.length; ++i)
   {
@@ -421,7 +482,11 @@ function build_status_table(table_type, table_data)
         if (pending || !has_data) {
           return "";
         } else if (num_tests != null) {
-          return Math.floor(100 * (num_passed / num_tests)) + "%";
+          if (num_tests == 0) {
+            return "NA";
+          } else {
+            return Math.floor(100 * (num_passed / num_tests)) + "%";
+          }
         } else {
           return num_errors + " / " + num_warnings;
         }
@@ -471,7 +536,7 @@ function build_status_table(table_type, table_data)
       return "<td " + (is_left_cell?"style='border-left:2px solid gray'":"") + " class='" + cell_class + "'>" +
         "<div class='table-box'><h6><a href='"+url+"'>" + message + "<span class='badge pull-right'>" + badge + "</span></a>" +
         "<br/><small>" + time + "<br/>" + commit + "</small> " + out_of_date +
-        "</h6>" + coverage + asset + release + "</div></td>";
+        "</h6>" + coverage + asset + release + "<div id='sparkline-" + (++num_sparklines) + "' class='float-bottom'></div></div></td>";
 
     }
 
@@ -497,6 +562,14 @@ function build_status_table(table_type, table_data)
         var coverage_url = null;
         var is_out_of_date = result==null?false:(result.commit_sha != organized_data[key].last_sha);
         document.writeln(build_status_cell(result != null, run_time, error_count, warning_count, status, null, null, "Errors", pending, true, null, unhandled_failure, baseurl+"#build", commit_url, asset_url, release_url, coverage_url, is_out_of_date));
+
+        if (table_type != table_types.RELEASE) {
+          sparkline('#sparkline-' + num_sparklines, organized_data[key][device_id].results.map(
+                function(element, index, array){
+                  return { x: index, y: element.build_error_count + element.build_warning_count, sha: element.commit_sha };
+                })
+              );
+        }
       }
       if (devices[device_id].test) {
         var passed_count = result==null?0:result.test_passed_count;
@@ -508,7 +581,15 @@ function build_status_table(table_type, table_data)
         var release_url = null;
         var coverage_url = null;
         var is_out_of_date = false;
-        document.writeln(build_status_cell(result != null, run_time, null, null, status, passed_count, test_count, "Failures", pending, false, null, unhandled_failure, baseurl+"#test", commit_url, asset_url, release_url, coverage_url, is_out_of_date));
+        document.writeln(build_status_cell(result != null && !result.analyze_only, run_time, null, null, status, passed_count, test_count, "Failures", pending, false, null, unhandled_failure, baseurl+"#test", commit_url, asset_url, release_url, coverage_url, is_out_of_date));
+
+        if (table_type != table_types.RELEASE) {
+          sparkline('#sparkline-' + num_sparklines, organized_data[key][device_id].results.map(
+                function(element, index, array){
+                  return { x: index, y: element.test_count  - element.test_passed_count, sha: element.commit_sha };
+                })
+              );
+        }
       }
       if (devices[device_id].package) {
         var error_count = result==null?0:result.package_error_count;
@@ -520,7 +601,24 @@ function build_status_table(table_type, table_data)
         var release_url = result==null?null:("{{base_release_url}}/"+result.tag_name);
         var coverage_url = null;
         var is_out_of_date = false;
-        document.writeln(build_status_cell(result != null, run_time, error_count, warning_count, status, null, null, "Errors", pending, false, null, unhandled_failure, baseurl+"#package", commit_url, asset_url, release_url, coverage_url, is_out_of_date));
+        var message = function(){
+          if (result == null) {
+            return null;
+          } else if (!result.test_run) {
+            return "Not Run";
+          } else {
+            return null;
+          }
+        }();
+
+        document.writeln(build_status_cell(result != null && !result.packaging_skipped, run_time, error_count, warning_count, status, null, null, "Errors", pending, false, message, unhandled_failure, baseurl+"#package", commit_url, asset_url, release_url, coverage_url, is_out_of_date));
+        if (table_type != table_types.RELEASE) {
+          sparkline('#sparkline-' + num_sparklines, organized_data[key][device_id].results.map(
+                function(element, index, array){
+                  return { x: index, y: element.package_warning_count + element.package_error_count, sha: element.commit_sha };
+                })
+              );
+        }
       }
       if (devices[device_id].coverage) {
         var lines = result==null?null:result.coverage_lines;
@@ -530,7 +628,14 @@ function build_status_table(table_type, table_data)
         var release_url = null;
         var coverage_url = result==null?null:result.coverage_url;
         var is_out_of_date = false;
-        document.writeln(build_status_cell(result != null, null, 0, 0, status, lines, total_lines, "Errors", pending, false, "Percent Lines Covered", unhandled_failure, baseurl+"#coverage", commit_url, asset_url, release_url, coverage_url, is_out_of_date));
+        document.writeln(build_status_cell(result != null && result.coverage_enabled, null, 0, 0, status, lines, total_lines, "Errors", pending, false, "Percent Lines Covered", unhandled_failure, baseurl+"#coverage", commit_url, asset_url, release_url, coverage_url, is_out_of_date));
+        if (table_type != table_types.RELEASE) {
+          sparkline('#sparkline-' + num_sparklines, organized_data[key][device_id].results.map(
+                     function(element, index, array){
+                       return { x: index, y: element.coverage_lines / element.coverage_total_lines, sha: element.commit_sha };
+                     })
+            );
+        }
       }
     }
 

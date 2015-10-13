@@ -1,3 +1,5 @@
+{% assign base_repository = site.posts[0].repository %}
+
 {% assign base_branch_url = "https://github.com/" | append: base_repository | append: "/tree" %}
 {% assign base_pull_request_url = "https://github.com/" | append: base_repository | append: "/pull" %}
 {% assign base_release_url = "https://github.com/" | append: base_repository | append: "/releases/tag" %}
