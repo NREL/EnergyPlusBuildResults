@@ -207,13 +207,13 @@ function build_status_table(table_type, table_data)
 
     if (devices[device_id].test) {
       organized_data[key_name][device_id].results[last_index].test_status = function(){
-        var test_percent = (filtered_data[i].test_count == 0)?(100):(100 * (filtered_data[i].test_count / filtered_data[i].test_passed_count));
+        var test_percent = (filtered_data[i].test_count == 0)?(100):(100 * (filtered_data[i].test_passed_count / filtered_data[i].test_count));
         var test_warn_limit = filtered_data[i].hasOwnProperty("test_warn_limit")?filtered_data[i].test_warn_limit:99.99;
         var test_pass_limit = filtered_data[i].hasOwnProperty("test_pass_limit")?filtered_data[i].test_pass_limit:90.00;
 
-        if (test_percent >= test_pass_limit) {
+        if (test_percent >= test_warn_limit) {
           return status_types.SUCCESS;
-        } else if (test_percent >= test_warn_limit) {
+        } else if (test_percent >= test_pass_limit) {
           return status_types.WARN;
         } else {
           return status_types.FAIL;
@@ -361,15 +361,18 @@ function build_status_table(table_type, table_data)
       }();
 
 
+    var sha_link = organized_data[key].last_sha==null?"":("<a href='{{base_commit_url}}/" + organized_data[key].last_sha + "'>" + organized_data[key].last_sha.substr(0,12) + "...</a>");
 
-    document.writeln("<td><h5>" + github_icon + "<a href='" + base_url + "/" + key + "'>" + key + "</a><small><br/><a href='{{base_commit_url}}/" + organized_data[key].last_sha + "'>" + organized_data[key].last_sha.substr(0,12) + "...</a></small>" + github_status + "</h5></td>");
+    document.writeln("<td><h5>" + github_icon + "<a href='" + base_url + "/" + key + "'>" + key + "</a><small><br/>" + sha_link + "</small>" + github_status + "</h5></td>");
 
-    var build_status_cell = function(has_data, num_errors, num_warnings, status_type, num_tests, failure_type, pending, is_left_cell, message_override) {
+    var build_status_cell = function(has_data, run_time, num_errors, num_warnings, status_type, num_passed, num_tests, failure_type, pending, is_left_cell, message_override, unhandled_failure, url, commit_url, asset_url, release_url, coverage_url, is_out_of_date) {
       var message = function(){
         if (!has_data) {
           return "No Data";
         } else if (pending) {
           return "Pending";
+        } else if (unhandled_failure) {
+          return "Unhandled Failure";
         } else if (message_override != null) {
           return message_override;
         } else if (num_errors > 0 && num_warnings > 0) {
@@ -378,14 +381,31 @@ function build_status_table(table_type, table_data)
           return failure_type;
         } else if (num_warnings > 0) {
           return "Warnings";
+        } else if (status_type == status_types.FAIL) {
+          return failure_type;
+        } else if (status_type == status_types.WARN) {
+          return "Warnings";
         } else {
           return "Success";
         }
       }();
 
+
+      var time = function(){
+        if (pending || run_time == null)
+        {
+          return "";
+        } else {
+          return (Math.round(run_time * 100) / 100) + "s";
+        }
+      }();
+
+
       var cell_class = function(){
         if (!has_data) {
           return "info no-data";
+        } else if (unhandled_failure) {
+          return "Unhandled Failure";
         } else if (pending) {
           return "warning";
         } else if (status_type == status_types.WARN) {
@@ -397,8 +417,62 @@ function build_status_table(table_type, table_data)
         }
       }();
 
+      var badge = function(){
+        if (pending || !has_data) {
+          return "";
+        } else if (num_tests != null) {
+          return Math.floor(100 * (num_passed / num_tests)) + "%";
+        } else {
+          return num_errors + " / " + num_warnings;
+        }
+      }();
+
+      var out_of_date = function() {
+        if (is_out_of_date) {
+          return "<span title='Build is out of date.'><i class='fa fa-clock-o'></i></span>";
+        } else {
+          return "";
+        }
+      }();
+
+      var asset = function() {
+        if (asset_url != null) {
+          return "<a href='" + asset_url + "'><i class='fa fa-file-text-o'></i></a>";
+        } else {
+          return "";
+        }
+      }();
+
+      var coverage = function() {
+        if (coverage_url != null) {
+          return "<a href='" + coverage_url + "'><i class='fa fa-eye'></i></a>";
+        } else {
+          return "";
+        }
+      }();
+
+
+      var release = function() {
+        if (release_url != null) {
+          return "<a href='" + release_url + "'><i class='fa fa-cloud-download'></i></a>";
+        } else {
+          return "";
+        }
+      }();
+
+      var commit = function() {
+        if (commit_url != null) {
+          return commit_url;
+        } else {
+          return "";
+        }
+      }();
+
       return "<td " + (is_left_cell?"style='border-left:2px solid gray'":"") + " class='" + cell_class + "'>" +
-        "<div class='table-box'><h6>" + message + "</h6></div></td>";
+        "<div class='table-box'><h6><a href='"+url+"'>" + message + "<span class='badge pull-right'>" + badge + "</span></a>" +
+        "<br/><small>" + time + "<br/>" + commit + "</small> " + out_of_date +
+        "</h6>" + coverage + asset + release + "</div></td>";
+
     }
 
     for (var j = 0; j < device_ids.length; ++j) {
@@ -409,29 +483,54 @@ function build_status_table(table_type, table_data)
       }
 
       var pending = result==null?false:result.pending;
-
+      var unhandled_failure = result==null?false:result.unhandled_failure;
+      var baseurl = result==null?".":(".") + result.url;
+      // has_data, run_time, num_errors, num_warnings, status_type, num_passed, num_tests, failure_type, pending, is_left_cell, message_override, unhandled_failure, url, commit_url, asset_url, release_url, coverage_url, is_out_of_date
       if (devices[device_id].build) {
         var error_count = result==null?0:result.build_error_count;
         var warning_count = result==null?0:result.build_warning_count;
         var status = result==null?null:result.build_status;
-        document.writeln(build_status_cell(result != null, error_count, warning_count, status, null, "Errors", pending, true, null));
+        var run_time = result==null?null:result.build_time;
+        var commit_url = (result==null||result.commit_sha==null)?null:"<a href='{{base_commit_url}}/" + result.commit_sha + "'>" + result.commit_sha.substr(0, 11) + "</a>";
+        var asset_url = result==null?null:result.asset_url;
+        var release_url = null;
+        var coverage_url = null;
+        var is_out_of_date = result==null?false:(result.commit_sha != organized_data[key].last_sha);
+        document.writeln(build_status_cell(result != null, run_time, error_count, warning_count, status, null, null, "Errors", pending, true, null, unhandled_failure, baseurl+"#build", commit_url, asset_url, release_url, coverage_url, is_out_of_date));
       }
       if (devices[device_id].test) {
-        var error_count = result==null?0:result.test_error_count;
-        var warning_count = result==null?0:result.test_warning_count;
+        var passed_count = result==null?0:result.test_passed_count;
         var status = result==null?null:result.test_status;
         var test_count = result==null?null:result.test_count;
-        document.writeln(build_status_cell(result != null, error_count, warning_count, status, test_count, "Failures", pending, false, null));
+        var run_time = result==null?null:result.test_time;
+        var commit_url = null;
+        var asset_url = null;
+        var release_url = null;
+        var coverage_url = null;
+        var is_out_of_date = false;
+        document.writeln(build_status_cell(result != null, run_time, null, null, status, passed_count, test_count, "Failures", pending, false, null, unhandled_failure, baseurl+"#test", commit_url, asset_url, release_url, coverage_url, is_out_of_date));
       }
       if (devices[device_id].package) {
         var error_count = result==null?0:result.package_error_count;
         var warning_count = result==null?0:result.package_warning_count;
         var status = result==null?null:result.package_status;
-        document.writeln(build_status_cell(result != null, error_count, warning_count, status, null, "Errors", pending, false, null));
+        var run_time = result==null?null:result.package_time;
+        var commit_url = null;
+        var asset_url = null;
+        var release_url = result==null?null:("{{base_release_url}}/"+result.tag_name);
+        var coverage_url = null;
+        var is_out_of_date = false;
+        document.writeln(build_status_cell(result != null, run_time, error_count, warning_count, status, null, null, "Errors", pending, false, null, unhandled_failure, baseurl+"#package", commit_url, asset_url, release_url, coverage_url, is_out_of_date));
       }
       if (devices[device_id].coverage) {
+        var lines = result==null?null:result.coverage_lines;
         var total_lines = result==null?null:result.coverage_total_lines;
-        document.writeln(build_status_cell(result != null, 0, 0, status, total_lines, "Errors", pending, false, "Percent Lines Covered"));
+        var commit_url = null;
+        var asset_url = null;
+        var release_url = null;
+        var coverage_url = result==null?null:result.coverage_url;
+        var is_out_of_date = false;
+        document.writeln(build_status_cell(result != null, null, 0, 0, status, lines, total_lines, "Errors", pending, false, "Percent Lines Covered", unhandled_failure, baseurl+"#coverage", commit_url, asset_url, release_url, coverage_url, is_out_of_date));
       }
     }
 
