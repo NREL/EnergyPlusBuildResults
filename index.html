@@ -9,15 +9,45 @@ title: Home Page
 
 {% include common_variables.html %}
 
-
 <body>
-  <ol class="breadcrumb">
-    <li>Dashboard</li>
-  </ol>
+  <script>
+
+var query = $.parseQuery();
+
+function reloadPage(linux, windows, macos, activeonly)
+{
+  var loc = window.location.href.split('?')[0];
+  window.location.href=loc + "?linux=" + linux + "&windows=" + windows + "&macos=" + macos + "&activeonly=" + activeonly;
+}
+
+var linux_enabled = (query["linux"] || query["linux"] == null) && query["linux"] != "false";
+var windows_enabled = (query["windows"] || query["windows"] == null) && query["windows"] != "false";
+var macos_enabled = (query["macos"] || query["macos"] == null) && query["macos"] != "false";
+var active_data_only = (query["activeonly"] || query["activeonly"] == null) && query["activeonly"] != "false";
+
+if (active_data_only) {
+  document.writeln("<ol class='breadcrumb'><li><a href='full_dashboard.html'>Full Dashboard</a></li><li>Active Dashboard</li></ol>");
+} else {
+  document.writeln("<ol class='breadcrumb'><li>Full Dashboard</li><li><a href='index.html'>Active Dashboard</a></li></ol>");
+}
+
+  </script>
+
 
   <div class="page-header">
     <h1>Dashboard for {{ dashboard_title }}</h1>
   </div>
+
+
+  <script>
+
+document.writeln("<button type='button' onclick='reloadPage(linux_enabled, windows_enabled, macos_enabled, !active_data_only)' class='btn btn-default " + (active_data_only?'active':'') + "'>Active Data Only</button>");
+document.writeln("<button type='button' onclick='reloadPage(!linux_enabled, windows_enabled, macos_enabled, active_data_only)' class='btn btn-default " + (linux_enabled?'active':'') + "'>Show Linux</button>");
+document.writeln("<button type='button' onclick='reloadPage(linux_enabled, !windows_enabled, macos_enabled, active_data_only)' class='btn btn-default " + (windows_enabled?'active':'') + "'>Show Windows</button>");
+document.writeln("<button type='button' onclick='reloadPage(linux_enabled, windows_enabled, !macos_enabled, active_data_only)' class='btn btn-default " + (macos_enabled?'active':'') + "'>Show MacOS</button>");
+document.writeln("<br/><br/>");
+
+  </script>
 
   <script>
 var width = 80;
@@ -128,6 +158,34 @@ function build_status_table(table_type, table_data)
     base_url = "{{ base_release_url }}";
   }
 
+  filtered_data = filtered_data.filter(function(o) {
+    if (windows_enabled && o.device_id.indexOf("Win") != -1) {
+      return true;
+    } else if (linux_enabled && o.device_id.indexOf("Linux") != -1) {
+      return true;
+    } else if (macos_enabled && o.device_id.indexOf("Mac") != -1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  );
+
+  for (var i = 0; i < filtered_data.length; ++i)
+  {
+    filtered_data[i].js_date = new Date(filtered_data[i].date);
+  }
+
+
+  var min_date = new Date(0);
+  if (active_data_only) {
+    var min_date = new Date((new Date()) - 8 * 24 * 60 * 60 * 1000);
+  }
+
+  filtered_data = filtered_data.filter(function(o) {
+    return o.js_date >= min_date;
+  });
+
 
   devices = {};
   for (var i = 0; i < filtered_data.length; ++i)
@@ -214,7 +272,7 @@ function build_status_table(table_type, table_data)
 
   for (var i = 0; i < filtered_data.length; ++i)
   {
-    filtered_data[i].js_date = new Date(filtered_data[i].date);
+
     var key_name = filtered_data[i][field_name];
 
     if (keys.indexOf(key_name) == -1) {
