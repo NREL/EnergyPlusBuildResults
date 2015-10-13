@@ -1,0 +1,9 @@
+{
+  "name": "jquery-parsequery",
+  "version": "1.0.0",
+  "main": "jquery.parsequery.js",
+  "keywords": ["URL", "url parser"],
+  "ignore": [],
+  "dependencies": {},
+  "devDependencies": {}
+}
