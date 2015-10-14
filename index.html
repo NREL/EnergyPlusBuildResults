@@ -220,8 +220,6 @@ function build_status_table(table_type, table_data)
     }
   }
 
-  document.writeln(allowed_keys)
-
   filtered_data = filtered_data.filter(function(o) {
     return allowed_devices.indexOf(o.device_id) != -1 &&
       allowed_keys.indexOf(o[field_name]) != -1;
