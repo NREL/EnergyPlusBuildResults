@@ -7,6 +7,14 @@ title: Home Page
 {% include common.html %}
 </head>
 
+{% for post in site.posts %}
+{% if post.pull_request_issue_id == "" and post.repository %}
+{% capture base_repository %}{{ post.repository }}{% endcapture %}
+{% capture results_repository %}{{ post.results_repository }}{% endcapture %}
+{% break %}
+{% endif %}
+{% endfor %}
+
 {% include common_variables.html %}
 
 <body>
@@ -60,7 +68,7 @@ var line = d3.svg.line()
   .y(function(d) { return y(d.y); });
 
 function sparkline(elemId, indata) {
-  data = [];
+  var data = [];
 
   for (var i = 0; i < indata.length; ++i){
     if (!isNaN(indata[i].x) && !isNaN(indata[i].y)) {
@@ -197,8 +205,8 @@ function build_status_table(table_type, table_data)
     min_date = new Date(max_date - 4 * 24 * 60 * 60 * 1000);
   }
 
-  allowed_devices = [];
-  allowed_keys = [];
+  var allowed_devices = [];
+  var allowed_keys = [];
 
   for (var i = 0; i < filtered_data.length; ++i)
   {
@@ -211,6 +219,8 @@ function build_status_table(table_type, table_data)
       }
     }
   }
+
+  document.writeln(allowed_keys)
 
   filtered_data = filtered_data.filter(function(o) {
     return allowed_devices.indexOf(o.device_id) != -1 &&
@@ -297,9 +307,9 @@ function build_status_table(table_type, table_data)
 
   // builds
 
-  keys = [];
+  var keys = [];
 
-  organized_data = {};
+  var organized_data = {};
 
   for (var i = 0; i < filtered_data.length; ++i)
   {
