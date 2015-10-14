@@ -189,7 +189,13 @@ function build_status_table(table_type, table_data)
 
   for (var i = 0; i < filtered_data.length; ++i)
   {
-    filtered_data[i].js_date = new Date(filtered_data[i].date);
+    var parsed_date = Date.parse(filtered_data[i].date);
+
+    if (isNaN(parsed_date)) {
+      parsed_date = Date.parse(filtered_data[i].date.replace(/ /, "T").replace(/ /, ""));
+    }
+
+    filtered_data[i].js_date = new Date(parsed_date);
   }
 
   var min_date = new Date(0);
