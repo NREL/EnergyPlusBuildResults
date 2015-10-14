@@ -1,4 +1,11 @@
-{% assign base_repository = site.posts[0].repository %}
+
+{% for post in site.posts %}
+{% if post.pull_request_issue_id == "" and post.repository %}
+{% capture base_repository %}{{ post.repository }}{% endcapture %}
+{% capture results_repository %}{{ post.results_repository }}{% endcapture %}
+{% break %}
+{% endif %}
+{% endfor %}
 
 {% assign base_branch_url = "https://github.com/" | append: base_repository | append: "/tree" %}
 {% assign base_pull_request_url = "https://github.com/" | append: base_repository | append: "/pull" %}
@@ -7,5 +14,5 @@
 {% assign base_compare_url = "https://github.com/" | append: base_repository | append: "/compare" %}
 {% assign base_delete_url = "https://github.com/" | append: results_repository | append: "/delete/gh-pages" %}
 
-{% assign dashboard_title = site.posts[0].repository %}
+{% assign dashboard_title = base_repository %}
 

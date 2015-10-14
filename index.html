@@ -59,7 +59,15 @@ var line = d3.svg.line()
   .x(function(d) { return x(d.x); })
   .y(function(d) { return y(d.y); });
 
-function sparkline(elemId, data) {
+function sparkline(elemId, indata) {
+  data = [];
+
+  for (var i = 0; i < indata.length; ++i){
+    if (!isNaN(indata[i].x) && !isNaN(indata[i].y)) {
+      data.push(indata[i]);
+    }
+  }
+
   x.domain(d3.extent(data, function(d) { return d.x; }));
   y.domain(d3.extent(data, function(d) { return d.y; }));
 
@@ -74,7 +82,7 @@ function sparkline(elemId, data) {
     .datum(data)
     .attr('class', 'path')
     .attr('d', line);
- 
+
   for (var i = 0; i < data.length; ++i)
   {
     svg.append('circle')
@@ -92,12 +100,12 @@ function sparkline(elemId, data) {
 
     svg.append('a').attr("xlink:href", url)
       .append('circle')
-        .attr('class', 'mouse-over-circle')
-        .attr('cx', x(data[i].x))
-        .attr('cy', y(data[i].y))
-        .attr('r', 5.5)
-        .append('svg:title')
-          .text(data[i].y + " messages\nsha: " + data[i].sha);
+      .attr('class', 'mouse-over-circle')
+      .attr('cx', x(data[i].x))
+      .attr('cy', y(data[i].y))
+      .attr('r', 5.5)
+      .append('svg:title')
+      .text(data[i].y + " messages\nsha: " + data[i].sha);
   }
 }
 
@@ -140,7 +148,7 @@ function build_status_table(table_type, table_data)
 
   if (table_type == table_types.BRANCH) {
     table_name = "Branches";
-    filtered_data = table_data.filter(function(o) { return o.pull_request_issue_id == "" && o.is_release == false });
+    filtered_data = table_data.filter(function(o) { return o.pull_request_issue_id == "" && o.is_release == false && o.branch_name != null });
     field_name = "branch_name";
     github_icon = "<span class='octicon octicon-git-branch'></span>";
     base_url = "{{ base_branch_url }}";
@@ -176,14 +184,37 @@ function build_status_table(table_type, table_data)
     filtered_data[i].js_date = new Date(filtered_data[i].date);
   }
 
-
   var min_date = new Date(0);
+
   if (active_data_only) {
-    var min_date = new Date((new Date()) - 8 * 24 * 60 * 60 * 1000);
+    var max_date = new Date(0);
+    for (var i = 0; i < filtered_data.length; ++i)
+    {
+      if (filtered_data[i].js_date >= max_date) {
+        max_date = filtered_data[i].js_date;
+      }
+    }
+    min_date = new Date(max_date - 4 * 24 * 60 * 60 * 1000);
+  }
+
+  allowed_devices = [];
+  allowed_keys = [];
+
+  for (var i = 0; i < filtered_data.length; ++i)
+  {
+    if (filtered_data[i].js_date >= min_date) {
+      if (allowed_devices.indexOf(filtered_data[i].device_id) == -1) {
+        allowed_devices.push(filtered_data[i].device_id);
+      }
+      if (allowed_keys.indexOf(filtered_data[i][field_name]) == -1) {
+        allowed_keys.push(filtered_data[i][field_name]);
+      }
+    }
   }
 
   filtered_data = filtered_data.filter(function(o) {
-    return o.js_date >= min_date;
+    return allowed_devices.indexOf(o.device_id) != -1 &&
+      allowed_keys.indexOf(o[field_name]) != -1;
   });
 
 
@@ -482,7 +513,7 @@ function build_status_table(table_type, table_data)
 
     var sha_link = organized_data[key].last_sha==null?"":("<a href='{{base_commit_url}}/" + organized_data[key].last_sha + "'>" + organized_data[key].last_sha.substr(0,12) + "...</a>");
 
-    document.writeln("<td><h5>" + github_icon + "<a href='" + base_url + "/" + key + "'>" + key + "</a><small><br/>" + sha_link + "</small>" + github_status + "</h5></td>");
+    document.writeln("<td><h5>" + github_icon + "<a href='" + base_url + "/" + encodeURIComponent(key) + "'>" + key + "</a><small><br/>" + sha_link + "</small>" + github_status + "</h5></td>");
 
     var build_status_cell = function(has_data, run_time, num_errors, num_warnings, status_type, num_passed, num_tests, failure_type, pending, is_left_cell, message_override, unhandled_failure, url, commit_url, asset_url, release_url, coverage_url, is_out_of_date) {
       var message = function(){
