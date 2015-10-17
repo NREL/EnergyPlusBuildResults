@@ -243,7 +243,7 @@ function build_status_table(table_type, table_data)
 
     devices[device_id].build = true;
     devices[device_id].test = devices[device_id].test || !filtered_data[i].analyze_only;
-    devices[device_id].package = devices[device_id].package || filtered_data[i].is_release;
+    devices[device_id].package = devices[device_id].package || (filtered_data[i].is_release && !filtered_data[i].packaging_skipped);
     devices[device_id].coverage = devices[device_id].coverage || filtered_data[i].coverage_enabled;
   }
 
