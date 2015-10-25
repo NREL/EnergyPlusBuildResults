@@ -238,13 +238,14 @@ function build_status_table(table_type, table_data)
     var device_id = filtered_data[i].device_id;
 
     if (!devices.hasOwnProperty(device_id)) {
-      devices[device_id] = {build:false, test:false, package:false, coverage:false};
+      devices[device_id] = {build:false, test:false, package:false, coverage:false, performance:false};
     }
 
     devices[device_id].build = true;
     devices[device_id].test = devices[device_id].test || !filtered_data[i].analyze_only;
     devices[device_id].package = devices[device_id].package || (filtered_data[i].is_release && !filtered_data[i].packaging_skipped);
     devices[device_id].coverage = devices[device_id].coverage || filtered_data[i].coverage_enabled;
+    devices[device_id].performance = devices[device_id].performance || (filtered_data[i].performance_total_time != null);
   }
 
   device_ids = [];
@@ -267,7 +268,7 @@ function build_status_table(table_type, table_data)
   {
     var device_id = device_ids[i];
 
-    var colspan = (devices[device_id].build?1:0) + (devices[device_id].test?1:0) + (devices[device_id].package?1:0) + (devices[device_id].coverage?1:0);
+    var colspan = (devices[device_id].build?1:0) + (devices[device_id].test?1:0) + (devices[device_id].package?1:0) + (devices[device_id].coverage?1:0) + (devices[device_id].performance?1:0);
     var icon = function(){
       if (device_id.indexOf("Win") != -1) {
         return "<i class='fa fa-windows'></i>";
@@ -304,6 +305,10 @@ function build_status_table(table_type, table_data)
 
     if (devices[device_id].coverage) {
       document.writeln("<td><h5>Coverage</h5></td>");
+    }
+
+    if (devices[device_id].performance) {
+      document.writeln("<td><h5>Performance</h5></td>");
     }
   }
   document.writeln("</tr>");
@@ -377,6 +382,25 @@ function build_status_table(table_type, table_data)
         }
       }();
     }
+
+    if (devices[device_id].performance) {
+      organized_data[key_name][device_id].results[last_index].performance_status = function(){
+        return status_types.SUCCESS;
+      }();
+      /*
+         TODO MAKE THIS DYNAMIC STATUS
+        var coverage_percent = 100 * (filtered_data[i].coverage_lines / filtered_data[i].coverage_total_lines);
+        if (coverage_percent >= filtered_data[i].coverage_pass_limit) {
+          return status_types.SUCCESS;
+        } else if (coverage_percent >= filtered_data[i].coverage_warn_limit) {
+          return status_types.WARN;
+        } else {
+          return status_types.FAIL;
+        }
+      }();
+      */
+    }
+
 
     if (devices[device_id].test) {
       organized_data[key_name][device_id].results[last_index].test_status = function(){
@@ -484,7 +508,9 @@ function build_status_table(table_type, table_data)
                 normalize_status(organized_data[key][device_id].results[active_result[0]].build_status,
                   normalize_status(organized_data[key][device_id].results[active_result[0]].test_status,
                     normalize_status(organized_data[key][device_id].results[active_result[0]].package_status,
-                      organized_data[key][device_id].results[active_result[0]].coverage_status)
+                      normalize_status(organized_data[key][device_id].results[active_result[0]].performance_status,
+                        organized_data[key][device_id].results[active_result[0]].coverage_status)
+                      )
                     )
                   )
                 );
@@ -726,6 +752,7 @@ function build_status_table(table_type, table_data)
       if (devices[device_id].coverage) {
         var lines = result==null?null:result.coverage_lines;
         var total_lines = result==null?null:result.coverage_total_lines;
+        var status = result==null?null:result.coverage_status
         var commit_url = null;
         var asset_url = null;
         var release_url = null;
@@ -736,6 +763,24 @@ function build_status_table(table_type, table_data)
           sparkline('#sparkline-' + num_sparklines, organized_data[key][device_id].results.map(
                      function(element, index, array){
                        return { x: index, y: element.coverage_lines / element.coverage_total_lines, sha: element.commit_sha };
+                     })
+            );
+        }
+      }
+
+      if (devices[device_id].performance) {
+        var total_time = result==null?null:result.performance_total_time;
+        var commit_url = null;
+        var asset_url = null;
+        var release_url = null;
+        var status = result==null?null:result.performance_status
+        var coverage_url = null
+        var is_out_of_date = false;
+        document.writeln(build_status_cell(result != null && result.performance_total_time != null, null, 0, 0, status, null, total_time, "Errors", pending, false, "Performance Run Time", unhandled_failure, baseurl+"#performance", commit_url, asset_url, release_url, coverage_url, is_out_of_date));
+        if (table_type != table_types.RELEASE) {
+          sparkline('#sparkline-' + num_sparklines, organized_data[key][device_id].results.map(
+                     function(element, index, array){
+                       return { x: index, y: total_time, sha: element.commit_sha };
                      })
             );
         }
