@@ -383,23 +383,6 @@ function build_status_table(table_type, table_data)
       }();
     }
 
-    if (devices[device_id].performance) {
-      organized_data[key_name][device_id].results[last_index].performance_status = function(){
-        return status_types.SUCCESS;
-      }();
-      /*
-         TODO MAKE THIS DYNAMIC STATUS
-        var coverage_percent = 100 * (filtered_data[i].coverage_lines / filtered_data[i].coverage_total_lines);
-        if (coverage_percent >= filtered_data[i].coverage_pass_limit) {
-          return status_types.SUCCESS;
-        } else if (coverage_percent >= filtered_data[i].coverage_warn_limit) {
-          return status_types.WARN;
-        } else {
-          return status_types.FAIL;
-        }
-      }();
-      */
-    }
 
 
     if (devices[device_id].test) {
@@ -468,8 +451,7 @@ function build_status_table(table_type, table_data)
           function(lhs, rhs) {
             return lhs.js_date - rhs.js_date;
           }
-          )
-
+          );
 
       var active_result = 
         function(){
@@ -486,6 +468,63 @@ function build_status_table(table_type, table_data)
 
       organized_data[key][device_id].active_result = active_result[0];
       organized_data[key][device_id].out_of_date = active_result[1];
+
+      if (devices[device_id].performance && organized_data[key][device_id].results[active_result[0]].performance_total_time > 0) {
+
+        var performance_slope = function(){
+          var current_test_count = organized_data[key][device_id].results[organized_data[key][device_id].results.length - 1].performance_test_count;
+
+          var values = [];
+          for (var i = organized_data[key][device_id].results.length - 1; i >= 0; --i) {
+            if (organized_data[key][device_id].results[i].performance_test_count == current_test_count) {
+              values.unshift(organized_data[key][device_id].results[i].performance_total_time);
+            } else {
+              break;
+            }
+          }
+
+          if (values.length <= 1) {
+            return null;
+          }
+
+          y_min = values.reduce(function(prev, cur) { return Math.min(prev, cur) }, values[0]);
+
+          values.forEach(function(element, index, array) {
+            array[index] = element / y_min;
+          });
+
+          y_mean = values.reduce(function(prev,cur) { return prev + cur; }, 0) / values.length;
+          x_mean = (values.length - 1) / 2;
+
+          slope_top = 0;
+          values.forEach(function(element, index, array) {
+            slope_top += (index - x_mean) * (element - y_mean);
+          });
+
+          slope_bottom = 0;
+          values.forEach(function(element, index, array) {
+            slope_bottom += (index - x_mean) * (index - x_mean);
+          });
+
+          return slope_top / slope_bottom;
+        }();
+
+        organized_data[key][device_id].results[active_result[0]].performance_status = function(){
+          if (performance_slope == null) {
+            return status_types.SUCCESS;
+          } else if (Math.round(performance_slope * 100) > 10) {
+            return status_types.FAIL;
+          } else if (Math.round(performance_slope * 100) > 0) {
+            return status_types.WARN;
+          } else {
+            return status_types.SUCCESS;
+          }
+        }();
+
+        organized_data[key][device_id].results[active_result[0]].performance_slope = performance_slope;
+      }
+
+
 
       key_pending = key_pending || (active_result[0] > -1 && organized_data[key][device_id].results[active_result[0]].pending);
 
@@ -555,7 +594,7 @@ function build_status_table(table_type, table_data)
 
     document.writeln("<td><h5>" + github_icon + "<a href='" + base_url + "/" + encodeURIComponent(key) + "'>" + key + "</a><small><br/>" + sha_link + "</small>" + github_status + "</h5></td>");
 
-    var build_status_cell = function(has_data, run_time, num_errors, num_warnings, status_type, num_passed, num_tests, failure_type, pending, is_left_cell, message_override, unhandled_failure, url, commit_url, asset_url, release_url, coverage_url, is_out_of_date) {
+    var build_status_cell = function(has_data, run_time, num_errors, num_warnings, status_type, num_passed, num_tests, failure_type, pending, is_left_cell, message_override, unhandled_failure, url, commit_url, asset_url, release_url, coverage_url, is_out_of_date, badge_override) {
       var message = function(){
         if (!has_data) {
           return "No Data";
@@ -608,6 +647,10 @@ function build_status_table(table_type, table_data)
       }();
 
       var badge = function(){
+        if (badge_override != null) {
+          return badge_override;
+        }
+
         if (pending || !has_data) {
           return "";
         } else if (num_tests != null) {
@@ -690,7 +733,7 @@ function build_status_table(table_type, table_data)
         var release_url = null;
         var coverage_url = null;
         var is_out_of_date = result==null?false:(result.commit_sha != organized_data[key].last_sha);
-        document.writeln(build_status_cell(result != null, run_time, error_count, warning_count, status, null, null, "Errors", pending, true, null, unhandled_failure, baseurl+"#build", commit_url, asset_url, release_url, coverage_url, is_out_of_date));
+        document.writeln(build_status_cell(result != null, run_time, error_count, warning_count, status, null, null, "Errors", pending, true, null, unhandled_failure, baseurl+"#build", commit_url, asset_url, release_url, coverage_url, is_out_of_date, null));
 
         if (table_type != table_types.RELEASE) {
           sparkline('#sparkline-' + num_sparklines, organized_data[key][device_id].results.map(
@@ -710,7 +753,7 @@ function build_status_table(table_type, table_data)
         var release_url = null;
         var coverage_url = null;
         var is_out_of_date = false;
-        document.writeln(build_status_cell(result != null && !result.analyze_only, run_time, null, null, status, passed_count, test_count, "Failures", pending, false, null, unhandled_failure, baseurl+"#test", commit_url, asset_url, release_url, coverage_url, is_out_of_date));
+        document.writeln(build_status_cell(result != null && !result.analyze_only, run_time, null, null, status, passed_count, test_count, "Failures", pending, false, null, unhandled_failure, baseurl+"#test", commit_url, asset_url, release_url, coverage_url, is_out_of_date, null));
 
         if (table_type != table_types.RELEASE) {
           sparkline('#sparkline-' + num_sparklines, organized_data[key][device_id].results.map(
@@ -740,7 +783,7 @@ function build_status_table(table_type, table_data)
           }
         }();
 
-        document.writeln(build_status_cell(result != null && !result.packaging_skipped, run_time, error_count, warning_count, status, null, null, "Errors", pending, false, message, unhandled_failure, baseurl+"#package", commit_url, asset_url, release_url, coverage_url, is_out_of_date));
+        document.writeln(build_status_cell(result != null && !result.packaging_skipped, run_time, error_count, warning_count, status, null, null, "Errors", pending, false, message, unhandled_failure, baseurl+"#package", commit_url, asset_url, release_url, coverage_url, is_out_of_date, null));
         if (table_type != table_types.RELEASE) {
           sparkline('#sparkline-' + num_sparklines, organized_data[key][device_id].results.map(
                 function(element, index, array){
@@ -758,7 +801,7 @@ function build_status_table(table_type, table_data)
         var release_url = null;
         var coverage_url = result==null?null:result.coverage_url;
         var is_out_of_date = false;
-        document.writeln(build_status_cell(result != null && result.coverage_enabled, null, 0, 0, status, lines, total_lines, "Errors", pending, false, "Percent Lines Covered", unhandled_failure, baseurl+"#coverage", commit_url, asset_url, release_url, coverage_url, is_out_of_date));
+        document.writeln(build_status_cell(result != null && result.coverage_enabled, null, 0, 0, status, lines, total_lines, "Errors", pending, false, "Percent Lines Covered", unhandled_failure, baseurl+"#coverage", commit_url, asset_url, release_url, coverage_url, is_out_of_date, null));
         if (table_type != table_types.RELEASE) {
           sparkline('#sparkline-' + num_sparklines, organized_data[key][device_id].results.map(
                      function(element, index, array){
@@ -776,11 +819,22 @@ function build_status_table(table_type, table_data)
         var status = result==null?null:result.performance_status
         var coverage_url = null
         var is_out_of_date = false;
-        document.writeln(build_status_cell(result != null && result.performance_total_time != null, null, 0, 0, status, null, total_time, "Errors", pending, false, "Performance Run Time", unhandled_failure, baseurl+"#performance", commit_url, asset_url, release_url, coverage_url, is_out_of_date));
+        var performance_badge = function(){
+          if (result == null) {
+            return null;
+          } else if (result.performance_slope == null || result.performance_slope == 0) {
+            return "<i class='fa fa-meh-o'></i>";
+          } else if (result.performance_slope < 0) {
+            return "<i class='fa fa-smile-o'></i>";
+          } else {
+            return "<i class='fa fa-frown-o'></i>";
+          }
+        }();
+        document.writeln(build_status_cell(result != null && result.performance_total_time != null, null, 0, 0, status, null, total_time, "Errors", pending, false, "Performance Run Time", unhandled_failure, baseurl+"#performance", commit_url, asset_url, release_url, coverage_url, is_out_of_date, performance_badge));
         if (table_type != table_types.RELEASE) {
           sparkline('#sparkline-' + num_sparklines, organized_data[key][device_id].results.map(
                      function(element, index, array){
-                       return { x: index, y: total_time, sha: element.commit_sha };
+                       return { x: index, y: element.performance_total_time, sha: element.commit_sha };
                      })
             );
         }

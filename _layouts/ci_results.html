@@ -30,6 +30,8 @@
 
 
 <script type="text/javascript">
+var num_tables = 0;
+
 results_data = {{ content | json }};
 accordian_group = 0;
 function compare_data(a,b) {
@@ -258,6 +260,8 @@ function format_error_rows(data)
         // close last block
         result += "</table></div></div></div>";
       }
+      var table_id = "table-" + ++num_tables;
+
       result += " \
   <div class='panel panel-" + labeltype + "'> \
     <div class='panel-heading'> \
@@ -270,8 +274,8 @@ function format_error_rows(data)
     </div> \
     <div id='collapse-" + accordian_group + "-" + i +"' class='panel-collapse collapse'> \
       <div class='panel-body'> \
-<table class='table table-striped'> \
-  <th><td>location</td><td>message</td></th>";
+<table id='" + table_id + "' class='table table-striped'> \
+<thead><tr><th></th><th>location</th><th>message</th></tr></thead>";
 
       last_message_type = data[i].messagetype;
       count = 0;
@@ -282,7 +286,7 @@ function format_error_rows(data)
     result += "<tr><td><span class='label label-" + labeltype + "'>" + data[i].messagetype + "</span></td><td><h6><a href='" + url + "'>" + data[i].filename + ":" + data[i].linenumber + ":" + data[i].colnumber + "</a></h6></td><td><code>" + data[i].message.replace(/\n/g, "<br/>") + "</code></td></tr>";
   }
 
-  result += "</table></div></div></div></div>";
+  result += "</table></div></div></div></div> <script>$(function(){ $('#" + table_id  + "').tablesorter(); })<\/script>";
 
 
   return result;
@@ -325,6 +329,46 @@ document.writeln(format_error_rows(results_data.build_results));
 
 <script type="text/javascript">
 
+function htmlEncode(value){
+    //create a in-memory div, set it's inner text(which jQuery automatically encodes)
+    //then grab the encoded contents back out.  The div never exists on the page.
+    return $('<div/>').text(value).html();
+}
+
+function format_performance_rows(test)
+{
+  var result = "";
+  var last_message_type = "";
+  ++accordian_group;
+  var labeltype = "info";
+  var table_id = "table-" + ++num_tables;
+  result = " <div class='panel-group' id='accordion-"+accordian_group+"'> ";
+  result += " \
+             <div class='panel panel-" + labeltype + "'> \
+               <div class='panel-heading'> \
+               <h4 class='panel-title'> \
+                 <a data-toggle='collapse' data-parent='#accordion-"+accordian_group+"' href='#collapse-" + accordian_group + "'> " +
+                   test.test_name + " \
+                 </a> \
+               </h4> \
+             </div> \
+             <div id='collapse-" + accordian_group + "' class='panel-collapse collapse'> \
+               <div class='panel-body'> \
+               <table id='" + table_id + "' class='table table-striped'> \
+             <thead><tr><th>function name</th><th>call count</th><th>total cost</th></tr></thead>";
+
+
+  for (var i = 0; i < test.data.length; ++i) {
+    result += "<tr><td>" + htmlEncode(test.data[i].function_name) + "</td><td>" + test.data[i].count + "</td><td>" + test.data[i].cost + "</td></tr>";
+  }
+
+  result += "</table></div></div></div></div> <script>$(function(){ $('#" + table_id  + "').tablesorter(); })<\/script>";
+
+
+  return result;
+}
+
+
 function format_test_rows(data)
 {
   if (data.length == 0) return "";
@@ -348,6 +392,8 @@ function format_test_rows(data)
         // close last block
         result += "</table></div></div></div>";
       }
+      var table_id = "table-" + ++num_tables;
+
       result += " \
   <div class='panel panel-" + labeltype + "'> \
     <div class='panel-heading'> \
@@ -360,8 +406,8 @@ function format_test_rows(data)
     </div> \
     <div id='collapse-" + accordian_group + "-" + i + "' class='panel-collapse collapse'> \
       <div class='panel-body'> \
-<table class='table table-striped'> \
-  <th><td>name</td><td>time</td></th>";
+<table id='" + table_id + "' class='table table-striped'> \
+<thead><tr><th></th><th>name</th><th>time</th></tr></thead>";
 
       last_message_type = data[i].status;
       count = 0;
@@ -379,7 +425,7 @@ function format_test_rows(data)
     } 
   }
 
-  result += "</table></div></div></div></div>";
+  result += "</table></div></div></div></div> <script>$(function(){ $('#" + table_id  + "').tablesorter(); })<\/script>";
 
 
   return result;
@@ -474,8 +520,27 @@ No Coverage Details Uploaded
 
 {% endif %}
 
+{% if page.performance_test_count and page.performance_test_count > 0 %}
 
-{% include footer.html %}
+<a id="performance">
+  <div class="page-header">
+    <h1>Performance Tests ({{ page.performance_test_count }})</h1>
+  </div>
+</a>
+
+
+<script type="text/javascript">
+
+results_data.performance_results.test_files.forEach(function(elem) {
+  document.writeln(format_performance_rows(elem));
+});
+
+</script>
+
+
+{% endif %}
+
+
 
 </body>
 
