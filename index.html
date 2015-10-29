@@ -469,7 +469,7 @@ function build_status_table(table_type, table_data)
       organized_data[key][device_id].active_result = active_result[0];
       organized_data[key][device_id].out_of_date = active_result[1];
 
-      if (devices[device_id].performance && organized_data[key][device_id].results[active_result[0]].performance_total_time > 0) {
+      if (active_result[0] >= 0 && devices[device_id].performance && organized_data[key][device_id].results[active_result[0]].performance_total_time > 0) {
 
         var performance_slope = function(){
           var current_test_count = organized_data[key][device_id].results[organized_data[key][device_id].results.length - 1].performance_test_count;
