@@ -5,6 +5,14 @@ title: Home Page
 
 <head>
 {% include common.html %}
+<style>
+/* tell the SVG path to be a thin blue line without any area fill */
+path {
+  stroke: steelblue;
+  stroke-width: 1;
+  fill: none;
+}
+</style>
 </head>
 
 {% for post in site.posts %}

@@ -33,6 +33,20 @@ document.writeln("<ol class='breadcrumb'><li><a href='full_dashboard.html'>Full 
 
   <script>
 
+var all_colors = d3.scale.category20().range().concat(d3.scale.category20b().range()).concat(d3.scale.category20c().range());
+
+var style = document.createElement('style');
+style.type = 'text/css';
+var style_string = ""
+for (var i = 0; i < all_colors.length; ++i)
+{
+  style_string += ".color" + i + " { color: " + all_colors[i] + "; }\n";
+}
+
+style.innerHTML = style_string;
+
+document.getElementsByTagName('head')[0].appendChild(style);
+
 var data = [
 {% for p in site.posts %}{% if p.performance_test_count and p.performance_test_count > 0 and p.performance_total_time and p.performance_total_time > 0 %}{{ p.content }},{% endif %}{% endfor %}
 ]
@@ -67,6 +81,8 @@ function sparkline(elemId, data) {
   x.domain([0,data.date_buckets.length-1]);
   y.domain(d3.extent(data.performance_costs));
 
+  var current_color = 0;
+
   var svg = d3.select(elemId)
     .append('svg')
     .attr('width', width)
@@ -77,8 +93,9 @@ function sparkline(elemId, data) {
   for (k in data.results) {
     svg.append('path')
       .datum(data.results[k])
-      .attr('class', 'path')
-      .attr('d', line);
+//      .attr('class', 'path')
+      .attr('d', line)
+      .attr('stroke', all_colors[current_color]);
 
     for (var i = 0; i < data.results[k].length; ++i)
     {
@@ -89,10 +106,10 @@ function sparkline(elemId, data) {
       var cy = y(cost);
 
       svg.append('circle')
-        .attr('class', 'circle')
+        .attr('class', 'circle color' + current_color)
         .attr('cx', cx)
         .attr('cy', cy)
-        .attr('r', 1.7);
+        .attr('r', 4.0);
 
       var url = "{{ base_commit_url }}/" + data.results[k][i].commit_sha;
 
@@ -105,6 +122,8 @@ function sparkline(elemId, data) {
         .append('svg:title')
 //        .text(data[i].y + " messages\nsha: " + data[i].sha);
     }
+
+    ++current_color;
   }
 }
 
@@ -132,7 +151,7 @@ function formatData(allData) {
       commits[obj.commit_sha] = { "date": obj.date };
     }
 
-    var resultsKey = [allData[i].configuration.branch_name, allData[i].configuration.repository];
+    var resultsKey = [allData[i].configuration.branch_name, allData[i].configuration.repository, allData[i].configuration.device_id];
     if (results.hasOwnProperty(resultsKey)) {
       results[resultsKey].push(obj);
     } else {
