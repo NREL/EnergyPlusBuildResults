@@ -1,0 +1,212 @@
+---
+title: Home Page
+---
+
+
+<head>
+{% include common.html %}
+</head>
+
+{% for post in site.posts %}
+{% if post.pull_request_issue_id == "" and post.repository %}
+{% capture base_repository %}{{ post.repository }}{% endcapture %}
+{% capture results_repository %}{{ post.results_repository }}{% endcapture %}
+{% break %}
+{% endif %}
+{% endfor %}
+
+{% include common_variables.html %}
+
+<body>
+  <script>
+
+document.writeln("<ol class='breadcrumb'><li><a href='full_dashboard.html'>Full Dashboard</a></li><li><a href='index.html'>Active Dashboard</a></li></ol>");
+
+  </script>
+
+
+  <div class="page-header">
+    <h1>Dashboard for {{ dashboard_title }}</h1>
+  </div>
+
+  <div id="graph"></div>
+
+  <script>
+
+var data = [
+{% for p in site.posts %}{% if p.performance_test_count and p.performance_test_count > 0 and p.performance_total_time and p.performance_total_time > 0 %}{{ p.content }},{% endif %}{% endfor %}
+]
+
+var status_types = {
+  SUCCESS: 0,
+  FAIL: 1,
+  WARN: 2
+}
+
+var table_types = {
+  BRANCH: 0,
+  PULL_REQUEST: 1,
+  RELEASE: 2
+}
+
+var width = 800;
+var height = 400;
+var x = d3.scale.linear().range([0, width - 2]);
+var y = d3.scale.linear().range([height - 4, 0]);
+var line = d3.svg.line()
+  //  .interpolate("basis")
+  .x(function(d) { 
+    return x(d.date_bucket); 
+  })
+  .y(function(d) { 
+    return y(d.performance_total_time); 
+  });
+
+function sparkline(elemId, data) {
+
+  x.domain([0,data.date_buckets.length-1]);
+  y.domain(d3.extent(data.performance_costs));
+
+  var svg = d3.select(elemId)
+    .append('svg')
+    .attr('width', width)
+    .attr('height', height)
+    .append('g')
+    .attr('transform', 'translate(0, 2)');
+
+  for (k in data.results) {
+    svg.append('path')
+      .datum(data.results[k])
+      .attr('class', 'path')
+      .attr('d', line);
+
+    for (var i = 0; i < data.results[k].length; ++i)
+    {
+      var date = data.results[k][i].date_bucket;
+      var cost = data.results[k][i].performance_total_time;
+
+      var cx = x(date);
+      var cy = y(cost);
+
+      svg.append('circle')
+        .attr('class', 'circle')
+        .attr('cx', cx)
+        .attr('cy', cy)
+        .attr('r', 1.7);
+
+      var url = "{{ base_commit_url }}/" + data.results[k][i].commit_sha;
+
+      svg.append('a').attr("xlink:href", url)
+        .append('circle')
+        .attr('class', 'mouse-over-circle')
+        .attr('cx', cx)
+        .attr('cy', cy)
+        .attr('r', 5.5)
+        .append('svg:title')
+//        .text(data[i].y + " messages\nsha: " + data[i].sha);
+    }
+  }
+}
+
+
+function formatData(allData) {
+  var commits = {};
+  var results = {};
+  var performance_costs = [];
+  var dates = [];
+
+  for (var i = 0; i < allData.length; ++i)
+  {
+    var obj = {
+      "date": parseDate(allData[i].configuration.date),
+      "performance_test_count": allData[i].configuration.performance_test_count,
+      "performance_total_time": allData[i].configuration.performance_total_time,
+      "commit_sha": allData[i].configuration.commit_sha
+    };
+
+    performance_costs.push(obj.performance_total_time);
+
+    if (commits.hasOwnProperty(obj.commit_sha)) {
+      commits[obj.commit_sha].date = Math.min(obj.date, commits[obj.commit_sha].date);
+    } else {
+      commits[obj.commit_sha] = { "date": obj.date };
+    }
+
+    var resultsKey = [allData[i].configuration.branch_name, allData[i].configuration.repository];
+    if (results.hasOwnProperty(resultsKey)) {
+      results[resultsKey].push(obj);
+    } else {
+      results[resultsKey] = [obj];
+    }
+  }
+
+  var date_buckets = []
+  for (var k in results) {
+    for (var i = 0; i < results[k].length; ++i) {
+      results[k][i].normalized_date = commits[results[k][i].commit_sha].date;
+      dates.push(results[k][i].normalized_date);
+
+      var date_bucket = [results[k][i].normalized_date, [k, results[k][i].commit_sha]]
+      if (!date_buckets.some(
+            function(element, index, array) {
+              return _.isEqual(element, date_bucket);
+            }
+            )) {
+        date_buckets.push(date_bucket)
+      }
+    }
+  }
+
+  dates = _.unique(dates.sort(), true);
+  performance_costs = _.unique(performance_costs.sort(), true);
+
+  date_buckets.sort(function(a,b) { return a[0] - b[0]; })
+
+  var date_buckets_compressed = [[date_buckets[0][0], [date_buckets[0][1]]]];
+  for (var i = 1; i < date_buckets.length; ++i) {
+    if (_.last(date_buckets_compressed)[1].some(
+          function(element, index, array){ 
+            return element[0] == date_buckets[i][1][0]  
+          })) {
+      date_buckets_compressed.push([date_buckets[i][0], [date_buckets[i][1]]]);
+    } else {
+      date_buckets_compressed[date_buckets_compressed.length-1][1].push(date_buckets[i][1]);
+    }
+  }
+
+  for (var key in results)
+  {
+    for (var i = 0; i < results[key].length; ++i)
+    {
+      var cont = true;
+      for (var j = 0; cont && j < date_buckets_compressed.length; ++j) {
+        for (var k = 0; cont && k < date_buckets_compressed[j][1].length; ++k) {
+          if (results[key][i].commit_sha == date_buckets_compressed[j][1][k][1] &&
+              key == date_buckets_compressed[j][1][k][0]) {
+            results[key][i].date_bucket = j;
+            cont = false;
+          }
+        }
+      }
+    }
+
+    results[key].sort(function(a,b) { return a.date_bucket - b.date_bucket; });
+  }
+
+
+
+  return {
+    "dates":dates,
+    "performance_costs": performance_costs,
+    "results": results,
+    "commits": commits,
+    "date_buckets": date_buckets_compressed
+  };
+}
+
+sparkline("#graph", formatData(data));
+
+  </script>
+
+
+</body>

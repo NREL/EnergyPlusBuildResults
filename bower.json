@@ -22,6 +22,7 @@
     "font-awesome": "~4.4.0",
     "octicons": "~3.1.0",
     "jquery-parsequery": "~1.0.0",
-    "tablesorter": "jquery.tablesorter#~2.23.5"
+    "tablesorter": "jquery.tablesorter#~2.23.5",
+    "lodash": "~3.10.1"
   }
 }
