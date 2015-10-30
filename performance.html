@@ -5,6 +5,14 @@ title: Home Page
 
 <head>
 {% include common.html %}
+
+<style>
+.y.axis line, .y.axis path {
+  fill: none;
+  stroke: #000;
+}
+</style>
+
 </head>
 
 {% for post in site.posts %}
@@ -20,13 +28,13 @@ title: Home Page
 <body>
   <script>
 
-document.writeln("<ol class='breadcrumb'><li><a href='full_dashboard.html'>Full Dashboard</a></li><li><a href='index.html'>Active Dashboard</a></li></ol>");
+document.writeln("<ol class='breadcrumb'><li><a href='full_dashboard.html'>Full Dashboard</a></li><li><a href='index.html'>Active Dashboard</a></li><li>Performance</li></ol>");
 
   </script>
 
 
   <div class="page-header">
-    <h1>Dashboard for {{ dashboard_title }}</h1>
+    <h1>Performance dashboard for {{ dashboard_title }}</h1>
   </div>
 
   <div id="graph"></div>
@@ -47,9 +55,12 @@ style.innerHTML = style_string;
 
 document.getElementsByTagName('head')[0].appendChild(style);
 
+
 var data = [
-{% for p in site.posts %}{% if p.performance_test_count and p.performance_test_count > 0 and p.performance_total_time and p.performance_total_time > 0 %}{{ p.content }},{% endif %}{% endfor %}
+{% for p in site.posts %}{% if p.performance_test_count and p.performance_test_count > 0 and p.performance_total_time and p.performance_total_time > 0 %} {% capture: jsonstring %}{% for d in p %}{% if d[0] != "next" and d[0] != "previous" and d[0] != "content" and d[0] != "excerpt" %}"{{ d[0] }}":{{ d[1] | jsonify }},{% endif %}{% endfor %}{% endcapture %} { configuration: { {{ jsonstring }} } }, {% endif %}
+{% endfor %}
 ]
+
 
 var status_types = {
   SUCCESS: 0,
@@ -63,10 +74,11 @@ var table_types = {
   RELEASE: 2
 }
 
-var width = 800;
-var height = 400;
-var x = d3.scale.linear().range([0, width - 2]);
-var y = d3.scale.linear().range([height - 4, 0]);
+var margin = {left: 80, right: 110, top: 80, bottom: 80};
+var width = 1024 - margin.left - margin.right;
+var height = 400 - margin.top - margin.bottom;
+var x = d3.scale.linear().range([0, width]);
+var y = d3.scale.linear().range([height, 0]);
 var line = d3.svg.line()
   //  .interpolate("basis")
   .x(function(d) { 
@@ -75,6 +87,7 @@ var line = d3.svg.line()
   .y(function(d) { 
     return y(d.performance_total_time); 
   });
+
 
 function sparkline(elemId, data) {
 
@@ -85,10 +98,21 @@ function sparkline(elemId, data) {
 
   var svg = d3.select(elemId)
     .append('svg')
-    .attr('width', width)
-    .attr('height', height)
+    .attr('width', width + margin.left + margin.right)
+    .attr('height', height + margin.top + margin.bottom)
     .append('g')
-    .attr('transform', 'translate(0, 2)');
+    .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+  var dateFormatter = d3.time.format("%b %e");
+
+  var yAxis = d3.svg.axis().scale(y).orient("right").tickFormat(function(d) { return "" + (d/1000000); });
+  var xAxis = d3.svg.axis()
+  .scale(x)
+  .orient("bottom")
+  .tickFormat(function(d) { return dateFormatter(new Date(data.date_buckets[d][0])); })
+  .tickValues(_.range(data.date_buckets.length));
+
+
 
   for (k in data.results) {
     svg.append('path')
@@ -111,7 +135,8 @@ function sparkline(elemId, data) {
         .attr('cy', cy)
         .attr('r', 4.0);
 
-      var url = "{{ base_commit_url }}/" + data.results[k][i].commit_sha;
+//      var url = "{{ base_commit_url }}/" + data.results[k][i].commit_sha;
+      var url = "." + data.results[k][i].url;
 
       svg.append('a').attr("xlink:href", url)
         .append('circle')
@@ -120,11 +145,24 @@ function sparkline(elemId, data) {
         .attr('cy', cy)
         .attr('r', 5.5)
         .append('svg:title')
-//        .text(data[i].y + " messages\nsha: " + data[i].sha);
+        .text("branch: " + data.results[k][i].branch_name + "\nrepository: " + data.results[k][i].repository + "\nsha: " + data.results[k][i].commit_sha + "\ndevice: " + data.results[k][i].device_id + "\nNum Perf Tests: " + data.results[k][i].performance_test_count + "\nPerf Test Time: " + data.results[k][i].performance_total_time);
     }
 
     ++current_color;
   }
+
+  // Add the y-axis.
+  svg.append("g")
+    .attr("class", "y axis")
+    .attr("transform", "translate(" + (width + 10) + ",0)")
+    .call(yAxis);
+
+  svg.append("g")
+    .attr("class", "y axis")
+    .attr("transform", "translate(0," + (height+ 10) +" )")
+    .call(xAxis);
+
+
 }
 
 
@@ -140,7 +178,11 @@ function formatData(allData) {
       "date": parseDate(allData[i].configuration.date),
       "performance_test_count": allData[i].configuration.performance_test_count,
       "performance_total_time": allData[i].configuration.performance_total_time,
-      "commit_sha": allData[i].configuration.commit_sha
+      "commit_sha": allData[i].configuration.commit_sha,
+      "device_id": allData[i].configuration.device_id,
+      "branch_name": allData[i].configuration.branch_name,
+      "repository": allData[i].configuration.repository,
+      "url": allData[i].configuration.url
     };
 
     performance_costs.push(obj.performance_total_time);
