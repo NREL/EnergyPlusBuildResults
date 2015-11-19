@@ -79,7 +79,7 @@ function sparkline(elemId, indata) {
   var data = [];
 
   for (var i = 0; i < indata.length; ++i){
-    if (!isNaN(indata[i].x) && !isNaN(indata[i].y)) {
+    if (indata[i].x != null && indata[i].y != null && !isNaN(indata[i].x) && !isNaN(indata[i].y)) {
       data.push(indata[i]);
     }
   }
@@ -821,6 +821,7 @@ function build_status_table(table_type, table_data)
         var status = result==null?null:result.performance_status
         var coverage_url = null
         var is_out_of_date = false;
+        var has_data = result != null && result.performance_total_time != null;
         var performance_badge = function(){
           if (result == null) {
             return null;
@@ -832,8 +833,8 @@ function build_status_table(table_type, table_data)
             return "<i class='fa fa-frown-o'></i>";
           }
         }();
-        document.writeln(build_status_cell(result != null && result.performance_total_time != null, null, 0, 0, status, null, total_time, "Errors", pending, false, "Performance Run Time", unhandled_failure, baseurl+"#performance", commit_url, asset_url, release_url, coverage_url, is_out_of_date, performance_badge));
-        if (table_type != table_types.RELEASE) {
+        document.writeln(build_status_cell(has_data, null, 0, 0, status, null, total_time, "Errors", pending, false, "Performance Run Time", unhandled_failure, baseurl+"#performance", commit_url, asset_url, release_url, coverage_url, is_out_of_date, performance_badge));
+        if (has_data && table_type != table_types.RELEASE) {
           sparkline('#sparkline-' + num_sparklines, organized_data[key][device_id].results.map(
                      function(element, index, array){
                        return { x: index, y: element.performance_total_time, sha: element.commit_sha };
