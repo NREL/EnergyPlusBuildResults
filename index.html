@@ -5,6 +5,8 @@ title: Home Page
 
 <head>
 {% include common.html %}
+
+
 <style>
 /* tell the SVG path to be a thin blue line without any area fill */
 path {
@@ -16,11 +18,11 @@ path {
 </head>
 
 {% for post in site.posts %}
-{% if post.pull_request_issue_id == "" and post.repository %}
-{% capture base_repository %}{{ post.repository }}{% endcapture %}
-{% capture results_repository %}{{ post.results_repository }}{% endcapture %}
-{% break %}
-{% endif %}
+  {% if post.pull_request_issue_id == "" and post.repository %}
+    {% capture base_repository %}{{ post.repository }}{% endcapture %}
+    {% capture results_repository %}{{ post.results_repository }}{% endcapture %}
+    {% break %}
+  {% endif %}
 {% endfor %}
 
 {% include common_variables.html %}
@@ -134,11 +136,6 @@ var num_sparklines = 0;
 
 
 
-
-var data = [
-{% for p in site.posts %} {% capture: jsonstring %}{% for d in p %}{% if d[0] != "next" and d[0] != "previous" and d[0] != "content" and d[0] != "excerpt" %}"{{ d[0] }}":{{ d[1] | jsonify }},{% endif %}{% endfor %}{% endcapture %} { {{ jsonstring }} }, 
-{% endfor %}
-]
 
 var status_types = {
   SUCCESS: 0,
@@ -512,14 +509,21 @@ function build_status_table(table_type, table_data)
         }();
 
         organized_data[key][device_id].results[active_result[0]].performance_status = function(){
+
+
           if (performance_slope == null) {
             return status_types.SUCCESS;
           } else if (Math.round(performance_slope * 100) > 10) {
             return status_types.FAIL;
-          } else if (Math.round(performance_slope * 100) > 0) {
+          } else if (performance_slope  > 0) {
             return status_types.WARN;
           } else {
-            return status_types.SUCCESS;
+            var baseline = get_baseline(organized_data[key][device_id].results[active_result[0]]);
+            if (baseline.performance_total_time > organized_data[key][device_id].results[active_result[0]].performance_total_time) {
+              return status_types.WARN;
+            } else {
+              return status_types.SUCCESS;
+            }
           }
         }();
 
@@ -825,9 +829,9 @@ function build_status_table(table_type, table_data)
         var performance_badge = function(){
           if (result == null) {
             return null;
-          } else if (result.performance_slope == null || result.performance_slope == 0) {
+          } else if ( result.performance_slope == null || result.performance_status == status_types.WARN ) {
             return "<i class='fa fa-meh-o'></i>";
-          } else if (result.performance_slope < 0) {
+          } else if ( result.performance_slope != status_types.FAIL ) {
             return "<i class='fa fa-smile-o'></i>";
           } else {
             return "<i class='fa fa-frown-o'></i>";

@@ -11,6 +11,12 @@ title: Home Page
   fill: none;
   stroke: #000;
 }
+
+/* tell the SVG path to be a thin blue line without any area fill */
+path {
+  stroke-width: 1;
+  fill: none;
+}
 </style>
 
 </head>
@@ -37,7 +43,24 @@ document.writeln("<ol class='breadcrumb'><li><a href='full_dashboard.html'>Full 
     <h1>Performance dashboard for {{ dashboard_title }}</h1>
   </div>
 
-  <div id="graph"></div>
+  <div class="page-header">
+    <h2>Master branch performance history</h2>
+  </div>
+
+  <div id="master"></div>
+
+
+  <div class="page-header">
+    <h2>Develop branch performance history</h2>
+  </div>
+
+  <div id="develop"></div>
+
+  <div class="page-header">
+    <h2>Combined performance history</h2>
+  </div>
+
+  <div id="all"></div>
 
   <script>
 
@@ -57,8 +80,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
 
 var data = [
-{% for p in site.posts %}{% if p.performance_test_count and p.performance_test_count > 0 and p.performance_total_time and p.performance_total_time > 0 %} {% capture: jsonstring %}{% for d in p %}{% if d[0] != "next" and d[0] != "previous" and d[0] != "content" and d[0] != "excerpt" %}"{{ d[0] }}":{{ d[1] | jsonify }},{% endif %}{% endfor %}{% endcapture %} { configuration: { {{ jsonstring }} } }, {% endif %}
-{% endfor %}
+{% for p in site.posts %}{% if p.performance_test_count and p.performance_test_count > 0 and p.performance_total_time and p.performance_total_time > 0 %} {% capture: jsonstring %}{% for d in p %}{% if d[0] != "next" and d[0] != "previous" and d[0] != "content" and d[0] != "excerpt" %}"{{ d[0] }}":{{ d[1] | jsonify }},{% endif %}{% endfor %}{% endcapture %}{ configuration: { {{ jsonstring }} } }, 
+{% endif %}{% endfor %}
 ]
 
 
@@ -91,6 +114,11 @@ var line = d3.svg.line()
 
 function sparkline(elemId, data) {
 
+  if (data == null) {
+    $( elemId ).append("<div class='alert alert-warning' role='alert'>No Data</div>");
+    return;
+  }
+
   x.domain([0,data.date_buckets.length-1]);
   y.domain(d3.extent(data.performance_costs));
 
@@ -117,7 +145,7 @@ function sparkline(elemId, data) {
   for (k in data.results) {
     svg.append('path')
       .datum(data.results[k])
-//      .attr('class', 'path')
+      .attr('class', 'path')
       .attr('d', line)
       .attr('stroke', all_colors[current_color]);
 
@@ -171,6 +199,12 @@ function formatData(allData) {
   var results = {};
   var performance_costs = [];
   var dates = [];
+
+  if (allData.length == 0)
+  {
+    return null;
+  }
+
 
   for (var i = 0; i < allData.length; ++i)
   {
@@ -265,7 +299,13 @@ function formatData(allData) {
   };
 }
 
-sparkline("#graph", formatData(data));
+
+
+sparkline("#master", formatData(data.filter(function(o) { return o.branch_name != null && o.branch_name == "master" })));
+
+sparkline("#develop", formatData(data.filter(function(o) { return o.branch_name != null && o.branch_name == "develop" })));
+
+sparkline("#all", formatData(data));
 
   </script>
 

@@ -17,6 +17,7 @@
 <ol class="breadcrumb">
   <li><a href="full_dashboard.html">Full Dashboard</a></li>
   <li><a href="index.html">Active Dashboard</a></li>
+  <li><a href='performance.html'>Performance</a></li>
   <li>Results</li>
 </ol>
 
@@ -25,7 +26,6 @@
 <a class="btn btn-danger" href="{{ base_delete_url }}/{{ page.path }}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete results and force rebuild.</a>
 <br/>
 {% endif %}
-
 
 
 
@@ -72,6 +72,16 @@ function compare_data(a,b) {
   }
 }
 
+function compare_performance_data(a,b) {
+  if (a.test_name < b.test_name) {
+    return -1;
+  } else if (a.test_name > b.test_name) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
 function compare_test_data(a,b) {
   if (a.status != b.status)
   {
@@ -107,6 +117,7 @@ function compare_test_data(a,b) {
 
 results_data.build_results.sort(compare_data);
 results_data.test_results.sort(compare_test_data);
+results_data.performance_results.test_files.sort(compare_performance_data);
 </script>
 
 
@@ -522,11 +533,51 @@ No Coverage Details Uploaded
 
 {% if page.performance_test_count and page.performance_test_count > 0 %}
 
+
+
+
 <a id="performance">
   <div class="page-header">
     <h1>Performance Tests ({{ page.performance_test_count }})</h1>
   </div>
 </a>
+
+<script type="text/javascript">
+  var baseline = get_baseline(results_data.configuration);
+
+  var baseline_test_count = baseline.performance_test_count==null?0:baseline.performance_test_count;
+  var baseline_time = baseline.performance_total_time==null?0:baseline.performance_total_time;
+
+  var commit_test_count = results_data.configuration.performance_test_count==null?0:results_data.configuration.performance_test_count;
+  var commit_time = results_data.configuration.performance_total_time==null?0:results_data.configuration.performance_total_time;
+
+  var per_test_change = (baseline_test_count == 0 || commit_test_count == 0)?"N/A":((1 - (commit_test_count / baseline_test_count)) * 100) + "%";
+  var per_time_change = (baseline_time == 0 || commit_time == 0)?"N/A":((1 - (commit_time / baseline_time)) * 100) + "%";
+
+  var count_class = function() {
+    if (commit_test_count < baseline_test_count) {
+      return "warning";
+    } else {
+      return "success";
+    }
+  }();
+
+  var time_class = function() {
+    if (commit_time <= baseline_time) {
+      return "success";
+    } else {
+      return "warning";
+    }
+  }();
+
+
+  document.writeln("<table class='table'><caption>Baseline Comparison (" + baseline.repository + "/" + baseline.branch_name + ")</caption><thead><tr><th></th><th>This Commit</th><th>Baseline</th><th>% Change</th></tr></thead>");
+  document.writeln("<tbody>");
+  document.writeln("<tr class='" + count_class + "'><td>Performance Test Count</td><td>" + commit_test_count + "</td><td>" + baseline_test_count + "</td><td>" + per_test_change + "</td></tr>");
+  document.writeln("<tr class='" + time_class + "'><td>Performance Test Time</td><td>" + commit_time + "</td><td>" + baseline_time + "</td><td>" + per_time_change + "</td></tr>");
+  document.writeln("</tbody></table>");
+
+</script>
 
 
 <script type="text/javascript">
