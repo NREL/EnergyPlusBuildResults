@@ -301,9 +301,9 @@ function formatData(allData) {
 
 
 
-sparkline("#master", formatData(data.filter(function(o) { return o.branch_name != null && o.branch_name == "master" })));
+sparkline("#master", formatData(data.filter(function(o) { return o.configuration.branch_name != null && o.configuration.branch_name == "master" })));
 
-sparkline("#develop", formatData(data.filter(function(o) { return o.branch_name != null && o.branch_name == "develop" })));
+sparkline("#develop", formatData(data.filter(function(o) { return o.configuration.branch_name != null && o.configuration.branch_name == "develop" })));
 
 sparkline("#all", formatData(data));
 

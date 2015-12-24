@@ -5,9 +5,9 @@ function get_baseline(commit)
   //
 
   var baseline_branch = function(){
-    if (commit.branch == "develop") {
+    if (commit.branch_name == "develop") {
       return "master";
-    } else if (commit.branch == "master") {
+    } else if (commit.branch_name == "master") {
       return null;
     } else {
       return "develop";
