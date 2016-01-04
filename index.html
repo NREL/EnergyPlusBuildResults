@@ -519,6 +519,8 @@ function build_status_table(table_type, table_data)
             return status_types.WARN;
           } else {
             var baseline = get_baseline(organized_data[key][device_id].results[active_result[0]]);
+            if (baseline == null) return status_types.SUCCESS;
+
             if (baseline.performance_total_time > organized_data[key][device_id].results[active_result[0]].performance_total_time) {
               return status_types.WARN;
             } else {
