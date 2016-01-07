@@ -523,10 +523,10 @@ function build_status_table(table_type, table_data)
 
             var percent_diff = (1.0 - (organized_data[key][device_id].results[active_result[0]].performance_total_time / baseline.performance_total_time)) * 100.0;
     
-            // negative is faster, positive is slower
+            // negative is slower, positive is faster
 
 
-            if ( percent_diff > 0.05 ) {
+            if ( percent_diff < -0.05 ) {
               return status_types.WARN;
             } else {
               return status_types.SUCCESS;
