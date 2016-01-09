@@ -509,27 +509,34 @@ function build_status_table(table_type, table_data)
         }();
 
         organized_data[key][device_id].results[active_result[0]].performance_status = function(){
+          var performance_slope_percent = function(){
+            if (performance_slope == null) return null;
+            return performance_slope * 100;
+          }();
 
-
-          if (performance_slope != null && Math.round(performance_slope * 100) > 10) {
-            return status_types.FAIL;
-          } else if (performance_slope != null && performance_slope * 100  > 0.05) {
-            return status_types.WARN;
-          } else {
+          var baseline_percent = function() {
             var baseline = get_baseline(organized_data[key][device_id].results[active_result[0]]);
-            if (baseline == null) return status_types.SUCCESS;
+            if (baseline == null) return null;
+            if (baseline.performance_total_time == null) return null;
+            // negative is faster, positive is slower 
+            return (1.0 - (baseline.performance_total_time / organized_data[key][device_id].results[active_result[0]].performance_total_time )) * 100.0;
+          }();
 
-            var percent_diff = (1.0 - (organized_data[key][device_id].results[active_result[0]].performance_total_time / baseline.performance_total_time)) * 100.0;
+          var status_func = function(percent) {
+            if (percent == null) return status_types.SUCCESS;
+            if (percent > 10.0) return status_types.FAIL;
+            if (percent > 0.05) return status_types.WARN;
+            return status_types.SUCCUSS;
+          };
 
-            // negative is slower, positive is faster
+          var slope_status = status_func(performance_slope_percent);
+          var baseline_status = status_func(baseline_percent);
 
+          if (baseline_percent == null) return slope_status;
+          if (baseline_status == status_types.FAIL) return baseline_status;
+          if (baseline_status == status_types.WARN || slope_status == status_types.FAIL || slope_status == status_types.WARN) return status_types.WARN;
+          return status_types.SUCCESS;
 
-            if ( percent_diff < -0.05 ) {
-              return status_types.WARN;
-            } else {
-              return status_types.SUCCESS;
-            }
-          }
         }();
 
         organized_data[key][device_id].results[active_result[0]].performance_slope = performance_slope;
@@ -836,7 +843,7 @@ function build_status_table(table_type, table_data)
             return null;
           } else if ( result.performance_slope == null || result.performance_status == status_types.WARN ) {
             return "<i class='fa fa-meh-o'></i>";
-          } else if ( result.performance_slope != status_types.FAIL ) {
+          } else if ( result.performance_status != status_types.FAIL ) {
             return "<i class='fa fa-smile-o'></i>";
           } else {
             return "<i class='fa fa-frown-o'></i>";
