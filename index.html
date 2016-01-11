@@ -532,11 +532,11 @@ function build_status_table(table_type, table_data)
           var slope_status = status_func(performance_slope_percent);
           var baseline_status = status_func(baseline_percent);
 
-          if (baseline_percent == null) return slope_status;
-          if (baseline_status == status_types.FAIL) return baseline_status;
-          if (baseline_status == status_types.WARN || slope_status == status_types.FAIL || slope_status == status_types.WARN) return status_types.WARN;
-          return status_types.SUCCESS;
-
+          if (baseline_percent == null) {
+            return slope_status;
+          } else {
+            return baseline_status;
+          }
         }();
 
         organized_data[key][device_id].results[active_result[0]].performance_slope = performance_slope;
@@ -853,7 +853,7 @@ function build_status_table(table_type, table_data)
         if (has_data && table_type != table_types.RELEASE) {
           sparkline('#sparkline-' + num_sparklines, organized_data[key][device_id].results.map(
                      function(element, index, array){
-                       return { x: index, y: element.performance_total_time, sha: element.commit_sha };
+                     return { x: index, y: (element.performance_total_time>0 ? element.performance_total_time : null), sha: element.commit_sha };
                      })
             );
         }
