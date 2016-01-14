@@ -97,14 +97,10 @@ $('table').each(function() {
 });
 */
 
-function parseDate(d) {
-  var parsed_date = Date.parse(d);
+var d3_date_parser = d3.time.format("%Y-%m-%d %H:%M:%S %z");
 
-  if (isNaN(parsed_date)) {
-    return new Date(Date.parse(d.replace(/ /, "T").replace(/ /, "")));
-  } else {
-    return new Date(parsed_date);
-  }
+function parseDate(d) {
+  return d3_date_parser.parse(d);
 }
 
 </script>
