@@ -38,7 +38,10 @@ accordian_group = 0;
 
 results_data.build_results.sort(compare_data);
 results_data.test_results.sort(compare_test_data);
-results_data.performance_results.test_files.sort(compare_performance_data);
+
+if (results_data.hasOwnProperty("performance_results") && results_data.performance_results != null && results_data.performance_results.hasOwnProperty("test_files") && results_data.performance_results.test_files != null) {
+  results_data.performance_results.test_files.sort(compare_performance_data);
+}
 
 
 function format_configuration(data)
@@ -309,9 +312,11 @@ No Coverage Details Uploaded
 
 <script type="text/javascript">
 
-results_data.performance_results.test_files.forEach(function(elem) {
-  document.writeln(format_performance_rows(elem));
-});
+if (results_data.hasOwnProperty("performance_results") && results_data.performance_results != null && results_data.performance_results.hasOwnProperty("test_files") && results_data.performance_results.test_files != null) {
+  results_data.performance_results.test_files.forEach(function(elem) {
+    document.writeln(format_performance_rows(elem));
+  });
+}
 
 </script>
 
