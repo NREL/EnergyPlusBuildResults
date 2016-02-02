@@ -78,9 +78,10 @@ style.innerHTML = style_string;
 
 document.getElementsByTagName('head')[0].appendChild(style);
 
+{% assign bad_keys = "ext,slug,title,permalink,path,relative_path,output,next,previous,content,except" | split: "," %}
 
 var data = [
-{% for p in site.posts %}{% if p.performance_test_count and p.performance_test_count > 0 and p.performance_total_time and p.performance_total_time > 0 %} {% capture: jsonstring %}{% for d in p %}{% if d[0] != "next" and d[0] != "previous" and d[0] != "content" and d[0] != "excerpt" %}"{{ d[0] }}":{{ d[1] | jsonify }},{% endif %}{% endfor %}{% endcapture %}{ configuration: { {{ jsonstring }} } }, 
+{% for p in site.posts %}{% if p.performance_test_count and p.performance_test_count > 0 and p.performance_total_time and p.performance_total_time > 0 %} {% capture: jsonstring %}{% for d in p %}{% unless bad_keys contains d[0] %}"{{ d[0] }}":{{ d[1] | jsonify }},{% endunless %}{% endfor %}{% endcapture %}{ configuration: { {{ jsonstring }} } }, 
 {% endif %}{% endfor %}
 ]
 

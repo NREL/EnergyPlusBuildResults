@@ -9,9 +9,10 @@
   {% endif %}
 {% endfor %}
 
+{% assign bad_keys = "ext,slug,title,permalink,path,relative_path,output,next,previous,content,except" | split: "," %}
 
 var data = [
-{% for p in site.posts %} {% capture: jsonstring %}{% for d in p %}{% if d[0] != "next" and d[0] != "previous" and d[0] != "content" and d[0] != "excerpt" %}"{{ d[0] }}":{{ d[1] | jsonify }},{% endif %}{% endfor %}{% endcapture %} { {{ jsonstring }} }, 
+{% for p in site.posts %} {% capture: jsonstring %}{% for d in p %}{% unless bad_keys contains d[0] %}"{{ d[0] }}":{{ d[1] | jsonify }},{% endunless %}{% endfor %}{% endcapture %} { {{ jsonstring }} }, 
 {% endfor %}
 ]
 
