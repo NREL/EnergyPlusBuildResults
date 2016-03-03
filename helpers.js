@@ -22,7 +22,7 @@ function get_baseline(commit)
     return null;
   }
 
-  var filtered_data = data.filter(function(o) { return o.pull_request_base_repository != "" && o.branch_name != null && o.branch_name == baseline_branch && o.device_id == commit.device_id && o.pending == false});
+  var filtered_data = data.filter(function(o) { return o.pull_request_base_repository == "" && o.branch_name != null && o.branch_name == baseline_branch && o.device_id == commit.device_id && o.pending == false});
 
   return (filtered_data.length == 0)?null:filtered_data[0];
 }
