@@ -3,9 +3,9 @@ title: EnergyPlus-2ae441fcaa8c40b06abc6413208046c6947bc43f-Win64-Windows-7-Visua
 permalink: EnergyPlus-2ae441fcaa8c40b06abc6413208046c6947bc43f-Win64-Windows-7-VisualStudio-14.html
 tags: data
 layout: ci_results
-date: '2017-04-28 21:51:46'
-unhandled_failure: false
-build_error_count: 0
+date: '2017-04-28 22:01:54'
+unhandled_failure: true
+build_error_count: 72
 build_warning_count: 0
 package_error_count: 0
 package_warning_count: 0
@@ -29,9 +29,9 @@ pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: Win64-Windows-7-VisualStudio-14
-pending: true
+pending: false
 analyze_only: false
-build_time: 
+build_time: 434.292744
 test_time: 
 package_time: 
 install_time: 
@@ -55,12 +55,515 @@ performance_test_count: 0
 ---
 {
   "build_results": [
-
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Chromogenics/src/ThermochromicSurface.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCETarcog.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\Chromogenics\\src\\ThermochromicSurface.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Common/src/Interpolation2D.cpp",
+      "linenumber": "4",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Common/src/WavelengthRange.cpp",
+      "linenumber": "4",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/MultiLayerOptics/src/AbsorptancesMultiPane.cpp",
+      "linenumber": "2",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/MultiLayerOptics/src/AbsorptancesMultiPaneBSDF.cpp",
+      "linenumber": "4",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCESingleLayerOptics.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/MultiLayerOptics/src/EquivalentBSDFLayer.cpp",
+      "linenumber": "13",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCESingleLayerOptics.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/MultiLayerOptics/src/EquivalentBSDFLayerSingleBand.cpp",
+      "linenumber": "4",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCESingleLayerOptics.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/MultiLayerOptics/src/EquivalentLayerSingleComponent.hpp",
+      "linenumber": "6",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\MultiLayerOptics\\src\\EquivalentLayerSingleComponent.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/MultiLayerOptics/src/EquivalentLayerSingleComponentMW.cpp",
+      "linenumber": "4",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/MultiLayerOptics/src/EquivalentScatteringLayer.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\MultiLayerOptics\\src\\EquivalentScatteringLayer.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/MultiLayerOptics/src/MultiLayerInterRef.hpp",
+      "linenumber": "8",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCESingleLayerOptics.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\MultiLayerOptics\\src\\MultiLayerInterRef.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/MultiLayerOptics/src/MultiLayerInterRefSingleComponent.hpp",
+      "linenumber": "8",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\MultiLayerOptics\\src\\MultiLayerInterRefSingleComponent.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/MultiLayerOptics/src/MultiLayerScattered.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\MultiLayerOptics\\src\\MultiLayerScattered.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/MultiLayerOptics/src/MultiLayerSingleComponent.hpp",
+      "linenumber": "6",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\MultiLayerOptics\\src\\MultiLayerSingleComponent.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/MultiLayerOptics/src/MultiPaneBSDF.cpp",
+      "linenumber": "9",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCESingleLayerOptics.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/MultiLayerOptics/src/MultiPaneSampleData.hpp",
+      "linenumber": "4",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCESpectralAveraging.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\MultiLayerOptics\\src\\MultiPaneSampleData.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/MultiLayerOptics/src/MultiPaneSpectralSample.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCESpectralAveraging.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\MultiLayerOptics\\src\\MultiPaneSpectralSample.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/MultiLayerOptics/src/MultiPaneSpecular.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\MultiLayerOptics\\src\\MultiPaneSpecular.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/BSDFDirections.cpp",
+      "linenumber": "10",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/BSDFIntegrator.cpp",
+      "linenumber": "8",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/BSDFLayer.cpp",
+      "linenumber": "12",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/BaseCell.cpp",
+      "linenumber": "5",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/BeamDirection.cpp",
+      "linenumber": "4",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/DirectionalDiffuseBSDFLayer.cpp",
+      "linenumber": "11",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/LayerSingleComponent.cpp",
+      "linenumber": "5",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/MaterialDescription.cpp",
+      "linenumber": "5",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/OpticalSurface.cpp",
+      "linenumber": "4",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/PerforatedCell.cpp",
+      "linenumber": "8",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/PerforatedCellDescription.cpp",
+      "linenumber": "6",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/ScatteringLayer.cpp",
+      "linenumber": "12",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/SpecularBSDFLayer.cpp",
+      "linenumber": "8",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/SpecularCell.cpp",
+      "linenumber": "6",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCESpectralAveraging.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/SpecularCellDescription.cpp",
+      "linenumber": "2",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/UniformDiffuseBSDFLayer.cpp",
+      "linenumber": "10",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/UniformDiffuseCell.cpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/VenetianCell.cpp",
+      "linenumber": "8",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCEViewer.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/VenetianCellDescription.cpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCEViewer.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/VenetianSlat.cpp",
+      "linenumber": "6",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCEViewer.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/WovenCell.cpp",
+      "linenumber": "10",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SingleLayerOptics/src/WovenCellDescription.cpp",
+      "linenumber": "8",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SpectralAveraging/src/AngularMeasurements.cpp",
+      "linenumber": "8",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SpectralAveraging/src/AngularProperties.cpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SpectralAveraging/src/AngularSpectralSample.cpp",
+      "linenumber": "10",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SpectralAveraging/src/MeasuredSampleData.cpp",
+      "linenumber": "5",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SpectralAveraging/src/NIRRatio.cpp",
+      "linenumber": "2",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/SpectralAveraging/src/SpectralSample.cpp",
+      "linenumber": "6",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/LayerInterfaces.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\Tarcog\\src\\LayerInterfaces.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/LayerInterfaces.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\Tarcog\\src\\Surface.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/LayerInterfaces.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\Tarcog\\src\\System.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/LayerInterfaces.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\Tarcog\\src\\BaseIGULayer.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/LayerInterfaces.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\Tarcog\\src\\SingleSystem.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/LayerInterfaces.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\Tarcog\\src\\BaseShade.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/LayerInterfaces.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\Tarcog\\src\\BaseLayer.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/LayerInterfaces.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\Tarcog\\src\\Environment.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/LayerInterfaces.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\Tarcog\\src\\NodeInterface.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/LayerInterfaces.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\Tarcog\\src\\IGUSolidDeflection.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/LayerInterfaces.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\Tarcog\\src\\IGUGapLayer.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/LayerInterfaces.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\Tarcog\\src\\IGUGapDeflection.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/LayerInterfaces.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\Tarcog\\src\\IGU.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/LayerInterfaces.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\Tarcog\\src\\HeatFlowBalance.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/LayerInterfaces.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\Tarcog\\src\\IGUSolidLayer.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/LayerInterfaces.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\Tarcog\\src\\IGUVentilatedGapLayer.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/LayerInterfaces.hpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory (compiling source file C:\\ci\\EnergyPlus-2ae441fcaa-Win64-VS14\\build\\Windows-CalcEngine-src\\src\\Tarcog\\src\\IndoorEnvironment.cpp)"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/NonLinearSolver.cpp",
+      "linenumber": "6",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/NusseltNumber.cpp",
+      "linenumber": "9",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCEGases.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/OutdoorEnvironment.cpp",
+      "linenumber": "6",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCEGases.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Tarcog/src/SupportPillar.cpp",
+      "linenumber": "5",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCETarcog.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Viewer/src/Geometry2D.cpp",
+      "linenumber": "7",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Viewer/src/Geometry2DBeam.cpp",
+      "linenumber": "10",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Viewer/src/Point2D.cpp",
+      "linenumber": "3",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Viewer/src/PolarPoint2D.cpp",
+      "linenumber": "5",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    },
+    {
+      "filename": "build/Windows-CalcEngine-src/src/Viewer/src/Segment2D.cpp",
+      "linenumber": "8",
+      "colnumber": 0,
+      "messagetype": "fatal error",
+      "message": "C1083 Cannot open include file: 'WCECommon.hpp': No such file or directory"
+    }
   ],
   "test_results": [
 
   ],
-  "failure": null,
+  "failure": "wrong number of arguments (5 for 6)\n[\"C:/CI/decent_ci/lib/testresult.rb:17:in `initialize'\", \"C:/CI/decent_ci/lib/resultsprocessor.rb:420:in `new'\", \"C:/CI/decent_ci/lib/resultsprocessor.rb:420:in `block (2 levels) in process_ctest_results'\", \"C:/CI/decent_ci/lib/resultsprocessor.rb:415:in `each'\", \"C:/CI/decent_ci/lib/resultsprocessor.rb:415:in `block in process_ctest_results'\", \"C:/tools/ruby22/lib/ruby/2.2.0/find.rb:48:in `block (2 levels) in find'\", \"C:/tools/ruby22/lib/ruby/2.2.0/find.rb:47:in `catch'\", \"C:/tools/ruby22/lib/ruby/2.2.0/find.rb:47:in `block in find'\", \"C:/tools/ruby22/lib/ruby/2.2.0/find.rb:42:in `each'\", \"C:/tools/ruby22/lib/ruby/2.2.0/find.rb:42:in `find'\", \"C:/CI/decent_ci/lib/resultsprocessor.rb:403:in `process_ctest_results'\", \"C:/CI/decent_ci/lib/cmake.rb:175:in `block in cmake_test'\", \"C:/CI/decent_ci/lib/cmake.rb:171:in `each'\", \"C:/CI/decent_ci/lib/cmake.rb:171:in `cmake_test'\", \"C:/CI/decent_ci/lib/potentialbuild.rb:513:in `do_test'\", \"C:/CI/decent_ci/ci.rb:273:in `block (3 levels) in <main>'\", \"C:/CI/decent_ci/ci.rb:231:in `each'\", \"C:/CI/decent_ci/ci.rb:231:in `block (2 levels) in <main>'\", \"C:/CI/decent_ci/ci.rb:227:in `each'\", \"C:/CI/decent_ci/ci.rb:227:in `block in <main>'\", \"C:/CI/decent_ci/ci.rb:152:in `each'\", \"C:/CI/decent_ci/ci.rb:152:in `<main>'\"]",
   "package_results": [
 
   ],
@@ -69,9 +572,9 @@ performance_test_count: 0
     "permalink": "EnergyPlus-2ae441fcaa8c40b06abc6413208046c6947bc43f-Win64-Windows-7-VisualStudio-14.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2017-04-28 21:51:46",
-    "unhandled_failure": false,
-    "build_error_count": 0,
+    "date": "2017-04-28 22:01:54",
+    "unhandled_failure": true,
+    "build_error_count": 72,
     "build_warning_count": 0,
     "package_error_count": 0,
     "package_warning_count": 0,
@@ -95,9 +598,9 @@ performance_test_count: 0
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "Win64-Windows-7-VisualStudio-14",
-    "pending": true,
+    "pending": false,
     "analyze_only": false,
-    "build_time": null,
+    "build_time": 434.292744,
     "test_time": null,
     "package_time": null,
     "install_time": null,
