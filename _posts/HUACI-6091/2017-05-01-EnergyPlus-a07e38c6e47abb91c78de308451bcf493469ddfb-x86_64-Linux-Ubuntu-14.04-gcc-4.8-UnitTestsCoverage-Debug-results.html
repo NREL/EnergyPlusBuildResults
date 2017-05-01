@@ -3,9 +3,9 @@ title: EnergyPlus-a07e38c6e47abb91c78de308451bcf493469ddfb-x86_64-Linux-Ubuntu-1
 permalink: EnergyPlus-a07e38c6e47abb91c78de308451bcf493469ddfb-x86_64-Linux-Ubuntu-14.04-gcc-4.8-UnitTestsCoverage-Debug.html
 tags: data
 layout: ci_results
-date: '2017-05-01 21:26:07'
-unhandled_failure: false
-build_error_count: 0
+date: '2017-05-01 21:30:52'
+unhandled_failure: true
+build_error_count: 24
 build_warning_count: 0
 package_error_count: 0
 package_warning_count: 0
@@ -29,9 +29,9 @@ pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: x86_64-Linux-Ubuntu-14.04-gcc-4.8-UnitTestsCoverage-Debug
-pending: true
+pending: false
 analyze_only: false
-build_time: 
+build_time: 219.475177821
 test_time: 
 package_time: 
 install_time: 
@@ -57,12 +57,179 @@ performance_test_count: 0
 ---
 {
   "build_results": [
-
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": "93",
+      "colnumber": "8",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridEvapCoolingModel::Model::' on member 'GetID' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": "94",
+      "colnumber": "9",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridEvapCoolingModel::Model::' on member 'SetID' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": "95",
+      "colnumber": "9",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridEvapCoolingModel::Model::' on member 'doStep' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": "96",
+      "colnumber": "9",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridEvapCoolingModel::Model::' on member 'Initialize' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": "97",
+      "colnumber": "9",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridEvapCoolingModel::Model::' on member 'InitializeModelParams' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": "98",
+      "colnumber": "9",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridEvapCoolingModel::Model::' on member 'ModelLog' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": "99",
+      "colnumber": "24",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridEvapCoolingModel::Model::' on member 'Tessellate' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": "100",
+      "colnumber": "11",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridEvapCoolingModel::Model::' on member 'CalcHum_ratio_W' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": "101",
+      "colnumber": "9",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridEvapCoolingModel::Model::' on member 'MeetsOAEnvConstraints' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": "102",
+      "colnumber": "9",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridEvapCoolingModel::Model::' on member 'MeetsSupplyAirTOC' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": "103",
+      "colnumber": "9",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridEvapCoolingModel::Model::' on member 'MeetsSupplyAirRHOC' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": "104",
+      "colnumber": "11",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridEvapCoolingModel::Model::' on member 'CalculateCurveVal' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": "105",
+      "colnumber": "11",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridEvapCoolingModel::Model::' on member 'EstimateQRemaining' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": "106",
+      "colnumber": "11",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridEvapCoolingModel::Model::' on member 'CalculateSupplyAirDBTempAtRefCon' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": "107",
+      "colnumber": "11",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridEvapCoolingModel::Model::' on member 'CalculateMixedAirTemp' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": "108",
+      "colnumber": "11",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridEvapCoolingModel::Model::' on member 'CheckVal_T' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": "109",
+      "colnumber": "11",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridEvapCoolingModel::Model::' on member 'CheckVal_W' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": "122",
+      "colnumber": "11",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridEvapCoolingModel::Model::' on member 'Sat_press' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": "123",
+      "colnumber": "11",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridEvapCoolingModel::Model::' on member 'Part_press' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridModelConfigFile.hh",
+      "linenumber": "33",
+      "colnumber": "9",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridModelConfigFile::ConfigFile::' on member 'TrimFilename' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridModelConfigFile.hh",
+      "linenumber": "37",
+      "colnumber": "20",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridModelConfigFile::ConfigFile::' on member 'GetBcoefficientCurve' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridModelConfigFile.hh",
+      "linenumber": "38",
+      "colnumber": "20",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridModelConfigFile::ConfigFile::' on member 'GetEnvSet' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridModelConfigFile.hh",
+      "linenumber": "39",
+      "colnumber": "11",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridModelConfigFile::ConfigFile::' on member 'GetECLow' [-fpermissive]"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridModelConfigFile.hh",
+      "linenumber": "40",
+      "colnumber": "11",
+      "messagetype": "error",
+      "message": "extra qualification 'EnergyPlus::HybridModelConfigFile::ConfigFile::' on member 'GetECHi' [-fpermissive]"
+    }
   ],
   "test_results": [
 
   ],
-  "failure": null,
+  "failure": "wrong number of arguments (5 for 6)\n[\"/home/elee/ci/decent_ci/lib/testresult.rb:17:in `initialize'\", \"/home/elee/ci/decent_ci/lib/resultsprocessor.rb:420:in `new'\", \"/home/elee/ci/decent_ci/lib/resultsprocessor.rb:420:in `block (2 levels) in process_ctest_results'\", \"/home/elee/ci/decent_ci/lib/resultsprocessor.rb:415:in `each'\", \"/home/elee/ci/decent_ci/lib/resultsprocessor.rb:415:in `block in process_ctest_results'\", \"/usr/lib/ruby/1.9.1/find.rb:41:in `block in find'\", \"/usr/lib/ruby/1.9.1/find.rb:40:in `catch'\", \"/usr/lib/ruby/1.9.1/find.rb:40:in `find'\", \"/home/elee/ci/decent_ci/lib/resultsprocessor.rb:403:in `process_ctest_results'\", \"/home/elee/ci/decent_ci/lib/cmake.rb:175:in `block in cmake_test'\", \"/home/elee/ci/decent_ci/lib/cmake.rb:171:in `each'\", \"/home/elee/ci/decent_ci/lib/cmake.rb:171:in `cmake_test'\", \"/home/elee/ci/decent_ci/lib/potentialbuild.rb:513:in `do_test'\", \"/home/elee/ci/decent_ci/ci.rb:273:in `block (3 levels) in <main>'\", \"/home/elee/ci/decent_ci/ci.rb:231:in `each'\", \"/home/elee/ci/decent_ci/ci.rb:231:in `block (2 levels) in <main>'\", \"/home/elee/ci/decent_ci/ci.rb:227:in `each'\", \"/home/elee/ci/decent_ci/ci.rb:227:in `block in <main>'\", \"/home/elee/ci/decent_ci/ci.rb:152:in `each'\", \"/home/elee/ci/decent_ci/ci.rb:152:in `<main>'\"]",
   "package_results": [
 
   ],
@@ -71,9 +238,9 @@ performance_test_count: 0
     "permalink": "EnergyPlus-a07e38c6e47abb91c78de308451bcf493469ddfb-x86_64-Linux-Ubuntu-14.04-gcc-4.8-UnitTestsCoverage-Debug.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2017-05-01 21:26:07",
-    "unhandled_failure": false,
-    "build_error_count": 0,
+    "date": "2017-05-01 21:30:52",
+    "unhandled_failure": true,
+    "build_error_count": 24,
     "build_warning_count": 0,
     "package_error_count": 0,
     "package_warning_count": 0,
@@ -97,9 +264,9 @@ performance_test_count: 0
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "x86_64-Linux-Ubuntu-14.04-gcc-4.8-UnitTestsCoverage-Debug",
-    "pending": true,
+    "pending": false,
     "analyze_only": false,
-    "build_time": null,
+    "build_time": 219.475177821,
     "test_time": null,
     "package_time": null,
     "install_time": null,
