@@ -3,9 +3,9 @@ title: EnergyPlus-a07e38c6e47abb91c78de308451bcf493469ddfb-x86_64-Linux-Ubuntu-1
 permalink: EnergyPlus-a07e38c6e47abb91c78de308451bcf493469ddfb-x86_64-Linux-Ubuntu-14.04-custom_check.html
 tags: data
 layout: ci_results
-date: '2017-05-01 21:40:32'
+date: '2017-05-01 21:41:32'
 unhandled_failure: false
-build_error_count: 0
+build_error_count: 12
 build_warning_count: 0
 package_error_count: 0
 package_warning_count: 0
@@ -29,10 +29,10 @@ pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: x86_64-Linux-Ubuntu-14.04-custom_check
-pending: true
+pending: false
 analyze_only: true
-build_time: 
-test_time: 
+build_time: 1.102229915
+test_time: 1.017293424
 package_time: 
 install_time: 
 results_repository: NREL/EnergyPlusBuildResults
@@ -57,7 +57,90 @@ performance_test_count: 0
 ---
 {
   "build_results": [
-
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "[license-check] License text cannot be matched, check entire license"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.hh",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "[license-check] License text cannot be matched, check entire license"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvaporativeCooler.cc",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "[license-check] License year is incorrect"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvaporativeCooler.cc",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "[license-check] Non-year differences in license text, check entire license"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvaporativeCooler.hh",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "[license-check] Non-year differences in license text, check entire license"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvaporativeCooler.hh",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "[license-check] License year is incorrect"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridModelConfigFile.cc",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "[license-check] License text cannot be matched, check entire license"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridModelConfigFile.hh",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "[license-check] License text cannot be matched, check entire license"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridUnitaryAirConditioners.cc",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "[license-check] License year is incorrect"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridUnitaryAirConditioners.cc",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "[license-check] Non-year differences in license text, check entire license"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridUnitaryAirConditioners.hh",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "[license-check] Non-year differences in license text, check entire license"
+    },
+    {
+      "filename": "src/EnergyPlus/HybridUnitaryAirConditioners.hh",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "[license-check] License year is incorrect"
+    }
   ],
   "test_results": [
 
@@ -71,9 +154,9 @@ performance_test_count: 0
     "permalink": "EnergyPlus-a07e38c6e47abb91c78de308451bcf493469ddfb-x86_64-Linux-Ubuntu-14.04-custom_check.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2017-05-01 21:40:32",
+    "date": "2017-05-01 21:41:32",
     "unhandled_failure": false,
-    "build_error_count": 0,
+    "build_error_count": 12,
     "build_warning_count": 0,
     "package_error_count": 0,
     "package_warning_count": 0,
@@ -97,10 +180,10 @@ performance_test_count: 0
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "x86_64-Linux-Ubuntu-14.04-custom_check",
-    "pending": true,
+    "pending": false,
     "analyze_only": true,
-    "build_time": null,
-    "test_time": null,
+    "build_time": 1.102229915,
+    "test_time": 1.017293424,
     "package_time": null,
     "install_time": null,
     "results_repository": "NREL/EnergyPlusBuildResults",
