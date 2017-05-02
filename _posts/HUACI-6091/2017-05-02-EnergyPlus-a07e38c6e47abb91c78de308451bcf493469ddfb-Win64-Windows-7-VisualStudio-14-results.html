@@ -3,9 +3,9 @@ title: EnergyPlus-a07e38c6e47abb91c78de308451bcf493469ddfb-Win64-Windows-7-Visua
 permalink: EnergyPlus-a07e38c6e47abb91c78de308451bcf493469ddfb-Win64-Windows-7-VisualStudio-14.html
 tags: data
 layout: ci_results
-date: '2017-05-02 01:05:13'
-unhandled_failure: false
-build_error_count: 0
+date: '2017-05-02 02:47:48'
+unhandled_failure: true
+build_error_count: 1
 build_warning_count: 0
 package_error_count: 0
 package_warning_count: 0
@@ -29,9 +29,9 @@ pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: Win64-Windows-7-VisualStudio-14
-pending: true
+pending: false
 analyze_only: false
-build_time: 
+build_time: 5628.750688
 test_time: 
 package_time: 
 install_time: 
@@ -55,12 +55,18 @@ performance_test_count: 0
 ---
 {
   "build_results": [
-
+    {
+      "filename": "energypluslib.lib(ZoneEquipmentManager.obj)",
+      "linenumber": 0,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "LNK2019 unresolved external symbol \"void __cdecl EnergyPlus::HybridUnitaryAirConditioners::SimZoneHybridUnitaryAirConditioners(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int,double &,double &,int &)\" (?SimZoneHybridUnitaryAirConditioners@HybridUnitaryAirConditioners@EnergyPlus@@YAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HAEAN1AEAH@Z) referenced in function \"void __cdecl EnergyPlus::ZoneEquipmentManager::SimZoneEquipment(bool,bool &)\" (?SimZoneEquipment@ZoneEquipmentManager@EnergyPlus@@YAX_NAEA_N@Z)"
+    }
   ],
   "test_results": [
 
   ],
-  "failure": null,
+  "failure": "wrong number of arguments (5 for 6)\n[\"C:/CI/decent_ci/lib/testresult.rb:17:in `initialize'\", \"C:/CI/decent_ci/lib/resultsprocessor.rb:420:in `new'\", \"C:/CI/decent_ci/lib/resultsprocessor.rb:420:in `block (2 levels) in process_ctest_results'\", \"C:/CI/decent_ci/lib/resultsprocessor.rb:415:in `each'\", \"C:/CI/decent_ci/lib/resultsprocessor.rb:415:in `block in process_ctest_results'\", \"C:/tools/ruby22/lib/ruby/2.2.0/find.rb:48:in `block (2 levels) in find'\", \"C:/tools/ruby22/lib/ruby/2.2.0/find.rb:47:in `catch'\", \"C:/tools/ruby22/lib/ruby/2.2.0/find.rb:47:in `block in find'\", \"C:/tools/ruby22/lib/ruby/2.2.0/find.rb:42:in `each'\", \"C:/tools/ruby22/lib/ruby/2.2.0/find.rb:42:in `find'\", \"C:/CI/decent_ci/lib/resultsprocessor.rb:403:in `process_ctest_results'\", \"C:/CI/decent_ci/lib/cmake.rb:175:in `block in cmake_test'\", \"C:/CI/decent_ci/lib/cmake.rb:171:in `each'\", \"C:/CI/decent_ci/lib/cmake.rb:171:in `cmake_test'\", \"C:/CI/decent_ci/lib/potentialbuild.rb:513:in `do_test'\", \"C:/CI/decent_ci/ci.rb:273:in `block (3 levels) in <main>'\", \"C:/CI/decent_ci/ci.rb:231:in `each'\", \"C:/CI/decent_ci/ci.rb:231:in `block (2 levels) in <main>'\", \"C:/CI/decent_ci/ci.rb:227:in `each'\", \"C:/CI/decent_ci/ci.rb:227:in `block in <main>'\", \"C:/CI/decent_ci/ci.rb:152:in `each'\", \"C:/CI/decent_ci/ci.rb:152:in `<main>'\"]",
   "package_results": [
 
   ],
@@ -69,9 +75,9 @@ performance_test_count: 0
     "permalink": "EnergyPlus-a07e38c6e47abb91c78de308451bcf493469ddfb-Win64-Windows-7-VisualStudio-14.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2017-05-02 01:05:13",
-    "unhandled_failure": false,
-    "build_error_count": 0,
+    "date": "2017-05-02 02:47:48",
+    "unhandled_failure": true,
+    "build_error_count": 1,
     "build_warning_count": 0,
     "package_error_count": 0,
     "package_warning_count": 0,
@@ -95,9 +101,9 @@ performance_test_count: 0
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "Win64-Windows-7-VisualStudio-14",
-    "pending": true,
+    "pending": false,
     "analyze_only": false,
-    "build_time": null,
+    "build_time": 5628.750688,
     "test_time": null,
     "package_time": null,
     "install_time": null,
