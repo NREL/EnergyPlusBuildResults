@@ -1,0 +1,320 @@
+---
+title: Home Page
+---
+
+
+<head>
+{% include common.html %}
+
+<style>
+.y.axis line, .y.axis path {
+  fill: none;
+  stroke: #000;
+}
+
+/* tell the SVG path to be a thin blue line without any area fill */
+path {
+  stroke-width: 1;
+  fill: none;
+}
+</style>
+
+</head>
+
+{% for post in site.posts %}
+{% if post.pull_request_issue_id == "" and post.repository %}
+{% capture base_repository %}{{ post.repository }}{% endcapture %}
+{% capture results_repository %}{{ post.results_repository }}{% endcapture %}
+{% break %}
+{% endif %}
+{% endfor %}
+
+{% include common_variables.html %}
+
+<body>
+  <script>
+
+document.writeln("<ol class='breadcrumb'><li><a href='full_dashboard.html'>Full Dashboard</a></li><li><a href='index.html'>Active Dashboard</a></li><li><a href='performance.html'>Performance</a></li><li>Bot Health</li></ol>");
+
+  </script>
+
+
+  <div class="page-header">
+    <h1>Bot health dashboard for {{ dashboard_title }}</h1>
+  </div>
+
+
+  <script>
+
+function build_bot_data(data) {
+
+  var objects = new Object();
+  objects.seen_dates = [];
+  objects.ids = [];
+  for (var i = 0; i < data.length; ++i){
+    var key = data[i].machine_name + data[i].machine_ip;
+    if (!objects.hasOwnProperty(key)) {
+      objects.ids.push(key);
+      var bot = new Object();
+      bot.machine_name = data[i].machine_name;
+      bot.machine_ip = data[i].machine_ip;
+      bot.os = data[i].os;
+      bot.os_release = data[i].os_release;
+      bot.seen_dates = [];
+      bot.device_ids = [];
+      bot.unhandled_failure_dates = [];
+      objects[key] = bot;
+    }
+
+    objects.seen_dates.push(parseDate(data[i].date));
+    objects[key].seen_dates.push(parseDate(data[i].date));
+
+    if (!objects[key].hasOwnProperty(data[i].device_id)) {
+      objects[key].device_ids.push(data[i].device_id);
+      var device_id_obj = Object();
+      device_id_obj.build_times = [];
+      device_id_obj.test_times = [];
+      device_id_obj.package_times = [];
+      device_id_obj.install_times = [];
+      device_id_obj.seen_dates = [];
+      device_id_obj.unhandled_failures = 0;
+      device_id_obj.unhandled_failures_dates = [];
+      device_id_obj.num_builds = 0;
+      objects[key][data[i].device_id] = device_id_obj;
+    }
+
+    objects[key][data[i].device_id].seen_dates.push(parseDate(data[i].date));
+    objects[key][data[i].device_id].num_builds++;
+
+    if (data[i].build_time != null) {
+      objects[key][data[i].device_id].build_times.push(data[i].build_time);
+    }
+
+    if (data[i].test_time != null) {
+      objects[key][data[i].device_id].test_times.push(data[i].test_time);
+    }
+
+    if (data[i].package_time != null) {
+      objects[key][data[i].device_id].package_times.push(data[i].package_time);
+    }
+
+    if (data[i].install_time != null) {
+      objects[key][data[i].device_id].install_times.push(data[i].install_time);
+    }
+
+    if (data[i].unhandled_failure) {
+      objects[key][data[i].device_id].unhandled_failures++;
+      objects[key][data[i].device_id].unhandled_failures_dates.push(parseDate(data[i].date));
+    }
+  }
+
+  var max_seen_stamp = Math.max.apply(null, objects.seen_dates);
+
+  var day_1 = 60 * 60 * 24 * 1000;
+  var days_3 = day_1 * 3;
+  var days_7 = day_1 * 7;
+
+  var warn_stamp = max_seen_stamp - days_3;
+  var error_stamp = max_seen_stamp - days_7;
+
+  for (var bot_index = 0; bot_index < objects.ids.length; ++bot_index) {
+    var obj = objects[objects.ids[bot_index]];
+    obj.min_date_stamp = Math.min.apply(null, obj.seen_dates);
+    obj.max_date_stamp = Math.max.apply(null, obj.seen_dates);
+
+    if (obj.max_date_stamp < error_stamp) {
+      obj.error_last_seen = true;
+    } else {
+      obj.error_last_seen = false;
+    }
+
+    if (obj.max_date_stamp < warn_stamp) {
+      obj.warning_last_seen = true;
+    } else {
+      obj.warning_last_seen = false;
+    }
+
+    obj.warning_unhandled_failures = false;
+    obj.error_unhandled_failures = false;
+
+    for (var device_index = 0; device_index < obj.device_ids.length; ++device_index) {
+      var build_device = obj[obj.device_ids[device_index]];
+      build_device.min_date_stamp = Math.min.apply(null, build_device.seen_dates);
+      build_device.max_date_stamp = Math.max.apply(null, build_device.seen_dates);
+      build_device.max_unhandled_failures_date_stamp = Math.max.apply(null, build_device.unhandled_failures_dates);
+
+      if (build_device.max_date_stamp < error_stamp) {
+        build_device.error_last_seen = true;
+      } else {
+        build_device.error_last_seen = false;
+      }
+
+      if (build_device.max_date_stamp < warn_stamp) {
+        build_device.warning_last_seen = true;
+      } else {
+        build_device.warning_last_seen = false;
+      }
+
+      // unhandled failures timing is the inverse of build device last seen failures
+      if (build_device.max_unhandled_failures_date_stamp > error_stamp) {
+        build_device.warning_unhandled_failures = true;
+      } else {
+        build_device.warning_unhandled_failures = false;
+      }
+
+      if (build_device.max_unhandled_failures_date_stamp > warn_stamp) {
+        build_device.error_unhandled_failures = true;
+      } else {
+        build_device.error_unhandled_failures = false;
+      }
+
+      obj.warning_unhandled_failures = obj.warning_unhandled_failures || build_device.warning_unhandled_failures;
+      obj.error_unhandled_failures = obj.error_unhandled_failures || build_device.error_unhandled_failures;
+
+
+    }
+  }
+
+
+  return objects;
+}
+
+var bot_data = build_bot_data(data);
+
+var keys = bot_data.ids;
+
+keys.sort(
+  function(a, b) {
+    if (a.toLowerCase() < b.toLowerCase()) return -1;
+    if (a.toLowerCase() > b.toLowerCase()) return 1;
+    return 0;
+  }
+);
+
+
+for (var i = 0; i < keys.length; ++i) {
+
+  var obj = bot_data[keys[i]];
+
+  var panel_context = function(obj){
+    if (obj.error_last_seen || obj.error_unhandled_failures) {
+      return "danger";
+    }
+
+    if (obj.warning_last_seen || obj.warning_unhandled_failures) {
+      return "warning";
+    } 
+
+    return "success";
+  };
+
+  var last_seen_context = function(obj){
+    if (obj.error_last_seen) {
+      return "danger";
+    }
+
+    if (obj.warning_last_seen) {
+      return "warning";
+    } 
+
+    return "success";
+  };
+
+  var unhandled_failures_context = function(obj){
+    if (obj.error_unhandled_failures) {
+      return "danger";
+    }
+
+    if (obj.warning_unhandled_failures) {
+      return "warning";
+    } 
+
+    return "success";
+  };
+
+
+  var key = keys[i].replace(/\./g, "_").replace(/ /g, "_").replace(/-/g, "_");
+
+  var min_date = new Date(obj.min_date_stamp);
+  var max_date = new Date(obj.max_date_stamp);
+
+  document.writeln(
+      "<div class='panel panel-default'>"
+       + "<div class='panel-heading'><span class='pull-right label label-" + unhandled_failures_context(obj) + "'>unhandled failures</span> <span class='pull-right label label-" + last_seen_context(obj) + "'>last seen</span> <span class='pull-right badge'>" + obj.machine_ip + "</span><h2 class='panel-title'><a data-toggle='collapse' data-parent='#accordian-" + key + "' href='#collapse-" + key + "'>" + osIcon(obj.device_ids[0]) + " " + obj.machine_name + " </a></h2></div>"
+      + "<div id='collapse-" + key + "' class='panel-collapse collapse'><div class='panel-body'>"
+      + "<p>");
+
+
+  document.writeln(
+      "<ul class='list-group'>"
+      + "<li class='list-group-item'><strong>Machine name</strong>  " + obj.machine_name + "</li>"
+      + "<li class='list-group-item'><strong>Machine IP</strong>  " + obj.machine_ip+ "</li>"
+      + "<li class='list-group-item'><strong>OS</strong>  " + obj.os + "</li>"
+      + "<li class='list-group-item'><strong>OS release</strong>  " + obj.os_release + "</li>"
+      + "<li class='list-group-item'><strong>Number of builds</strong>  " + obj.seen_dates.length + "</li>"
+      + "<li class='list-group-item'><strong>First seen</strong>  " + min_date.toString() + "</li>"
+      + "<li class='list-group-item list-group-item-" + last_seen_context(obj) + "'><strong>Last seen</strong>  " + max_date.toString() + "</li>"
+      + "</ul>"
+      );
+
+  var device_ids = obj.device_ids.sort();
+
+  for (var device_index = 0; device_index < device_ids.length; ++device_index) {
+    var build_device = obj[device_ids[device_index]];
+    if (build_device == null) { continue; }
+
+
+    document.writeln(
+        "<div class='panel panel-" + panel_context(build_device) + "'>"
+       + "<div class='panel-heading'><h3 class='panel-title'>" + device_ids[device_index] + "</h3></div>"
+        + "<div class='panel-body'>"
+        + "<p>");
+
+    var device_min_date = new Date(build_device.min_date_stamp);
+    var device_max_date = new Date(build_device.max_date_stamp);
+
+    var average = function(a) {
+      if (a.length == 0) { return null; }
+      var sum = function(a, b){
+        return a + b;
+      };
+      return a.reduce(sum) / a.length;
+    };
+
+    var avg_build_time = average(build_device.build_times);
+    var avg_test_time = average(build_device.test_times);
+    var avg_package_time = average(build_device.package_times);
+
+    var last_unhandled_failure_stamp = Math.max.apply(null, build_device.unhandled_failures_dates);
+    var last_unhandled_failure = new Date(last_unhandled_failure_stamp);
+
+
+    document.writeln(
+        "<ul class='list-group'>"
+        + "<li class='list-group-item'><strong>First seen</strong>  " + device_min_date.toString() + "</li>"
+        + "<li class='list-group-item list-group-item-" + last_seen_context(build_device) + "'><strong>Last seen</strong>  " + device_max_date.toString() + "</li>"
+        + "<li class='list-group-item'><strong>Number of builds</strong>  " + build_device.num_builds + "</li>"
+        + "<li class='list-group-item'><strong>Average build time</strong>  " + avg_build_time + "</li>"
+        + "<li class='list-group-item'><strong>Average test time</strong>  " + avg_test_time + "</li>"
+        + "<li class='list-group-item'><strong>Average package time</strong>  " + avg_package_time + "</li>"
+        + "<li class='list-group-item'><strong>Unhandled failures</strong>  " + build_device.unhandled_failures + "</li>"
+        + "<li class='list-group-item list-group-item-" + unhandled_failures_context(build_device) + "'><strong>Last unhandled failure</strong>  " + last_unhandled_failure.toString() + "</li>"
+        + "</ul>"
+        );
+
+    document.writeln("</p></div></div>");
+
+  }
+
+  document.writeln("</p></div></div></div>\n\n<br/><br/>");
+
+
+
+
+}
+
+
+  </script>
+
+
+</body>

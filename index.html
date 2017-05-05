@@ -44,9 +44,9 @@ var macos_enabled = (query["macos"] || query["macos"] == null) && query["macos"]
 var active_data_only = (query["activeonly"] || query["activeonly"] == null) && query["activeonly"] != "false";
 
 if (active_data_only) {
-  document.writeln("<ol class='breadcrumb'><li><a href='full_dashboard.html'>Full Dashboard</a></li><li>Active Dashboard</li><li><a href='performance.html'>Performance</a></li></ol>");
+  document.writeln("<ol class='breadcrumb'><li><a href='full_dashboard.html'>Full Dashboard</a></li><li>Active Dashboard</li><li><a href='performance.html'>Performance</a></li><li><a href='bot_health.html'>Bot Health</a></li></ol>");
 } else {
-  document.writeln("<ol class='breadcrumb'><li>Full Dashboard</li><li><a href='index.html'>Active Dashboard</a></li><li><a href='performance.html'>Performance</a></li></ol>");
+  document.writeln("<ol class='breadcrumb'><li>Full Dashboard</li><li><a href='index.html'>Active Dashboard</a></li><li><a href='performance.html'>Performance</a></li><li><a href='bot_health.html'>Bot Health</a></li></ol>");
 }
 
   </script>
@@ -268,18 +268,7 @@ function build_status_table(table_type, table_data)
     var device_id = device_ids[i];
 
     var colspan = (devices[device_id].build?1:0) + (devices[device_id].test?1:0) + (devices[device_id].package?1:0) + (devices[device_id].coverage?1:0) + (devices[device_id].performance?1:0);
-    var icon = function(){
-      if (device_id.indexOf("Win") != -1) {
-        return "<i class='fa fa-windows'></i>";
-      } else if (device_id.indexOf("Linux") != -1) {
-        return "<i class='fa fa-linux'></i>";
-      } else if (device_id.indexOf("Mac") != -1) {
-        return "<i class='fa fa-apple'></i>";
-      } else {
-        return "";
-      }
-    }();
-
+    var icon = osIcon(device_id);
     document.writeln("<th style='border-left:2px solid gray' colspan=" + colspan + "><h4>" +
         icon + " " + device_id.replace(/-/g, " ") +
         "</h4></th>");
