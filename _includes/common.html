@@ -64,5 +64,16 @@ function parseDate(d) {
   return d3_date_parser.parse(d);
 }
 
+function osIcon(device_id){
+  if (device_id.indexOf("Win") != -1) {
+    return "<i class='fa fa-windows'></i>";
+  } else if (device_id.indexOf("Linux") != -1) {
+    return "<i class='fa fa-linux'></i>";
+  } else if (device_id.indexOf("Mac") != -1) {
+    return "<i class='fa fa-apple'></i>";
+  } else {
+    return "";
+  }
+}
 </script>
 
