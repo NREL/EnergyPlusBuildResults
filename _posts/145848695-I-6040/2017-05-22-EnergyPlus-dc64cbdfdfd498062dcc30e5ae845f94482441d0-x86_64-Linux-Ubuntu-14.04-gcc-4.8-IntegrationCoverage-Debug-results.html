@@ -3,9 +3,9 @@ title: EnergyPlus-dc64cbdfdfd498062dcc30e5ae845f94482441d0-x86_64-Linux-Ubuntu-1
 permalink: EnergyPlus-dc64cbdfdfd498062dcc30e5ae845f94482441d0-x86_64-Linux-Ubuntu-14.04-gcc-4.8-IntegrationCoverage-Debug.html
 tags: data
 layout: ci_results
-date: '2017-05-22 21:46:41'
+date: '2017-05-22 21:47:59'
 unhandled_failure: false
-build_error_count: 0
+build_error_count: 4
 build_warning_count: 0
 package_error_count: 0
 package_warning_count: 0
@@ -29,10 +29,10 @@ pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: x86_64-Linux-Ubuntu-14.04-gcc-4.8-IntegrationCoverage-Debug
-pending: true
+pending: false
 analyze_only: false
-build_time: 
-test_time: 
+build_time: 16.710906408
+test_time: 1.038106306
 package_time: 
 install_time: 
 results_repository: NREL/EnergyPlusBuildResults
@@ -49,7 +49,9 @@ coverage_lines: 0
 coverage_total_lines: 0
 coverage_functions: 0
 coverage_total_functions: 0
-coverage_url: 
+coverage_url: ! 'http://energyplus.s3-website-us-east-1.amazonaws.com/coverage/2017-05-22-EnergyPlus-dc64cbdfdf-x86_64-gcc-4.8ICD
+
+'
 asset_url: 
 performance_total_time: 
 performance_test_count: 0
@@ -57,7 +59,34 @@ performance_test_count: 0
 ---
 {
   "build_results": [
-
+    {
+      "filename": "cmake/ProjectMacros.cmake",
+      "linenumber": "8",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "  file Internal CMake error when trying to open file:\n  /home/elee/ci/EnergyPlus-dc64cbdfdf-x86_64-gcc-4.8ICD/tst/EnergyPlus/unit/HVACDXSystem.unit.cc\n  for reading.\nCall Stack (most recent call first):\n  cmake/ProjectMacros.cmake:64 (ADD_GOOGLE_TESTS)\n  tst/EnergyPlus/unit/CMakeLists.txt:172 (CREATE_TEST_TARGETS)"
+    },
+    {
+      "filename": "cmake/ProjectMacros.cmake",
+      "linenumber": "12",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "  add_test given test NAME\n  \"EnergyPlusFixture.HVACControllers_TestTempAndHumidityRatioCtrlVarType\"\n  which already exists in this directory.\nCall Stack (most recent call first):\n  cmake/ProjectMacros.cmake:64 (ADD_GOOGLE_TESTS)\n  tst/EnergyPlus/unit/CMakeLists.txt:172 (CREATE_TEST_TARGETS)"
+    },
+    {
+      "filename": "cmake/ProjectMacros.cmake",
+      "linenumber": "12",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "  add_test given test NAME\n  \"EnergyPlusFixture.HVACControllers_ResetHumidityRatioCtrlVarType\" which\n  already exists in this directory.\nCall Stack (most recent call first):\n  cmake/ProjectMacros.cmake:64 (ADD_GOOGLE_TESTS)\n  tst/EnergyPlus/unit/CMakeLists.txt:172 (CREATE_TEST_TARGETS)"
+    },
+    {
+      "filename": "cmake/ProjectMacros.cmake",
+      "linenumber": "12",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "  add_test given test NAME\n  \"EnergyPlusFixture.HVACControllers_SchSetPointMgrsOrderTest\" which already\n  exists in this directory.\nCall Stack (most recent call first):\n  cmake/ProjectMacros.cmake:64 (ADD_GOOGLE_TESTS)\n  tst/EnergyPlus/unit/CMakeLists.txt:172 (CREATE_TEST_TARGETS)"
+    }
   ],
   "test_results": [
 
@@ -71,9 +100,9 @@ performance_test_count: 0
     "permalink": "EnergyPlus-dc64cbdfdfd498062dcc30e5ae845f94482441d0-x86_64-Linux-Ubuntu-14.04-gcc-4.8-IntegrationCoverage-Debug.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2017-05-22 21:46:41",
+    "date": "2017-05-22 21:47:59",
     "unhandled_failure": false,
-    "build_error_count": 0,
+    "build_error_count": 4,
     "build_warning_count": 0,
     "package_error_count": 0,
     "package_warning_count": 0,
@@ -97,10 +126,10 @@ performance_test_count: 0
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "x86_64-Linux-Ubuntu-14.04-gcc-4.8-IntegrationCoverage-Debug",
-    "pending": true,
+    "pending": false,
     "analyze_only": false,
-    "build_time": null,
-    "test_time": null,
+    "build_time": 16.710906408,
+    "test_time": 1.038106306,
     "package_time": null,
     "install_time": null,
     "results_repository": "NREL/EnergyPlusBuildResults",
@@ -115,7 +144,7 @@ performance_test_count: 0
     "coverage_total_lines": 0,
     "coverage_functions": 0,
     "coverage_total_functions": 0,
-    "coverage_url": null,
+    "coverage_url": "http://energyplus.s3-website-us-east-1.amazonaws.com/coverage/2017-05-22-EnergyPlus-dc64cbdfdf-x86_64-gcc-4.8ICD\n",
     "asset_url": null,
     "performance_total_time": null,
     "performance_test_count": 0
