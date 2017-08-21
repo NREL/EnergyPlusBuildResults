@@ -3,9 +3,9 @@ title: EnergyPlus-351d4c286830bd456aad2572fd49f8a7beb43a6d-x86_64-Linux-Ubuntu-1
 permalink: EnergyPlus-351d4c286830bd456aad2572fd49f8a7beb43a6d-x86_64-Linux-Ubuntu-14.04-custom_check.html
 tags: data
 layout: ci_results
-date: '2017-08-21 09:54:51'
+date: '2017-08-21 09:55:53'
 unhandled_failure: false
-build_error_count: 0
+build_error_count: 2
 build_warning_count: 0
 package_error_count: 0
 package_warning_count: 0
@@ -29,10 +29,10 @@ pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: x86_64-Linux-Ubuntu-14.04-custom_check
-pending: true
+pending: false
 analyze_only: true
-build_time: 
-test_time: 
+build_time: 1.07430373
+test_time: 1.010387786
 package_time: 
 install_time: 
 results_repository: NREL/EnergyPlusBuildResults
@@ -57,7 +57,20 @@ performance_test_count: 0
 ---
 {
   "build_results": [
-
+    {
+      "filename": "src/EnergyPlus/ResultsSchema.cc",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "[license-check] License text cannot be matched, check entire license"
+    },
+    {
+      "filename": "src/EnergyPlus/ResultsSchema.hh",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "[license-check] License text cannot be matched, check entire license"
+    }
   ],
   "test_results": [
 
@@ -71,9 +84,9 @@ performance_test_count: 0
     "permalink": "EnergyPlus-351d4c286830bd456aad2572fd49f8a7beb43a6d-x86_64-Linux-Ubuntu-14.04-custom_check.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2017-08-21 09:54:51",
+    "date": "2017-08-21 09:55:53",
     "unhandled_failure": false,
-    "build_error_count": 0,
+    "build_error_count": 2,
     "build_warning_count": 0,
     "package_error_count": 0,
     "package_warning_count": 0,
@@ -97,10 +110,10 @@ performance_test_count: 0
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "x86_64-Linux-Ubuntu-14.04-custom_check",
-    "pending": true,
+    "pending": false,
     "analyze_only": true,
-    "build_time": null,
-    "test_time": null,
+    "build_time": 1.07430373,
+    "test_time": 1.010387786,
     "package_time": null,
     "install_time": null,
     "results_repository": "NREL/EnergyPlusBuildResults",
