@@ -3,10 +3,10 @@ title: EnergyPlus-d81e0f2809c76100994a5f1c4a1564e34b37b054-x86_64-Linux-Ubuntu-1
 permalink: EnergyPlus-d81e0f2809c76100994a5f1c4a1564e34b37b054-x86_64-Linux-Ubuntu-14.04-cppcheck-1.61.html
 tags: data
 layout: ci_results
-date: '2017-08-24 11:35:06'
+date: '2017-08-24 11:40:38'
 unhandled_failure: false
 build_error_count: 0
-build_warning_count: 0
+build_warning_count: 67
 package_error_count: 0
 package_warning_count: 0
 test_count: 0
@@ -29,9 +29,9 @@ pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: x86_64-Linux-Ubuntu-14.04-cppcheck-1.61
-pending: true
+pending: false
 analyze_only: true
-build_time: 
+build_time: 259.055324345
 test_time: 
 package_time: 
 install_time: 
@@ -57,7 +57,475 @@ performance_test_count: 0
 ---
 {
   "build_results": [
-
+    {
+      "filename": "third_party/DElight/DElight2.cpp",
+      "linenumber": "157",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::name' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::origin' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::height' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::width' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::azm_zs' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::tilt_zs' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::vis_refl' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::ext_vis_refl' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::gnd_refl' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::type' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::area' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::E10ndx' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::wndo' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::cfs' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::nvertices' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::vert' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::azm_bs' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::tilt_bs' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::skylum' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::sunlum' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::ovrlum' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::outward_uvect' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::inward_uvect' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::dircos' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::node_area' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::node_areas' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::node' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::n_width' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::n_height' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::nnodes' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::TotDirectSkyCIllum' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::TotDirectSunCIllum' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::TotDirectOvercastIllum' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::direct_skyclum' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::direct_sunclum' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::direct_skyolum' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::skyclum' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::sunclum' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/DOE2dl.cpp",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SURF::skyolum' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_DElight.cpp",
+      "linenumber": "127",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "99",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "151",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "208",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "255",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "331",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "333",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "338",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "411",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "417",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "532",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "587",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "651",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "97",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "146",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "197",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "241",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "314",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "328",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "333",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "369",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "397",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "447",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "498",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "559",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "621",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    },
+    {
+      "filename": "third_party/DElight/WxTMY2.cpp",
+      "linenumber": "104",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "scanf without field width limits can crash with huge input data."
+    }
   ],
   "test_results": [
 
@@ -71,10 +539,10 @@ performance_test_count: 0
     "permalink": "EnergyPlus-d81e0f2809c76100994a5f1c4a1564e34b37b054-x86_64-Linux-Ubuntu-14.04-cppcheck-1.61.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2017-08-24 11:35:06",
+    "date": "2017-08-24 11:40:38",
     "unhandled_failure": false,
     "build_error_count": 0,
-    "build_warning_count": 0,
+    "build_warning_count": 67,
     "package_error_count": 0,
     "package_warning_count": 0,
     "test_count": 0,
@@ -97,9 +565,9 @@ performance_test_count: 0
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "x86_64-Linux-Ubuntu-14.04-cppcheck-1.61",
-    "pending": true,
+    "pending": false,
     "analyze_only": true,
-    "build_time": null,
+    "build_time": 259.055324345,
     "test_time": null,
     "package_time": null,
     "install_time": null,
