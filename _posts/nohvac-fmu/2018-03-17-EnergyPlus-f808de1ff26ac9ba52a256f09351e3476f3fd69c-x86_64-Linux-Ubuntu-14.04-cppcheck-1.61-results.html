@@ -3,9 +3,9 @@ title: EnergyPlus-f808de1ff26ac9ba52a256f09351e3476f3fd69c-x86_64-Linux-Ubuntu-1
 permalink: EnergyPlus-f808de1ff26ac9ba52a256f09351e3476f3fd69c-x86_64-Linux-Ubuntu-14.04-cppcheck-1.61.html
 tags: data
 layout: ci_results
-date: '2018-03-17 13:49:41'
+date: '2018-03-17 13:54:15'
 unhandled_failure: false
-build_error_count: 0
+build_error_count: 5
 build_warning_count: 0
 package_error_count: 0
 package_warning_count: 0
@@ -29,9 +29,9 @@ pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: x86_64-Linux-Ubuntu-14.04-cppcheck-1.61
-pending: true
+pending: false
 analyze_only: true
-build_time: 
+build_time: 222.876536097
 test_time: 
 package_time: 
 install_time: 
@@ -57,7 +57,41 @@ performance_test_count: 0
 ---
 {
   "build_results": [
-
+    {
+      "filename": "alpine/EModelica.cpp",
+      "linenumber": "168",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Common realloc mistake: 'fmi_runtime_options_map_vrefs' nulled but not freed upon failure"
+    },
+    {
+      "filename": "alpine/main.cpp",
+      "linenumber": "84",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Memory leak: x"
+    },
+    {
+      "filename": "alpine/main.cpp",
+      "linenumber": "84",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Memory leak: z"
+    },
+    {
+      "filename": "alpine/main.cpp",
+      "linenumber": "84",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Memory leak: xdot"
+    },
+    {
+      "filename": "alpine/main.cpp",
+      "linenumber": "181",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Memory leak: prez"
+    }
   ],
   "test_results": [
 
@@ -71,9 +105,9 @@ performance_test_count: 0
     "permalink": "EnergyPlus-f808de1ff26ac9ba52a256f09351e3476f3fd69c-x86_64-Linux-Ubuntu-14.04-cppcheck-1.61.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2018-03-17 13:49:41",
+    "date": "2018-03-17 13:54:15",
     "unhandled_failure": false,
-    "build_error_count": 0,
+    "build_error_count": 5,
     "build_warning_count": 0,
     "package_error_count": 0,
     "package_warning_count": 0,
@@ -97,9 +131,9 @@ performance_test_count: 0
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "x86_64-Linux-Ubuntu-14.04-cppcheck-1.61",
-    "pending": true,
+    "pending": false,
     "analyze_only": true,
-    "build_time": null,
+    "build_time": 222.876536097,
     "test_time": null,
     "package_time": null,
     "install_time": null,
