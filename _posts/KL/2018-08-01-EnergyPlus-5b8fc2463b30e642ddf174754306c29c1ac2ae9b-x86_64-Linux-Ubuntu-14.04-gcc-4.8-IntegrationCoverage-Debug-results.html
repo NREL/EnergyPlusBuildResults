@@ -3,9 +3,9 @@ title: EnergyPlus-5b8fc2463b30e642ddf174754306c29c1ac2ae9b-x86_64-Linux-Ubuntu-1
 permalink: EnergyPlus-5b8fc2463b30e642ddf174754306c29c1ac2ae9b-x86_64-Linux-Ubuntu-14.04-gcc-4.8-IntegrationCoverage-Debug.html
 tags: data
 layout: ci_results
-date: '2018-08-01 08:18:45'
+date: '2018-08-01 08:20:25'
 unhandled_failure: false
-build_error_count: 0
+build_error_count: 1
 build_warning_count: 0
 package_error_count: 0
 package_warning_count: 0
@@ -29,10 +29,10 @@ pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: x86_64-Linux-Ubuntu-14.04-gcc-4.8-IntegrationCoverage-Debug
-pending: true
+pending: false
 analyze_only: false
-build_time: 
-test_time: 
+build_time: 27.879901236
+test_time: 1.053858032
 package_time: 
 install_time: 
 results_repository: NREL/EnergyPlusBuildResults
@@ -49,7 +49,9 @@ coverage_lines: 0
 coverage_total_lines: 0
 coverage_functions: 0
 coverage_total_functions: 0
-coverage_url: 
+coverage_url: ! 'http://energyplus.s3-website-us-east-1.amazonaws.com/coverage/2018-08-01-EnergyPlus-5b8fc2463b-x86_64-gcc-4.8ICD
+
+'
 asset_url: 
 performance_total_time: 
 performance_test_count: 0
@@ -57,7 +59,13 @@ performance_test_count: 0
 ---
 {
   "build_results": [
-
+    {
+      "filename": "third_party/cmake/kiva.cmake",
+      "linenumber": "10",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "The source directory; ; /home/elee/ci/EnergyPlus-5b8fc2463b-x86_64-gcc-4.8ICD/third_party/kiva-ep"
+    }
   ],
   "test_results": [
 
@@ -71,9 +79,9 @@ performance_test_count: 0
     "permalink": "EnergyPlus-5b8fc2463b30e642ddf174754306c29c1ac2ae9b-x86_64-Linux-Ubuntu-14.04-gcc-4.8-IntegrationCoverage-Debug.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2018-08-01 08:18:45",
+    "date": "2018-08-01 08:20:25",
     "unhandled_failure": false,
-    "build_error_count": 0,
+    "build_error_count": 1,
     "build_warning_count": 0,
     "package_error_count": 0,
     "package_warning_count": 0,
@@ -97,10 +105,10 @@ performance_test_count: 0
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "x86_64-Linux-Ubuntu-14.04-gcc-4.8-IntegrationCoverage-Debug",
-    "pending": true,
+    "pending": false,
     "analyze_only": false,
-    "build_time": null,
-    "test_time": null,
+    "build_time": 27.879901236,
+    "test_time": 1.053858032,
     "package_time": null,
     "install_time": null,
     "results_repository": "NREL/EnergyPlusBuildResults",
@@ -115,7 +123,7 @@ performance_test_count: 0
     "coverage_total_lines": 0,
     "coverage_functions": 0,
     "coverage_total_functions": 0,
-    "coverage_url": null,
+    "coverage_url": "http://energyplus.s3-website-us-east-1.amazonaws.com/coverage/2018-08-01-EnergyPlus-5b8fc2463b-x86_64-gcc-4.8ICD\n",
     "asset_url": null,
     "performance_total_time": null,
     "performance_test_count": 0
