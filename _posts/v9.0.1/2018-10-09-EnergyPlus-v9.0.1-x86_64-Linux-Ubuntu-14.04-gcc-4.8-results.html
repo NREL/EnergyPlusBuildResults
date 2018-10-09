@@ -3,8 +3,8 @@ title: EnergyPlus-v9.0.1-x86_64-Linux-Ubuntu-14.04-gcc-4.8
 permalink: EnergyPlus-v9.0.1-x86_64-Linux-Ubuntu-14.04-gcc-4.8.html
 tags: data
 layout: ci_results
-date: '2018-10-09 21:23:51'
-unhandled_failure: false
+date: '2018-10-09 21:36:34'
+unhandled_failure: true
 build_error_count: 0
 build_warning_count: 0
 package_error_count: 0
@@ -29,7 +29,7 @@ pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: x86_64-Linux-Ubuntu-14.04-gcc-4.8
-pending: true
+pending: false
 analyze_only: false
 build_time: 
 test_time: 
@@ -51,7 +51,7 @@ coverage_functions: 0
 coverage_total_functions: 0
 coverage_url: 
 asset_url: 
-performance_total_time: 
+performance_total_time: 0
 performance_test_count: 0
 
 ---
@@ -62,7 +62,7 @@ performance_test_count: 0
   "test_results": [
 
   ],
-  "failure": null,
+  "failure": "invalid byte sequence in UTF-8\n[\"/home/elee/ci/decent_ci/lib/potentialbuild.rb:217:in `split'\", \"/home/elee/ci/decent_ci/lib/potentialbuild.rb:217:in `block in run_script'\", \"/home/elee/ci/decent_ci/lib/potentialbuild.rb:208:in `each'\", \"/home/elee/ci/decent_ci/lib/potentialbuild.rb:208:in `run_script'\", \"/home/elee/ci/decent_ci/lib/cmake.rb:74:in `cmake_build'\", \"/home/elee/ci/decent_ci/lib/potentialbuild.rb:493:in `do_build'\", \"/home/elee/ci/decent_ci/ci.rb:339:in `block (3 levels) in <main>'\", \"/home/elee/ci/decent_ci/ci.rb:302:in `each'\", \"/home/elee/ci/decent_ci/ci.rb:302:in `block (2 levels) in <main>'\", \"/home/elee/ci/decent_ci/ci.rb:298:in `each'\", \"/home/elee/ci/decent_ci/ci.rb:298:in `block in <main>'\", \"/home/elee/ci/decent_ci/ci.rb:222:in `each'\", \"/home/elee/ci/decent_ci/ci.rb:222:in `<main>'\"]",
   "package_results": [
 
   ],
@@ -71,8 +71,8 @@ performance_test_count: 0
     "permalink": "EnergyPlus-v9.0.1-x86_64-Linux-Ubuntu-14.04-gcc-4.8.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2018-10-09 21:23:51",
-    "unhandled_failure": false,
+    "date": "2018-10-09 21:36:34",
+    "unhandled_failure": true,
     "build_error_count": 0,
     "build_warning_count": 0,
     "package_error_count": 0,
@@ -97,7 +97,7 @@ performance_test_count: 0
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "x86_64-Linux-Ubuntu-14.04-gcc-4.8",
-    "pending": true,
+    "pending": false,
     "analyze_only": false,
     "build_time": null,
     "test_time": null,
@@ -117,8 +117,15 @@ performance_test_count: 0
     "coverage_total_functions": 0,
     "coverage_url": null,
     "asset_url": null,
-    "performance_total_time": null,
+    "performance_total_time": 0,
     "performance_test_count": 0
   },
-  "performance_results": null
+  "performance_results": {
+    "object_files": [
+
+    ],
+    "test_files": [
+
+    ]
+  }
 }
