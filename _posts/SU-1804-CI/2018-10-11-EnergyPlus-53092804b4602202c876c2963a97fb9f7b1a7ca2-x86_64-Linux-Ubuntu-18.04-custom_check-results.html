@@ -3,13 +3,13 @@ title: EnergyPlus-53092804b4602202c876c2963a97fb9f7b1a7ca2-x86_64-Linux-Ubuntu-1
 permalink: EnergyPlus-53092804b4602202c876c2963a97fb9f7b1a7ca2-x86_64-Linux-Ubuntu-18.04-custom_check.html
 tags: data
 layout: ci_results
-date: '2018-10-11 01:11:04'
+date: '2018-10-11 01:11:27'
 unhandled_failure: false
 build_error_count: 0
 build_warning_count: 0
 package_error_count: 0
 package_warning_count: 0
-test_count: 0
+test_count: 2
 test_passed_count: 0
 repository: NREL/EnergyPlus
 compiler: custom_check
@@ -24,14 +24,14 @@ package_name:
 tag_name: 
 commit_sha: 53092804b4602202c876c2963a97fb9f7b1a7ca2
 branch_name: StartUbuntu1804CI
-test_run: false
+test_run: true
 pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: x86_64-Linux-Ubuntu-18.04-custom_check
-pending: true
+pending: false
 analyze_only: true
-build_time: 
+build_time: 13.230143192
 test_time: 
 package_time: 
 install_time: 
@@ -58,7 +58,26 @@ performance_test_count: 0
 
   ],
   "test_results": [
+    {
+      "name": "./scripts/dev/license-check.py",
+      "status": "failed",
+      "time": 0,
+      "output": "",
+      "parsed_errors": [
 
+      ],
+      "failure_type": ""
+    },
+    {
+      "name": "./scripts/dev/verify_formatting.sh",
+      "status": "failed",
+      "time": 0,
+      "output": "",
+      "parsed_errors": [
+
+      ],
+      "failure_type": ""
+    }
   ],
   "failure": null,
   "package_results": [
@@ -69,13 +88,13 @@ performance_test_count: 0
     "permalink": "EnergyPlus-53092804b4602202c876c2963a97fb9f7b1a7ca2-x86_64-Linux-Ubuntu-18.04-custom_check.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2018-10-11 01:11:04",
+    "date": "2018-10-11 01:11:27",
     "unhandled_failure": false,
     "build_error_count": 0,
     "build_warning_count": 0,
     "package_error_count": 0,
     "package_warning_count": 0,
-    "test_count": 0,
+    "test_count": 2,
     "test_passed_count": 0,
     "repository": "NREL/EnergyPlus",
     "compiler": "custom_check",
@@ -90,14 +109,14 @@ performance_test_count: 0
     "tag_name": null,
     "commit_sha": "53092804b4602202c876c2963a97fb9f7b1a7ca2",
     "branch_name": "StartUbuntu1804CI",
-    "test_run": false,
+    "test_run": true,
     "pull_request_issue_id": "",
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "x86_64-Linux-Ubuntu-18.04-custom_check",
-    "pending": true,
+    "pending": false,
     "analyze_only": true,
-    "build_time": null,
+    "build_time": 13.230143192,
     "test_time": null,
     "package_time": null,
     "install_time": null,
