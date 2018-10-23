@@ -3,10 +3,10 @@ title: EnergyPlus-de710ecb40ef991a4ac0fc8457d52a2afd5110ea-x86_64-Linux-Ubuntu-1
 permalink: EnergyPlus-de710ecb40ef991a4ac0fc8457d52a2afd5110ea-x86_64-Linux-Ubuntu-18.04-cppcheck-1.82.html
 tags: data
 layout: ci_results
-date: '2018-10-23 22:26:56'
+date: '2018-10-23 22:32:05'
 unhandled_failure: false
-build_error_count: 0
-build_warning_count: 0
+build_error_count: 269
+build_warning_count: 312
 package_error_count: 0
 package_warning_count: 0
 test_count: 0
@@ -29,9 +29,9 @@ pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: x86_64-Linux-Ubuntu-18.04-cppcheck-1.82
-pending: true
+pending: false
 analyze_only: true
-build_time: 
+build_time: 232.285342976
 test_time: 
 package_time: 
 install_time: 
@@ -55,7 +55,4073 @@ performance_test_count: 0
 ---
 {
   "build_results": [
-
+    {
+      "filename": "src/EnergyPlus/AirTerminalUnit.hh",
+      "linenumber": "87",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'AirTerminalUnit::termUnitSizingNum' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/ChillerExhaustAbsorption.hh",
+      "linenumber": "161",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'ExhaustAbsorberSpecs::ExhaustAirInletNodeNum' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DXCoils.hh",
+      "linenumber": "516",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'DXCoilData::FuelUsed' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DXCoils.hh",
+      "linenumber": "516",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'DXCoilData::FuelConsumed' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataAirSystems.hh",
+      "linenumber": "125",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'AirLoopCompData::compPointer' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "128",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BasisElemDescr::Theta' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "128",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BasisElemDescr::Phi' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "128",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BasisElemDescr::dTheta' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "128",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BasisElemDescr::dPhi' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "128",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BasisElemDescr::UpprTheta' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "128",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BasisElemDescr::LwrTheta' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "128",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BasisElemDescr::UpprPhi' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "128",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BasisElemDescr::LwrPhi' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "128",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BasisElemDescr::INNbInL' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "128",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BasisElemDescr::INNbInH' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "128",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BasisElemDescr::INNbOutL' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "128",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BasisElemDescr::INNbOutH' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "128",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BasisElemDescr::INNbLft' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "128",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BasisElemDescr::INNbRt' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "221",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BSDFGeomDescr::NSkyUnobs' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "221",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BSDFGeomDescr::NGndUnobs' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "221",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BSDFGeomDescr::NSky' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "221",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BSDFGeomDescr::NGnd' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "221",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BSDFGeomDescr::NReflSurf' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "325",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BSDFStateDescr::WinDiffTrans' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "325",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BSDFStateDescr::WinDiffVisTrans' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "363",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BSDFWindowGeomDescr::NumStates' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataBSDFWindow.hh",
+      "linenumber": "387",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'BSDFWindowDescript::NumStates' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataDaylighting.hh",
+      "linenumber": "217",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'ZoneDaylightCalc::glareRefPtNumber' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataDaylighting.hh",
+      "linenumber": "217",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'ZoneDaylightCalc::DElightGriddingResolution' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataGenerators.hh",
+      "linenumber": "671",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'GeneratorFuelSupplyDataStruct::NumConstituents' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataHeatBalance.hh",
+      "linenumber": "1024",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'ConstructionData::CTFTimeStep' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "214",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'RadialCellInformation::RadialCentroid' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "214",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'RadialCellInformation::InnerRadius' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "214",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'RadialCellInformation::OuterRadius' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "228",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'FluidCellInformation::PipeInnerRadius' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "228",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'FluidCellInformation::Volume' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "244",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianPipeCellInformation::RadialSliceWidth' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "244",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianPipeCellInformation::InterfaceVolume' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "368",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'GridRegion::Min' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "368",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'GridRegion::Max' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "368",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'GridRegion::RegionType' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "425",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'NeighborInformation::ThisCentroidToNeighborCentroid' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "425",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'NeighborInformation::ThisCentroidToNeighborWall' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "425",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'NeighborInformation::ThisWallToNeighborCentroid' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "425",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'NeighborInformation::ConductionResistance' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "437",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'RadialSizing::InnerDia' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "437",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'RadialSizing::OuterDia' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "449",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'DirectionNeighbor_Dictionary::Direction' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "474",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::X_index' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "474",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::Y_index' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "474",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::Z_index' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "474",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::X_min' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "474",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::X_max' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "474",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::Y_min' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "474",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::Y_max' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "474",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::Z_min' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "474",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::Z_max' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "474",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::CellType' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataPlantPipingSystems.hh",
+      "linenumber": "474",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::PipeIndex' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataSurfaces.hh",
+      "linenumber": "1097",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SurfaceWindowCalc::LumWinFromRefPt2Rep' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataSurfaces.hh",
+      "linenumber": "1360",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'WindowShadingControlData::FenestrationCount' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataSurfaces.hh",
+      "linenumber": "1453",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'ShadingVertexData::NVert' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataVectorTypes.hh",
+      "linenumber": "557",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PlaneEq::x' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataVectorTypes.hh",
+      "linenumber": "557",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PlaneEq::y' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataVectorTypes.hh",
+      "linenumber": "557",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PlaneEq::z' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataVectorTypes.hh",
+      "linenumber": "557",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PlaneEq::w' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataVectorTypes.hh",
+      "linenumber": "571",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Face::SurfNum' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataVectorTypes.hh",
+      "linenumber": "627",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'dTriangle::vv0' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataVectorTypes.hh",
+      "linenumber": "627",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'dTriangle::vv1' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DataVectorTypes.hh",
+      "linenumber": "627",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'dTriangle::vv2' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DemandManager.hh",
+      "linenumber": "132",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'DemandManagerListData::NumOfManager' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/DirectAirManager.hh",
+      "linenumber": "112",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'DirectAirProps::TermUnitSizingNum' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/EarthTube.hh",
+      "linenumber": "121",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'EarthTubeData::AverSoilSurTemp' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/EarthTube.hh",
+      "linenumber": "121",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'EarthTubeData::ApmlSoilSurTemp' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/EarthTube.hh",
+      "linenumber": "121",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'EarthTubeData::SoilSurPhaseConst' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/EconomicLifeCycleCost.hh",
+      "linenumber": "194",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'RecurringCostsType::cost' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/EconomicLifeCycleCost.hh",
+      "linenumber": "214",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'NonrecurringCostType::cost' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/EconomicLifeCycleCost.hh",
+      "linenumber": "231",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'UsePriceEscalationType::resource' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/EconomicLifeCycleCost.hh",
+      "linenumber": "245",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'UseAdjustmentType::resource' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/EconomicLifeCycleCost.hh",
+      "linenumber": "266",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CashFlowType::SourceKind' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/EconomicLifeCycleCost.hh",
+      "linenumber": "266",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CashFlowType::Resource' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/EconomicLifeCycleCost.hh",
+      "linenumber": "266",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CashFlowType::Category' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/EconomicLifeCycleCost.hh",
+      "linenumber": "266",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CashFlowType::presentValue' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/EconomicLifeCycleCost.hh",
+      "linenumber": "266",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CashFlowType::orginalCost' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/ElectricPowerServiceManager.cc",
+      "linenumber": "610",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'ElectPowerLoadCenter::storOpCVGenRate' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/ElectricPowerServiceManager.cc",
+      "linenumber": "3828",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'ElectricTransformer::totalLossRate_' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/ElectricPowerServiceManager.cc",
+      "linenumber": "3828",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'ElectricTransformer::totalLossEnergy_' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/ElectricPowerServiceManager.hh",
+      "linenumber": "674",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'ElectricPowerServiceManager::pvTotalCapacity_' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/ElectricPowerServiceManager.hh",
+      "linenumber": "674",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'ElectricPowerServiceManager::windTotalCapacity_' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/ExteriorEnergyUse.hh",
+      "linenumber": "117",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'ExteriorLightUsage::PowerActuatorValue' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/ExternalInterface.hh",
+      "linenumber": "182",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'eplusInputVariableScheduleType::InitialValue' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/ExternalInterface.hh",
+      "linenumber": "255",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'InstanceType::Index' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/FanCoilUnits.hh",
+      "linenumber": "258",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'FanCoilData::HCoilPlantTypeOfNum' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/Furnaces.cc",
+      "linenumber": "6890",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Opposite inner 'if' condition leads to a dead code block."
+    },
+    {
+      "filename": "src/EnergyPlus/Furnaces.cc",
+      "linenumber": "6892",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Opposite inner 'if' condition leads to a dead code block."
+    },
+    {
+      "filename": "src/EnergyPlus/GroundHeatExchangers.hh",
+      "linenumber": "273",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'GLHEBase::totalTubeLength' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/GroundHeatExchangers.hh",
+      "linenumber": "413",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'GLHESlinky::Z0' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HVACControllers.hh",
+      "linenumber": "281",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'AirLoopStatsType::TraceFileUnit' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HVACFan.cc",
+      "linenumber": "837",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Array index -1 is out of bounds."
+    },
+    {
+      "filename": "src/EnergyPlus/HVACFan.cc",
+      "linenumber": "840",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Array index -1 is out of bounds."
+    },
+    {
+      "filename": "src/EnergyPlus/HVACFan.cc",
+      "linenumber": "889",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Array index -1 is out of bounds."
+    },
+    {
+      "filename": "src/EnergyPlus/HVACFan.cc",
+      "linenumber": "890",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Array index -1 is out of bounds."
+    },
+    {
+      "filename": "src/EnergyPlus/HVACFan.cc",
+      "linenumber": "891",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Array index -1 is out of bounds."
+    },
+    {
+      "filename": "src/EnergyPlus/HVACFan.cc",
+      "linenumber": "892",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Array index -1 is out of bounds."
+    },
+    {
+      "filename": "src/EnergyPlus/HVACVariableRefrigerantFlow.hh",
+      "linenumber": "704",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'VRFTerminalUnitEquipment::fanType_Num' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HeatBalanceKivaManager.cc",
+      "linenumber": "97",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'KivaInstanceMap::plotNum' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HeatBalanceKivaManager.cc",
+      "linenumber": "393",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'KivaManager::kivaWeather' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HeatBalanceKivaManager.cc",
+      "linenumber": "393",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'KivaManager::defaultFoundation' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HeatPumpWaterToWaterCOOLING.hh",
+      "linenumber": "145",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'GshpSpecs::WWHPPlantTypeOfNum' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": "125",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CMode::Tsa_curve_pointer' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": "125",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CMode::HRsa_curve_pointer' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": "125",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CMode::Psa_curve_pointer' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": "125",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CMode::SFPsa_curve_pointer' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": "125",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CMode::ESPsa_curve_pointer' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": "125",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CMode::SFUsa_curve_pointer' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": "125",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CMode::TFUsa_curve_pointer' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": "125",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CMode::WUsa_curve_pointer' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": "125",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CMode::Minimum_Outdoor_Air_Relative_Humidity' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": "125",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CMode::Maximum_Outdoor_Air_Relative_Humidity' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": "125",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CMode::Minimum_Return_Air_Temperature' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": "125",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CMode::Maximum_Return_Air_Temperature' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": "125",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CMode::Minimum_Return_Air_Humidity_Ratio' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": "125",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CMode::Maximum_Return_Air_Humidity_Ratio' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": "125",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CMode::Minimum_Return_Air_Relative_Humidity' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": "125",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CMode::Maximum_Return_Air_Relative_Humidity' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": "902",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Model::StandBy' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": "902",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Model::ResolutionMsa' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/HybridEvapCoolingModel.cc",
+      "linenumber": "902",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Model::ResolutionOSA' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/IceThermalStorage.hh",
+      "linenumber": "250",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'DetailedIceStorageData::DischargeCurveTypeNum' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/IceThermalStorage.hh",
+      "linenumber": "250",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'DetailedIceStorageData::ChargeCurveTypeNum' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/OutdoorAirUnit.hh",
+      "linenumber": "147",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'OAEquipList::compPointer' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/OutputProcessor.cc",
+      "linenumber": "5440",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Identical condition 'unitUpper==\"KG/S\"', second condition is always false"
+    },
+    {
+      "filename": "src/EnergyPlus/OutputProcessor.hh",
+      "linenumber": "267",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'TimeSteps::CurMinute' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/OutputReportData.cc",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'AnnualFieldSet::m_varUnits' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/OutputReportData.cc",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'AnnualFieldSet::m_typeOfVar' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/OutputReportData.cc",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'AnnualFieldSet::m_keyCount' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/OutputReportData.cc",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'AnnualFieldSet::m_varAvgSum' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/OutputReportData.cc",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'AnnualFieldSet::m_varStepType' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/OutputReportData.cc",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'AnnualFieldSet::m_bottomBinValue' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/OutputReportData.cc",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'AnnualFieldSet::m_topBinValue' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/OutputReportData.cc",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'AnnualFieldSet::m_timeAboveTopBinTotal' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/OutputReportData.cc",
+      "linenumber": "67",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'AnnualFieldSet::m_timeBelowBottomBinTotal' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/OutputReportData.hh",
+      "linenumber": "97",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'AnnualFieldSet::m_showDigits' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/OutputReportData.hh",
+      "linenumber": "97",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'AnnualFieldSet::m_varStepType' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/OutputReportData.hh",
+      "linenumber": "97",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'AnnualFieldSet::m_timeAboveTopBinTotal' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/OutputReportData.hh",
+      "linenumber": "97",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'AnnualFieldSet::m_timeBelowBottomBinTotal' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/OutputReportTabular.hh",
+      "linenumber": "418",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'OutputTableBinnedType::units' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/OutputReportTabular.hh",
+      "linenumber": "621",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CompLoadTablesType::zoneHumRatio' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PVWatts.cc",
+      "linenumber": "74",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PVWattsGenerator::m_TimeElapsed' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PVWatts.cc",
+      "linenumber": "74",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PVWattsGenerator::m_outputDCEnergy' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PVWattsSSC.cc",
+      "linenumber": "252",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'pvwatts_celltemp::j' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PVWattsSSC.cc",
+      "linenumber": "252",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'pvwatts_celltemp::eigen' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PVWattsSSC.cc",
+      "linenumber": "252",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'pvwatts_celltemp::suun' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PVWattsSSC.cc",
+      "linenumber": "252",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'pvwatts_celltemp::tamb' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PVWattsSSC.cc",
+      "linenumber": "252",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'pvwatts_celltemp::tmod' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PVWattsSSC.cc",
+      "linenumber": "252",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'pvwatts_celltemp::tsky' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PVWattsSSC.cc",
+      "linenumber": "252",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'pvwatts_celltemp::hsky' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PVWattsSSC.cc",
+      "linenumber": "252",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'pvwatts_celltemp::ex' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PVWattsSSC.cc",
+      "linenumber": "357",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'irrad::wfpoa' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PVWattsSSC.cc",
+      "linenumber": "357",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'irrad::poaAll' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PVWattsSSC.hh",
+      "linenumber": "151",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'poaDecompReq::POA' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PVWattsSSC.hh",
+      "linenumber": "151",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'poaDecompReq::inc' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PVWattsSSC.hh",
+      "linenumber": "151",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'poaDecompReq::tilt' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PVWattsSSC.hh",
+      "linenumber": "151",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'poaDecompReq::zen' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PVWattsSSC.hh",
+      "linenumber": "151",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'poaDecompReq::exTer' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PVWattsSSC.hh",
+      "linenumber": "151",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'poaDecompReq::tDew' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PVWattsSSC.hh",
+      "linenumber": "151",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'poaDecompReq::elev' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PackagedTerminalHeatPump.hh",
+      "linenumber": "302",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PTUnitData::ControlType' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PackagedTerminalHeatPump.hh",
+      "linenumber": "302",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PTUnitData::validASHRAECoolCoil' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PackagedTerminalHeatPump.hh",
+      "linenumber": "302",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PTUnitData::validASHRAEHeatCoil' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PackagedTerminalHeatPump.hh",
+      "linenumber": "302",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PTUnitData::simASHRAEModel' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PhotovoltaicThermalCollectors.hh",
+      "linenumber": "176",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PVTCollectorStruct::TypeNum' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantCentralGSHP.hh",
+      "linenumber": "361",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'WrapperSpecs::ChillerHeaterNums' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantLoadProfile.hh",
+      "linenumber": "112",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PlantProfileData::TypeNum' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "212",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "The struct 'FluidCellInformation' defines member variable with name 'Properties' also defined in its parent struct 'BaseCell'."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "227",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'RadialSizing::InnerDia' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "227",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'RadialSizing::OuterDia' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "295",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianPipeCellInformation::RadialSliceWidth' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "295",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianPipeCellInformation::InterfaceVolume' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "495",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'NeighborInformation::ThisCentroidToNeighborCentroid' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "495",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'NeighborInformation::ThisCentroidToNeighborWall' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "495",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'NeighborInformation::ThisWallToNeighborCentroid' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "495",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'NeighborInformation::ConductionResistance' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "495",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'NeighborInformation::direction' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "519",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::X_index' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "519",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::Y_index' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "519",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::Z_index' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "519",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::X_min' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "519",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::X_max' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "519",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::Y_min' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "519",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::Y_max' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "519",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::Z_min' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "519",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::Z_max' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "519",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::cellType' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "519",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CartesianCell::PipeIndex' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PlantPipingSystemsManager.hh",
+      "linenumber": "961",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'FullDomainStructureInfo::SlabArea' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PondGroundHeatExchanger.hh",
+      "linenumber": "148",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PondGroundHeatExchangerData::InletTemp' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PondGroundHeatExchanger.hh",
+      "linenumber": "148",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PondGroundHeatExchangerData::OutletTemp' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PondGroundHeatExchanger.hh",
+      "linenumber": "148",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PondGroundHeatExchangerData::MassFlowRate' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PondGroundHeatExchanger.hh",
+      "linenumber": "148",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PondGroundHeatExchangerData::PondTemp' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PondGroundHeatExchanger.hh",
+      "linenumber": "148",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PondGroundHeatExchangerData::HeatTransferRate' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PondGroundHeatExchanger.hh",
+      "linenumber": "148",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PondGroundHeatExchangerData::Energy' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/PoweredInductionUnits.hh",
+      "linenumber": "153",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PowIndUnitData::ctrlZoneInNodeIndex' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/RefrigeratedCase.hh",
+      "linenumber": "565",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'RefrigRackData::LaggedUsedWaterHeater' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/RefrigeratedCase.hh",
+      "linenumber": "565",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'RefrigRackData::LaggedUsedHVACCoil' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/RefrigeratedCase.hh",
+      "linenumber": "1423",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'WalkInData::CircFanConsumption' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/RefrigeratedCase.hh",
+      "linenumber": "1585",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'WarehouseCoilData::SHRCorrectionType' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/RefrigeratedCase.hh",
+      "linenumber": "1585",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'WarehouseCoilData::SHRCorrectionCurvePtr' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SizingAnalysisObjects.cc",
+      "linenumber": "118",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SizingLog::NumOfEnvironmentsInLogSet' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SizingAnalysisObjects.cc",
+      "linenumber": "118",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SizingLog::NumOfDesignDaysInLogSet' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SizingAnalysisObjects.cc",
+      "linenumber": "118",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SizingLog::NumberOfSizingPeriodsInLogSet' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SizingAnalysisObjects.cc",
+      "linenumber": "118",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SizingLog::NumOfStepsInLogSet' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SizingAnalysisObjects.cc",
+      "linenumber": "118",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'SizingLog::timeStepsInAverage' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SizingAnalysisObjects.cc",
+      "linenumber": "435",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PlantCoinicidentAnalysis::peakMdotCoincidentReturnTemp' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SizingAnalysisObjects.cc",
+      "linenumber": "435",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PlantCoinicidentAnalysis::peakMdotCoincidentDemand' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SizingAnalysisObjects.cc",
+      "linenumber": "435",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PlantCoinicidentAnalysis::supplyInletNodeFlow_LogIndex' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SizingAnalysisObjects.cc",
+      "linenumber": "435",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PlantCoinicidentAnalysis::supplyInletNodeTemp_LogIndex' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SizingAnalysisObjects.cc",
+      "linenumber": "435",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PlantCoinicidentAnalysis::loopDemand_LogIndex' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SizingAnalysisObjects.cc",
+      "linenumber": "435",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PlantCoinicidentAnalysis::peakDemandAndFlowMismatch' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SizingAnalysisObjects.cc",
+      "linenumber": "435",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PlantCoinicidentAnalysis::peakDemandReturnTemp' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SizingAnalysisObjects.cc",
+      "linenumber": "435",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'PlantCoinicidentAnalysis::peakDemandMassFlow' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SolarCollectors.hh",
+      "linenumber": "128",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'ParametersData::eff0' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SolarCollectors.hh",
+      "linenumber": "128",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'ParametersData::eff1' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SolarCollectors.hh",
+      "linenumber": "128",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'ParametersData::eff2' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SolarCollectors.hh",
+      "linenumber": "128",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'ParametersData::iam1' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SolarCollectors.hh",
+      "linenumber": "128",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'ParametersData::iam2' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SolarCollectors.hh",
+      "linenumber": "220",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'CollectorData::TypeNum' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/SurfaceGeometry.cc",
+      "linenumber": "6225",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: data.exposedFraction"
+    },
+    {
+      "filename": "src/EnergyPlus/VentilatedSlab.hh",
+      "linenumber": "303",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'VentilatedSlabData::FanType_Num' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/WaterThermalTanks.cc",
+      "linenumber": "272",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'HeatPumpWaterHeaterData::OperatingAirMassFlowRate' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/WindowComplexManager.hh",
+      "linenumber": "112",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'WindowIndex::SurfNo' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/WindowComplexManager.hh",
+      "linenumber": "130",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'WindowStateIndex::InitInc' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/WindowComplexManager.hh",
+      "linenumber": "130",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'WindowStateIndex::IncBasisIndx' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/WindowComplexManager.hh",
+      "linenumber": "130",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'WindowStateIndex::CopyIncState' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/WindowComplexManager.hh",
+      "linenumber": "130",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'WindowStateIndex::InitTrn' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/WindowComplexManager.hh",
+      "linenumber": "130",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'WindowStateIndex::TrnBasisIndx' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/WindowComplexManager.hh",
+      "linenumber": "130",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'WindowStateIndex::CopyTrnState' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/WindowComplexManager.hh",
+      "linenumber": "130",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'WindowStateIndex::Konst' is not initialized in the constructor."
+    },
+    {
+      "filename": "src/EnergyPlus/ZonePlenum.hh",
+      "linenumber": "123",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'ZoneReturnPlenumConditions::NumADUs' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/BCVTB/utilXml.c",
+      "linenumber": "680",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Possible null pointer dereference: temp"
+    },
+    {
+      "filename": "third_party/DElight/EPlus_DElight.cpp",
+      "linenumber": "127",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "99",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "151",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "208",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "255",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "331",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "333",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "338",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "411",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "417",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "532",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "587",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/EPlus_Loaddata.cpp",
+      "linenumber": "651",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "97",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "146",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "197",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "241",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "314",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "328",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "333",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "369",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "397",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "447",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "498",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "559",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/Loaddata.cpp",
+      "linenumber": "621",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "sscanf format string requires 1 parameter but 2 are given."
+    },
+    {
+      "filename": "third_party/DElight/coordsys3.cpp",
+      "linenumber": "89",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Function 'RHCoordSys3' argument order different: declaration 'p1, p2, p3' definition 'p0, p1, p2'"
+    },
+    {
+      "filename": "third_party/DElight/coordsys3.h",
+      "linenumber": "32",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "The class 'RHCoordSys3' has 'copy constructor' but lack of 'operator='."
+    },
+    {
+      "filename": "third_party/DElight/has_isnan.c",
+      "linenumber": "5",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Return value of function isnan() is not used."
+    },
+    {
+      "filename": "third_party/DElight/hemisphiral.cpp",
+      "linenumber": "676",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Function 'plotfile' argument order different: declaration ', , theta, phi, zeta' definition 'outfile, vsize, phi, theta, zeta'"
+    },
+    {
+      "filename": "third_party/FMI/main.c",
+      "linenumber": "427",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "va_list 'argp' was opened but not closed by va_end()."
+    },
+    {
+      "filename": "third_party/FMI/main.c",
+      "linenumber": "1010",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Memory leak: librPath_w32"
+    },
+    {
+      "filename": "third_party/FMI/main.c",
+      "linenumber": "1010",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Memory leak: librPath_w64"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Cell.cpp",
+      "linenumber": "13",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Cell::dims' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Cell.cpp",
+      "linenumber": "13",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Cell::area' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Cell.cpp",
+      "linenumber": "13",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Cell::dist' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Cell.cpp",
+      "linenumber": "13",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Cell::kcoeff' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Cell.cpp",
+      "linenumber": "13",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Cell::told_ptr' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Cell.cpp",
+      "linenumber": "787",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Suspicious code: sign conversion of sign in calculation, even though sign can have a negative value"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Cell.cpp",
+      "linenumber": "805",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Suspicious code: sign conversion of sign in calculation, even though sign can have a negative value"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Cell.cpp",
+      "linenumber": "910",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Suspicious code: sign conversion of sign in calculation, even though sign can have a negative value"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Cell.cpp",
+      "linenumber": "919",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Suspicious code: sign conversion of sign in calculation, even though sign can have a negative value"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "101",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Foundation::wallTopInteriorTemperature' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "101",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Foundation::wallTopExteriorTemperature' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "101",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Foundation::twoParameters' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "101",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Foundation::reductionLength1' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "101",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Foundation::reductionLength2' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "101",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Foundation::linearAreaMultiplier' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "101",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Foundation::isXSymm' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "101",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Foundation::isYSymm' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "101",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Foundation::wall' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "101",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Foundation::interiorConvectiveCoefficient' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "101",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Foundation::exteriorConvectiveCoefficient' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "101",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Foundation::netArea' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "101",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Foundation::netPerimeter' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "354",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf2.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "354",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf2.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "354",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf2.orientation_dim"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "354",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf2.orientation_dir"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "354",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf2.area"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "354",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf2.tilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "354",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf2.azimuth"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "354",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf2.cosTilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "354",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf2.temperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "354",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf2.radiantTemperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "354",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf2.hfGlass"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "354",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf2.effectiveLWViewFactorQtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "399",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "399",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "399",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.orientation_dim"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "399",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.orientation_dir"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "399",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.area"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "399",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.tilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "399",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.azimuth"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "399",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.cosTilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "399",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.temperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "399",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.radiantTemperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "399",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.hfGlass"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "399",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.effectiveLWViewFactorQtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "418",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "418",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "418",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.orientation_dim"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "418",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.orientation_dir"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "418",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.area"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "418",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.tilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "418",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.azimuth"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "418",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.cosTilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "418",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.temperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "418",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.radiantTemperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "418",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.hfGlass"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "418",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.effectiveLWViewFactorQtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "538",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "538",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "538",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.orientation_dim"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "538",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.orientation_dir"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "538",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.area"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "538",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.tilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "538",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.azimuth"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "538",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.cosTilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "538",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.temperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "538",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.radiantTemperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "538",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.hfGlass"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "538",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surf.effectiveLWViewFactorQtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1580",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1580",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1580",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1580",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1580",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dim"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1580",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dir"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1580",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.area"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1580",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.tilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1580",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.azimuth"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1580",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.cosTilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1580",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.temperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1580",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.radiantTemperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1580",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.hfGlass"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1580",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.effectiveLWViewFactorQtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1620",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1620",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1620",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1620",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1620",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.propPtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1620",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dim"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1620",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dir"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1620",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.area"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1620",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.tilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1620",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.azimuth"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1620",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.cosTilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1620",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.temperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1620",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.radiantTemperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1620",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.hfGlass"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1620",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.effectiveLWViewFactorQtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1680",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1680",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1680",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1680",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1680",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.propPtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1680",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dim"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1680",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dir"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1680",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.area"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1680",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.tilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1680",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.azimuth"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1680",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.cosTilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1680",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.radiantTemperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1680",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.hfGlass"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1680",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.effectiveLWViewFactorQtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1707",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1707",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1707",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1707",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1707",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.propPtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1707",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dim"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1707",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dir"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1707",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.area"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1707",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.tilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1707",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.azimuth"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1707",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.cosTilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1707",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.temperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1707",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.radiantTemperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1707",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.hfGlass"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1707",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.effectiveLWViewFactorQtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1767",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1767",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1767",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1767",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1767",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dim"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1767",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dir"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1767",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.area"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1767",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.tilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1767",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.azimuth"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1767",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.cosTilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1767",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.temperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1767",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.radiantTemperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1767",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.hfGlass"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1767",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.effectiveLWViewFactorQtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1784",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1784",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1784",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1784",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1800",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1800",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1800",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1800",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1826",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1826",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1826",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1826",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1872",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1872",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1872",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "1872",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2143",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2143",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2143",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2143",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2143",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dim"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2143",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dir"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2143",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.area"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2143",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.tilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2143",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.azimuth"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2143",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.cosTilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2143",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.temperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2143",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.radiantTemperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2143",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.hfGlass"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2143",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.effectiveLWViewFactorQtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2162",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2162",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2162",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2162",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2162",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dim"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2162",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dir"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2162",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.area"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2162",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.tilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2162",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.azimuth"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2162",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.cosTilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2162",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.temperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2162",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.radiantTemperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2162",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.hfGlass"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2162",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.effectiveLWViewFactorQtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2179",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2179",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2179",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2179",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2179",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.propPtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2179",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dim"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2179",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dir"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2179",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.area"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2179",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.tilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2179",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.azimuth"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2179",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.cosTilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2179",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.temperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2179",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.radiantTemperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2179",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.hfGlass"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2179",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.effectiveLWViewFactorQtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2197",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2197",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2197",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2197",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2197",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.propPtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2197",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dim"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2197",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dir"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2197",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.area"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2197",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.tilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2197",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.azimuth"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2197",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.cosTilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2197",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.temperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2197",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.radiantTemperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2197",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.hfGlass"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2197",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.effectiveLWViewFactorQtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2234",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2234",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2234",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2234",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2234",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.propPtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2234",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dim"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2234",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dir"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2234",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.area"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2234",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.tilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2234",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.azimuth"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2234",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.cosTilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2234",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.radiantTemperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2234",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.hfGlass"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2234",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.effectiveLWViewFactorQtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2264",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2264",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2264",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2264",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2264",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.propPtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2264",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dim"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2264",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dir"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2264",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.area"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2264",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.tilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2264",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.azimuth"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2264",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.cosTilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2264",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.temperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2264",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.radiantTemperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2264",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.hfGlass"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2264",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.effectiveLWViewFactorQtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2336",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2336",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2336",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2336",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2336",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dim"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2336",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.orientation_dir"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2336",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.area"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2336",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.tilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2336",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.azimuth"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2336",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.cosTilt"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2336",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.temperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2336",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.radiantTemperature"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2336",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.hfGlass"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2336",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: surface.effectiveLWViewFactorQtr"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2359",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2359",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2359",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2359",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2378",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2378",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2378",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2378",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2407",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2407",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2407",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2407",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2425",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2425",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2425",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2425",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2450",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.xMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2450",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.xMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2450",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.yMin"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Foundation.cpp",
+      "linenumber": "2450",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Uninitialized struct member: block.yMax"
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Ground.cpp",
+      "linenumber": "19",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Ground::nX' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Ground.cpp",
+      "linenumber": "19",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Ground::nY' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Ground.cpp",
+      "linenumber": "19",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Ground::nZ' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Ground.cpp",
+      "linenumber": "19",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Ground::num_cells' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Ground.cpp",
+      "linenumber": "19",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Ground::timestep' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Ground.cpp",
+      "linenumber": "24",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Ground::nX' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Ground.cpp",
+      "linenumber": "24",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Ground::nY' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Ground.cpp",
+      "linenumber": "24",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Ground::nZ' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Ground.cpp",
+      "linenumber": "24",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Ground::num_cells' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/kiva-ep/src/libkiva/Ground.cpp",
+      "linenumber": "24",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "Member variable 'Ground::timestep' is not initialized in the constructor."
+    },
+    {
+      "filename": "third_party/zlib/contrib/minizip/minizip.c",
+      "linenumber": "222",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "%lld in format string (no. 2) requires 'long long' but the argument type is 'signed long'."
+    },
+    {
+      "filename": "third_party/zlib/contrib/minizip/mztools.c",
+      "linenumber": "280",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Resource leak: fpOutCD"
+    },
+    {
+      "filename": "third_party/zlib/deflate.c",
+      "linenumber": "1287",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "%d in format string (no. 1) requires 'int' but the argument type is 'unsigned int'."
+    },
+    {
+      "filename": "third_party/zlib/example.c",
+      "linenumber": "334",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "%ld in format string (no. 1) requires 'long' but the argument type is 'unsigned long'."
+    },
+    {
+      "filename": "third_party/zlib/gzlib.c",
+      "linenumber": "220",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Memory leak: path"
+    },
+    {
+      "filename": "third_party/zlib/trees.c",
+      "linenumber": "369",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "%u in format string (no. 1) requires 'unsigned int' but the argument type is 'int'."
+    },
+    {
+      "filename": "third_party/zlib/trees.c",
+      "linenumber": "375",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "%u in format string (no. 1) requires 'unsigned int' but the argument type is 'int'."
+    },
+    {
+      "filename": "third_party/zlib/trees.c",
+      "linenumber": "831",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "%ld in format string (no. 1) requires 'long' but the argument type is 'unsigned long'."
+    },
+    {
+      "filename": "third_party/zlib/trees.c",
+      "linenumber": "831",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "%ld in format string (no. 2) requires 'long' but the argument type is 'unsigned long'."
+    },
+    {
+      "filename": "third_party/zlib/trees.c",
+      "linenumber": "859",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "%ld in format string (no. 1) requires 'long' but the argument type is 'unsigned long'."
+    },
+    {
+      "filename": "third_party/zlib/trees.c",
+      "linenumber": "862",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "%ld in format string (no. 1) requires 'long' but the argument type is 'unsigned long'."
+    },
+    {
+      "filename": "third_party/zlib/trees.c",
+      "linenumber": "865",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "%ld in format string (no. 1) requires 'long' but the argument type is 'unsigned long'."
+    },
+    {
+      "filename": "third_party/zlib/trees.c",
+      "linenumber": "943",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "%ld in format string (no. 1) requires 'long' but the argument type is 'unsigned long'."
+    },
+    {
+      "filename": "third_party/zlib/trees.c",
+      "linenumber": "943",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "%ld in format string (no. 2) requires 'long' but the argument type is 'unsigned long'."
+    },
+    {
+      "filename": "third_party/zlib/trees.c",
+      "linenumber": "947",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "%ld in format string (no. 1) requires 'long' but the argument type is 'unsigned long'."
+    },
+    {
+      "filename": "third_party/zlib/trees.c",
+      "linenumber": "947",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "%ld in format string (no. 2) requires 'long' but the argument type is 'unsigned long'."
+    },
+    {
+      "filename": "third_party/zlib/trees.c",
+      "linenumber": "1096",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "%d in format string (no. 1) requires 'int' but the argument type is 'unsigned int'."
+    },
+    {
+      "filename": "third_party/zlib/trees.c",
+      "linenumber": "1106",
+      "colnumber": 0,
+      "messagetype": "warning",
+      "message": "%d in format string (no. 1) requires 'int' but the argument type is 'signed long'."
+    }
   ],
   "test_results": [
 
@@ -69,10 +4135,10 @@ performance_test_count: 0
     "permalink": "EnergyPlus-de710ecb40ef991a4ac0fc8457d52a2afd5110ea-x86_64-Linux-Ubuntu-18.04-cppcheck-1.82.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2018-10-23 22:26:56",
+    "date": "2018-10-23 22:32:05",
     "unhandled_failure": false,
-    "build_error_count": 0,
-    "build_warning_count": 0,
+    "build_error_count": 269,
+    "build_warning_count": 312,
     "package_error_count": 0,
     "package_warning_count": 0,
     "test_count": 0,
@@ -95,9 +4161,9 @@ performance_test_count: 0
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "x86_64-Linux-Ubuntu-18.04-cppcheck-1.82",
-    "pending": true,
+    "pending": false,
     "analyze_only": true,
-    "build_time": null,
+    "build_time": 232.285342976,
     "test_time": null,
     "package_time": null,
     "install_time": null,
