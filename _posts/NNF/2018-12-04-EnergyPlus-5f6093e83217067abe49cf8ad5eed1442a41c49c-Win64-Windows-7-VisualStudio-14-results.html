@@ -3,9 +3,9 @@ title: EnergyPlus-5f6093e83217067abe49cf8ad5eed1442a41c49c-Win64-Windows-7-Visua
 permalink: EnergyPlus-5f6093e83217067abe49cf8ad5eed1442a41c49c-Win64-Windows-7-VisualStudio-14.html
 tags: data
 layout: ci_results
-date: '2018-12-04 04:30:22'
+date: '2018-12-04 05:19:55'
 unhandled_failure: false
-build_error_count: 0
+build_error_count: 1
 build_warning_count: 0
 package_error_count: 0
 package_warning_count: 0
@@ -24,15 +24,15 @@ package_name:
 tag_name: 
 commit_sha: 5f6093e83217067abe49cf8ad5eed1442a41c49c
 branch_name: nohvac-noalpine-fmu
-test_run: false
+test_run: true
 pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: Win64-Windows-7-VisualStudio-14
-pending: true
+pending: false
 analyze_only: false
-build_time: 
-test_time: 
+build_time: 63.99202
+test_time: 0.592808
 package_time: 
 install_time: 
 results_repository: NREL/EnergyPlusBuildResults
@@ -55,7 +55,13 @@ performance_test_count: 0
 ---
 {
   "build_results": [
-
+    {
+      "filename": "CMakeLists.txt",
+      "linenumber": "211",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "The binary directory; ; C:/ci/EnergyPlus-5f6093e832-Win64-VS14/build/third_party/gtest"
+    }
   ],
   "test_results": [
 
@@ -69,9 +75,9 @@ performance_test_count: 0
     "permalink": "EnergyPlus-5f6093e83217067abe49cf8ad5eed1442a41c49c-Win64-Windows-7-VisualStudio-14.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2018-12-04 04:30:22",
+    "date": "2018-12-04 05:19:55",
     "unhandled_failure": false,
-    "build_error_count": 0,
+    "build_error_count": 1,
     "build_warning_count": 0,
     "package_error_count": 0,
     "package_warning_count": 0,
@@ -90,15 +96,15 @@ performance_test_count: 0
     "tag_name": null,
     "commit_sha": "5f6093e83217067abe49cf8ad5eed1442a41c49c",
     "branch_name": "nohvac-noalpine-fmu",
-    "test_run": false,
+    "test_run": true,
     "pull_request_issue_id": "",
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "Win64-Windows-7-VisualStudio-14",
-    "pending": true,
+    "pending": false,
     "analyze_only": false,
-    "build_time": null,
-    "test_time": null,
+    "build_time": 63.99202,
+    "test_time": 0.592808,
     "package_time": null,
     "install_time": null,
     "results_repository": "NREL/EnergyPlusBuildResults",
