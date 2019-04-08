@@ -3,9 +3,9 @@ title: EnergyPlus-c8cf6110ace0f1344a15420a7e66b93e5ff44c4a-i386-Windows-10-Visua
 permalink: EnergyPlus-c8cf6110ace0f1344a15420a7e66b93e5ff44c4a-i386-Windows-10-VisualStudio-17$.html
 tags: data
 layout: ci_results
-date: '2019-04-08 21:49:15'
+date: '2019-04-08 21:53:01'
 unhandled_failure: false
-build_error_count: 0
+build_error_count: 1
 build_warning_count: 0
 package_error_count: 0
 package_warning_count: 0
@@ -29,10 +29,10 @@ pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: i386-Windows-10-VisualStudio-17$
-pending: true
+pending: false
 analyze_only: false
-build_time: 
-test_time: 
+build_time: 0.2063731
+test_time: 0.2997307
 package_time: 
 install_time: 
 results_repository: NREL/EnergyPlusBuildResults
@@ -55,7 +55,13 @@ performance_test_count: 0
 ---
 {
   "build_results": [
-
+    {
+      "filename": "CMakeLists.txt",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "CMake Error: Could not create named generator Visual Studio 17$"
+    }
   ],
   "test_results": [
 
@@ -69,9 +75,9 @@ performance_test_count: 0
     "permalink": "EnergyPlus-c8cf6110ace0f1344a15420a7e66b93e5ff44c4a-i386-Windows-10-VisualStudio-17$.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2019-04-08 21:49:15",
+    "date": "2019-04-08 21:53:01",
     "unhandled_failure": false,
-    "build_error_count": 0,
+    "build_error_count": 1,
     "build_warning_count": 0,
     "package_error_count": 0,
     "package_warning_count": 0,
@@ -95,10 +101,10 @@ performance_test_count: 0
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "i386-Windows-10-VisualStudio-17$",
-    "pending": true,
+    "pending": false,
     "analyze_only": false,
-    "build_time": null,
-    "test_time": null,
+    "build_time": 0.2063731,
+    "test_time": 0.2997307,
     "package_time": null,
     "install_time": null,
     "results_repository": "NREL/EnergyPlusBuildResults",
