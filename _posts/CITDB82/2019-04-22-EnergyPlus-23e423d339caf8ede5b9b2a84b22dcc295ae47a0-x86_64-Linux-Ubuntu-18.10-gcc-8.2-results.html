@@ -3,8 +3,8 @@ title: EnergyPlus-23e423d339caf8ede5b9b2a84b22dcc295ae47a0-x86_64-Linux-Ubuntu-1
 permalink: EnergyPlus-23e423d339caf8ede5b9b2a84b22dcc295ae47a0-x86_64-Linux-Ubuntu-18.10-gcc-8.2.html
 tags: data
 layout: ci_results
-date: '2019-04-22 02:33:25'
-unhandled_failure: false
+date: '2019-04-22 02:33:26'
+unhandled_failure: true
 build_error_count: 0
 build_warning_count: 0
 package_error_count: 0
@@ -29,7 +29,7 @@ pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: x86_64-Linux-Ubuntu-18.10-gcc-8.2
-pending: true
+pending: false
 analyze_only: false
 build_time: 
 test_time: 
@@ -49,7 +49,7 @@ coverage_functions: 0
 coverage_total_functions: 0
 coverage_url: 
 asset_url: 
-performance_total_time: 
+performance_total_time: 0
 performance_test_count: 0
 
 ---
@@ -60,7 +60,7 @@ performance_test_count: 0
   "test_results": [
 
   ],
-  "failure": null,
+  "failure": "undefined method `needs_regression_test' for #<PotentialBuild:0x0000558ceaf18818>\nDid you mean?  needs_regression_tet\n[\"/home/edwin/Projects/decent_ci/ci.rb:282:in `block (3 levels) in <top (required)>'\", \"/home/edwin/Projects/decent_ci/ci.rb:251:in `each'\", \"/home/edwin/Projects/decent_ci/ci.rb:251:in `block (2 levels) in <top (required)>'\", \"/home/edwin/Projects/decent_ci/ci.rb:247:in `each'\", \"/home/edwin/Projects/decent_ci/ci.rb:247:in `block in <top (required)>'\", \"/var/lib/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/core_ext/range/each.rb:9:in `each'\", \"/var/lib/gems/2.5.0/gems/activesupport-5.2.2/lib/active_support/core_ext/range/each.rb:9:in `each'\", \"/home/edwin/Projects/decent_ci/ci.rb:174:in `<top (required)>'\", \"/var/lib/gems/2.5.0/gems/ruby-debug-ide-0.7.0.beta7/lib/ruby-debug-ide.rb:100:in `debug_load'\", \"/var/lib/gems/2.5.0/gems/ruby-debug-ide-0.7.0.beta7/lib/ruby-debug-ide.rb:100:in `debug_program'\", \"/var/lib/gems/2.5.0/gems/ruby-debug-ide-0.7.0.beta7/bin/rdebug-ide:187:in `<main>'\"]",
   "package_results": [
 
   ],
@@ -69,8 +69,8 @@ performance_test_count: 0
     "permalink": "EnergyPlus-23e423d339caf8ede5b9b2a84b22dcc295ae47a0-x86_64-Linux-Ubuntu-18.10-gcc-8.2.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2019-04-22 02:33:25",
-    "unhandled_failure": false,
+    "date": "2019-04-22 02:33:26",
+    "unhandled_failure": true,
     "build_error_count": 0,
     "build_warning_count": 0,
     "package_error_count": 0,
@@ -95,7 +95,7 @@ performance_test_count: 0
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "x86_64-Linux-Ubuntu-18.10-gcc-8.2",
-    "pending": true,
+    "pending": false,
     "analyze_only": false,
     "build_time": null,
     "test_time": null,
@@ -115,8 +115,15 @@ performance_test_count: 0
     "coverage_total_functions": 0,
     "coverage_url": null,
     "asset_url": null,
-    "performance_total_time": null,
+    "performance_total_time": 0,
     "performance_test_count": 0
   },
-  "performance_results": null
+  "performance_results": {
+    "object_files": [
+
+    ],
+    "test_files": [
+
+    ]
+  }
 }
