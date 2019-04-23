@@ -141,6 +141,7 @@ function build_status_table(table_type, table_data)
   }
   for (var i = 0; i < filtered_data.length; ++i)
   {
+	//console.log("Example of filtered data: ", filtered_data[i]);
     filtered_data[i].js_date = parseDate(filtered_data[i].date);
   }
   var min_date = new Date(0);
