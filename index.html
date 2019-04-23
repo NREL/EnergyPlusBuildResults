@@ -2,19 +2,19 @@
 title: EnergyPlus CI Dashboard
 ---
 
-
 <head>
-{% include common.html %}
-
-
-<style>
-/* tell the SVG path to be a thin blue line without any area fill */
-path {
-  stroke: steelblue;
-  stroke-width: 1;
-  fill: none;
-}
-</style>
+	{% include common.html %}
+	<style>
+		/* tell the SVG path to be a thin blue line without any area fill */
+		path {
+		  stroke: steelblue;
+		  stroke-width: 1;
+		  fill: none;
+		}
+		body {
+		  font-family: "Ubuntu";
+		}
+	</style>
 </head>
 
 {% for post in site.posts %}
@@ -29,44 +29,20 @@ path {
 
 <body>
   <script>
-
 var query = $.parseQuery();
-
 function reloadPage(linux, windows, macos, activeonly)
 {
   var loc = window.location.href.split('?')[0];
   window.location.href=loc + "?linux=" + linux + "&windows=" + windows + "&macos=" + macos + "&activeonly=" + activeonly;
 }
-
-var linux_enabled = (query["linux"] || query["linux"] == null) && query["linux"] != "false";
-var windows_enabled = (query["windows"] || query["windows"] == null) && query["windows"] != "false";
-var macos_enabled = (query["macos"] || query["macos"] == null) && query["macos"] != "false";
 var active_data_only = (query["activeonly"] || query["activeonly"] == null) && query["activeonly"] != "false";
-
 if (active_data_only) {
   document.writeln("<ol class='breadcrumb'><li><a href='full_dashboard.html'>Full Dashboard</a></li><li>Active Dashboard</li><li><a href='performance.html'>Performance</a></li><li><a href='bot_health.html'>Bot Health</a></li></ol>");
 } else {
   document.writeln("<ol class='breadcrumb'><li>Full Dashboard</li><li><a href='index.html'>Active Dashboard</a></li><li><a href='performance.html'>Performance</a></li><li><a href='bot_health.html'>Bot Health</a></li></ol>");
 }
-
   </script>
-
-
-  <div class="page-header">
-    <h1>Dashboard for {{ dashboard_title }}</h1>
-  </div>
-
-
-  <script>
-
-document.writeln("<button type='button' onclick='reloadPage(linux_enabled, windows_enabled, macos_enabled, !active_data_only)' class='btn btn-default " + (active_data_only?'active':'') + "'>Active Data Only</button>");
-document.writeln("<button type='button' onclick='reloadPage(!linux_enabled, windows_enabled, macos_enabled, active_data_only)' class='btn btn-default " + (linux_enabled?'active':'') + "'>Show Linux</button>");
-document.writeln("<button type='button' onclick='reloadPage(linux_enabled, !windows_enabled, macos_enabled, active_data_only)' class='btn btn-default " + (windows_enabled?'active':'') + "'>Show Windows</button>");
-document.writeln("<button type='button' onclick='reloadPage(linux_enabled, windows_enabled, !macos_enabled, active_data_only)' class='btn btn-default " + (macos_enabled?'active':'') + "'>Show MacOS</button>");
-document.writeln("<br/><br/>");
-
-  </script>
-
+  <div class="container-fluid">
   <script>
 var width = 80;
 var height = 25;
@@ -126,30 +102,17 @@ function sparkline(elemId, indata) {
       .text(data[i].y + " messages\nsha: " + data[i].sha);
   }
 }
-
-
-
-
-
 var num_sparklines = 0;
-
-
-
-
-
 var status_types = {
   SUCCESS: 0,
   FAIL: 1,
   WARN: 2
 }
-
-
 var table_types = {
   BRANCH: 0,
   PULL_REQUEST: 1,
   RELEASE: 2
 }
-
 function build_status_table(table_type, table_data)
 {
   var filtered_data = null;
@@ -157,8 +120,6 @@ function build_status_table(table_type, table_data)
   var field_name = "";
   var github_icon = "";
   var base_url = "";
-
-
   if (table_type == table_types.BRANCH) {
     table_name = "Branches";
     filtered_data = table_data.filter(function(o) { return o.pull_request_issue_id == "" && o.is_release == false && o.branch_name != null });
@@ -178,27 +139,11 @@ function build_status_table(table_type, table_data)
     github_icon = "<span class='octicon octicon-tag'></span>";
     base_url = "{{ base_release_url }}";
   }
-
-  filtered_data = filtered_data.filter(function(o) {
-    if (windows_enabled && o.device_id.indexOf("Win") != -1) {
-      return true;
-    } else if (linux_enabled && o.device_id.indexOf("Linux") != -1) {
-      return true;
-    } else if (macos_enabled && o.device_id.indexOf("Mac") != -1) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  );
-
   for (var i = 0; i < filtered_data.length; ++i)
   {
     filtered_data[i].js_date = parseDate(filtered_data[i].date);
   }
-
   var min_date = new Date(0);
-
   if (active_data_only) {
     var max_date = new Date(0);
     for (var i = 0; i < filtered_data.length; ++i)
@@ -209,10 +154,8 @@ function build_status_table(table_type, table_data)
     }
     min_date = new Date(max_date - 4 * 24 * 60 * 60 * 1000);
   }
-
   var allowed_devices = [];
   var allowed_keys = [];
-
   for (var i = 0; i < filtered_data.length; ++i)
   {
     if (filtered_data[i].js_date >= min_date) {
@@ -224,41 +167,30 @@ function build_status_table(table_type, table_data)
       }
     }
   }
-
   filtered_data = filtered_data.filter(function(o) {
     return allowed_devices.indexOf(o.device_id) != -1 &&
       allowed_keys.indexOf(o[field_name]) != -1;
   });
-
-
   devices = {};
   for (var i = 0; i < filtered_data.length; ++i)
   {
     var device_id = filtered_data[i].device_id;
-
     if (!devices.hasOwnProperty(device_id)) {
       devices[device_id] = {build:false, test:false, package:false, coverage:false, performance:false};
     }
-
     devices[device_id].build = true;
     devices[device_id].test = devices[device_id].test || !filtered_data[i].analyze_only;
     devices[device_id].package = devices[device_id].package || (filtered_data[i].is_release && !filtered_data[i].packaging_skipped);
     devices[device_id].coverage = devices[device_id].coverage || filtered_data[i].coverage_enabled;
     devices[device_id].performance = devices[device_id].performance || (filtered_data[i].performance_total_time != null);
   }
-
   device_ids = [];
-
   for (var device_id in devices) {
     device_ids.push(device_id);
   }
-
   device_ids.sort();
-
-
-  document.writeln("<div class='alert alert-info'><h4>" + table_name + "</h4></div>");
-
-  document.writeln("<table class='table'>");
+  document.writeln("<h1>" + table_name + "</h1>");
+  document.writeln("<table class='table' style='border-bottom:2px solid gray'>");
 
   // device ids
 
@@ -269,38 +201,32 @@ function build_status_table(table_type, table_data)
 
     var colspan = (devices[device_id].build?1:0) + (devices[device_id].test?1:0) + (devices[device_id].package?1:0) + (devices[device_id].coverage?1:0) + (devices[device_id].performance?1:0);
     var icon = osIcon(device_id);
-    document.writeln("<th style='border-left:2px solid gray' colspan=" + colspan + "><h4>" +
+    document.writeln("<th style='border-left:2px solid gray;border-top:2px solid gray' colspan=" + colspan + "><h4>" +
         icon + " " + device_id.replace(/-/g, " ") +
         "</h4></th>");
   }
   document.writeln("</tr>");
 
   // types of builds 
-
   document.writeln("<tr><td></td>");
   for (var i = 0; i < device_ids.length; ++i)
   {
     var device_id = device_ids[i];
     document.writeln("<td style='border-left:2px solid gray'><h5>Build</h5></td>");
-
     if (devices[device_id].test) {
       document.writeln("<td><h5>Test</h5></td>");
     }
-
     if (devices[device_id].package) {
       document.writeln("<td><h5>Package</h5></td>");
     }
-
     if (devices[device_id].coverage) {
       document.writeln("<td><h5>Coverage</h5></td>");
     }
-
     if (devices[device_id].performance) {
       document.writeln("<td><h5>Performance</h5></td>");
     }
   }
   document.writeln("</tr>");
-
 
   // builds
 
@@ -393,7 +319,6 @@ function build_status_table(table_type, table_data)
       }();
     }
   }
-
 
   keys.sort(
       function(lhs, rhs) { 
@@ -531,8 +456,6 @@ function build_status_table(table_type, table_data)
         organized_data[key][device_id].results[active_result[0]].performance_slope = performance_slope;
       }
 
-
-
       key_pending = key_pending || (active_result[0] > -1 && organized_data[key][device_id].results[active_result[0]].pending);
 
       var normalize_status = function(lhs, rhs) {
@@ -569,8 +492,6 @@ function build_status_table(table_type, table_data)
     organized_data[key].pending = key_pending;
   }
 
-
-
   for (var i = 0; i < keys.length; ++i)
   {
     var key = keys[i];
@@ -595,7 +516,6 @@ function build_status_table(table_type, table_data)
           return "<p class='text-success'><span class='octicon octicon-check'></span></p>";
         }
       }();
-
 
     var sha_link = organized_data[key].last_sha==null?"":("<a href='{{base_commit_url}}/" + organized_data[key].last_sha + "'>" + organized_data[key].last_sha.substr(0,12) + "...</a>");
 
@@ -626,7 +546,6 @@ function build_status_table(table_type, table_data)
         }
       }();
 
-
       var time = function(){
         if (pending || run_time == null)
         {
@@ -635,7 +554,6 @@ function build_status_table(table_type, table_data)
           return (Math.round(run_time * 100) / 100) + "s";
         }
       }();
-
 
       var cell_class = function(){
         if (!has_data) {
@@ -852,9 +770,8 @@ function build_status_table(table_type, table_data)
     document.writeln("</tr>");
   }
 
-
-
   document.writeln("</table>");
+  document.writeln("<hr style='height:1px;border:none;color:#db5700;background-color:#333;'>");
 
 }
 
@@ -865,8 +782,7 @@ build_status_table(table_types.PULL_REQUEST, data);
 build_status_table(table_types.RELEASE, data);
 
   </script>
-
- 
-
-
+  
+  </div>
+  
 </body>

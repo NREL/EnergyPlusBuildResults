@@ -9,11 +9,7 @@
 {% include common_variables.html %}
 <script src="results_helpers.js"></script>
 </head>
-
-
 <body>
-
-
 
 <ol class="breadcrumb">
   <li><a href="full_dashboard.html">Full Dashboard</a></li>
@@ -23,13 +19,12 @@
   <li>Results</li>
 </ol>
 
+<div class="container-fluid">
 
 {% if page.results_repository %}
 <a class="btn btn-danger" href="{{ base_delete_url }}/{{ page.path }}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete results and force rebuild.</a>
 <br/>
 {% endif %}
-
-
 
 <script type="text/javascript">
 var num_tables = 0;
@@ -44,7 +39,6 @@ if (results_data.hasOwnProperty("performance_results") && results_data.performan
   results_data.performance_results.test_files.sort(compare_performance_data);
 }
 
-
 function format_configuration(data)
 {
   var retval = "";
@@ -55,14 +49,11 @@ function format_configuration(data)
 }
 </script>
 
-
 <div class="page-header">
   <h1>Build Results</h1>
   {% if page.pending %}<h4>BUILD PENDING</h4>{% else %}<h4>BUILD COMPLETED</h4>{% endif %}
   {{ page.title }}<br/>
-
 </div>
-
 
 {% if page.release_packaged == true %}
 <a href="{{ base_release_url }}/{{ page.tag_name }}"><i class="fa fa-cloud-download"></i> Downloads</a>
@@ -112,20 +103,14 @@ if ({{page.unhandled_failure}})
       <h1>Unhandled Failure</h1> \
     </div> \
     </a><br/><code>" + results_data.failure + "</code><br/>");
-
-
-
 }
 </script>
-
 
 <a id="build">
   <div class="page-header">
     <h1>Build Messages (time: {{ page.build_time }}s)</h1>
   </div>
 </a>
-
-
 
 <script type="text/javascript">
 var repo = "{{ page.repository }}"
@@ -134,13 +119,8 @@ var ref = "{{ page.tag_name }}";
 {% else %}
 var ref = "{{ page.commit_sha }}"
 {% endif %}
-
 document.writeln(format_error_rows(results_data.build_results));
-
-
 </script>
-
-
 
 {% if page.test_count == 0 %}
 {% assign test_percent = 100 %}
@@ -148,7 +128,6 @@ document.writeln(format_error_rows(results_data.build_results));
 {% assign test_percent = page.test_passed_count | divided_by: page.test_count | times: 100.0 %}
 {% endif %}
 {% assign test_failure_count = page.test_count | minus: page.test_passed_count %}
-
 
 {% if test_percent < 90.0 %}
   {% assign alert_class = "alert-danger" %}
@@ -169,17 +148,11 @@ document.writeln(format_error_rows(results_data.build_results));
   </div>
 </a>
 
-
 <script type="text/javascript">
-
-
-
 
 document.writeln(format_test_rows(results_data.test_results));
 
 </script>
-
-
 
 {% if page.is_release %}
 
@@ -189,16 +162,13 @@ document.writeln(format_test_rows(results_data.test_results));
   </div>
 </a>
 
-
 <script type="text/javascript">
 
 document.writeln(format_error_rows(results_data.package_results));
 
 </script>
 
-
 {% endif %}
-
 
 {% if page.coverage_enabled %}
 
@@ -236,7 +206,6 @@ document.writeln(format_error_rows(results_data.package_results));
 {% assign lines_label_type = "danger" %}
 {% endif %}
 
-
 <a id="coverage">
   <div class="page-header">
     <h1>Coverage {{ coverage_percent_string }}%</h1>
@@ -263,9 +232,6 @@ No Coverage Details Uploaded
 {% endif %}
 
 {% if page.performance_test_count and page.performance_test_count > 0 %}
-
-
-
 
 <a id="performance">
   <div class="page-header">
@@ -301,7 +267,6 @@ No Coverage Details Uploaded
     }
   }();
 
-
   document.writeln("<table class='table'><caption>Baseline Comparison (" + baseline.repository + "/" + baseline.branch_name + ")</caption><thead><tr><th></th><th>This Commit</th><th>Baseline</th><th>% Improvement</th></tr></thead>");
   document.writeln("<tbody>");
   document.writeln("<tr class='" + count_class + "'><td>Performance Test Count</td><td>" + commit_test_count + "</td><td>" + baseline_test_count + "</td><td>" + per_test_change + "</td></tr>");
@@ -309,7 +274,6 @@ No Coverage Details Uploaded
   document.writeln("</tbody></table>");
 
 </script>
-
 
 <script type="text/javascript">
 
@@ -321,10 +285,8 @@ if (results_data.hasOwnProperty("performance_results") && results_data.performan
 
 </script>
 
-
 {% endif %}
 
-
-
+</div>
 </body>
 
