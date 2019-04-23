@@ -127,13 +127,13 @@ function build_status_table(table_type, table_data)
     github_icon = "<span class='octicon octicon-git-branch'></span>";
     base_url = "{{ base_branch_url }}";
   } else if (table_type == table_types.PULL_REQUEST) {
-    table_name = "External Pull Requests";
+    table_name = "PRs";
     filtered_data = table_data.filter(function(o) { return o.pull_request_issue_id != "" && o.is_release == false });
     field_name = "pull_request_issue_id";
     github_icon = "<span class='octicon octicon-git-pull-request'></span>";
     base_url = "{{ base_pull_request_url }}";
   } else if (table_type == table_types.RELEASE) {
-    table_name = "Releases";
+    table_name = "Tags";
     filtered_data = table_data.filter(function(o) { return o.is_release == true});
     field_name = "tag_name";
     github_icon = "<span class='octicon octicon-tag'></span>";
@@ -189,19 +189,19 @@ function build_status_table(table_type, table_data)
     device_ids.push(device_id);
   }
   device_ids.sort();
-  document.writeln("<h1>" + table_name + "</h1>");
-  document.writeln("<table class='table' style='border-bottom:2px solid gray'>");
+  document.writeln("<br/>");
+  document.writeln("<table class='table' style='border-bottom:2px solid gray;border-top:2px solid gray'>");
 
   // device ids
 
-  document.writeln("<tr><th></th>");
+  document.writeln("<tr><th><p style='font-size:28px'>" + table_name + "</p></th>");
   for (var i = 0; i < device_ids.length; ++i)
   {
     var device_id = device_ids[i];
 
     var colspan = (devices[device_id].build?1:0) + (devices[device_id].test?1:0) + (devices[device_id].package?1:0) + (devices[device_id].coverage?1:0) + (devices[device_id].performance?1:0);
     var icon = osIcon(device_id);
-    document.writeln("<th style='border-left:2px solid gray;border-top:2px solid gray' colspan=" + colspan + "><h4>" +
+    document.writeln("<th style='border-left:2px solid gray;' colspan=" + colspan + "><h4>" +
         icon + " " + device_id.replace(/-/g, " ") +
         "</h4></th>");
   }
