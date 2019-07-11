@@ -3,11 +3,11 @@ title: EnergyPlus-TestMultipleArtifacts1-x86_64-MacOS-10.13-clang
 permalink: EnergyPlus-TestMultipleArtifacts1-x86_64-MacOS-10.13-clang.html
 tags: data
 layout: ci_results
-date: '2019-07-11 17:31:20'
+date: '2019-07-11 17:52:01'
 unhandled_failure: false
-build_error_count: 0
+build_error_count: 1
 build_warning_count: 0
-package_error_count: 0
+package_error_count: 4
 package_warning_count: 0
 test_count: 0
 test_passed_count: 0
@@ -29,11 +29,11 @@ pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: x86_64-MacOS-10.13-clang
-pending: true
+pending: false
 analyze_only: false
-build_time: 
-test_time: 
-package_time: 
+build_time: 131.499786
+test_time: 1.092709
+package_time: 2.439169
 install_time: 
 results_repository: NREL/EnergyPlusBuildResults
 machine_name: rgugliel-32986s
@@ -55,25 +55,58 @@ performance_test_count: 0
 ---
 {
   "build_results": [
-
+    {
+      "filename": "CMakeLists.txt",
+      "linenumber": "281",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": ""
+    }
   ],
   "test_results": [
 
   ],
   "failure": null,
   "package_results": [
-
+    {
+      "filename": "CMakeLists.txt",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "CPack Error: Problem running install command: /Applications/CMake.app/Contents/bin/cmake --build . --config \"Release\" --target \"preinstall\"; Please check /Users/elee/ci/clone_branch/build/_CPack_Packages/Darwin/IFW/PreinstallOutput.log for errors"
+    },
+    {
+      "filename": "CMakeLists.txt",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "CPack Error: Error when generating package: EnergyPlus; CPack Error: Problem running install command: /Applications/CMake.app/Contents/bin/cmake --build . --config \"Release\" --target \"preinstall\"; Please check /Users/elee/ci/clone_branch/build/_CPack_Packages/Darwin/TGZ/PreinstallOutput.log for errors"
+    },
+    {
+      "filename": "CMakeLists.txt",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Please check /Users/elee/ci/clone_branch/build/_CPack_Packages/Darwin/IFW/PreinstallOutput.log for errors; CPack Error: Error when generating package: EnergyPlus; CPack Error: Problem running install command: /Applications/CMake.app/Contents/bin/cmake --build . --config \"Release\" --target \"preinstall\""
+    },
+    {
+      "filename": "CMakeLists.txt",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "Please check /Users/elee/ci/clone_branch/build/_CPack_Packages/Darwin/TGZ/PreinstallOutput.log for errors; CPack Error: Error when generating package: EnergyPlus"
+    }
   ],
   "configuration": {
     "title": "EnergyPlus-TestMultipleArtifacts1-x86_64-MacOS-10.13-clang",
     "permalink": "EnergyPlus-TestMultipleArtifacts1-x86_64-MacOS-10.13-clang.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2019-07-11 17:31:20",
+    "date": "2019-07-11 17:52:01",
     "unhandled_failure": false,
-    "build_error_count": 0,
+    "build_error_count": 1,
     "build_warning_count": 0,
-    "package_error_count": 0,
+    "package_error_count": 4,
     "package_warning_count": 0,
     "test_count": 0,
     "test_passed_count": 0,
@@ -95,11 +128,11 @@ performance_test_count: 0
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "x86_64-MacOS-10.13-clang",
-    "pending": true,
+    "pending": false,
     "analyze_only": false,
-    "build_time": null,
-    "test_time": null,
-    "package_time": null,
+    "build_time": 131.499786,
+    "test_time": 1.092709,
+    "package_time": 2.439169,
     "install_time": null,
     "results_repository": "NREL/EnergyPlusBuildResults",
     "machine_name": "rgugliel-32986s",
