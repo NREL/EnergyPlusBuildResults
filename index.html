@@ -202,29 +202,29 @@ function build_status_table(table_type, table_data)
 
     var colspan = (devices[device_id].build?1:0) + (devices[device_id].test?1:0) + (devices[device_id].package?1:0) + (devices[device_id].coverage?1:0) + (devices[device_id].performance?1:0);
     var icon = osIcon(device_id);
-    document.writeln("<th style='border-left:2px solid gray;' colspan=" + colspan + "><h4>" +
+    document.writeln("<th style='border-left:2px solid gray;' colspan=" + colspan + "><h4><b>" +
         icon + " " + device_id.replace(/-/g, " ") +
-        "</h4></th>");
+        "</b></h4></th>");
   }
   document.writeln("</tr>");
 
   // types of builds 
-  document.writeln("<tr><td>" + table_name + "</td>");
+  document.writeln("<tr><td><b>" + table_name + "</b></td>");
   for (var i = 0; i < device_ids.length; ++i)
   {
     var device_id = device_ids[i];
-    document.writeln("<td style='border-left:2px solid gray'>Build</td>");
+    document.writeln("<td style='border-left:2px solid gray'><b>Build</b></td>");
     if (devices[device_id].test) {
-      document.writeln("<td>Test</td>");
+      document.writeln("<td><b>Test</b></td>");
     }
     if (devices[device_id].package) {
-      document.writeln("<td>Package</td>");
+      document.writeln("<td><b>Package</b></td>");
     }
     if (devices[device_id].coverage) {
-      document.writeln("<td>Coverage</td>");
+      document.writeln("<td><b>Coverage</b></td>");
     }
     if (devices[device_id].performance) {
-      document.writeln("<td>Performance</td>");
+      document.writeln("<td><b>Performance</b></td>");
     }
   }
   document.writeln("</tr>");
