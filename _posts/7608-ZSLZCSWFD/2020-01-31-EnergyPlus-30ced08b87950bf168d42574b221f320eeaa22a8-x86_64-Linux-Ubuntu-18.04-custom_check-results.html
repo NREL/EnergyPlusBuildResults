@@ -3,14 +3,14 @@ title: EnergyPlus-30ced08b87950bf168d42574b221f320eeaa22a8-x86_64-Linux-Ubuntu-1
 permalink: EnergyPlus-30ced08b87950bf168d42574b221f320eeaa22a8-x86_64-Linux-Ubuntu-18.04-custom_check.html
 tags: data
 layout: ci_results
-date: '2020-01-31 05:57:13'
+date: '2020-01-31 05:58:41'
 unhandled_failure: false
 build_error_count: 0
 build_warning_count: 0
 package_error_count: 0
 package_warning_count: 0
-test_count: 0
-test_passed_count: 0
+test_count: 11
+test_passed_count: 11
 repository: NREL/EnergyPlus
 compiler: custom_check
 compiler_version: 
@@ -24,14 +24,14 @@ package_name:
 tag_name: 
 commit_sha: 30ced08b87950bf168d42574b221f320eeaa22a8
 branch_name: 7608ZeroSolarLoadZoneCompSummWeatherFileDays
-test_run: false
+test_run: true
 pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: x86_64-Linux-Ubuntu-18.04-custom_check
-pending: true
+pending: false
 analyze_only: true
-build_time: 
+build_time: 85.637540381
 test_time: 
 package_time: 
 install_time: 
@@ -58,7 +58,116 @@ performance_test_count: 0
 
   ],
   "test_results": [
+    {
+      "name": "./scripts/dev/license-check.py",
+      "status": "passed",
+      "time": 0,
+      "output": "",
+      "parsed_errors": [
 
+      ],
+      "failure_type": ""
+    },
+    {
+      "name": "./scripts/dev/verify_formatting.sh",
+      "status": "passed",
+      "time": 0,
+      "output": "",
+      "parsed_errors": [
+
+      ],
+      "failure_type": ""
+    },
+    {
+      "name": "./scripts/dev/check_stray_fields_in_idd.py",
+      "status": "passed",
+      "time": 0,
+      "output": "",
+      "parsed_errors": [
+
+      ],
+      "failure_type": ""
+    },
+    {
+      "name": "./scripts/dev/verify_idfs_in_cmake.py",
+      "status": "passed",
+      "time": 0,
+      "output": "",
+      "parsed_errors": [
+
+      ],
+      "failure_type": ""
+    },
+    {
+      "name": "./scripts/dev/check_non_utf8.py",
+      "status": "passed",
+      "time": 0,
+      "output": "",
+      "parsed_errors": [
+
+      ],
+      "failure_type": ""
+    },
+    {
+      "name": "./scripts/dev/check_pr_labels.py",
+      "status": "passed",
+      "time": 0,
+      "output": "",
+      "parsed_errors": [
+
+      ],
+      "failure_type": ""
+    },
+    {
+      "name": "./scripts/dev/verify_file_encodings.py",
+      "status": "passed",
+      "time": 0,
+      "output": "",
+      "parsed_errors": [
+
+      ],
+      "failure_type": ""
+    },
+    {
+      "name": "./scripts/dev/validate_idd_units.py",
+      "status": "passed",
+      "time": 0,
+      "output": "",
+      "parsed_errors": [
+
+      ],
+      "failure_type": ""
+    },
+    {
+      "name": "./scripts/dev/find_byref_bool_override.py",
+      "status": "passed",
+      "time": 0,
+      "output": "",
+      "parsed_errors": [
+
+      ],
+      "failure_type": ""
+    },
+    {
+      "name": "./scripts/dev/check_for_tabs_in_idfs.py",
+      "status": "passed",
+      "time": 0,
+      "output": "",
+      "parsed_errors": [
+
+      ],
+      "failure_type": ""
+    },
+    {
+      "name": "./scripts/dev/check_for_bom_in_idfs.py",
+      "status": "passed",
+      "time": 0,
+      "output": "",
+      "parsed_errors": [
+
+      ],
+      "failure_type": ""
+    }
   ],
   "failure": null,
   "package_results": [
@@ -69,14 +178,14 @@ performance_test_count: 0
     "permalink": "EnergyPlus-30ced08b87950bf168d42574b221f320eeaa22a8-x86_64-Linux-Ubuntu-18.04-custom_check.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2020-01-31 05:57:13",
+    "date": "2020-01-31 05:58:41",
     "unhandled_failure": false,
     "build_error_count": 0,
     "build_warning_count": 0,
     "package_error_count": 0,
     "package_warning_count": 0,
-    "test_count": 0,
-    "test_passed_count": 0,
+    "test_count": 11,
+    "test_passed_count": 11,
     "repository": "NREL/EnergyPlus",
     "compiler": "custom_check",
     "compiler_version": null,
@@ -90,14 +199,14 @@ performance_test_count: 0
     "tag_name": null,
     "commit_sha": "30ced08b87950bf168d42574b221f320eeaa22a8",
     "branch_name": "7608ZeroSolarLoadZoneCompSummWeatherFileDays",
-    "test_run": false,
+    "test_run": true,
     "pull_request_issue_id": "",
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "x86_64-Linux-Ubuntu-18.04-custom_check",
-    "pending": true,
+    "pending": false,
     "analyze_only": true,
-    "build_time": null,
+    "build_time": 85.637540381,
     "test_time": null,
     "package_time": null,
     "install_time": null,
