@@ -3,9 +3,9 @@ title: EnergyPlus-07e3a63642e6402c69999f7b5a3f200767480391-PR7761-x86_64-Linux-U
 permalink: EnergyPlus-07e3a63642e6402c69999f7b5a3f200767480391-PR7761-x86_64-Linux-Ubuntu-18.04-gcc-7.4-UnitTestsCoverage-Debug.html
 tags: data
 layout: ci_results
-date: '2020-02-11 20:44:09'
+date: '2020-02-11 20:45:54'
 unhandled_failure: false
-build_error_count: 0
+build_error_count: 2
 build_warning_count: 0
 package_error_count: 0
 package_warning_count: 0
@@ -29,10 +29,10 @@ pull_request_issue_id: '7761'
 pull_request_base_repository: NREL/EnergyPlus
 pull_request_base_ref: develop
 device_id: x86_64-Linux-Ubuntu-18.04-gcc-7.4-UnitTestsCoverage-Debug
-pending: true
+pending: false
 analyze_only: false
-build_time: 
-test_time: 
+build_time: 96.828959243
+test_time: 1.023734137
 package_time: 
 install_time: 
 results_repository: NREL/EnergyPlusBuildResults
@@ -47,7 +47,9 @@ coverage_lines: 0
 coverage_total_lines: 0
 coverage_functions: 0
 coverage_total_functions: 0
-coverage_url: 
+coverage_url: 'http://energyplus.s3-website-us-east-1.amazonaws.com/coverage/2020-02-11-EnergyPlus-07e3a63642-PR7761-x86_64-gcc-7.4UTCD
+
+'
 asset_url: 
 performance_total_time: 
 performance_test_count: 0
@@ -55,7 +57,20 @@ performance_test_count: 0
 ---
 {
   "build_results": [
-
+    {
+      "filename": "CMakeLists.txt",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "RuntimeError: cannot have two defaults at No; CMake Error: File /home/decent/ci/clone_branch/idd/Energy+.schema.epJSON.in does not exist.; CMake Error at CMakeLists.txt:207 (configure_file):"
+    },
+    {
+      "filename": "CMakeLists.txt",
+      "linenumber": "207",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": ""
+    }
   ],
   "test_results": [
 
@@ -69,9 +84,9 @@ performance_test_count: 0
     "permalink": "EnergyPlus-07e3a63642e6402c69999f7b5a3f200767480391-PR7761-x86_64-Linux-Ubuntu-18.04-gcc-7.4-UnitTestsCoverage-Debug.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2020-02-11 20:44:09",
+    "date": "2020-02-11 20:45:54",
     "unhandled_failure": false,
-    "build_error_count": 0,
+    "build_error_count": 2,
     "build_warning_count": 0,
     "package_error_count": 0,
     "package_warning_count": 0,
@@ -95,10 +110,10 @@ performance_test_count: 0
     "pull_request_base_repository": "NREL/EnergyPlus",
     "pull_request_base_ref": "develop",
     "device_id": "x86_64-Linux-Ubuntu-18.04-gcc-7.4-UnitTestsCoverage-Debug",
-    "pending": true,
+    "pending": false,
     "analyze_only": false,
-    "build_time": null,
-    "test_time": null,
+    "build_time": 96.828959243,
+    "test_time": 1.023734137,
     "package_time": null,
     "install_time": null,
     "results_repository": "NREL/EnergyPlusBuildResults",
@@ -113,7 +128,7 @@ performance_test_count: 0
     "coverage_total_lines": 0,
     "coverage_functions": 0,
     "coverage_total_functions": 0,
-    "coverage_url": null,
+    "coverage_url": "http://energyplus.s3-website-us-east-1.amazonaws.com/coverage/2020-02-11-EnergyPlus-07e3a63642-PR7761-x86_64-gcc-7.4UTCD\n",
     "asset_url": null,
     "performance_total_time": null,
     "performance_test_count": 0
