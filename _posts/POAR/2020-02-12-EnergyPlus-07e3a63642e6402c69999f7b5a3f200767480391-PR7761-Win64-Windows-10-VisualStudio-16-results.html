@@ -3,9 +3,9 @@ title: EnergyPlus-07e3a63642e6402c69999f7b5a3f200767480391-PR7761-Win64-Windows-
 permalink: EnergyPlus-07e3a63642e6402c69999f7b5a3f200767480391-PR7761-Win64-Windows-10-VisualStudio-16.html
 tags: data
 layout: ci_results
-date: '2020-02-12 03:01:37'
+date: '2020-02-12 04:08:24'
 unhandled_failure: false
-build_error_count: 0
+build_error_count: 2
 build_warning_count: 0
 package_error_count: 0
 package_warning_count: 0
@@ -29,10 +29,10 @@ pull_request_issue_id: '7761'
 pull_request_base_repository: NREL/EnergyPlus
 pull_request_base_ref: develop
 device_id: Win64-Windows-10-VisualStudio-16
-pending: true
+pending: false
 analyze_only: false
-build_time: 
-test_time: 
+build_time: 175.696102
+test_time: 0.270861
 package_time: 
 install_time: 
 results_repository: NREL/EnergyPlusBuildResults
@@ -55,7 +55,20 @@ performance_test_count: 0
 ---
 {
   "build_results": [
-
+    {
+      "filename": "CMakeLists.txt",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "RuntimeError: cannot have two defaults at No; CMake Error: File C:/ci/runs/clone_branch/idd/Energy+.schema.epJSON.in does not exist.; CMake Error at CMakeLists.txt:207 (configure_file):"
+    },
+    {
+      "filename": "CMakeLists.txt",
+      "linenumber": "207",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "configure_file Problem configuring file; "
+    }
   ],
   "test_results": [
 
@@ -69,9 +82,9 @@ performance_test_count: 0
     "permalink": "EnergyPlus-07e3a63642e6402c69999f7b5a3f200767480391-PR7761-Win64-Windows-10-VisualStudio-16.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2020-02-12 03:01:37",
+    "date": "2020-02-12 04:08:24",
     "unhandled_failure": false,
-    "build_error_count": 0,
+    "build_error_count": 2,
     "build_warning_count": 0,
     "package_error_count": 0,
     "package_warning_count": 0,
@@ -95,10 +108,10 @@ performance_test_count: 0
     "pull_request_base_repository": "NREL/EnergyPlus",
     "pull_request_base_ref": "develop",
     "device_id": "Win64-Windows-10-VisualStudio-16",
-    "pending": true,
+    "pending": false,
     "analyze_only": false,
-    "build_time": null,
-    "test_time": null,
+    "build_time": 175.696102,
+    "test_time": 0.270861,
     "package_time": null,
     "install_time": null,
     "results_repository": "NREL/EnergyPlusBuildResults",
