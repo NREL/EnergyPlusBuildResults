@@ -3,8 +3,8 @@ title: EnergyPlus-188d3ae7c291c2b14dc24bd0583bf1905bd7da85-x86_64-MacOS-10.13-cl
 permalink: EnergyPlus-188d3ae7c291c2b14dc24bd0583bf1905bd7da85-x86_64-MacOS-10.13-clang.html
 tags: data
 layout: ci_results
-date: '2020-03-20 13:54:26'
-unhandled_failure: false
+date: '2020-03-20 19:58:13'
+unhandled_failure: true
 build_error_count: 0
 build_warning_count: 0
 package_error_count: 0
@@ -29,7 +29,7 @@ pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: x86_64-MacOS-10.13-clang
-pending: true
+pending: false
 analyze_only: false
 build_time: 
 test_time: 
@@ -60,7 +60,7 @@ performance_test_count: 0
   "test_results": [
 
   ],
-  "failure": null,
+  "failure": "undefined method `zero?' for nil:NilClass\n[\"/Users/bball/ci/decent_ci/lib/runners.rb:15:in `block in run_scripts'\", \"/Users/bball/ci/decent_ci/lib/runners.rb:12:in `each'\", \"/Users/bball/ci/decent_ci/lib/runners.rb:12:in `run_scripts'\", \"/Users/bball/ci/decent_ci/lib/cmake.rb:100:in `cmake_build'\", \"/Users/bball/ci/decent_ci/lib/potentialbuild.rb:336:in `do_build'\", \"decent_ci/ci.rb:302:in `block (3 levels) in <main>'\", \"decent_ci/ci.rb:258:in `each'\", \"decent_ci/ci.rb:258:in `block (2 levels) in <main>'\", \"decent_ci/ci.rb:249:in `each'\", \"decent_ci/ci.rb:249:in `block in <main>'\", \"/Library/Ruby/Gems/2.3.0/gems/activesupport-5.2.3/lib/active_support/core_ext/range/each.rb:9:in `each'\", \"/Library/Ruby/Gems/2.3.0/gems/activesupport-5.2.3/lib/active_support/core_ext/range/each.rb:9:in `each'\", \"decent_ci/ci.rb:176:in `<main>'\"]",
   "package_results": [
 
   ],
@@ -69,8 +69,8 @@ performance_test_count: 0
     "permalink": "EnergyPlus-188d3ae7c291c2b14dc24bd0583bf1905bd7da85-x86_64-MacOS-10.13-clang.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2020-03-20 13:54:26",
-    "unhandled_failure": false,
+    "date": "2020-03-20 19:58:13",
+    "unhandled_failure": true,
     "build_error_count": 0,
     "build_warning_count": 0,
     "package_error_count": 0,
@@ -95,7 +95,7 @@ performance_test_count: 0
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "x86_64-MacOS-10.13-clang",
-    "pending": true,
+    "pending": false,
     "analyze_only": false,
     "build_time": null,
     "test_time": null,
