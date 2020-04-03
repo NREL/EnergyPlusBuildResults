@@ -145,6 +145,7 @@ function build_status_table(table_type, table_data)
     filtered_data[i].js_date = parseDate(filtered_data[i].date);
   }
   var min_date = new Date(0);
+  var min_date_develop = new Date(0);
   if (active_data_only) {
     var max_date = new Date(0);
     for (var i = 0; i < filtered_data.length; ++i)
@@ -154,12 +155,13 @@ function build_status_table(table_type, table_data)
       }
     }
     min_date = new Date(max_date - 3 * 24 * 60 * 60 * 1000);
+    min_date_develop = new Date(max_date - 10 * 24 * 60 * 60 * 1000); // allow 10 days back for develop to keep develop on the dashboard longer
   }
   var allowed_devices = [];
   var allowed_keys = [];
   for (var i = 0; i < filtered_data.length; ++i)
   {
-    if (filtered_data[i].js_date >= min_date) {
+    if (filtered_data[i].js_date >= min_date || (filtered_data[i].branch_name == "develop" && filtered_data[i].js_date >= min_date_develop)) {
       if (allowed_devices.indexOf(filtered_data[i].device_id) == -1) {
         allowed_devices.push(filtered_data[i].device_id);
       }
