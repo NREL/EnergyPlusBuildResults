@@ -3,9 +3,9 @@ title: EnergyPlus-ec6aada0e51a1ebf13aab85edbce6ca4e19f07eb-x86_64-MacOS-10.15-cl
 permalink: EnergyPlus-ec6aada0e51a1ebf13aab85edbce6ca4e19f07eb-x86_64-MacOS-10.15-clang-11.0.0.html
 tags: data
 layout: ci_results
-date: '2020-09-10 13:19:08'
+date: '2020-09-10 13:39:38'
 unhandled_failure: false
-build_error_count: 0
+build_error_count: 2
 build_warning_count: 0
 package_error_count: 0
 package_warning_count: 0
@@ -29,10 +29,10 @@ pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: x86_64-MacOS-10.15-clang-11.0.0
-pending: true
+pending: false
 analyze_only: false
-build_time: 
-test_time: 
+build_time: 50.648485
+test_time: 1.060351
 package_time: 
 install_time: 
 results_repository: NREL/EnergyPlusBuildResults
@@ -55,7 +55,20 @@ performance_test_count: 0
 ---
 {
   "build_results": [
-
+    {
+      "filename": "CMakeLists.txt",
+      "linenumber": 1,
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "RuntimeError: token none returned in parse field; CMake Error: File /Users/commbldg/ci/clone_branch/idd/Energy+.schema.epJSON.in does not exist.; CMake Error at CMakeLists.txt:272 (configure_file):"
+    },
+    {
+      "filename": "CMakeLists.txt",
+      "linenumber": "272",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": "configure_file Problem configuring file; "
+    }
   ],
   "test_results": [
 
@@ -69,9 +82,9 @@ performance_test_count: 0
     "permalink": "EnergyPlus-ec6aada0e51a1ebf13aab85edbce6ca4e19f07eb-x86_64-MacOS-10.15-clang-11.0.0.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2020-09-10 13:19:08",
+    "date": "2020-09-10 13:39:38",
     "unhandled_failure": false,
-    "build_error_count": 0,
+    "build_error_count": 2,
     "build_warning_count": 0,
     "package_error_count": 0,
     "package_warning_count": 0,
@@ -95,10 +108,10 @@ performance_test_count: 0
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "x86_64-MacOS-10.15-clang-11.0.0",
-    "pending": true,
+    "pending": false,
     "analyze_only": false,
-    "build_time": null,
-    "test_time": null,
+    "build_time": 50.648485,
+    "test_time": 1.060351,
     "package_time": null,
     "install_time": null,
     "results_repository": "NREL/EnergyPlusBuildResults",
