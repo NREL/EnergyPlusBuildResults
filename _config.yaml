@@ -1,2 +1,2 @@
 markdown: kramdown
-exclude: [.idea]
+exclude: [.idea, vendor]
