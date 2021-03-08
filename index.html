@@ -781,8 +781,9 @@ build_status_table(table_types.BRANCH, data);
 
 build_status_table(table_types.PULL_REQUEST, data);
 
-//build_status_table(table_types.RELEASE, data);
-
+if (!active_data_only) {
+  build_status_table(table_types.RELEASE, data);
+}
   </script>
   
   </div>
