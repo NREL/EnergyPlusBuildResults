@@ -3,14 +3,14 @@ title: EnergyPlus-4beac42342a9b5d6f55bf783ac372a55efbcdda1-x86_64-Linux-Ubuntu-1
 permalink: EnergyPlus-4beac42342a9b5d6f55bf783ac372a55efbcdda1-x86_64-Linux-Ubuntu-18.04-gcc-7.5-IntegrationCoverage-Debug.html
 tags: data
 layout: ci_results
-date: '2021-05-28 23:25:14'
+date: '2021-05-28 23:31:04'
 unhandled_failure: false
-build_error_count: 0
+build_error_count: 2
 build_warning_count: 0
 package_error_count: 0
 package_warning_count: 0
-test_count: 0
-test_passed_count: 0
+test_count: 726
+test_passed_count: 2
 repository: NREL/EnergyPlus
 compiler: gcc
 compiler_version: '7.5'
@@ -24,15 +24,15 @@ package_name:
 tag_name: 
 commit_sha: 4beac42342a9b5d6f55bf783ac372a55efbcdda1
 branch_name: enableHVACTemplateConvert3
-test_run: false
+test_run: true
 pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: x86_64-Linux-Ubuntu-18.04-gcc-7.5-IntegrationCoverage-Debug
-pending: true
+pending: false
 analyze_only: false
-build_time: 
-test_time: 
+build_time: 149.578444971
+test_time: 186.680685824
 package_time: 
 install_time: 
 results_repository: NREL/EnergyPlusBuildResults
@@ -47,7 +47,9 @@ coverage_lines: 0
 coverage_total_lines: 0
 coverage_functions: 0
 coverage_total_functions: 0
-coverage_url: 
+coverage_url: 'http://energyplus.s3-website-us-east-1.amazonaws.com/coverage/2021-05-28-EnergyPlus-4beac42342-x86_64-gcc-7.5ICD
+
+'
 asset_url: 
 performance_total_time: 
 performance_test_count: 0
@@ -55,10 +57,7495 @@ performance_test_count: 0
 ---
 {
   "build_results": [
-
+    {
+      "filename": "src/ConvertInputFormat/main.cpp",
+      "linenumber": "523",
+      "colnumber": "9",
+      "messagetype": "error",
+      "message": "enclosing ‘parallel’"
+    },
+    {
+      "filename": "src/ConvertInputFormat/main.cpp",
+      "linenumber": "527",
+      "colnumber": "43",
+      "messagetype": "error",
+      "message": "‘convertHVACTemplate’ not specified in enclosing ‘parallel’"
+    }
   ],
   "test_results": [
+    {
+      "name": "integration.HAMT_DailyProfileReport",
+      "status": "failed",
+      "time": "0.123164",
+      "output": "Test Failed\n",
+      "parsed_errors": [
 
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HAMT_HourlyProfileReport",
+      "status": "failed",
+      "time": "0.124223",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HVACTemplate-5ZoneBaseboardHeat",
+      "status": "failed",
+      "time": "0.223357",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneParameterAspect",
+      "status": "failed",
+      "time": "0.329972",
+      "output": "ParametricPreprocessor Started.\nParametricPreprocessor Finished. Time:     0.020\nTest Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.LBuildingAppGRotPar",
+      "status": "failed",
+      "time": "0.331439",
+      "output": "ParametricPreprocessor Started.\nParametricPreprocessor Finished. Time:     0.067\nTest Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HVACTemplate-5ZoneDualDuct",
+      "status": "failed",
+      "time": "0.320425",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HVACTemplate-5ZoneConstantVolumeChillerBoiler",
+      "status": "failed",
+      "time": "0.322273",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HVACTemplate-5ZoneFanCoil",
+      "status": "failed",
+      "time": "0.316924",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HVACTemplate-5ZoneFanCoil-DOAS",
+      "status": "failed",
+      "time": "0.318766",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HVACTemplate-5ZonePTAC-DOAS",
+      "status": "failed",
+      "time": "0.309573",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HVACTemplate-5ZoneFurnaceDX",
+      "status": "failed",
+      "time": "0.315263",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HVACTemplate-5ZonePTAC",
+      "status": "failed",
+      "time": "0.306045",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HVACTemplate-5ZoneVAVWaterCooled",
+      "status": "failed",
+      "time": "0.107251",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ParametricInsulation-5ZoneAirCooled",
+      "status": "failed",
+      "time": "0.449067",
+      "output": "ParametricPreprocessor Started.\nParametricPreprocessor Finished. Time:     0.072\nTest Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HVACTemplate-5ZoneVAVWaterCooled-ObjectReference",
+      "status": "failed",
+      "time": "0.11116",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HVACTemplate-5ZoneVAVFanPowered",
+      "status": "failed",
+      "time": "0.112717",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.LBuilding-G000",
+      "status": "failed",
+      "time": "0.11529",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HVACTemplate-5ZoneUnitarySystem",
+      "status": "failed",
+      "time": "0.225961",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HVACTemplate-5ZoneUnitaryHeatPump",
+      "status": "failed",
+      "time": "0.328188",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HVACTemplate-5ZonePurchAir",
+      "status": "failed",
+      "time": "0.329546",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HVACTemplate-5ZonePackagedVAV",
+      "status": "failed",
+      "time": "0.331096",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HVACTemplate-5ZonePTHP",
+      "status": "failed",
+      "time": "0.333253",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HVACTemplate-5ZoneVRF",
+      "status": "failed",
+      "time": "0.320096",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HVACTemplate-5ZoneWaterToAirHeatPumpTowerBoiler",
+      "status": "failed",
+      "time": "0.318383",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.LBuilding-G090",
+      "status": "failed",
+      "time": "0.314969",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VSHeatPumpWaterToAirWithRHControl",
+      "status": "failed",
+      "time": "0.079649",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneDataCenterCRAC_wPumpedDXCoolingCoil",
+      "status": "failed",
+      "time": "0.0958781",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Exercise2C-Solution",
+      "status": "failed",
+      "time": "0.124856",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Exercise2B-Solution",
+      "status": "failed",
+      "time": "0.126357",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Exercise2A-Solution",
+      "status": "failed",
+      "time": "0.127908",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AdultEducationCenter",
+      "status": "failed",
+      "time": "0.129446",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.LBuilding-G270",
+      "status": "failed",
+      "time": "0.231698",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.2ZoneDataCenterHVAC_wEconomizer",
+      "status": "failed",
+      "time": "0.31955",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneEvapCooler",
+      "status": "failed",
+      "time": "0.317738",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneUncontrolled",
+      "status": "failed",
+      "time": "0.31614",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.LBuilding-G180",
+      "status": "failed",
+      "time": "0.334638",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneDataCenterCRAC_wApproachTemp",
+      "status": "failed",
+      "time": "0.321442",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneUncontrolled3SurfaceZone",
+      "status": "failed",
+      "time": "0.314522",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneUncontrolled_DDChanges",
+      "status": "failed",
+      "time": "0.112497",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneUncontrolled_DD2009",
+      "status": "failed",
+      "time": "0.113963",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneUncontrolledUTF8",
+      "status": "failed",
+      "time": "0.115488",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneUncontrolledResLayers",
+      "status": "failed",
+      "time": "0.117058",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneUncontrolledFourAlgorithms",
+      "status": "failed",
+      "time": "0.11853",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneUncontrolled_Win_ASH55_Thermal_Comfort",
+      "status": "failed",
+      "time": "0.10378",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneUncontrolledCondFDWithVariableKat24C",
+      "status": "failed",
+      "time": "0.120064",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneUncontrolledAnnualOutputs",
+      "status": "failed",
+      "time": "0.222554",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneUncontrolled_Win_ResilienceReports",
+      "status": "failed",
+      "time": "0.294053",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneUncontrolled_FCfactor_Slab_UGWall",
+      "status": "failed",
+      "time": "0.310207",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneUncontrolled_win_2",
+      "status": "failed",
+      "time": "0.306569",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneUncontrolled_win_1",
+      "status": "failed",
+      "time": "0.30845",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneUncontrolled_OtherEquipmentWithFuel",
+      "status": "failed",
+      "time": "0.312127",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneAirCooledDemandLimiting",
+      "status": "failed",
+      "time": "0.0926869",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneAirCooledConvCoef",
+      "status": "failed",
+      "time": "0.10429",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneAirCooled",
+      "status": "failed",
+      "time": "0.105814",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.4ZoneWithShading_Simple_2",
+      "status": "failed",
+      "time": "0.107305",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.4ZoneWithShading_Simple_1",
+      "status": "failed",
+      "time": "0.108764",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneWith14ControlledHeat-CoolPanels",
+      "status": "failed",
+      "time": "0.110258",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneAirCooledDemandLimiting_FixedRateVentilation",
+      "status": "failed",
+      "time": "0.110451",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.1ZoneUncontrolledWithHysteresisPCM",
+      "status": "failed",
+      "time": "0.12124",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneAirCooledWithCoupledInGradeSlab",
+      "status": "failed",
+      "time": "0.308113",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneAirCooledWithDOASAirLoop",
+      "status": "failed",
+      "time": "0.306342",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneAirCooledDemandLimiting_ReductionRatioVentilation",
+      "status": "failed",
+      "time": "0.30993",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneAirCooled_AirBoundaries_Daylighting",
+      "status": "failed",
+      "time": "0.302262",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneAirCooled_AirBoundaries",
+      "status": "failed",
+      "time": "0.304648",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneCoolingPanelBaseboardAuto",
+      "status": "failed",
+      "time": "0.103477",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneCoolingPanelBaseboard",
+      "status": "failed",
+      "time": "0.105022",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneAirCooled_ZoneAirMassFlowBalance",
+      "status": "failed",
+      "time": "0.106447",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneAirCooled_VRPSizing_MaxZd",
+      "status": "failed",
+      "time": "0.10787",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneAirCooled_VRPSizing",
+      "status": "failed",
+      "time": "0.109393",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneAirCooled_VAVBoxMinAirFlowTurnDown",
+      "status": "failed",
+      "time": "0.110905",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneAirCooled_UniformLoading",
+      "status": "failed",
+      "time": "0.11286",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneCoolingPanelBaseboardTotalLoad",
+      "status": "failed",
+      "time": "0.102554",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneBranchSupplyPumps",
+      "status": "failed",
+      "time": "0.290913",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneBoilerOutsideAirReset",
+      "status": "failed",
+      "time": "0.297025",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneAutoDXVAV",
+      "status": "failed",
+      "time": "0.29867",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneAirCooled_ZoneAirMassFlowBalance_Pressurized",
+      "status": "failed",
+      "time": "0.300419",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneCoolingPanelBaseboardVarOff",
+      "status": "failed",
+      "time": "0.30228",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneDDCycOnOne",
+      "status": "failed",
+      "time": "0.113942",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneDDCycOnAny",
+      "status": "failed",
+      "time": "0.115652",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneCostEst",
+      "status": "failed",
+      "time": "0.117477",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneCoolBeam",
+      "status": "failed",
+      "time": "0.119161",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneCAVtoVAVWarmestTempFlow",
+      "status": "failed",
+      "time": "0.120677",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneCAV_MaxTemp_JSON_Outputs",
+      "status": "failed",
+      "time": "0.122235",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneCAV_MaxTemp",
+      "status": "failed",
+      "time": "0.124337",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneDetailedIceStorage",
+      "status": "failed",
+      "time": "0.31202",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneDetailedIceStorageCubicLinear",
+      "status": "failed",
+      "time": "0.308494",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneDetailedIceStorageSimpleCtrl",
+      "status": "failed",
+      "time": "0.306904",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneDetailedIceStorage2",
+      "status": "failed",
+      "time": "0.310334",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneDesignInputCoolingCoil",
+      "status": "failed",
+      "time": "0.314009",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneEconomicsTariffAndLifeCycleCosts",
+      "status": "failed",
+      "time": "0.305288",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneFPIU",
+      "status": "failed",
+      "time": "0.102748",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneNightVent1",
+      "status": "failed",
+      "time": "0.12168",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneFanCoilDOAS_HumidifierOnOASystem",
+      "status": "failed",
+      "time": "0.128322",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneFanCoilDOAS_ERVOnAirLoopMainBranch",
+      "status": "failed",
+      "time": "0.12983",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneFanCoilDOASCool",
+      "status": "failed",
+      "time": "0.131299",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneEngChill",
+      "status": "failed",
+      "time": "0.132882",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneEndUses",
+      "status": "failed",
+      "time": "0.13446",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneElectricBaseboard",
+      "status": "failed",
+      "time": "0.136565",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneNightVent3",
+      "status": "failed",
+      "time": "0.318914",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneReturnFan",
+      "status": "failed",
+      "time": "0.3172",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneIceStorage",
+      "status": "failed",
+      "time": "0.324813",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneGeometryTransform",
+      "status": "failed",
+      "time": "0.326622",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneNightVent2",
+      "status": "failed",
+      "time": "0.321277",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneTDV",
+      "status": "failed",
+      "time": "0.122233",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneSwimmingPoolZoneMultipliers",
+      "status": "failed",
+      "time": "0.12376",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneSwimmingPool",
+      "status": "failed",
+      "time": "0.125195",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneSupRetPlenVSATU",
+      "status": "failed",
+      "time": "0.126917",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneSupRetPlenRAB",
+      "status": "failed",
+      "time": "0.128488",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneVAV-ChilledWaterStorage-Mixed_DCV_MaxZd",
+      "status": "failed",
+      "time": "0.11884",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneSteamBaseboard",
+      "status": "failed",
+      "time": "0.130524",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneWarmest",
+      "status": "failed",
+      "time": "0.310965",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneVAV-ChilledWaterStorage-Stratified",
+      "status": "failed",
+      "time": "0.316462",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneVAV-Pri-SecLoop",
+      "status": "failed",
+      "time": "0.314703",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneWLHPPlantLoopTower",
+      "status": "failed",
+      "time": "0.312849",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneVAV-ChilledWaterStorage-Mixed_DCV_MultiPath",
+      "status": "failed",
+      "time": "0.318425",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneVAV-ChilledWaterStorage-Mixed",
+      "status": "failed",
+      "time": "0.346256",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneWaterCooled_Baseboard",
+      "status": "failed",
+      "time": "0.0994399",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneWarmestVFD_FCMAuto",
+      "status": "failed",
+      "time": "0.114554",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneWarmestVFD",
+      "status": "failed",
+      "time": "0.116381",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneWarmestMultDDSizVT",
+      "status": "failed",
+      "time": "0.117877",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneWarmestMultDDSizVAV",
+      "status": "failed",
+      "time": "0.119345",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneWarmestMultDDSizOnOff",
+      "status": "failed",
+      "time": "0.120864",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneWarmestMultDDSizBypass",
+      "status": "failed",
+      "time": "0.122821",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneWaterCooled_MultizoneAverageRHControl",
+      "status": "failed",
+      "time": "0.307047",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneWaterCooled_MultizoneMinMaxRHControl",
+      "status": "failed",
+      "time": "0.305437",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneWaterCooled_GasFiredSteamHumidifier",
+      "status": "failed",
+      "time": "0.31024",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneWaterCooled_BaseboardScalableSizing",
+      "status": "failed",
+      "time": "0.312131",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneWaterCooled_HighRHControl",
+      "status": "failed",
+      "time": "0.308527",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5Zone_Unitary_VSDesuperheatWaterHeater",
+      "status": "failed",
+      "time": "0.11472",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5Zone_Unitary_VSDesuperheater",
+      "status": "failed",
+      "time": "0.116487",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5Zone_Unitary_HXAssistedCoil",
+      "status": "failed",
+      "time": "0.118123",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5Zone_Transformer",
+      "status": "failed",
+      "time": "0.11966",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5Zone_IdealLoadsAirSystems_ReturnPlenum",
+      "status": "failed",
+      "time": "0.121173",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneWaterLoopHeatPump",
+      "status": "failed",
+      "time": "0.123237",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AdaptiveThermostatASH55_5Zone_Miami",
+      "status": "failed",
+      "time": "0.308894",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AbsorptionChiller",
+      "status": "failed",
+      "time": "0.312463",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirEconomizerWithMaxMinOAFractions",
+      "status": "failed",
+      "time": "0.30393",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ActiveTrombeWall",
+      "status": "failed",
+      "time": "0.310796",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirCooledElectricChiller",
+      "status": "failed",
+      "time": "0.307241",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirEconomizerFaults_RefBldgLargeOfficeNew2004_Chicago",
+      "status": "failed",
+      "time": "0.305702",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneWaterSystems",
+      "status": "failed",
+      "time": "0.33689",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetwork_MultiZone_House",
+      "status": "failed",
+      "time": "0.108908",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetwork_MultiAirLoops",
+      "status": "failed",
+      "time": "0.110763",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetwork_Attic_Duct",
+      "status": "failed",
+      "time": "0.11246",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetworkOccupantVentilationControl",
+      "status": "failed",
+      "time": "0.114219",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetworkAdvanced_SingleSided_NV",
+      "status": "failed",
+      "time": "0.11583",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetwork3zVentAutoWPC",
+      "status": "failed",
+      "time": "0.117401",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetwork3zVent",
+      "status": "failed",
+      "time": "0.320392",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetwork_MultiZone_House_FanModel",
+      "status": "failed",
+      "time": "0.308338",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetwork_MultiZone_SmallOffice",
+      "status": "failed",
+      "time": "0.301334",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetwork_MultiZone_House_TwoSpeed",
+      "status": "failed",
+      "time": "0.304736",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetwork_MultiZone_LocalNode",
+      "status": "failed",
+      "time": "0.303058",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetwork_MultiZone_House_OvercoolDehumid",
+      "status": "failed",
+      "time": "0.306661",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetwork_Simple_House",
+      "status": "failed",
+      "time": "0.107519",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetwork_PressureControl",
+      "status": "failed",
+      "time": "0.109205",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetwork_Multizone_HorizontalOpening",
+      "status": "failed",
+      "time": "0.110949",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetwork_MultiZone_SmallOffice_VAV",
+      "status": "failed",
+      "time": "0.112761",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetwork_MultiZone_SmallOffice_HeatRecoveryHXSL",
+      "status": "failed",
+      "time": "0.1145",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetwork_MultiZone_SmallOffice_GenericContam",
+      "status": "failed",
+      "time": "0.116189",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetwork_MultiZone_SmallOffice_CoilHXAssistedDX",
+      "status": "failed",
+      "time": "0.1183",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AtticRoof_RadiantBarriers",
+      "status": "failed",
+      "time": "0.299889",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowWindowsAndBetweenGlassShades",
+      "status": "failed",
+      "time": "0.303546",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.BaseBoardElectric",
+      "status": "failed",
+      "time": "0.293429",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowWindowsAndBetweenGlassBlinds",
+      "status": "failed",
+      "time": "0.305614",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ASIHPMixedTank",
+      "status": "failed",
+      "time": "0.302131",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AirflowNetwork_Simple_SmallOffice",
+      "status": "failed",
+      "time": "0.30774",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ChangeoverBypassVAV_AirToAirHeatPump",
+      "status": "failed",
+      "time": "0.109546",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ChangeoverBypassVAV_AirToAir",
+      "status": "failed",
+      "time": "0.111401",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ChangeoverBypassVAV",
+      "status": "failed",
+      "time": "0.113059",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CentralChillerHeaterSystem_Simultaneous_Cooling_Heating",
+      "status": "failed",
+      "time": "0.114807",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CentralChillerHeaterSystem_Cooling_Heating",
+      "status": "failed",
+      "time": "0.116728",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CarrollMRT-RefBldgLargeOfficeNew2004_Chicago",
+      "status": "failed",
+      "time": "0.118572",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CVRhMinHum",
+      "status": "failed",
+      "time": "0.121809",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ChangeoverBypassVAV_MaxTemp",
+      "status": "failed",
+      "time": "0.308744",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CmplxGlz_InShadeGasMix",
+      "status": "failed",
+      "time": "0.301493",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CmplxGlz_Daylighting_SouthVB45deg",
+      "status": "failed",
+      "time": "0.305096",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ChillerPartLoadCurve_RefBldgLargeOfficeNew2004_Chicago",
+      "status": "failed",
+      "time": "0.306952",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CmplxGlz_Daylighting_SouthVerticalVB45deg",
+      "status": "failed",
+      "time": "0.303324",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CmplxGlz_MeasuredDeflectionAndShading",
+      "status": "failed",
+      "time": "0.318015",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CommonPipe_Pri-Sec",
+      "status": "failed",
+      "time": "0.108788",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoilWaterDesuperheating",
+      "status": "failed",
+      "time": "0.119659",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CmplxGlz_SmOff_IntExtShading",
+      "status": "failed",
+      "time": "0.1274",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CmplxGlz_SingleZone_Vacuum",
+      "status": "failed",
+      "time": "0.132771",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CmplxGlz_SingleZone_DoubleClearAir",
+      "status": "failed",
+      "time": "0.134491",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CmplxGlz_SingleZone_Deflection",
+      "status": "failed",
+      "time": "0.136262",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CmplxGlz_SchedSurfGains",
+      "status": "failed",
+      "time": "0.17035",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ConstSpeedBranchPumpExercise",
+      "status": "failed",
+      "time": "0.154484",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CompSetPtControl",
+      "status": "failed",
+      "time": "0.359393",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ConvectionAdaptiveSmallOffice",
+      "status": "failed",
+      "time": "0.352344",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingCoilFreezingPrevention",
+      "status": "failed",
+      "time": "0.350801",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Convection",
+      "status": "failed",
+      "time": "0.354196",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CondFD1ZonePurchAirAutoSizeWithPCM",
+      "status": "failed",
+      "time": "0.357741",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingTowerWithDBDeltaTempOp",
+      "status": "failed",
+      "time": "0.115888",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingTowerWetBulbRangeOp",
+      "status": "failed",
+      "time": "0.117701",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingTowerRHRangeOp",
+      "status": "failed",
+      "time": "0.119616",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingTowerNomCap",
+      "status": "failed",
+      "time": "0.121565",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingTowerDryBulbRangeOp",
+      "status": "failed",
+      "time": "0.123561",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingTower",
+      "status": "failed",
+      "time": "0.125766",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingTower_TwoSpeed_MultiCell",
+      "status": "failed",
+      "time": "0.305231",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingTower_SingleSpeed_MultiCell",
+      "status": "failed",
+      "time": "0.31031",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingTower_TwoSpeed_CondEntTempReset",
+      "status": "failed",
+      "time": "0.306917",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingTower_MerkelVariableSpeed",
+      "status": "failed",
+      "time": "0.312114",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingTower_TwoSpeed",
+      "status": "failed",
+      "time": "0.30862",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingTower_FluidBypass",
+      "status": "failed",
+      "time": "0.313835",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingTowerWithWBDeltaTempOp",
+      "status": "failed",
+      "time": "0.338595",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CooltowerSimpleTest",
+      "status": "failed",
+      "time": "0.097908",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingTower_VariableSpeed_MultiCell",
+      "status": "failed",
+      "time": "0.106764",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingTower_VariableSpeed_IdealCondEntTempSetpoint_MultipleTowers",
+      "status": "failed",
+      "time": "0.112112",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingTower_VariableSpeed_IdealCondEntTempSetpoint",
+      "status": "failed",
+      "time": "0.113775",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingTower_VariableSpeed_CondEntTempReset_MultipleTowers",
+      "status": "failed",
+      "time": "0.115358",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingTower_VariableSpeed_CondEntTempReset",
+      "status": "failed",
+      "time": "0.117262",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CustomSolarVisibleSpectrum_RefBldgSmallOfficeNew2004_Chicago",
+      "status": "failed",
+      "time": "0.30243",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CrossVent_1Zone_AirflowNetwork_with2CrossflowJets",
+      "status": "failed",
+      "time": "0.304229",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CoolingTower_VariableSpeed",
+      "status": "failed",
+      "time": "0.320475",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CrossVent_1Zone_AirflowNetwork",
+      "status": "failed",
+      "time": "0.306052",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DDAutoSize",
+      "status": "failed",
+      "time": "0.301035",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.CooltowerSimpleTestwithVentilation",
+      "status": "failed",
+      "time": "0.307899",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DOASDXCOIL_wADPBFMethod_NoReturnPath",
+      "status": "failed",
+      "time": "0.114136",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DOASDXCOIL_wADPBFMethod",
+      "status": "failed",
+      "time": "0.115961",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DOAS_wNeutralSupplyAir_wFanCoilUnits",
+      "status": "failed",
+      "time": "0.117747",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DElightCFSWindow",
+      "status": "failed",
+      "time": "0.119424",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DElightCFSLightShelf",
+      "status": "failed",
+      "time": "0.120947",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DElight-Detailed-Comparison",
+      "status": "failed",
+      "time": "0.123034",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DOAToPTAC",
+      "status": "failed",
+      "time": "0.308215",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DOAToUnitVentilator",
+      "status": "failed",
+      "time": "0.303099",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DOAToFanCoilInlet",
+      "status": "failed",
+      "time": "0.311894",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DOAToPTHP",
+      "status": "failed",
+      "time": "0.306552",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DOAToUnitarySystem",
+      "status": "failed",
+      "time": "0.30488",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DOAToFanCoilSupply",
+      "status": "failed",
+      "time": "0.310236",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DOASDualDuctSchool",
+      "status": "failed",
+      "time": "0.33844",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DesiccantCVRhZoneRHCtrl",
+      "status": "failed",
+      "time": "0.0871549",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DesiccantCVRh",
+      "status": "failed",
+      "time": "0.109684",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DaylightingDeviceTubular",
+      "status": "failed",
+      "time": "0.111605",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DXCoilSystemAuto",
+      "status": "failed",
+      "time": "0.115078",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DOAToWaterToAirHPSupply",
+      "status": "failed",
+      "time": "0.116881",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DOAToWaterToAirHPInlet",
+      "status": "failed",
+      "time": "0.118416",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DesiccantDehumidifierWithCompanionCoil",
+      "status": "failed",
+      "time": "0.304505",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DesiccantDehumidifierWithAirToAirCoil",
+      "status": "failed",
+      "time": "0.306341",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DOAToVRF",
+      "status": "failed",
+      "time": "0.321865",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DesiccantCVRhZoneRHCtrl_AddedAutosize",
+      "status": "failed",
+      "time": "0.307802",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DirectIndirectEvapCoolers",
+      "status": "failed",
+      "time": "0.302958",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DaylightingDeviceShelf",
+      "status": "failed",
+      "time": "0.315064",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DualDuctConstVolGasHC",
+      "status": "failed",
+      "time": "0.102018",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DualDuctConstVolDamper",
+      "status": "failed",
+      "time": "0.103721",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DisplacementVent_VAV",
+      "status": "failed",
+      "time": "0.105354",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DisplacementVent_Nat_AirflowNetwork_AdaptiveComfort",
+      "status": "failed",
+      "time": "0.107175",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DisplacementVent_Nat_AirflowNetwork",
+      "status": "failed",
+      "time": "0.108957",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DisplacementVent_1ZoneOffice",
+      "status": "failed",
+      "time": "0.110615",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DirectIndirectEvapCoolersVSAS",
+      "status": "failed",
+      "time": "0.112733",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DualDuctVarVolDamper",
+      "status": "failed",
+      "time": "0.301493",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DualDuctWaterCoils",
+      "status": "failed",
+      "time": "0.299831",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EMSAirflowNetworkOpeningControlByHumidity",
+      "status": "failed",
+      "time": "0.294645",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EMPD5ZoneWaterCooled_HighRHControl",
+      "status": "failed",
+      "time": "0.296466",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.DynamicClothing",
+      "status": "failed",
+      "time": "0.298399",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EMSConstantVolumePurchasedAir",
+      "status": "failed",
+      "time": "0.293094",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EMSPlantLoopOverrideControl",
+      "status": "failed",
+      "time": "0.115314",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EMSDiscreteAirSystemSizes",
+      "status": "failed",
+      "time": "0.117142",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EMSDemandManager_LargeOffice",
+      "status": "failed",
+      "time": "0.119005",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EMSCustomSchedule",
+      "status": "failed",
+      "time": "0.120596",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EMSCustomOutputVariable",
+      "status": "failed",
+      "time": "0.122126",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EMSCurveOverride_PackagedTerminalHeatPump",
+      "status": "failed",
+      "time": "0.124208",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EMSUserDefined5ZoneAirCooled",
+      "status": "failed",
+      "time": "0.308237",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EMSReplaceTraditionalManagers_LargeOffice",
+      "status": "failed",
+      "time": "0.313412",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EMSTestMathAndKill",
+      "status": "passed",
+      "time": "0.310041",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": ""
+    },
+    {
+      "name": "integration.EMSThermochromicWindow",
+      "status": "failed",
+      "time": "0.31179",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EMSUserDefinedWindACAuto",
+      "status": "failed",
+      "time": "0.30666",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EMSWindowShadeControl",
+      "status": "failed",
+      "time": "0.30502",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EMSPlantOperation_largeOff",
+      "status": "failed",
+      "time": "0.339273",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EngineChiller",
+      "status": "failed",
+      "time": "0.097405",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ElectricEIRChillerHeatRecoveryAuto",
+      "status": "failed",
+      "time": "0.099339",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ElectricEIRChiller_EvapCooledCondenser",
+      "status": "failed",
+      "time": "0.106397",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ElectricEIRChiller",
+      "status": "failed",
+      "time": "0.107997",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ElectricChiller",
+      "status": "failed",
+      "time": "0.109742",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EcoroofOrlando",
+      "status": "failed",
+      "time": "0.111338",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ExteriorLightsAndEq",
+      "status": "failed",
+      "time": "0.294854",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EarthTubeSimpleTest",
+      "status": "failed",
+      "time": "0.314476",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EvaporativeFluidCooler",
+      "status": "failed",
+      "time": "0.300283",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EquivalentLayerWindow",
+      "status": "failed",
+      "time": "0.302011",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ExhFiredAbsorptionChiller",
+      "status": "failed",
+      "time": "0.296718",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.EvaporativeFluidCooler_TwoSpeed",
+      "status": "failed",
+      "time": "0.298532",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Fault_CondenserSWTSensorOffset",
+      "status": "failed",
+      "time": "0.104227",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Fault_CoilSATSensorOffset",
+      "status": "failed",
+      "time": "0.106021",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.FanCoil_HybridVent_VentSch",
+      "status": "failed",
+      "time": "0.109814",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.FanCoilAutoSize_MultiSpeedFan",
+      "status": "failed",
+      "time": "0.111362",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.FanCoilAutoSize_ASHRAE90VariableFan",
+      "status": "failed",
+      "time": "0.112868",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.FanCoilAutoSizeScalableSizing",
+      "status": "failed",
+      "time": "0.114581",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.FanCoilAutoSize",
+      "status": "failed",
+      "time": "0.116676",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Fault_ChillerSWTSensorOffset_RefBldgLargeOfficeNew2004",
+      "status": "failed",
+      "time": "0.308948",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Fault_FoulingAirFilter_RefBldgMediumOfficeNew2004",
+      "status": "failed",
+      "time": "0.303574",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Fault_FoulingEvapCooler_StripMallZoneEvapCooler",
+      "status": "failed",
+      "time": "0.296182",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Fault_FoulingCoolingTower",
+      "status": "failed",
+      "time": "0.298325",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Fault_FoulingCoil",
+      "status": "failed",
+      "time": "0.301793",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Fault_FoulingChillerBoiler_RefBldgLargeOfficeNew2004",
+      "status": "failed",
+      "time": "0.300102",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.FourPipeBeamLargeOffice",
+      "status": "failed",
+      "time": "0.0990269",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.FluidCoolerTwoSpeed",
+      "status": "failed",
+      "time": "0.100946",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.FluidCooler",
+      "status": "failed",
+      "time": "0.103063",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Flr_Rf_8Sides",
+      "status": "failed",
+      "time": "0.104769",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Fault_ThermostatOffset_RefBldgMediumOfficeNew2004",
+      "status": "failed",
+      "time": "0.108665",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Fault_HumidistatOffset_ThermostatOffset_Supermarket",
+      "status": "failed",
+      "time": "0.110245",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Fault_HumidistatOffset_Supermarket",
+      "status": "failed",
+      "time": "0.112301",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.FurnacePLRHeatingCoil",
+      "status": "failed",
+      "time": "0.296217",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.FurnaceWithDXSystemComfortControl",
+      "status": "failed",
+      "time": "0.290584",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.FurnaceWithDXSystem",
+      "status": "failed",
+      "time": "0.294739",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.FurnaceFuelOil",
+      "status": "failed",
+      "time": "0.297955",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.FreeCoolingChiller",
+      "status": "failed",
+      "time": "0.301625",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Furnace",
+      "status": "failed",
+      "time": "0.299897",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.GSHP-Slinky",
+      "status": "failed",
+      "time": "0.109184",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.GSHPSimple-GLHE",
+      "status": "failed",
+      "time": "0.111198",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.GSHP-GLHE-CalcGFunctions",
+      "status": "failed",
+      "time": "0.112839",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.GSHP-GLHE",
+      "status": "failed",
+      "time": "0.114565",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.FurnaceWithDXSystem_CoolingHXAssisted",
+      "status": "failed",
+      "time": "0.116161",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.FurnaceWithDXSystemRHcontrol_cyclingfan",
+      "status": "failed",
+      "time": "0.117748",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.FurnaceWithDXSystemRHcontrol",
+      "status": "failed",
+      "time": "0.119915",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.GeneratorswithPV",
+      "status": "failed",
+      "time": "0.296336",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Generators",
+      "status": "failed",
+      "time": "0.302532",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.GasTurbChiller",
+      "status": "failed",
+      "time": "0.308547",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Generator_PVWatts",
+      "status": "failed",
+      "time": "0.304525",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.GasTurbChillerHeatRecoveryAuto",
+      "status": "failed",
+      "time": "0.306567",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Generators_Transformer",
+      "status": "failed",
+      "time": "0.300456",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeaderedPumpsConSpeed",
+      "status": "failed",
+      "time": "0.105911",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HVACStandAloneERV_Economizer",
+      "status": "failed",
+      "time": "0.107753",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HP_wICSSolarCollector",
+      "status": "failed",
+      "time": "0.109365",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HPAirToAir_wSolarCollectorHWCoil",
+      "status": "failed",
+      "time": "0.113723",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.GroundTempOSCCompactSched",
+      "status": "failed",
+      "time": "0.115588",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.GeometryTest",
+      "status": "failed",
+      "time": "0.117948",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.GeneratorwithWindTurbine",
+      "status": "failed",
+      "time": "0.120483",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpIAQP_DCV",
+      "status": "failed",
+      "time": "0.29623",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpAuto",
+      "status": "failed",
+      "time": "0.301694",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeaderedPumpsVarSpeed",
+      "status": "failed",
+      "time": "0.307761",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpCycFanWithEcono",
+      "status": "failed",
+      "time": "0.299802",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPump",
+      "status": "failed",
+      "time": "0.305944",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpAirToAirWithRHcontrol",
+      "status": "failed",
+      "time": "0.303943",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpVSAS",
+      "status": "failed",
+      "time": "0.102493",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpVRP_DCV",
+      "status": "failed",
+      "time": "0.104124",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpSimpleDCV",
+      "status": "failed",
+      "time": "0.105925",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpSecondaryCoil",
+      "status": "failed",
+      "time": "0.107423",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpProportionalControl_DCVDesignRate",
+      "status": "failed",
+      "time": "0.108976",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpProportionalControl_DCV",
+      "status": "failed",
+      "time": "0.110661",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpIAQP_GenericContamControl",
+      "status": "failed",
+      "time": "0.112742",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpWaterToAirEquationFit_WaterHeatingDesuperheater_StratifiedTank",
+      "status": "failed",
+      "time": "0.296463",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpWaterHeaterStratified",
+      "status": "failed",
+      "time": "0.300364",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpWaterToAirEquationFit",
+      "status": "failed",
+      "time": "0.294726",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpWaterToAirWithAntifreezeAndLatentModel",
+      "status": "failed",
+      "time": "0.292983",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpWaterHeater",
+      "status": "failed",
+      "time": "0.302305",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpWaterToAir",
+      "status": "failed",
+      "time": "0.298645",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatRecoverywithStorageTank",
+      "status": "failed",
+      "time": "0.101555",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatRecoveryPlantLoopAuto",
+      "status": "failed",
+      "time": "0.104994",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatRecoveryPlantLoop",
+      "status": "failed",
+      "time": "0.106645",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatRecoveryElectricChiller",
+      "status": "failed",
+      "time": "0.108142",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpwithBiquadraticCurves",
+      "status": "failed",
+      "time": "0.109815",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpWaterToAirWithRHControl",
+      "status": "failed",
+      "time": "0.111467",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HeatPumpWaterToAirWithAntifreezeAndLatentModel2",
+      "status": "failed",
+      "time": "0.113484",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.House-2FurnaceAC-SequentialUniformPLR",
+      "status": "failed",
+      "time": "0.296264",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HospitalBaseline",
+      "status": "failed",
+      "time": "0.303014",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.House-2FurnaceAC-SequentialLoadFractions",
+      "status": "failed",
+      "time": "0.29775",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.House-2FurnaceAC-UniformLoad",
+      "status": "failed",
+      "time": "0.292415",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.House-2FurnaceAC-SequentialLoad",
+      "status": "failed",
+      "time": "0.299445",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HospitalBaselineReheatReportEMS",
+      "status": "failed",
+      "time": "0.301252",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.IceStorage-Parallel",
+      "status": "failed",
+      "time": "0.0902419",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HybridModel_4Zone_Solve_PeopleCount_with_HVAC",
+      "status": "failed",
+      "time": "0.107953",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HybridModel_4Zone_Solve_Infiltration_free_floating",
+      "status": "failed",
+      "time": "0.109492",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HybridZoneModel",
+      "status": "failed",
+      "time": "0.110944",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HybridVentilationControlGlobalSimple",
+      "status": "failed",
+      "time": "0.112437",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.HybridVentilationControl",
+      "status": "failed",
+      "time": "0.113975",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.House-2FurnaceAC-UniformPLR",
+      "status": "failed",
+      "time": "0.115978",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.IceStorage-Series-ChillerDownstream",
+      "status": "failed",
+      "time": "0.306318",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.IndEvapCoolerRTUoffice",
+      "status": "failed",
+      "time": "0.302654",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.IceStorage-Series-ChillerUpstream",
+      "status": "failed",
+      "time": "0.304509",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.LgOffVAV",
+      "status": "failed",
+      "time": "0.298121",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.InternalMass_wZoneList",
+      "status": "failed",
+      "time": "0.299807",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.IndirectAbsorptionChiller",
+      "status": "failed",
+      "time": "0.301141",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.MovableExtInsulationSimple",
+      "status": "failed",
+      "time": "0.107988",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Minimal",
+      "status": "failed",
+      "time": "0.109863",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.MicroCogeneration",
+      "status": "failed",
+      "time": "0.111702",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.LookupTables",
+      "status": "failed",
+      "time": "0.113721",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.LrgOff_GridStorageScheduled",
+      "status": "failed",
+      "time": "0.115388",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.LrgOff_GridStorageEMSSmoothing",
+      "status": "failed",
+      "time": "0.117113",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.LrgOff_GridStorageDemandLeveling",
+      "status": "failed",
+      "time": "0.122621",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.MultiStory",
+      "status": "failed",
+      "time": "0.301598",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.MultiSpeedHP_StagedThermostat",
+      "status": "failed",
+      "time": "0.303305",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.MultiSpeedACFurnace",
+      "status": "failed",
+      "time": "0.305124",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.MovableIntInsulationLightsLowE",
+      "status": "failed",
+      "time": "0.308874",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.MovableIntInsulationSimple",
+      "status": "failed",
+      "time": "0.3071",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.MovableIntInsulationLights",
+      "status": "failed",
+      "time": "0.310851",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.OutdoorAirUnit",
+      "status": "failed",
+      "time": "0.104675",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.OptimalStart_RefBldgLargeOfficeNew2004_Chicago",
+      "status": "failed",
+      "time": "0.109198",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Mundt_System_On_During_the_Day",
+      "status": "failed",
+      "time": "0.111083",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Mundt_System_Always_On",
+      "status": "failed",
+      "time": "0.113016",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.MultiSpeedHeatPump_MultiSolvers",
+      "status": "failed",
+      "time": "0.114712",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.MultiSpeedHeatPump_DirectSolution",
+      "status": "failed",
+      "time": "0.116403",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.MultiSpeedHeatPump",
+      "status": "failed",
+      "time": "0.118538",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PackagedTerminalAirConditioner",
+      "status": "failed",
+      "time": "0.303415",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PackagedTerminalAirConditionerVSAS",
+      "status": "failed",
+      "time": "0.301624",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PackagedTerminalHeatPump",
+      "status": "failed",
+      "time": "0.299991",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PIUAuto",
+      "status": "failed",
+      "time": "0.305376",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PackagedTerminalHeatPumpVSAS",
+      "status": "failed",
+      "time": "0.298362",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.OutdoorAirUnitwithAirloopHVAC",
+      "status": "failed",
+      "time": "0.307013",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PipingSystem_Underground_TwoPipe",
+      "status": "failed",
+      "time": "0.102497",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PipingSystem_Underground_FHX",
+      "status": "failed",
+      "time": "0.10914",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PipeHeatTransfer_Zone",
+      "status": "failed",
+      "time": "0.110656",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PipeHeatTransfer_Underground",
+      "status": "failed",
+      "time": "0.112309",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PipeHeatTransfer_Schedule",
+      "status": "failed",
+      "time": "0.113886",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PipeHeatTransfer_Outair",
+      "status": "failed",
+      "time": "0.115624",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PassiveTrombeWall",
+      "status": "failed",
+      "time": "0.117744",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlantApplicationsGuide_Example3",
+      "status": "failed",
+      "time": "0.299862",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlantApplicationsGuide_Example2",
+      "status": "failed",
+      "time": "0.30158",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PipingSystem_Underground_TwoPipe_FD_GroundTemps",
+      "status": "failed",
+      "time": "0.307065",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlantApplicationsGuide_Example1",
+      "status": "failed",
+      "time": "0.303442",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PipingSystem_Underground_TwoPipe_Xing_GroundTemps",
+      "status": "failed",
+      "time": "0.305298",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlantComponentTemperatureSource",
+      "status": "failed",
+      "time": "0.297463",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlantLoopChainDeadband",
+      "status": "failed",
+      "time": "0.095396",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlantLoopChainCooling",
+      "status": "failed",
+      "time": "0.104771",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlantLoadProfile_AutosizedDistrictHeating",
+      "status": "failed",
+      "time": "0.10676",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlantLoadProfileCoolingReturnResetLookup",
+      "status": "failed",
+      "time": "0.116874",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlantLoadProfileCoolingReturnReset",
+      "status": "failed",
+      "time": "0.118496",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlantLoadProfile",
+      "status": "failed",
+      "time": "0.120082",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlantHorizontalGroundHX",
+      "status": "failed",
+      "time": "0.122344",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlantLoopHeatPump_EIR_AirSource",
+      "status": "failed",
+      "time": "0.307057",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlantPressureDrop",
+      "status": "failed",
+      "time": "0.303471",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlantPressure_PumpCurve",
+      "status": "failed",
+      "time": "0.301276",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlantLoopChainDualDeadband",
+      "status": "failed",
+      "time": "0.310806",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlantLoopChainHeating",
+      "status": "failed",
+      "time": "0.309004",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlantLoopHeatPump_EIR_WaterSource",
+      "status": "failed",
+      "time": "0.30529",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PurchAirTables_SQL",
+      "status": "failed",
+      "time": "0.097106",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PurchAirTables",
+      "status": "failed",
+      "time": "0.102825",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PondGroundHeatExchanger",
+      "status": "failed",
+      "time": "0.105799",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlenumwithRetAirHeatGain",
+      "status": "failed",
+      "time": "0.107834",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Plenum",
+      "status": "failed",
+      "time": "0.109582",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlateHeatExchanger",
+      "status": "failed",
+      "time": "0.111148",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PlantPressure_VFD_Scheduled",
+      "status": "failed",
+      "time": "0.113301",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PurchAirWindowBlind_BlockBeamSolar",
+      "status": "failed",
+      "time": "0.297763",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PurchAirWithDaylightingAndShadeControl",
+      "status": "failed",
+      "time": "0.294333",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PurchAirWithDaylighting",
+      "status": "failed",
+      "time": "0.296126",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PurchAirWithDaylightingAngleFac",
+      "status": "failed",
+      "time": "0.292605",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PurchAirTables_wAnnual",
+      "status": "failed",
+      "time": "0.301631",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PurchAirWindowBlind",
+      "status": "failed",
+      "time": "0.299883",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PythonPluginCustomSchedule",
+      "status": "failed",
+      "time": "0.105005",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PythonPluginCustomOutputVariable",
+      "status": "failed",
+      "time": "0.106804",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PythonPluginCurveOverride_PackagedTerminalHeatPump",
+      "status": "failed",
+      "time": "0.108667",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PythonPluginConstantVolumePurchasedAir",
+      "status": "failed",
+      "time": "0.110536",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PythonPluginAirflowNetworkOpeningControlByHumidity",
+      "status": "failed",
+      "time": "0.112462",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PythonPlugin1ZoneUncontrolledCondFD",
+      "status": "failed",
+      "time": "0.114348",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PurchAirWithDoubleFacadeDaylighting",
+      "status": "failed",
+      "time": "0.116591",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PythonPluginReplaceTraditionalManagers_LargeOffice",
+      "status": "failed",
+      "time": "0.297147",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PythonPluginDemandManager_LargeOffice",
+      "status": "failed",
+      "time": "0.304399",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PythonPluginDiscreteAirSystemSizes",
+      "status": "failed",
+      "time": "0.302713",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PythonPluginTestMathAndKill",
+      "status": "passed",
+      "time": "0.29555",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": ""
+    },
+    {
+      "name": "integration.PythonPluginPlantOperation_largeOff",
+      "status": "failed",
+      "time": "0.299192",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PythonPluginPlantLoopOverrideControl",
+      "status": "failed",
+      "time": "0.301054",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.QTFtest",
+      "status": "failed",
+      "time": "0.10424",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PythonPluginCustomTrendVariable",
+      "status": "failed",
+      "time": "0.111221",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PythonPluginLrgOff_GridStorageSmoothing",
+      "status": "failed",
+      "time": "0.129621",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PythonPluginWindowShadeControl",
+      "status": "failed",
+      "time": "0.131621",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PythonPluginUserDefinedWindACAuto",
+      "status": "failed",
+      "time": "0.133478",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PythonPluginUserDefined5ZoneAirCooled",
+      "status": "failed",
+      "time": "0.135167",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.PythonPluginThermochromicWindow",
+      "status": "failed",
+      "time": "0.137423",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoHydrHeatCoolAuto",
+      "status": "failed",
+      "time": "0.319684",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoHydrHeatCoolAutoCondFD",
+      "status": "failed",
+      "time": "0.317924",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadHiTempElecTermReheat",
+      "status": "failed",
+      "time": "0.325339",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadHiTempGasCtrlOpt",
+      "status": "failed",
+      "time": "0.323691",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadHiTempGasTermReheat",
+      "status": "failed",
+      "time": "0.321799",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempCFloChangeoverDelay",
+      "status": "failed",
+      "time": "0.316347",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempCFloISOPipeHT",
+      "status": "failed",
+      "time": "0.100829",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempCFloHeatCoolRMT",
+      "status": "failed",
+      "time": "0.108959",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempCFloHeatCoolCondFD",
+      "status": "failed",
+      "time": "0.110703",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempCFloHeatCool_AddedAutosizing",
+      "status": "failed",
+      "time": "0.112457",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempCFloHeatCool",
+      "status": "failed",
+      "time": "0.114232",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempCFloCtrlOpt3",
+      "status": "failed",
+      "time": "0.115809",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempCFloCtrlOpt2",
+      "status": "failed",
+      "time": "0.118001",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempElecCtrlOpt2",
+      "status": "failed",
+      "time": "0.305026",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempHydrCoolTower",
+      "status": "failed",
+      "time": "0.297999",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempElecTermReheatCondFD",
+      "status": "failed",
+      "time": "0.301582",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempHydrChangeoverDelay",
+      "status": "failed",
+      "time": "0.299857",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempElecTermReheat",
+      "status": "failed",
+      "time": "0.30333",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempCFloTermReheat",
+      "status": "failed",
+      "time": "0.306962",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempHydrHeatCoolDry",
+      "status": "failed",
+      "time": "0.10569",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempHydrHeatCool2D",
+      "status": "failed",
+      "time": "0.107521",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempHydrHeatCool",
+      "status": "failed",
+      "time": "0.10946",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempHydrCtrlOpt3",
+      "status": "failed",
+      "time": "0.111078",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempHydrCtrlOpt2",
+      "status": "failed",
+      "time": "0.112662",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempHydrCtrlOpt",
+      "status": "failed",
+      "time": "0.114309",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempHydrCoolTowerCondFD",
+      "status": "failed",
+      "time": "0.1164",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempHydrHeatCoolMultiZone",
+      "status": "failed",
+      "time": "0.303641",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempHydrTermReheat",
+      "status": "failed",
+      "time": "0.295362",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempHydrInterMulti",
+      "status": "failed",
+      "time": "0.301942",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempHydrHeatCoolDryCondFD",
+      "status": "failed",
+      "time": "0.305531",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempHydrMulti10",
+      "status": "failed",
+      "time": "0.298396",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RadLoTempHydrISOPipeHT",
+      "status": "failed",
+      "time": "0.300167",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgMediumOfficeNew2004_Chicago_OutputControl",
+      "status": "failed",
+      "time": "0.107482",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgMediumOfficeNew2004_Chicago",
+      "status": "failed",
+      "time": "0.111757",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgLargeOfficeNew2004_Chicago-ReturnReset",
+      "status": "failed",
+      "time": "0.114284",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgLargeOfficeNew2004_Chicago",
+      "status": "failed",
+      "time": "0.116284",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgLargeHotelNew2004_Chicago",
+      "status": "failed",
+      "time": "0.117862",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgHospitalNew2004_Chicago",
+      "status": "failed",
+      "time": "0.1195",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgFullServiceRestaurantNew2004_Chicago",
+      "status": "failed",
+      "time": "0.121552",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgPrimarySchoolNew2004_Chicago",
+      "status": "failed",
+      "time": "0.302915",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgMidriseApartmentNew2004_Chicago",
+      "status": "failed",
+      "time": "0.306584",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgMediumOfficeNew2004_Chicago_epJSON",
+      "status": "failed",
+      "time": "0.308551",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgQuickServiceRestaurantNew2004_Chicago",
+      "status": "failed",
+      "time": "0.301281",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgOutPatientNew2004_Chicago",
+      "status": "failed",
+      "time": "0.304793",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgMediumOfficeNew2004_Chicago_JSON_Outputs",
+      "status": "failed",
+      "time": "0.310479",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgWarehouseNew2004_Chicago",
+      "status": "failed",
+      "time": "0.101772",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgSuperMarketNew2004_Chicago",
+      "status": "failed",
+      "time": "0.108854",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgStripMallNew2004_Chicago",
+      "status": "failed",
+      "time": "0.110323",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgStand-aloneRetailNew2004_Chicago",
+      "status": "failed",
+      "time": "0.111863",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgSmallOfficeNew2004_Chicago",
+      "status": "failed",
+      "time": "0.113446",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgSmallHotelNew2004_Chicago",
+      "status": "failed",
+      "time": "0.11506",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefBldgSecondarySchoolNew2004_Chicago",
+      "status": "failed",
+      "time": "0.120786",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefMedOffVAVAllDefVRP",
+      "status": "failed",
+      "time": "0.308084",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ReflectiveAdjacentBuilding",
+      "status": "failed",
+      "time": "0.309879",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ReportHeatEmission_RefFSRestaurant",
+      "status": "failed",
+      "time": "0.29774",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ReportDaylightFactors",
+      "status": "failed",
+      "time": "0.302829",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RefrigeratedWarehouse",
+      "status": "failed",
+      "time": "0.306435",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ReliefIndEvapCoolerRTUoffice",
+      "status": "failed",
+      "time": "0.304595",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ShopWithSimplePVT",
+      "status": "failed",
+      "time": "0.0967462",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ShopWithPVandStorage",
+      "status": "failed",
+      "time": "0.0982771",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ShopWithPVandLiIonBattery",
+      "status": "failed",
+      "time": "0.102777",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ShopWithPVandBattery",
+      "status": "failed",
+      "time": "0.10436",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SeriesActiveBranch",
+      "status": "failed",
+      "time": "0.105921",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RoomAirflowNetwork",
+      "status": "failed",
+      "time": "0.107576",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.RetailPackagedTESCoil",
+      "status": "failed",
+      "time": "0.109787",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SingleFamilyHouse_TwoSpeed_CutoutTemperature",
+      "status": "failed",
+      "time": "0.294316",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SingleFamilyHouse_TwoSpeed_ZoneAirBalance",
+      "status": "failed",
+      "time": "0.396638",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SmOffPSZ-MultiModeDX",
+      "status": "failed",
+      "time": "0.391419",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SmallOffice_CentralDOAS",
+      "status": "failed",
+      "time": "0.393162",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SolarShadingTest_ExternalFraction",
+      "status": "failed",
+      "time": "0.102906",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SolarShadingTest_SQL",
+      "status": "failed",
+      "time": "0.106903",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SolarShadingTestGPU",
+      "status": "failed",
+      "time": "0.112415",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SolarShadingTest",
+      "status": "failed",
+      "time": "0.11413",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SolarCollectorFlatPlateWater",
+      "status": "failed",
+      "time": "0.115934",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SmOffPSZ_OnOffStagedControl",
+      "status": "failed",
+      "time": "0.117831",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SmOffPSZ",
+      "status": "failed",
+      "time": "0.120252",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SolarShadingTest_DisableSelfShading",
+      "status": "failed",
+      "time": "0.308462",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SolarShadingTest_ImportedShading",
+      "status": "failed",
+      "time": "0.304805",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SolarShadingTest_DisableSelfShadingGroup",
+      "status": "failed",
+      "time": "0.407109",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SpectralAngularOpticalProperties_TableData",
+      "status": "failed",
+      "time": "0.403592",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SuperMarket_DesuperHeatingCoil",
+      "status": "failed",
+      "time": "0.106495",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SuperMarketDetailed_DesuperHeatingCoil",
+      "status": "failed",
+      "time": "0.108161",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.StripMallZoneEvapCoolerAutosized",
+      "status": "failed",
+      "time": "0.110073",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.StripMallZoneEvapCooler",
+      "status": "failed",
+      "time": "0.111785",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.StormWindow",
+      "status": "failed",
+      "time": "0.113653",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SteamSystemAutoSize",
+      "status": "failed",
+      "time": "0.11534",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.StackedZonesWithInterzoneIRTLayers",
+      "status": "failed",
+      "time": "0.117603",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SuperMarket_SharedEvapCondenser",
+      "status": "failed",
+      "time": "0.300639",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SuperMarket_DetailedWaterCondenser",
+      "status": "failed",
+      "time": "0.404864",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SuperMarket_EvapCondenser",
+      "status": "failed",
+      "time": "0.403028",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SuperMarket_DetailedEvapCondenser",
+      "status": "failed",
+      "time": "0.40671",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SupermarketTwoStageShellCoilIntercooler",
+      "status": "failed",
+      "time": "0.106997",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SupermarketTwoStageFlashIntercooler",
+      "status": "failed",
+      "time": "0.108904",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SupermarketTranscriticalCO2",
+      "status": "failed",
+      "time": "0.11052",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SupermarketSubCoolersVariableSuction",
+      "status": "failed",
+      "time": "0.112178",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SupermarketSecondary",
+      "status": "failed",
+      "time": "0.113759",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Supermarket",
+      "status": "failed",
+      "time": "0.115473",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SuperMarket_WaterCondenser",
+      "status": "failed",
+      "time": "0.117643",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Supermarket_Detailed",
+      "status": "failed",
+      "time": "0.304704",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Supermarket_SharedAirCondenser",
+      "status": "failed",
+      "time": "0.403587",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Supermarket_CascadeCond",
+      "status": "failed",
+      "time": "0.407124",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SupplyPlenumVAV",
+      "status": "failed",
+      "time": "0.402005",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.TRHConstFlowChillerOneBranch",
+      "status": "failed",
+      "time": "0.115677",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SurfaceZonePropTest_LocalEnv",
+      "status": "failed",
+      "time": "0.117574",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SurfaceTest",
+      "status": "failed",
+      "time": "0.119191",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SurfacePropTest_SurfLWR",
+      "status": "failed",
+      "time": "0.120923",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SurfaceHeatSourceTerm_RefBldgSmallOfficeNew2004",
+      "status": "failed",
+      "time": "0.122868",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SurfaceGroundHeatExchanger",
+      "status": "failed",
+      "time": "0.125099",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.TermRHGasElecCoils",
+      "status": "failed",
+      "time": "0.309885",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.TermRHDXSystem",
+      "status": "failed",
+      "time": "0.311755",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.TRHEvapCoolerOAStagedWetCoil",
+      "status": "failed",
+      "time": "0.414194",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.TermReheat",
+      "status": "failed",
+      "time": "0.408774",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.TRHEvapCoolerOAStaged",
+      "status": "failed",
+      "time": "0.535334",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.TermRhGenericOAHeatRecMinExh",
+      "status": "failed",
+      "time": "0.100933",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.TermRhDualSetpointWithDB",
+      "status": "failed",
+      "time": "0.102623",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.TermReheatZoneExh",
+      "status": "failed",
+      "time": "0.104319",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.TermReheatSurfTC",
+      "status": "failed",
+      "time": "0.106037",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.TermReheatScheduledPump",
+      "status": "failed",
+      "time": "0.107745",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.TermReheatPri-SecLoop",
+      "status": "failed",
+      "time": "0.109816",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ThermochromicWindow",
+      "status": "failed",
+      "time": "0.295604",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.TermRhGenericOAHeatRecPreheat",
+      "status": "failed",
+      "time": "0.401172",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.TermRhSingleHeatCoolNoDB",
+      "status": "failed",
+      "time": "0.399558",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ThermalChimneyTest",
+      "status": "failed",
+      "time": "0.398114",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitHeaterGasElec",
+      "status": "failed",
+      "time": "0.0896509",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitHeaterAuto",
+      "status": "failed",
+      "time": "0.102567",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitHeater",
+      "status": "failed",
+      "time": "0.104472",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.TwoWayCommonPipe_Pri-Sec",
+      "status": "failed",
+      "time": "0.108841",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.TranspiredCollectors",
+      "status": "failed",
+      "time": "0.110859",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.TransparentInsulationSimple",
+      "status": "failed",
+      "time": "0.113037",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitVent5Zone",
+      "status": "failed",
+      "time": "0.302476",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitVent5ZoneAuto-CycFan2-Variable-MinOAOn-Annual-SelectMonths-Detailed",
+      "status": "failed",
+      "time": "0.401143",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitVent5ZoneFixedOANoCoilOpt",
+      "status": "failed",
+      "time": "0.397521",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitaryHybridAC_DedicatedOutsideAir",
+      "status": "failed",
+      "time": "0.395848",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitVent5ZoneAuto",
+      "status": "failed",
+      "time": "0.399392",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitarySystem_SingleSpeedDX",
+      "status": "failed",
+      "time": "0.108576",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitarySystem_MultiSpeedDX",
+      "status": "failed",
+      "time": "0.110451",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitarySystem_MultiSpeedCoils_SingleMode",
+      "status": "failed",
+      "time": "0.112296",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitarySystem_HeatPumpAuto",
+      "status": "failed",
+      "time": "0.114179",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitarySystem_FurnaceWithDXSystemRHcontrol",
+      "status": "failed",
+      "time": "0.115764",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitarySystem_DXCoilSystemAuto",
+      "status": "failed",
+      "time": "0.117676",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitarySystem_5ZoneWaterLoopHeatPump",
+      "status": "failed",
+      "time": "0.320889",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitarySystem_TwoStageDX",
+      "status": "failed",
+      "time": "0.405011",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitarySystem_TwoSpeedDX",
+      "status": "failed",
+      "time": "0.406871",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitarySystem_TwoStageDXWithHumidityControl",
+      "status": "failed",
+      "time": "0.40336",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitarySystem_SubcoolReheatDX",
+      "status": "failed",
+      "time": "0.408831",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VAVSingleDuctConstFlowBoiler",
+      "status": "failed",
+      "time": "0.111788",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UserInputViewFactorFile-LshapedZone",
+      "status": "failed",
+      "time": "0.113657",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UserDefinedRoomAirPatterns",
+      "status": "failed",
+      "time": "0.119597",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitarySystem_WaterCoils_wMultiSpeedFan",
+      "status": "failed",
+      "time": "0.121184",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitarySystem_VSHeatPumpWaterToAirEquationFit",
+      "status": "failed",
+      "time": "0.123186",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.UnitarySystem_VSCoolingCoil",
+      "status": "failed",
+      "time": "0.327044",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VAVSingleDuctReheatNoReheat",
+      "status": "failed",
+      "time": "0.412064",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VAVSingleDuctReheatBaseboard",
+      "status": "failed",
+      "time": "0.414003",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VAVSingleDuctReheat_MaxSAT_ReverseActing",
+      "status": "failed",
+      "time": "0.408438",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VAVSingleDuctReheat_DualMax",
+      "status": "failed",
+      "time": "0.410308",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VAVSingleDuctReheat",
+      "status": "failed",
+      "time": "0.535648",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VariableRefrigerantFlow_5Zone",
+      "status": "failed",
+      "time": "0.10541",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VaryingLocationAndOrientation",
+      "status": "failed",
+      "time": "0.107263",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VSWaterHeaterHeatPumpStratifiedTank",
+      "status": "failed",
+      "time": "0.109052",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VSHeatPumpWaterToAirEquationFit",
+      "status": "failed",
+      "time": "0.110671",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VSHeatPumpWaterHeater",
+      "status": "failed",
+      "time": "0.112375",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VSDXCoilSystemAuto",
+      "status": "failed",
+      "time": "0.315587",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VAVSingleDuctVarFlowBoiler",
+      "status": "failed",
+      "time": "0.418222",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VariableRefrigerantFlow_5Zone_wAirloop",
+      "status": "failed",
+      "time": "0.405849",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VariableRefrigerantFlow_FluidTCtrl_5Zone",
+      "status": "failed",
+      "time": "0.404123",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VariableRefrigerantFlow_FluidTCtrl_HR_5Zone",
+      "status": "failed",
+      "time": "0.402338",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.WaterHeaterDHWPlantLoop",
+      "status": "failed",
+      "time": "0.110784",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VentilationSimpleTest",
+      "status": "failed",
+      "time": "0.112644",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VentilatedSlab_SeriesSlabs",
+      "status": "failed",
+      "time": "0.114717",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VentilatedSlab",
+      "status": "failed",
+      "time": "0.116727",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VariableRefrigerantFlow_wSuppHeater_5Zone",
+      "status": "failed",
+      "time": "0.11872",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.VariableRefrigerantFlow_FluidTCtrl_wSuppHeater_5Zone",
+      "status": "failed",
+      "time": "0.322147",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.WaterHeaterHeatPumpWrappedCondenser",
+      "status": "failed",
+      "time": "0.409219",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.WaterHeaterStandAlone",
+      "status": "failed",
+      "time": "0.407625",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.WaterSideEconomizer_Integrated",
+      "status": "failed",
+      "time": "0.40598",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.WaterSideEconomizer_NonIntegrated",
+      "status": "failed",
+      "time": "0.404509",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.WaterHeaterHeatPumpStratifiedTank",
+      "status": "failed",
+      "time": "0.531005",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.WWHPSimpleAuto",
+      "status": "failed",
+      "time": "0.098702",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.WindowTestsSimple",
+      "status": "failed",
+      "time": "0.103536",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.WindowTests",
+      "status": "failed",
+      "time": "0.105464",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.WindACRHControl",
+      "status": "failed",
+      "time": "0.107368",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.WindACAuto",
+      "status": "failed",
+      "time": "0.108844",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.WindACAirtoAir",
+      "status": "failed",
+      "time": "0.312264",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.WeatherTimeBins",
+      "status": "failed",
+      "time": "0.414912",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ZoneCoupledGroundHTBasement",
+      "status": "failed",
+      "time": "0.402209",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ZoneCoupledGroundHTSlabInGrade",
+      "status": "failed",
+      "time": "0.400478",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ZoneCoupledGroundHTSlabOnGrade",
+      "status": "failed",
+      "time": "0.398644",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ZoneCoupledKivaConvection",
+      "status": "failed",
+      "time": "0.102184",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ZoneCoupledKivaBasementAdaptiveConvection",
+      "status": "failed",
+      "time": "0.108151",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ZoneCoupledKivaRefBldgMediumOfficeNoClg",
+      "status": "failed",
+      "time": "0.113174",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ZoneCoupledKivaRefBldgMediumOffice",
+      "status": "failed",
+      "time": "0.115098",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ZoneCoupledKivaWalkoutBasement",
+      "status": "failed",
+      "time": "0.130355",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ZoneCoupledKivaBasement",
+      "status": "failed",
+      "time": "0.132409",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ZoneWSHP_wDOAS",
+      "status": "failed",
+      "time": "0.316841",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ZoneCoupledKivaSlab",
+      "status": "failed",
+      "time": "0.335646",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ZoneCoupledKivaConvectionAdaptiveSmallOffice",
+      "status": "failed",
+      "time": "0.422799",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ZoneVSWSHP_wDOAS",
+      "status": "failed",
+      "time": "0.41914",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ZoneSysAvailManager",
+      "status": "failed",
+      "time": "0.42103",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._5ZoneEvapCooled",
+      "status": "failed",
+      "time": "0.0951979",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._1Zone_Heavy_SelfRef",
+      "status": "failed",
+      "time": "0.10237",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._1Zone_Heavy_MassX2",
+      "status": "failed",
+      "time": "0.113169",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._1Zone_Heavy_AdiabaticX2",
+      "status": "failed",
+      "time": "0.115081",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._1ZoneUncontrolled_customrange",
+      "status": "failed",
+      "time": "0.116769",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._1ZoneUncontrolled_SineOSC",
+      "status": "failed",
+      "time": "0.118348",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.5ZoneAirCooledWithSlab",
+      "status": "failed",
+      "time": "19.9707",
+      "output": "Executing ExpandObjects from /home/decent/ci/clone_branch/build/Products/ExpandObjects\nExpandObjects Started.\n Begin reading Energy+.idd file.\n Done reading Energy+.idd file.\nExpandObjects Finished. Time:     0.065\nExecuting Slab from /home/decent/ci/clone_branch/build/Products/Slab\n Begin Ground Temp Calculations\n Completed Reading Weather File\n Auto Size Grid Selected\n Entering Main Computational Block\n Working on year            1\n Working on year            2\n Working on year            3\n Working on year            4\n Working on year            5\n Working on year            6\n Working on year            7\nNote: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL\nSTOP GroundTempCalc Completed Successfully.\nTest Failed\n",
+      "parsed_errors": [
+        {
+          "filename": "Note",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "The",
+          "message": "following IEEE_UNDERFLOW_FLAG IEEE_DENORMAL"
+        }
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._1ZoneUncontrolled_Feb29",
+      "status": "failed",
+      "time": "0.221028",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._CTFTestsPart2",
+      "status": "failed",
+      "time": "0.203247",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._AllOffOpScheme",
+      "status": "failed",
+      "time": "0.309224",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._BranchPumpsWithCommonPipe",
+      "status": "failed",
+      "time": "0.307459",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._CTFTestsPart1",
+      "status": "failed",
+      "time": "0.305634",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._DemandVentilationReductionRatioAndLowPriority",
+      "status": "failed",
+      "time": "0.102259",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._DemandVentilationReductionRatioAndHighPriority",
+      "status": "failed",
+      "time": "0.106572",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._DemandVentilationFixedRateAndHighPriority",
+      "status": "failed",
+      "time": "0.108333",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._DOASDXCOIL_wUserSHRMethod",
+      "status": "failed",
+      "time": "0.109835",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._CoolingTowerWithDPDeltaTempOp",
+      "status": "failed",
+      "time": "0.111378",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._CoolingTowerDewPointRangeOp",
+      "status": "failed",
+      "time": "0.11308",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._ConvCoefftest",
+      "status": "failed",
+      "time": "0.115243",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._FollowSysNodeTemp",
+      "status": "failed",
+      "time": "0.195047",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._FuelCellTest200",
+      "status": "failed",
+      "time": "0.193745",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._FanCoilHybridVentAFN",
+      "status": "failed",
+      "time": "0.300545",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._DualDuctConstVolDamperMultizoneAverageSetPointManager",
+      "status": "failed",
+      "time": "0.304261",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._ElectricREformulatedEIRChiller",
+      "status": "failed",
+      "time": "0.302446",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._PurchAirWindowBlind3",
+      "status": "failed",
+      "time": "0.100092",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._PurchAirWindowBlind2",
+      "status": "failed",
+      "time": "0.101981",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._MultiSpeedACElecFurnace",
+      "status": "failed",
+      "time": "0.10354",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._MicroCHPTest301",
+      "status": "failed",
+      "time": "0.116968",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._MaterialTest",
+      "status": "failed",
+      "time": "0.118636",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._HybridVentilationControl_MinTime",
+      "status": "failed",
+      "time": "0.12032",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._HybridVentilationControlGlobalAN",
+      "status": "failed",
+      "time": "0.122471",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._SingleZoneTestCTFTwoDD",
+      "status": "failed",
+      "time": "0.208909",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._VAVSingleDuctConstFlowBoiler_otherfuel",
+      "status": "failed",
+      "time": "0.202708",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._SmallOffice_Dulles",
+      "status": "failed",
+      "time": "0.205053",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._PurchAirWindowBlind4",
+      "status": "failed",
+      "time": "0.311524",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._SingleZoneTestCondFDTwoDD",
+      "status": "failed",
+      "time": "0.307427",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._5ZoneAirCooled_LeapYear_annual",
+      "status": "failed",
+      "time": "0.121001",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._5ZoneAirCooled_annual",
+      "status": "failed",
+      "time": "0.12257",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.WCE_Interior_VB_-45_deg",
+      "status": "failed",
+      "time": "0.127049",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.WCE_DoubleClear_BSDF",
+      "status": "failed",
+      "time": "0.154937",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.WCE_Diffuse_Shade",
+      "status": "failed",
+      "time": "0.156704",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.gasAbsorptionChillerHeater",
+      "status": "failed",
+      "time": "0.158798",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ASHRAE9012016_Hospital_Denver",
+      "status": "failed",
+      "time": "0.246281",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ASHRAE9012016_HotelLarge_Denver",
+      "status": "failed",
+      "time": "0.244447",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ASHRAE9012016_OfficeLarge_Denver",
+      "status": "failed",
+      "time": "0.237643",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ASHRAE9012016_HotelSmall_Denver",
+      "status": "failed",
+      "time": "0.242826",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ASHRAE9012016_ApartmentMidRise_Denver",
+      "status": "failed",
+      "time": "0.348501",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ASHRAE9012016_ApartmentHighRise_Denver",
+      "status": "failed",
+      "time": "0.470565",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ASHRAE9012016_RetailStandalone_Denver",
+      "status": "failed",
+      "time": "0.11032",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ASHRAE9012016_RestaurantSitDown_Denver",
+      "status": "failed",
+      "time": "0.117129",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ASHRAE9012016_RestaurantFastFood_Denver",
+      "status": "failed",
+      "time": "0.119933",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ASHRAE9012016_OutPatientHealthCare_Denver",
+      "status": "failed",
+      "time": "0.149305",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ASHRAE9012016_OfficeSmall_Denver",
+      "status": "failed",
+      "time": "0.150972",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ASHRAE9012016_SchoolSecondary_Denver",
+      "status": "failed",
+      "time": "0.239896",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ASHRAE9012016_OfficeMedium_Denver",
+      "status": "failed",
+      "time": "0.25346",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ExerciseOutput1",
+      "status": "failed",
+      "time": "0.236478",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ASHRAE9012016_SchoolPrimary_Denver",
+      "status": "failed",
+      "time": "0.241643",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ASHRAE9012016_Warehouse_Denver",
+      "status": "failed",
+      "time": "0.338729",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.AbsorptionChiller_Macro",
+      "status": "failed",
+      "time": "0.0996878",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ASHRAE9012016_RetailStripmall_Denver",
+      "status": "failed",
+      "time": "0.555832",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Exercise2",
+      "status": "failed",
+      "time": "0.101548",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Exercise1D-Solution",
+      "status": "failed",
+      "time": "0.103432",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Exercise1C-Solution",
+      "status": "failed",
+      "time": "0.105007",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Exercise1B-Solution",
+      "status": "failed",
+      "time": "0.106617",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.Exercise1A",
+      "status": "failed",
+      "time": "0.108185",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.ExerciseOutput1A-Solution",
+      "status": "failed",
+      "time": "0.211131",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._ExternalInterface-functionalmockupunit-to-variable",
+      "status": "failed",
+      "time": "0.19539",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._ExternalInterface-functionalmockupunit-to-schedule",
+      "status": "failed",
+      "time": "0.197093",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration._ExternalInterface-functionalmockupunit-to-actuator",
+      "status": "failed",
+      "time": "0.199023",
+      "output": "Test Failed\n",
+      "parsed_errors": [
+
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SingleFamilyHouse_HP_Slab",
+      "status": "failed",
+      "time": "15.8275",
+      "output": "Executing ExpandObjects from /home/decent/ci/clone_branch/build/Products/ExpandObjects\nExpandObjects Started.\n Begin reading Energy+.idd file.\n Done reading Energy+.idd file.\nExpandObjects Finished. Time:     0.065\nExecuting Slab from /home/decent/ci/clone_branch/build/Products/Slab\n Begin Ground Temp Calculations\n Completed Reading Weather File\n Auto Size Grid Selected\n  Slab thickness reset to 0.122 m  for computational stability.\n Entering Main Computational Block\n Working on year            1\n Working on year            2\n Working on year            3\n Working on year            4\n Working on year            5\n Working on year            6\n Working on year            7\n Working on year            8\nNote: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL\nSTOP GroundTempCalc Completed Successfully.\nExecuting Basement from /home/decent/ci/clone_branch/build/Products/Basement\nAt line 338 of file /home/decent/ci/clone_branch/src/Basement/InputProcessor.f90 (unit = 3)\nFortran runtime error: Cannot open file 'BasementGHTIn.idf': No such file or directory\n\nError termination. Backtrace:\n#0  0x4a780d in ???\n#1  0x4a7a45 in ???\n#2  0x4a820d in ???\n#3  0x4ab12d in ???\n#4  0x4ab474 in ???\n#5  0x4a48f6 in __inputprocessor_MOD_processinput\n\tat /home/decent/ci/clone_branch/src/Basement/InputProcessor.f90:338\n#6  0x47dcc8 in __base3d_MOD_simcontroller\n\tat /home/decent/ci/clone_branch/src/Basement/3DBasementHT.f90:784\n#7  0x47ddf0 in __base3d_MOD_base3ddriver\n\tat /home/decent/ci/clone_branch/src/Basement/3DBasementHT.f90:731\n#8  0x47ddf0 in basementmodel\n\tat /home/decent/ci/clone_branch/src/Basement/3DBasementHT.f90:13619\n#9  0x47ddf0 in main\n\tat /home/decent/ci/clone_branch/src/Basement/3DBasementHT.f90:13613\nTest Failed\n",
+      "parsed_errors": [
+        {
+          "filename": "Note",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "The",
+          "message": "following IEEE_UNDERFLOW_FLAG IEEE_DENORMAL"
+        },
+        {
+          "filename": "Fortran runtime error",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "Cannot",
+          "message": "open No such file or directory"
+        }
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.SingleFamilyHouse_HP_Slab_Dehumidification",
+      "status": "failed",
+      "time": "15.8258",
+      "output": "Executing ExpandObjects from /home/decent/ci/clone_branch/build/Products/ExpandObjects\nExpandObjects Started.\n Begin reading Energy+.idd file.\n Done reading Energy+.idd file.\nExpandObjects Finished. Time:     0.075\nExecuting Slab from /home/decent/ci/clone_branch/build/Products/Slab\n Begin Ground Temp Calculations\n Completed Reading Weather File\n Auto Size Grid Selected\n  Slab thickness reset to 0.122 m  for computational stability.\n Entering Main Computational Block\n Working on year            1\n Working on year            2\n Working on year            3\n Working on year            4\n Working on year            5\n Working on year            6\n Working on year            7\n Working on year            8\nNote: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL\nSTOP GroundTempCalc Completed Successfully.\nExecuting Basement from /home/decent/ci/clone_branch/build/Products/Basement\nAt line 338 of file /home/decent/ci/clone_branch/src/Basement/InputProcessor.f90 (unit = 3)\nFortran runtime error: Cannot open file 'BasementGHTIn.idf': No such file or directory\n\nError termination. Backtrace:\n#0  0x4a780d in ???\n#1  0x4a7a45 in ???\n#2  0x4a820d in ???\n#3  0x4ab12d in ???\n#4  0x4ab474 in ???\n#5  0x4a48f6 in __inputprocessor_MOD_processinput\n\tat /home/decent/ci/clone_branch/src/Basement/InputProcessor.f90:338\n#6  0x47dcc8 in __base3d_MOD_simcontroller\n\tat /home/decent/ci/clone_branch/src/Basement/3DBasementHT.f90:784\n#7  0x47ddf0 in __base3d_MOD_base3ddriver\n\tat /home/decent/ci/clone_branch/src/Basement/3DBasementHT.f90:731\n#8  0x47ddf0 in basementmodel\n\tat /home/decent/ci/clone_branch/src/Basement/3DBasementHT.f90:13619\n#9  0x47ddf0 in main\n\tat /home/decent/ci/clone_branch/src/Basement/3DBasementHT.f90:13613\nTest Failed\n",
+      "parsed_errors": [
+        {
+          "filename": "Note",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "The",
+          "message": "following IEEE_UNDERFLOW_FLAG IEEE_DENORMAL"
+        },
+        {
+          "filename": "Fortran runtime error",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "Cannot",
+          "message": "open No such file or directory"
+        }
+      ],
+      "failure_type": "Failed"
+    },
+    {
+      "name": "integration.LgOffVAVusingBasement",
+      "status": "failed",
+      "time": "183.897",
+      "output": "Executing ExpandObjects from /home/decent/ci/clone_branch/build/Products/ExpandObjects\nExpandObjects Started.\n Begin reading Energy+.idd file.\n Done reading Energy+.idd file.\nExpandObjects Finished. Time:     0.106\nExecuting Basement from /home/decent/ci/clone_branch/build/Products/Basement\n Completed Reading Weather File\n Done Parsing The Energyplus Weather File\n\n You have selected to use an equivalent foundation based on the\n area to perimeter ratio supplied in the IDF file.\n\n\n You have selected to have the solution grid sized automatically.\n\n       YZ Wall TS         Inside      YZ Heat flux     Base T\n       XZ Wall TS         Inside      XZ Heat flux     Base T\n       Floor TS       Inside      Floor heat flux     Base T\n       YZ CL           XZ CL           FX CL           FY CL\n  TSYZUp    TSYZUpIn     TSYZLo     TSYZLoIn    Upper q     Lower q     Base T\n  TSXZUp    TSXZUpIn     TSXZLo     TSXZLoIn    Upper q     Lower q     Base T\n  TFPerim   TFPerimIn     TFCore    TFCoreIn      Perim q   Core q     Base T\n 1-D solution has not converged, Delta T>0.05\n 1-D solution has not converged, Delta T>0.05\n 1-D solution has not converged, Delta T>0.05\n 1-D solution has not converged, Delta T>0.05\n 1-D solution has not converged, Delta T>0.05\n 1-D solution has not converged, Delta T>0.05\n 1-D solution has not converged, Delta T>0.05\n 1-D solution has not converged, Delta T>0.05\n 1-D solution has not converged, Delta T>0.05\n 1-D solution has converged, MaxDeltaT=   4.1973420324961985E-002\n Year:           1 Day:          30 Converge Status: F\n Year:           1 Day:          60 Converge Status: F\n Year:           1 Day:          90 Converge Status: F\n Year:           1 Day:         120 Converge Status: F\n Year:           1 Day:         150 Converge Status: F\n Year:           1 Day:         180 Converge Status: F\n Year:           1 Day:         210 Converge Status: F\n Year:           1 Day:         240 Converge Status: F\n Year:           1 Day:         270 Converge Status: F\n Year:           1 Day:         300 Converge Status: F\n Year:           1 Day:         330 Converge Status: F\n Year:           1 Day:         360 Converge Status: F\n Year:           1 Day:         365 Converge Status: F\n 3-D Solution Has Not Converged, Delta T>0.1\n Max DeltaT=19.436\n Elapsed time: 91.92 seconds\n Year:           2 Day:          30 Converge Status: F\n Year:           2 Day:          60 Converge Status: F\n Year:           2 Day:          90 Converge Status: F\n Year:           2 Day:         120 Converge Status: F\n Year:           2 Day:         150 Converge Status: F\n Year:           2 Day:         180 Converge Status: F\n Year:           2 Day:         210 Converge Status: F\n Year:           2 Day:         240 Converge Status: F\n Year:           2 Day:         270 Converge Status: F\n Year:           2 Day:         300 Converge Status: F\n Year:           2 Day:         330 Converge Status: F\n Year:           2 Day:         360 Converge Status: F\n Year:           2 Day:         365 Converge Status: F\n 3-D Solution Has Not Converged, Delta T>0.1\n Max DeltaT=2.381\n Elapsed time: 183.33 seconds\n IYR=           2   Program Terminated\nSTOP GroundTempCalc Completed Successfully.\nTest Failed\n",
+      "parsed_errors": [
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "1",
+          "message": "Day          30 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "1",
+          "message": "Day          60 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "1",
+          "message": "Day          90 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "1",
+          "message": "Day         120 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "1",
+          "message": "Day         150 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "1",
+          "message": "Day         180 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "1",
+          "message": "Day         210 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "1",
+          "message": "Day         240 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "1",
+          "message": "Day         270 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "1",
+          "message": "Day         300 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "1",
+          "message": "Day         330 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "1",
+          "message": "Day         360 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "1",
+          "message": "Day         365 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "2",
+          "message": "Day          30 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "2",
+          "message": "Day          60 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "2",
+          "message": "Day          90 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "2",
+          "message": "Day         120 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "2",
+          "message": "Day         150 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "2",
+          "message": "Day         180 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "2",
+          "message": "Day         210 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "2",
+          "message": "Day         240 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "2",
+          "message": "Day         270 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "2",
+          "message": "Day         300 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "2",
+          "message": "Day         330 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "2",
+          "message": "Day         360 Converge Status: F"
+        },
+        {
+          "filename": "Year",
+          "linenumber": 0,
+          "colnumber": 0,
+          "messagetype": "2",
+          "message": "Day         365 Converge Status: F"
+        }
+      ],
+      "failure_type": "Failed"
+    }
   ],
   "failure": null,
   "package_results": [
@@ -69,14 +7556,14 @@ performance_test_count: 0
     "permalink": "EnergyPlus-4beac42342a9b5d6f55bf783ac372a55efbcdda1-x86_64-Linux-Ubuntu-18.04-gcc-7.5-IntegrationCoverage-Debug.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2021-05-28 23:25:14",
+    "date": "2021-05-28 23:31:04",
     "unhandled_failure": false,
-    "build_error_count": 0,
+    "build_error_count": 2,
     "build_warning_count": 0,
     "package_error_count": 0,
     "package_warning_count": 0,
-    "test_count": 0,
-    "test_passed_count": 0,
+    "test_count": 726,
+    "test_passed_count": 2,
     "repository": "NREL/EnergyPlus",
     "compiler": "gcc",
     "compiler_version": "7.5",
@@ -90,15 +7577,15 @@ performance_test_count: 0
     "tag_name": null,
     "commit_sha": "4beac42342a9b5d6f55bf783ac372a55efbcdda1",
     "branch_name": "enableHVACTemplateConvert3",
-    "test_run": false,
+    "test_run": true,
     "pull_request_issue_id": "",
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "x86_64-Linux-Ubuntu-18.04-gcc-7.5-IntegrationCoverage-Debug",
-    "pending": true,
+    "pending": false,
     "analyze_only": false,
-    "build_time": null,
-    "test_time": null,
+    "build_time": 149.578444971,
+    "test_time": 186.680685824,
     "package_time": null,
     "install_time": null,
     "results_repository": "NREL/EnergyPlusBuildResults",
@@ -113,7 +7600,7 @@ performance_test_count: 0
     "coverage_total_lines": 0,
     "coverage_functions": 0,
     "coverage_total_functions": 0,
-    "coverage_url": null,
+    "coverage_url": "http://energyplus.s3-website-us-east-1.amazonaws.com/coverage/2021-05-28-EnergyPlus-4beac42342-x86_64-gcc-7.5ICD\n",
     "asset_url": null,
     "performance_total_time": null,
     "performance_test_count": 0
