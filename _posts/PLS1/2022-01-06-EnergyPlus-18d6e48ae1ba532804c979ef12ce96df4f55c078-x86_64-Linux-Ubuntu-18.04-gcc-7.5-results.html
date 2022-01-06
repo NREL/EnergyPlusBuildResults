@@ -3,10 +3,10 @@ title: EnergyPlus-18d6e48ae1ba532804c979ef12ce96df4f55c078-x86_64-Linux-Ubuntu-1
 permalink: EnergyPlus-18d6e48ae1ba532804c979ef12ce96df4f55c078-x86_64-Linux-Ubuntu-18.04-gcc-7.5.html
 tags: data
 layout: ci_results
-date: '2022-01-06 08:38:34'
-unhandled_failure: false
+date: '2022-01-06 15:27:28'
+unhandled_failure: true
 build_error_count: 0
-build_warning_count: 0
+build_warning_count: 8
 package_error_count: 0
 package_warning_count: 0
 test_count: 0
@@ -29,9 +29,9 @@ pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: x86_64-Linux-Ubuntu-18.04-gcc-7.5
-pending: true
+pending: false
 analyze_only: false
-build_time: 
+build_time: 1144.597221668
 test_time: 
 package_time: 
 install_time: 
@@ -49,18 +49,73 @@ coverage_functions: 0
 coverage_total_functions: 0
 coverage_url: 
 asset_url: 
-performance_total_time: 
-performance_test_count: 0
+performance_total_time: 40597320864
+performance_test_count: 17
 
 ---
 {
   "build_results": [
-
+    {
+      "filename": "src/EnergyPlus/ChillerElectricEIR.cc",
+      "linenumber": "1367",
+      "colnumber": "13",
+      "messagetype": "warning",
+      "message": "unused variable ‘LoopNum’ [-Wunused-variable]"
+    },
+    {
+      "filename": "src/EnergyPlus/ChillerElectricEIR.cc",
+      "linenumber": "1368",
+      "colnumber": "37",
+      "messagetype": "warning",
+      "message": "unused variable ‘LoopSideNum’ [-Wunused-variable]"
+    },
+    {
+      "filename": "src/EnergyPlus/ChillerElectricEIR.cc",
+      "linenumber": "1369",
+      "colnumber": "13",
+      "messagetype": "warning",
+      "message": "unused variable ‘BranchIndex’ [-Wunused-variable]"
+    },
+    {
+      "filename": "src/EnergyPlus/ChillerElectricEIR.cc",
+      "linenumber": "1370",
+      "colnumber": "13",
+      "messagetype": "warning",
+      "message": "unused variable ‘CompIndex’ [-Wunused-variable]"
+    },
+    {
+      "filename": "src/EnergyPlus/ChillerReformulatedEIR.cc",
+      "linenumber": "1111",
+      "colnumber": "13",
+      "messagetype": "warning",
+      "message": "unused variable ‘LoopNum’ [-Wunused-variable]"
+    },
+    {
+      "filename": "src/EnergyPlus/ChillerReformulatedEIR.cc",
+      "linenumber": "1112",
+      "colnumber": "37",
+      "messagetype": "warning",
+      "message": "unused variable ‘LoopSideNum’ [-Wunused-variable]"
+    },
+    {
+      "filename": "src/EnergyPlus/ChillerReformulatedEIR.cc",
+      "linenumber": "1113",
+      "colnumber": "13",
+      "messagetype": "warning",
+      "message": "unused variable ‘BranchIndex’ [-Wunused-variable]"
+    },
+    {
+      "filename": "src/EnergyPlus/ChillerReformulatedEIR.cc",
+      "linenumber": "1114",
+      "colnumber": "13",
+      "messagetype": "warning",
+      "message": "unused variable ‘CompIndex’ [-Wunused-variable]"
+    }
   ],
   "test_results": [
 
   ],
-  "failure": null,
+  "failure": "undefined method `zero?' for nil:NilClass\n[\"/home/decent/ci/decent_ci/lib/runners.rb:15:in `block in run_scripts'\", \"/home/decent/ci/decent_ci/lib/runners.rb:12:in `each'\", \"/home/decent/ci/decent_ci/lib/runners.rb:12:in `run_scripts'\", \"/home/decent/ci/decent_ci/lib/cmake.rb:191:in `block in cmake_test'\", \"/home/decent/ci/decent_ci/lib/cmake.rb:188:in `each'\", \"/home/decent/ci/decent_ci/lib/cmake.rb:188:in `cmake_test'\", \"/home/decent/ci/decent_ci/lib/potentialbuild.rb:351:in `do_test'\", \"decent_ci/ci.rb:322:in `block (3 levels) in <main>'\", \"decent_ci/ci.rb:258:in `each'\", \"decent_ci/ci.rb:258:in `block (2 levels) in <main>'\", \"decent_ci/ci.rb:249:in `each'\", \"decent_ci/ci.rb:249:in `block in <main>'\", \"/var/lib/gems/2.5.0/gems/activesupport-5.2.3/lib/active_support/core_ext/range/each.rb:9:in `each'\", \"/var/lib/gems/2.5.0/gems/activesupport-5.2.3/lib/active_support/core_ext/range/each.rb:9:in `each'\", \"decent_ci/ci.rb:176:in `<main>'\"]",
   "package_results": [
 
   ],
@@ -69,10 +124,10 @@ performance_test_count: 0
     "permalink": "EnergyPlus-18d6e48ae1ba532804c979ef12ce96df4f55c078-x86_64-Linux-Ubuntu-18.04-gcc-7.5.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2022-01-06 08:38:34",
-    "unhandled_failure": false,
+    "date": "2022-01-06 15:27:28",
+    "unhandled_failure": true,
     "build_error_count": 0,
-    "build_warning_count": 0,
+    "build_warning_count": 8,
     "package_error_count": 0,
     "package_warning_count": 0,
     "test_count": 0,
@@ -95,9 +150,9 @@ performance_test_count: 0
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "x86_64-Linux-Ubuntu-18.04-gcc-7.5",
-    "pending": true,
+    "pending": false,
     "analyze_only": false,
-    "build_time": null,
+    "build_time": 1144.597221668,
     "test_time": null,
     "package_time": null,
     "install_time": null,
@@ -115,8 +170,2145 @@ performance_test_count: 0
     "coverage_total_functions": 0,
     "coverage_url": null,
     "asset_url": null,
-    "performance_total_time": null,
-    "performance_test_count": 0
+    "performance_total_time": 40597320864,
+    "performance_test_count": 17
   },
-  "performance_results": null
+  "performance_results": {
+    "object_files": [
+      {
+        "name": "Products/energyplus-22.1.0",
+        "size": 1815496
+      },
+      {
+        "name": "Products/libenergyplusapi.so.22.1.0",
+        "size": 59001104
+      }
+    ],
+    "test_files": [
+      {
+        "data": [
+
+        ],
+        "test_name": "performance.BenchmarkLargeOfficeNew_USA_CA_SAN_FRANCISCO_10_windows_per_zone"
+      },
+      {
+        "data": [
+
+        ],
+        "test_name": "performance.45zonevav"
+      },
+      {
+        "data": [
+
+        ],
+        "test_name": "performance.30zonevav"
+      },
+      {
+        "version": "1",
+        "creator": "callgrind-3.13.0",
+        "pid": "26456",
+        "cmd": " /home/decent/ci/clone_branch/build/Products/energyplus-22.1.0 -w /home/decent/ci/clone_branch/weather/USA_CO_Golden-NREL.724666_TMY3.epw -d /home/decent/ci/clone_branch/build/performance_tests/15zonePSZ/ -D -r /home/decent/ci/clone_branch/performance_tests/15zonePSZ.idf",
+        "part": "1",
+        "desc": "Trigger: Program termination",
+        "positions": "line",
+        "events": "Ir",
+        "summary": "6981917209",
+        "totals": 6981917209,
+        "data": [
+          {
+            "object_file": "/lib/x86_64-linux-gnu/ld-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/elf/../sysdeps/x86_64/dl-trampoline.h",
+            "function_name": "_dl_runtime_resolve_xsave'2",
+            "count": 2387,
+            "cost": 16324569784
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/energyplus-22.1.0",
+            "source_file": "???",
+            "function_name": "_start",
+            "count": 1,
+            "cost": 6954123861
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/csu/../csu/libc-start.c",
+            "function_name": "(below main)",
+            "count": 1,
+            "cost": 6954123850
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/energyplus-22.1.0",
+            "source_file": "???",
+            "function_name": "main",
+            "count": 1,
+            "cost": 6953758571
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/ld-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/elf/../sysdeps/x86_64/dl-trampoline.h",
+            "function_name": "_dl_runtime_resolve_xsave",
+            "count": 183,
+            "cost": 6794809136
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlusPgm(EnergyPlus::EnergyPlusData&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)",
+            "count": 1,
+            "cost": 6224191924
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceManager::ManageHeatBalance(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 4708874009
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceSurfaceManager::ManageSurfaceHeatBalance(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 3856028656
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceAirManager::ManageAirHeatBalance(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 2146674419
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::detail::binary_reader<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >, nlohmann::detail::iterator_input_adapter<unsigned char const*>, nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >::parse_cbor_internal(bool, nlohmann::detail::cbor_tag_handler_t)'2",
+            "count": 155554,
+            "cost": 2141485596
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceAirManager::CalcHeatBalanceAir(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 2063210234
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HVACManager::ManageHVAC(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 2062956246
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::detail::binary_reader<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >, nlohmann::detail::iterator_input_adapter<unsigned char const*>, nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >::get_cbor_object(unsigned long, nlohmann::detail::cbor_tag_handler_t)'2",
+            "count": 34682,
+            "cost": 1853510119
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HVACManager::SimHVAC(EnergyPlus::EnergyPlusData&)",
+            "count": 4123,
+            "cost": 1756991312
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HVACManager::SimSelectedEquipment(EnergyPlus::EnergyPlusData&, bool&, bool&, bool&, bool&, bool&, bool&, bool)",
+            "count": 4835,
+            "cost": 1449331002
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "std::_Rb_tree_node<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >* std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > >, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >, doj::alphanum_less<void>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > > >::_M_copy<std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > >, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >, doj::alphanum_less<void>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > > >::_Alloc_node>(std::_Rb_tree_node<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > > const*, std::_Rb_tree_node_base*, std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > >, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >, doj::alphanum_less<void>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > > >::_Alloc_node&)'2",
+            "count": 86424,
+            "cost": 1386321367
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SimAirServingZones::ManageAirLoops(EnergyPlus::EnergyPlusData&, bool, bool&, bool&)",
+            "count": 4836,
+            "cost": 1226968617
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SimAirServingZones::SimAirLoops(EnergyPlus::EnergyPlusData&, bool, bool&)",
+            "count": 4835,
+            "cost": 990183533
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SimAirServingZones::SimAirLoop(EnergyPlus::EnergyPlusData&, bool, int, int, int&, int&, int&)",
+            "count": 86010,
+            "cost": 984221887
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SimAirServingZones::SimAirLoopComponent(EnergyPlus::EnergyPlusData&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, EnergyPlus::SimAirServingZones::CompType, bool, int, int&, EnergyPlus::HVACSystemData*, int, int, int)",
+            "count": 344043,
+            "cost": 981702333
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SimAirServingZones::SolveAirLoopControllers(EnergyPlus::EnergyPlusData&, bool, int, bool&, int&, int&, int&)",
+            "count": 86010,
+            "cost": 977857147
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SimAirServingZones::SimAirLoopComponents(EnergyPlus::EnergyPlusData&, int, bool)",
+            "count": 86010,
+            "cost": 971406355
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceSurfaceManager::CalcHeatBalanceInsideSurf(EnergyPlus::EnergyPlusData&, ObjexxFCL::Optional<int const>)",
+            "count": 2702,
+            "cost": 843644785
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceSurfaceManager::CalcHeatBalanceInsideSurf2CTFOnly(EnergyPlus::EnergyPlusData&, int, int, std::vector<int, std::allocator<int> > const&, ObjexxFCL::Optional<int const>)",
+            "count": 2702,
+            "cost": 829762769
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceManager::InitHeatBalance(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 812730595
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "void valijson::SchemaParser::populateSchema<valijson::adapters::NlohmannJsonAdapter>(valijson::Schema&, valijson::adapters::NlohmannJsonAdapter const&, valijson::adapters::NlohmannJsonAdapter const&, valijson::Subschema const&, std::optional<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, valijson::SchemaParser::FunctionPtrs<valijson::adapters::NlohmannJsonAdapter>::FetchDoc, valijson::Subschema const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, valijson::SchemaParser::DocumentCache<valijson::adapters::NlohmannJsonAdapter>::Type&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, valijson::Subschema const*, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, valijson::Subschema const*> > >&)'2",
+            "count": 15840,
+            "cost": 810969732
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SolarShading::PerformSolarCalculations(EnergyPlus::EnergyPlusData&)",
+            "count": 32,
+            "cost": 797026543
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DaylightingManager::CalcDayltgCoefficients(EnergyPlus::EnergyPlusData&)",
+            "count": 8,
+            "cost": 755762327
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DaylightingManager::CalcDayltgCoeffsRefPoints(EnergyPlus::EnergyPlusData&, int)",
+            "count": 107,
+            "cost": 720043357
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::EnergyPlusData::EnergyPlusData()",
+            "count": 1,
+            "cost": 717281811
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DaylightingManager::CalcDayltgCoeffsRefMapPoints(EnergyPlus::EnergyPlusData&)",
+            "count": 8,
+            "cost": 714017304
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::UnitarySystems::UnitarySys::simulate(EnergyPlus::EnergyPlusData&, std::basic_string_view<char, std::char_traits<char> >, bool, int, int&, bool&, bool&, int, double, bool, double&, double&)",
+            "count": 86011,
+            "cost": 694669616
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::UnitarySystems::UnitarySys::simulateSys(EnergyPlus::EnergyPlusData&, std::basic_string_view<char, std::char_traits<char> >, bool, int, int&, bool&, bool&, int, double, bool, double&, double&)",
+            "count": 86010,
+            "cost": 675254961
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DaylightingManager::FigureDayltgCoeffsAtPointsForSunPosition(EnergyPlus::EnergyPlusData&, int, int, int, int, int, int, int, int, int, int, int&, double, ObjexxFCL::Vector3<double> const&, ObjexxFCL::Vector3<double> const&, double, int, int, double, double, double, double, int, EnergyPlus::DataSurfaces::WinShadingType, int, double, ObjexxFCL::Vector3<double> const&, EnergyPlus::DataDaylighting::ExtWinType, int, double, ObjexxFCL::Vector3<double> const&, bool, bool, EnergyPlus::DataDaylighting::CalledFor, double&, double&, int)",
+            "count": 215135,
+            "cost": 665694019
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceSurfaceManager::InitSurfaceHeatBalance(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 612110991
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >::basic_json(nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > const&)'2",
+            "count": 160107,
+            "cost": 558201572
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::UnitarySystems::UnitarySys::controlUnitarySystemtoSP(EnergyPlus::EnergyPlusData&, int, bool, int&, double, bool, double&, double&)",
+            "count": 86010,
+            "cost": 543075807
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "valijson::Subschema const* valijson::SchemaParser::makeOrReuseSchema<valijson::adapters::NlohmannJsonAdapter>(valijson::Schema&, valijson::adapters::NlohmannJsonAdapter const&, valijson::adapters::NlohmannJsonAdapter const&, std::optional<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, valijson::SchemaParser::FunctionPtrs<valijson::adapters::NlohmannJsonAdapter>::FetchDoc, valijson::Subschema const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, valijson::SchemaParser::DocumentCache<valijson::adapters::NlohmannJsonAdapter>::Type&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, valijson::Subschema const*, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, valijson::Subschema const*> > >&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&)'2",
+            "count": 15014,
+            "cost": 536698082
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DaylightingManager::DayltgSkyLuminance(EnergyPlus::EnergyPlusData&, int, double, double)",
+            "count": 744799,
+            "cost": 533693156
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "valijson::constraints::PropertiesConstraint valijson::SchemaParser::makePropertiesConstraint<valijson::adapters::NlohmannJsonAdapter>(valijson::Schema&, valijson::adapters::NlohmannJsonAdapter const&, valijson::adapters::NlohmannJsonAdapter const*, valijson::adapters::NlohmannJsonAdapter const*, valijson::adapters::NlohmannJsonAdapter const*, std::optional<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, valijson::SchemaParser::FunctionPtrs<valijson::adapters::NlohmannJsonAdapter>::FetchDoc, valijson::Subschema const*, valijson::SchemaParser::DocumentCache<valijson::adapters::NlohmannJsonAdapter>::Type&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, valijson::Subschema const*, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, valijson::Subschema const*> > >&)'2",
+            "count": 1765,
+            "cost": 530816426
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "valijson::Subschema const* valijson::SchemaParser::makeOrReuseSchema<valijson::adapters::NlohmannJsonAdapter>(valijson::Schema&, valijson::adapters::NlohmannJsonAdapter const&, valijson::adapters::NlohmannJsonAdapter const&, std::optional<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, valijson::SchemaParser::FunctionPtrs<valijson::adapters::NlohmannJsonAdapter>::FetchDoc, valijson::Subschema const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, valijson::SchemaParser::DocumentCache<valijson::adapters::NlohmannJsonAdapter>::Type&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, valijson::Subschema const*, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, valijson::Subschema const*> > >&)'2",
+            "count": 13492,
+            "cost": 513559787
+          },
+          {
+            "object_file": "/usr/lib/x86_64-linux-gnu/libpython3.6m.so.1.0",
+            "source_file": "???",
+            "function_name": "PyEval_EvalFrameEx'2",
+            "count": 3338,
+            "cost": 430733334
+          },
+          {
+            "object_file": "/usr/lib/x86_64-linux-gnu/libpython3.6m.so.1.0",
+            "source_file": "???",
+            "function_name": "_PyEval_EvalFrameDefault'2",
+            "count": 3338,
+            "cost": 430719982
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::ZoneEquipmentManager::ManageZoneEquipment(EnergyPlus::EnergyPlusData&, bool, bool&, bool&)",
+            "count": 6548,
+            "cost": 428379651
+          },
+          {
+            "object_file": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25",
+            "source_file": "???",
+            "function_name": "operator new(unsigned long)",
+            "count": 2813179,
+            "cost": 415386092
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DaylightingManager::DayltgInterReflectedIllum(EnergyPlus::EnergyPlusData&, int, int, int, int)",
+            "count": 1139,
+            "cost": 409176995
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/malloc/malloc.c",
+            "function_name": "malloc",
+            "count": 2814825,
+            "cost": 382032275
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::UnitarySystems::UnitarySys::controlCoolingSystemToSP(EnergyPlus::EnergyPlusData&, int, bool, bool&, int&)",
+            "count": 86010,
+            "cost": 359170870
+          },
+          {
+            "object_file": "???",
+            "source_file": "???",
+            "function_name": "0x00000000050c9378",
+            "count": 2334771,
+            "cost": 346851709
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DXCoils::CalcDoe2DXCoil(EnergyPlus::EnergyPlusData&, int, int, bool, double, int, ObjexxFCL::Optional<int const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>)",
+            "count": 174692,
+            "cost": 345851872
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::detail::binary_reader<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >, nlohmann::detail::iterator_input_adapter<unsigned char const*>, nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >::unexpect_eof(nlohmann::detail::input_format_t, char const*) const",
+            "count": 4355460,
+            "cost": 17421840
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S",
+            "function_name": "__memcpy_avx_unaligned_erms",
+            "count": 3723832,
+            "cost": 46461003
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/malloc/malloc.c",
+            "function_name": "free",
+            "count": 3044700,
+            "cost": 239059066
+          },
+          {
+            "object_file": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25",
+            "source_file": "???",
+            "function_name": "operator delete(void*)",
+            "count": 3043139,
+            "cost": 244951094
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/w_exp_compat.c",
+            "function_name": "exp",
+            "count": 2275289,
+            "cost": 229955994
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/string/../sysdeps/x86_64/multiarch/strlen-avx2.S",
+            "function_name": "__strlen_avx2",
+            "count": 2005133,
+            "cost": 36330422
+          },
+          {
+            "object_file": "???",
+            "source_file": "???",
+            "function_name": "0x00000000050c93f0",
+            "count": 1648444,
+            "cost": 129906700
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/string/../sysdeps/x86_64/multiarch/memcmp-avx2-movbe.S",
+            "function_name": "__memcmp_avx2_movbe",
+            "count": 1516658,
+            "cost": 33078660
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::ScheduleManager::GetCurrentScheduleValue(EnergyPlus::EnergyPlusData&, int)",
+            "count": 1479965,
+            "cost": 45251814
+          },
+          {
+            "object_file": "???",
+            "source_file": "???",
+            "function_name": "0x00000000050c93e0",
+            "count": 1416571,
+            "cost": 26570217
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "doj::(anonymous namespace)::alphanum_impl(char const*, char const*)",
+            "count": 1396435,
+            "cost": 186663924
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/malloc/malloc.c",
+            "function_name": "_int_malloc",
+            "count": 1217607,
+            "cost": 254512712
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "ObjexxFCL::Array1S<double> ObjexxFCL::Array1<double>::operator()<int, void>(std::initializer_list<int>) [clone .constprop.81]",
+            "count": 1161000,
+            "cost": 67338000
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/w_pow_compat.c",
+            "function_name": "pow",
+            "count": 1036701,
+            "cost": 274595254
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/../sysdeps/ieee754/dbl-64/e_exp.c",
+            "function_name": "__exp1_fma",
+            "count": 1024659,
+            "cost": 74349245
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/energyplus-22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >::json_value::destroy(nlohmann::detail::value_t)'2",
+            "count": 988028,
+            "cost": 71154853
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/../sysdeps/ieee754/dbl-64/s_sincos.c",
+            "function_name": "sincos",
+            "count": 965787,
+            "cost": 195598627
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "ObjexxFCL::Array1D<double>::operator=(ObjexxFCL::Array1D<double> const&)",
+            "count": 899229,
+            "cost": 97103079
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DataSurfaces::SurfaceData::getInsideAirTemperature(EnergyPlus::EnergyPlusData&, int) const",
+            "count": 858322,
+            "cost": 12874830
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) [clone .isra.264]",
+            "count": 838882,
+            "cost": 45997739
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "IdfParser::increment_both_index(unsigned long&, unsigned long&)",
+            "count": 822463,
+            "cost": 2467389
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >::cend() const",
+            "count": 819082,
+            "cost": 10666008
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)",
+            "count": 802649,
+            "cost": 41861639
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/string/../sysdeps/x86_64/multiarch/memset-vec-unaligned-erms.S",
+            "function_name": "__memset_avx2_unaligned_erms",
+            "count": 777830,
+            "cost": 175325650
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > >, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >, doj::alphanum_less<void>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > > >::find(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)",
+            "count": 749183,
+            "cost": 199465594
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/../sysdeps/ieee754/dbl-64/s_sin.c",
+            "function_name": "__cos_fma",
+            "count": 747863,
+            "cost": 81834351
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "bool nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > const>::operator==<nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > const>, (decltype(nullptr))0>(nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > const> const&) const",
+            "count": 738890,
+            "cost": 7438644
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/w_log_compat.c",
+            "function_name": "log",
+            "count": 672351,
+            "cost": 89570819
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::Psychrometrics::PsyPsatFnTemp_raw(EnergyPlus::EnergyPlusData&, double, std::basic_string_view<char, std::char_traits<char> >)",
+            "count": 595763,
+            "cost": 172444444
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/../sysdeps/ieee754/dbl-64/e_asin.c",
+            "function_name": "__ieee754_acos_fma",
+            "count": 584366,
+            "cost": 43109603
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/w_acos_compat.c",
+            "function_name": "acos",
+            "count": 584365,
+            "cost": 46615702
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.717]",
+            "count": 584112,
+            "cost": 48340025
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > const> nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >::find<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const",
+            "count": 584027,
+            "cost": 99284432
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/../sysdeps/ieee754/dbl-64/s_sin.c",
+            "function_name": "__sin_fma",
+            "count": 583062,
+            "cost": 64522548
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/energyplus-22.1.0",
+            "source_file": "???",
+            "function_name": "std::char_traits<char>::length(char const*)",
+            "count": 578311,
+            "cost": 12141691
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::push_back(char)",
+            "count": 446777,
+            "cost": 13561229
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "ObjexxFCL::Array1S<double>::operator=(ObjexxFCL::Array1S<double> const&)",
+            "count": 435261,
+            "cost": 48314118
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::General::Iterate(double&, double, double, double, double&, double&, int, int&)",
+            "count": 412840,
+            "cost": 11146902
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/energyplus-22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >::json_value::destroy(nlohmann::detail::value_t)",
+            "count": 409250,
+            "cost": 138563051
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::CurveManager::PerformanceCurveObject(EnergyPlus::EnergyPlusData&, int, double, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>)",
+            "count": 403249,
+            "cost": 21112512
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::CurveManager::CurveValue(EnergyPlus::EnergyPlusData&, int, double, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>)",
+            "count": 403249,
+            "cost": 64588225
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::ConvectionCoefficients::CalcASHRAETARPNatural(double, double, double)",
+            "count": 400043,
+            "cost": 121487469
+          },
+          {
+            "object_file": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25",
+            "source_file": "???",
+            "function_name": "std::_Rb_tree_increment(std::_Rb_tree_node_base*)",
+            "count": 365215,
+            "cost": 3955205
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "fmt::v8::detail::iterator_buffer<std::back_insert_iterator<fmt::v8::basic_memory_buffer<char, 500ul, std::allocator<char> > >, char, fmt::v8::detail::buffer_traits>::grow(unsigned long)",
+            "count": 337357,
+            "cost": 7421929
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/energyplus-22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >& std::vector<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >, std::allocator<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >::emplace_back<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > >(nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >&&)",
+            "count": 327703,
+            "cost": 6282966
+          }
+        ],
+        "test_name": "performance.15zonePSZ"
+      },
+      {
+        "data": [
+
+        ],
+        "test_name": "performance.30zonePTAC"
+      },
+      {
+        "data": [
+
+        ],
+        "test_name": "performance.15zonevav_no_reports"
+      },
+      {
+        "data": [
+
+        ],
+        "test_name": "performance.45zonePVAV"
+      },
+      {
+        "data": [
+
+        ],
+        "test_name": "performance.15zonePVAV"
+      },
+      {
+        "version": "1",
+        "creator": "callgrind-3.13.0",
+        "pid": "26484",
+        "cmd": " /home/decent/ci/clone_branch/build/Products/energyplus-22.1.0 -w /home/decent/ci/clone_branch/weather/USA_CO_Golden-NREL.724666_TMY3.epw -d /home/decent/ci/clone_branch/build/performance_tests/45zonePSZ/ -D -r /home/decent/ci/clone_branch/performance_tests/45zonePSZ.idf",
+        "part": "1",
+        "desc": "Trigger: Program termination",
+        "positions": "line",
+        "events": "Ir",
+        "summary": "20381479238",
+        "totals": 20381479238,
+        "data": [
+          {
+            "object_file": "/lib/x86_64-linux-gnu/ld-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/elf/../sysdeps/x86_64/dl-trampoline.h",
+            "function_name": "_dl_runtime_resolve_xsave'2",
+            "count": 2390,
+            "cost": 46983211994
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/energyplus-22.1.0",
+            "source_file": "???",
+            "function_name": "_start",
+            "count": 1,
+            "cost": 20353685890
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/csu/../csu/libc-start.c",
+            "function_name": "(below main)",
+            "count": 1,
+            "cost": 20353685879
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/energyplus-22.1.0",
+            "source_file": "???",
+            "function_name": "main",
+            "count": 1,
+            "cost": 20353320247
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/ld-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/elf/../sysdeps/x86_64/dl-trampoline.h",
+            "function_name": "_dl_runtime_resolve_xsave",
+            "count": 183,
+            "cost": 20184962046
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlusPgm(EnergyPlus::EnergyPlusData&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)",
+            "count": 1,
+            "cost": 19614335449
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceManager::ManageHeatBalance(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 15714076912
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceSurfaceManager::ManageSurfaceHeatBalance(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 13213920803
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceAirManager::ManageAirHeatBalance(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 8034038004
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceAirManager::CalcHeatBalanceAir(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 7734150325
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HVACManager::ManageHVAC(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 7733720707
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HVACManager::SimHVAC(EnergyPlus::EnergyPlusData&)",
+            "count": 4230,
+            "cost": 6809545343
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SimAirServingZones::ManageAirLoops(EnergyPlus::EnergyPlusData&, bool, bool&, bool&)",
+            "count": 5002,
+            "cost": 5148313772
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HVACManager::SimSelectedEquipment(EnergyPlus::EnergyPlusData&, bool&, bool&, bool&, bool&, bool&, bool&, bool)",
+            "count": 5001,
+            "cost": 4715727667
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SimAirServingZones::SimAirLoopComponent(EnergyPlus::EnergyPlusData&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, EnergyPlus::SimAirServingZones::CompType, bool, int, int&, EnergyPlus::HVACSystemData*, int, int, int)",
+            "count": 1079783,
+            "cost": 4371597836
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SimAirServingZones::SimAirLoop(EnergyPlus::EnergyPlusData&, bool, int, int, int&, int&, int&)",
+            "count": 269945,
+            "cost": 4364365985
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SimAirServingZones::SolveAirLoopControllers(EnergyPlus::EnergyPlusData&, bool, int, bool&, int&, int&, int&)",
+            "count": 269945,
+            "cost": 4344390055
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SimAirServingZones::SimAirLoopComponents(EnergyPlus::EnergyPlusData&, int, bool)",
+            "count": 269945,
+            "cost": 4324144048
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SimAirServingZones::SimAirLoops(EnergyPlus::EnergyPlusData&, bool, bool&)",
+            "count": 5001,
+            "cost": 3257833430
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::UnitarySystems::UnitarySys::simulate(EnergyPlus::EnergyPlusData&, std::basic_string_view<char, std::char_traits<char> >, bool, int, int&, bool&, bool&, int, double, bool, double&, double&)",
+            "count": 269946,
+            "cost": 3097149439
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::UnitarySystems::UnitarySys::simulateSys(EnergyPlus::EnergyPlusData&, std::basic_string_view<char, std::char_traits<char> >, bool, int, int&, bool&, bool&, int, double, bool, double&, double&)",
+            "count": 269945,
+            "cost": 3033093913
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceSurfaceManager::CalcHeatBalanceInsideSurf(EnergyPlus::EnergyPlusData&, ObjexxFCL::Optional<int const>)",
+            "count": 2702,
+            "cost": 2665628761
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceSurfaceManager::CalcHeatBalanceInsideSurf2CTFOnly(EnergyPlus::EnergyPlusData&, int, int, std::vector<int, std::allocator<int> > const&, ObjexxFCL::Optional<int const>)",
+            "count": 2702,
+            "cost": 2624978939
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceManager::InitHeatBalance(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 2419635989
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SolarShading::PerformSolarCalculations(EnergyPlus::EnergyPlusData&)",
+            "count": 32,
+            "cost": 2374960821
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DaylightingManager::CalcDayltgCoefficients(EnergyPlus::EnergyPlusData&)",
+            "count": 8,
+            "cost": 2236123603
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DaylightingManager::CalcDayltgCoeffsRefPoints(EnergyPlus::EnergyPlusData&, int)",
+            "count": 323,
+            "cost": 2219356753
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DaylightingManager::CalcDayltgCoeffsRefMapPoints(EnergyPlus::EnergyPlusData&)",
+            "count": 8,
+            "cost": 2193896781
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::detail::binary_reader<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >, nlohmann::detail::iterator_input_adapter<unsigned char const*>, nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >::parse_cbor_internal(bool, nlohmann::detail::cbor_tag_handler_t)'2",
+            "count": 155554,
+            "cost": 2141485596
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::UnitarySystems::UnitarySys::controlUnitarySystemtoSP(EnergyPlus::EnergyPlusData&, int, bool, int&, double, bool, double&, double&)",
+            "count": 269945,
+            "cost": 2060329725
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DaylightingManager::FigureDayltgCoeffsAtPointsForSunPosition(EnergyPlus::EnergyPlusData&, int, int, int, int, int, int, int, int, int, int, int&, double, ObjexxFCL::Vector3<double> const&, ObjexxFCL::Vector3<double> const&, double, int, int, double, double, double, double, int, EnergyPlus::DataSurfaces::WinShadingType, int, double, ObjexxFCL::Vector3<double> const&, EnergyPlus::DataDaylighting::ExtWinType, int, double, ObjexxFCL::Vector3<double> const&, bool, bool, EnergyPlus::DataDaylighting::CalledFor, double&, double&, int)",
+            "count": 645407,
+            "cost": 1997208336
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::detail::binary_reader<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >, nlohmann::detail::iterator_input_adapter<unsigned char const*>, nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >::get_cbor_object(unsigned long, nlohmann::detail::cbor_tag_handler_t)'2",
+            "count": 34682,
+            "cost": 1853510119
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceSurfaceManager::InitSurfaceHeatBalance(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 1818127881
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DaylightingManager::DayltgSkyLuminance(EnergyPlus::EnergyPlusData&, int, double, double)",
+            "count": 2050479,
+            "cost": 1467332196
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "std::_Rb_tree_node<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >* std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > >, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >, doj::alphanum_less<void>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > > >::_M_copy<std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > >, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >, doj::alphanum_less<void>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > > >::_Alloc_node>(std::_Rb_tree_node<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > > const*, std::_Rb_tree_node_base*, std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > >, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >, doj::alphanum_less<void>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > > >::_Alloc_node&)'2",
+            "count": 87500,
+            "cost": 1387153202
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::ZoneEquipmentManager::ManageZoneEquipment(EnergyPlus::EnergyPlusData&, bool, bool&, bool&)",
+            "count": 6738,
+            "cost": 1380298521
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::BaseSizer::initializeWithinEP(EnergyPlus::EnergyPlusData&, std::basic_string_view<char, std::char_traits<char> >, std::basic_string_view<char, std::char_traits<char> >, bool, std::basic_string_view<char, std::char_traits<char> >)",
+            "count": 449,
+            "cost": 1294027385
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DaylightingManager::DayltgInterReflectedIllum(EnergyPlus::EnergyPlusData&, int, int, int, int)",
+            "count": 3419,
+            "cost": 1284560930
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DXCoils::SimDXCoil(EnergyPlus::EnergyPlusData&, std::basic_string_view<char, std::char_traits<char> >, int, bool, int&, int, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>)",
+            "count": 359793,
+            "cost": 1240632632
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceIntRadExchange::CalcInteriorRadExchange(EnergyPlus::EnergyPlusData&, ObjexxFCL::Array1S<double>, int, ObjexxFCL::Array1D<double>&, ObjexxFCL::Optional<int const>, std::basic_string_view<char, std::char_traits<char> >)",
+            "count": 19996,
+            "cost": 1169478851
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::BaseSizerWithScalableInputs::initializeWithinEP(EnergyPlus::EnergyPlusData&, std::basic_string_view<char, std::char_traits<char> >, std::basic_string_view<char, std::char_traits<char> >, bool, std::basic_string_view<char, std::char_traits<char> >)",
+            "count": 404,
+            "cost": 1165173810
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::BaseSizerWithFanHeatInputs::initializeWithinEP(EnergyPlus::EnergyPlusData&, std::basic_string_view<char, std::char_traits<char> >, std::basic_string_view<char, std::char_traits<char> >, bool, std::basic_string_view<char, std::char_traits<char> >)",
+            "count": 404,
+            "cost": 1164306664
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::UnitarySystems::UnitarySys::controlCoolingSystemToSP(EnergyPlus::EnergyPlusData&, int, bool, bool&, int&)",
+            "count": 269945,
+            "cost": 1135797502
+          },
+          {
+            "object_file": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25",
+            "source_file": "???",
+            "function_name": "operator new(unsigned long)",
+            "count": 7676967,
+            "cost": 1115541469
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DXCoils::CalcDoe2DXCoil(EnergyPlus::EnergyPlusData&, int, int, bool, double, int, ObjexxFCL::Optional<int const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>)",
+            "count": 534890,
+            "cost": 1104413800
+          },
+          {
+            "object_file": "???",
+            "source_file": "???",
+            "function_name": "0x00000000050c9378",
+            "count": 6830970,
+            "cost": 1036988953
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/malloc/malloc.c",
+            "function_name": "malloc",
+            "count": 7678613,
+            "cost": 1023838060
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::WindowManager::CalcWindowHeatBalance(EnergyPlus::EnergyPlusData&, int, double, double&, double&)",
+            "count": 97307,
+            "cost": 963827063
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::WindowManager::CalcWindowHeatBalanceInternalRoutines(EnergyPlus::EnergyPlusData&, int, double, double&, double&)",
+            "count": 96767,
+            "cost": 960315260
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HVACInterfaceManager::UpdateHVACInterface(EnergyPlus::EnergyPlusData&, int, EnergyPlus::DataConvergParams::CalledFrom, int, int, bool&)",
+            "count": 450449,
+            "cost": 883008668
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/string/../sysdeps/x86_64/multiarch/memcmp-avx2-movbe.S",
+            "function_name": "__memcmp_avx2_movbe",
+            "count": 9072524,
+            "cost": 206827046
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S",
+            "function_name": "__memcpy_avx_unaligned_erms",
+            "count": 8883210,
+            "cost": 106931012
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/malloc/malloc.c",
+            "function_name": "free",
+            "count": 8538744,
+            "cost": 771699355
+          },
+          {
+            "object_file": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25",
+            "source_file": "???",
+            "function_name": "operator delete(void*)",
+            "count": 8537183,
+            "cost": 788579292
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/w_exp_compat.c",
+            "function_name": "exp",
+            "count": 6746647,
+            "cost": 681925917
+          },
+          {
+            "object_file": "???",
+            "source_file": "???",
+            "function_name": "0x00000000050c93f0",
+            "count": 6229414,
+            "cost": 608130942
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/string/../sysdeps/x86_64/multiarch/strlen-avx2.S",
+            "function_name": "__strlen_avx2",
+            "count": 4943665,
+            "cost": 89910842
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::ScheduleManager::GetCurrentScheduleValue(EnergyPlus::EnergyPlusData&, int)",
+            "count": 4534526,
+            "cost": 138532395
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::detail::binary_reader<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >, nlohmann::detail::iterator_input_adapter<unsigned char const*>, nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >::unexpect_eof(nlohmann::detail::input_format_t, char const*) const",
+            "count": 4355460,
+            "cost": 17421840
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "doj::(anonymous namespace)::alphanum_impl(char const*, char const*)",
+            "count": 3872433,
+            "cost": 621888458
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/malloc/malloc.c",
+            "function_name": "_int_malloc",
+            "count": 3735536,
+            "cost": 671884201
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "ObjexxFCL::Array1S<double> ObjexxFCL::Array1<double>::operator()<int, void>(std::initializer_list<int>) [clone .constprop.81]",
+            "count": 3602520,
+            "cost": 208946160
+          },
+          {
+            "object_file": "???",
+            "source_file": "???",
+            "function_name": "0x00000000050c93e0",
+            "count": 3243893,
+            "cost": 60838174
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/w_pow_compat.c",
+            "function_name": "pow",
+            "count": 2928497,
+            "cost": 776310790
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/../sysdeps/ieee754/dbl-64/e_exp.c",
+            "function_name": "__exp1_fma",
+            "count": 2892641,
+            "cost": 209466884
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "ObjexxFCL::Array1D<double>::operator=(ObjexxFCL::Array1D<double> const&)",
+            "count": 2743427,
+            "cost": 297008513
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/../sysdeps/ieee754/dbl-64/s_sincos.c",
+            "function_name": "sincos",
+            "count": 2703044,
+            "cost": 547648357
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DataSurfaces::SurfaceData::getInsideAirTemperature(EnergyPlus::EnergyPlusData&, int) const",
+            "count": 2613809,
+            "cost": 39207135
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/w_log_compat.c",
+            "function_name": "log",
+            "count": 2309561,
+            "cost": 307573146
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)",
+            "count": 2279872,
+            "cost": 120915397
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "IdfParser::increment_both_index(unsigned long&, unsigned long&)",
+            "count": 2186031,
+            "cost": 6558093
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/../sysdeps/ieee754/dbl-64/s_sin.c",
+            "function_name": "__cos_fma",
+            "count": 2104954,
+            "cost": 229384672
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::Psychrometrics::PsyPsatFnTemp_raw(EnergyPlus::EnergyPlusData&, double, std::basic_string_view<char, std::char_traits<char> >)",
+            "count": 2086048,
+            "cost": 604562572
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/string/../sysdeps/x86_64/multiarch/memset-vec-unaligned-erms.S",
+            "function_name": "__memset_avx2_unaligned_erms",
+            "count": 1974765,
+            "cost": 378806508
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/energyplus-22.1.0",
+            "source_file": "???",
+            "function_name": "std::char_traits<char>::length(char const*)",
+            "count": 1689521,
+            "cost": 35503917
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/../sysdeps/ieee754/dbl-64/e_asin.c",
+            "function_name": "__ieee754_acos_fma",
+            "count": 1597230,
+            "cost": 117515301
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/w_acos_compat.c",
+            "function_name": "acos",
+            "count": 1597229,
+            "cost": 127098584
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/../sysdeps/ieee754/dbl-64/s_sin.c",
+            "function_name": "__sin_fma",
+            "count": 1595869,
+            "cost": 176423701
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "ObjexxFCL::Array<double>::Array(ObjexxFCL::Array<double> const&)",
+            "count": 1538999,
+            "cost": 869798722
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::General::Iterate(double&, double, double, double, double&, double&, int, int&)",
+            "count": 1530423,
+            "cost": 41322638
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "ObjexxFCL::Array1S<double>::operator=(ObjexxFCL::Array1S<double> const&)",
+            "count": 1350561,
+            "cost": 149912418
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >::cend() const",
+            "count": 1330344,
+            "cost": 17325826
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::CurveManager::CurveValue(EnergyPlus::EnergyPlusData&, int, double, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>)",
+            "count": 1215535,
+            "cost": 194715525
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::CurveManager::PerformanceCurveObject(EnergyPlus::EnergyPlusData&, int, double, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>)",
+            "count": 1215535,
+            "cost": 63662458
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::ConvectionCoefficients::CalcASHRAETARPNatural(double, double, double)",
+            "count": 1119041,
+            "cost": 339448392
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) [clone .isra.264]",
+            "count": 1117028,
+            "cost": 67786113
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > >, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >, doj::alphanum_less<void>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > > >::find(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)",
+            "count": 1111812,
+            "cost": 478562306
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "bool nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > const>::operator==<nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > const>, (decltype(nullptr))0>(nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > const> const&) const",
+            "count": 1060150,
+            "cost": 10689992
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/energyplus-22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >::json_value::destroy(nlohmann::detail::value_t)'2",
+            "count": 1056260,
+            "cost": 86318071
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) [clone .isra.176]",
+            "count": 1053000,
+            "cost": 181434426
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "fmt::v8::detail::iterator_buffer<std::back_insert_iterator<fmt::v8::basic_memory_buffer<char, 500ul, std::allocator<char> > >, char, fmt::v8::detail::buffer_traits>::grow(unsigned long)",
+            "count": 967261,
+            "cost": 21279817
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::ConvectionCoefficients::CalcASHRAEDetailedIntConvCoeff(EnergyPlus::EnergyPlusData&, int, double, double)",
+            "count": 883880,
+            "cost": 292667290
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceSurfaceManager::GetQdotConvOutPerArea(EnergyPlus::EnergyPlusData&, int)",
+            "count": 883880,
+            "cost": 20329240
+          },
+          {
+            "object_file": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25",
+            "source_file": "???",
+            "function_name": "std::_Rb_tree_increment(std::_Rb_tree_node_base*)",
+            "count": 837326,
+            "cost": 9440434
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::compare(char const*) const",
+            "count": 793047,
+            "cost": 52864852
+          }
+        ],
+        "test_name": "performance.45zonePSZ"
+      },
+      {
+        "data": [
+
+        ],
+        "test_name": "performance.15zonevav"
+      },
+      {
+        "data": [
+
+        ],
+        "test_name": "performance.45zonePTAC"
+      },
+      {
+        "version": "1",
+        "creator": "callgrind-3.13.0",
+        "pid": "26471",
+        "cmd": " /home/decent/ci/clone_branch/build/Products/energyplus-22.1.0 -w /home/decent/ci/clone_branch/weather/USA_CO_Golden-NREL.724666_TMY3.epw -d /home/decent/ci/clone_branch/build/performance_tests/30zonePSZ/ -D -r /home/decent/ci/clone_branch/performance_tests/30zonePSZ.idf",
+        "part": "1",
+        "desc": "Trigger: Program termination",
+        "positions": "line",
+        "events": "Ir",
+        "summary": "13233924417",
+        "totals": 13233924417,
+        "data": [
+          {
+            "object_file": "/lib/x86_64-linux-gnu/ld-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/elf/../sysdeps/x86_64/dl-trampoline.h",
+            "function_name": "_dl_runtime_resolve_xsave'2",
+            "count": 2388,
+            "cost": 30121849723
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/energyplus-22.1.0",
+            "source_file": "???",
+            "function_name": "_start",
+            "count": 1,
+            "cost": 13206131069
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/csu/../csu/libc-start.c",
+            "function_name": "(below main)",
+            "count": 1,
+            "cost": 13206131058
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/energyplus-22.1.0",
+            "source_file": "???",
+            "function_name": "main",
+            "count": 1,
+            "cost": 13205765270
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/ld-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/elf/../sysdeps/x86_64/dl-trampoline.h",
+            "function_name": "_dl_runtime_resolve_xsave",
+            "count": 183,
+            "cost": 13042192648
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlusPgm(EnergyPlus::EnergyPlusData&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)",
+            "count": 1,
+            "cost": 12471583340
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceManager::ManageHeatBalance(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 9899187248
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceSurfaceManager::ManageSurfaceHeatBalance(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 8243285471
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceAirManager::ManageAirHeatBalance(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 4859101846
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceAirManager::CalcHeatBalanceAir(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 4663519839
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HVACManager::ManageHVAC(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 4663165877
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HVACManager::SimHVAC(EnergyPlus::EnergyPlusData&)",
+            "count": 4217,
+            "cost": 4050031395
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HVACManager::SimSelectedEquipment(EnergyPlus::EnergyPlusData&, bool&, bool&, bool&, bool&, bool&, bool&, bool)",
+            "count": 4975,
+            "cost": 3043842218
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SimAirServingZones::ManageAirLoops(EnergyPlus::EnergyPlusData&, bool, bool&, bool&)",
+            "count": 4976,
+            "cost": 2959067588
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SimAirServingZones::SimAirLoop(EnergyPlus::EnergyPlusData&, bool, int, int, int&, int&, int&)",
+            "count": 178820,
+            "cost": 2451043037
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SimAirServingZones::SimAirLoopComponent(EnergyPlus::EnergyPlusData&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, EnergyPlus::SimAirServingZones::CompType, bool, int, int&, EnergyPlus::HVACSystemData*, int, int, int)",
+            "count": 715283,
+            "cost": 2449433274
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SimAirServingZones::SolveAirLoopControllers(EnergyPlus::EnergyPlusData&, bool, int, bool&, int&, int&, int&)",
+            "count": 178820,
+            "cost": 2437810357
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SimAirServingZones::SimAirLoopComponents(EnergyPlus::EnergyPlusData&, int, bool)",
+            "count": 178820,
+            "cost": 2424398770
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::detail::binary_reader<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >, nlohmann::detail::iterator_input_adapter<unsigned char const*>, nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >::parse_cbor_internal(bool, nlohmann::detail::cbor_tag_handler_t)'2",
+            "count": 155554,
+            "cost": 2141485596
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SimAirServingZones::SimAirLoops(EnergyPlus::EnergyPlusData&, bool, bool&)",
+            "count": 4975,
+            "cost": 2091518288
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::detail::binary_reader<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >, nlohmann::detail::iterator_input_adapter<unsigned char const*>, nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >::get_cbor_object(unsigned long, nlohmann::detail::cbor_tag_handler_t)'2",
+            "count": 34682,
+            "cost": 1853510119
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::UnitarySystems::UnitarySys::simulate(EnergyPlus::EnergyPlusData&, std::basic_string_view<char, std::char_traits<char> >, bool, int, int&, bool&, bool&, int, double, bool, double&, double&)",
+            "count": 178821,
+            "cost": 1735624339
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceSurfaceManager::CalcHeatBalanceInsideSurf(EnergyPlus::EnergyPlusData&, ObjexxFCL::Optional<int const>)",
+            "count": 2702,
+            "cost": 1714560013
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::UnitarySystems::UnitarySys::simulateSys(EnergyPlus::EnergyPlusData&, std::basic_string_view<char, std::char_traits<char> >, bool, int, int&, bool&, bool&, int, double, bool, double&, double&)",
+            "count": 178820,
+            "cost": 1695204868
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceSurfaceManager::CalcHeatBalanceInsideSurf2CTFOnly(EnergyPlus::EnergyPlusData&, int, int, std::vector<int, std::allocator<int> > const&, ObjexxFCL::Optional<int const>)",
+            "count": 2702,
+            "cost": 1687302119
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceManager::InitHeatBalance(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 1595586820
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::SolarShading::PerformSolarCalculations(EnergyPlus::EnergyPlusData&)",
+            "count": 32,
+            "cost": 1565356756
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DaylightingManager::CalcDayltgCoefficients(EnergyPlus::EnergyPlusData&)",
+            "count": 8,
+            "cost": 1478399280
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DaylightingManager::CalcDayltgCoeffsRefPoints(EnergyPlus::EnergyPlusData&, int)",
+            "count": 215,
+            "cost": 1450643531
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DaylightingManager::CalcDayltgCoeffsRefMapPoints(EnergyPlus::EnergyPlusData&)",
+            "count": 8,
+            "cost": 1436413652
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "std::_Rb_tree_node<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >* std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > >, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >, doj::alphanum_less<void>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > > >::_M_copy<std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > >, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >, doj::alphanum_less<void>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > > >::_Alloc_node>(std::_Rb_tree_node<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > > const*, std::_Rb_tree_node_base*, std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > >, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >, doj::alphanum_less<void>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > > >::_Alloc_node&)'2",
+            "count": 86962,
+            "cost": 1386737257
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DaylightingManager::FigureDayltgCoeffsAtPointsForSunPosition(EnergyPlus::EnergyPlusData&, int, int, int, int, int, int, int, int, int, int, int&, double, ObjexxFCL::Vector3<double> const&, ObjexxFCL::Vector3<double> const&, double, int, int, double, double, double, double, int, EnergyPlus::DataSurfaces::WinShadingType, int, double, ObjexxFCL::Vector3<double> const&, EnergyPlus::DataDaylighting::ExtWinType, int, double, ObjexxFCL::Vector3<double> const&, bool, bool, EnergyPlus::DataDaylighting::CalledFor, double&, double&, int)",
+            "count": 430271,
+            "cost": 1325900171
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::UnitarySystems::UnitarySys::controlUnitarySystemtoSP(EnergyPlus::EnergyPlusData&, int, bool, int&, double, bool, double&, double&)",
+            "count": 178820,
+            "cost": 1237575106
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceSurfaceManager::InitSurfaceHeatBalance(EnergyPlus::EnergyPlusData&)",
+            "count": 2702,
+            "cost": 1202080774
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DaylightingManager::DayltgSkyLuminance(EnergyPlus::EnergyPlusData&, int, double, double)",
+            "count": 1402959,
+            "cost": 1004145795
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::ZoneEquipmentManager::ManageZoneEquipment(EnergyPlus::EnergyPlusData&, bool, bool&, bool&)",
+            "count": 6712,
+            "cost": 896766639
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DaylightingManager::DayltgInterReflectedIllum(EnergyPlus::EnergyPlusData&, int, int, int, int)",
+            "count": 2279,
+            "cost": 837704132
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "void valijson::SchemaParser::populateSchema<valijson::adapters::NlohmannJsonAdapter>(valijson::Schema&, valijson::adapters::NlohmannJsonAdapter const&, valijson::adapters::NlohmannJsonAdapter const&, valijson::Subschema const&, std::optional<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, valijson::SchemaParser::FunctionPtrs<valijson::adapters::NlohmannJsonAdapter>::FetchDoc, valijson::Subschema const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, valijson::SchemaParser::DocumentCache<valijson::adapters::NlohmannJsonAdapter>::Type&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, valijson::Subschema const*, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, valijson::Subschema const*> > >&)'2",
+            "count": 15840,
+            "cost": 811718838
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::UnitarySystems::UnitarySys::controlCoolingSystemToSP(EnergyPlus::EnergyPlusData&, int, bool, bool&, int&)",
+            "count": 178820,
+            "cost": 744556125
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::EnergyPlusData::EnergyPlusData()",
+            "count": 1,
+            "cost": 717281811
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DXCoils::CalcDoe2DXCoil(EnergyPlus::EnergyPlusData&, int, int, bool, double, int, ObjexxFCL::Optional<int const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>)",
+            "count": 354774,
+            "cost": 716802668
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceIntRadExchange::CalcInteriorRadExchange(EnergyPlus::EnergyPlusData&, ObjexxFCL::Array1S<double>, int, ObjexxFCL::Array1D<double>&, ObjexxFCL::Optional<int const>, std::basic_string_view<char, std::char_traits<char> >)",
+            "count": 19843,
+            "cost": 702748732
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DXCoils::SimDXCoil(EnergyPlus::EnergyPlusData&, std::basic_string_view<char, std::char_traits<char> >, int, bool, int&, int, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>)",
+            "count": 238352,
+            "cost": 694380687
+          },
+          {
+            "object_file": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25",
+            "source_file": "???",
+            "function_name": "operator new(unsigned long)",
+            "count": 4931875,
+            "cost": 684276931
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::WindowManager::CalcWindowHeatBalance(EnergyPlus::EnergyPlusData&, int, double, double&, double&)",
+            "count": 64871,
+            "cost": 642571052
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::WindowManager::CalcWindowHeatBalanceInternalRoutines(EnergyPlus::EnergyPlusData&, int, double, double&, double&)",
+            "count": 64511,
+            "cost": 640221401
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/malloc/malloc.c",
+            "function_name": "malloc",
+            "count": 4933521,
+            "cost": 625496603
+          },
+          {
+            "object_file": "???",
+            "source_file": "???",
+            "function_name": "0x00000000050c9378",
+            "count": 4269210,
+            "cost": 616292343
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HVACInterfaceManager::UpdateHVACInterface(EnergyPlus::EnergyPlusData&, int, EnergyPlus::DataConvergParams::CalledFrom, int, int, bool&)",
+            "count": 298739,
+            "cost": 585620437
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::BaseSizer::initializeWithinEP(EnergyPlus::EnergyPlusData&, std::basic_string_view<char, std::char_traits<char> >, std::basic_string_view<char, std::char_traits<char> >, bool, std::basic_string_view<char, std::char_traits<char> >)",
+            "count": 299,
+            "cost": 570820268
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S",
+            "function_name": "__memcpy_avx_unaligned_erms",
+            "count": 6138584,
+            "cost": 74714972
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/malloc/malloc.c",
+            "function_name": "free",
+            "count": 5410194,
+            "cost": 473583167
+          },
+          {
+            "object_file": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25",
+            "source_file": "???",
+            "function_name": "operator delete(void*)",
+            "count": 5408633,
+            "cost": 484202592
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/w_exp_compat.c",
+            "function_name": "exp",
+            "count": 4540299,
+            "cost": 458978005
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::detail::binary_reader<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >, nlohmann::detail::iterator_input_adapter<unsigned char const*>, nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >::unexpect_eof(nlohmann::detail::input_format_t, char const*) const",
+            "count": 4355460,
+            "cost": 17421840
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/string/../sysdeps/x86_64/multiarch/memcmp-avx2-movbe.S",
+            "function_name": "__memcmp_avx2_movbe",
+            "count": 4273154,
+            "cost": 97442624
+          },
+          {
+            "object_file": "???",
+            "source_file": "???",
+            "function_name": "0x00000000050c93f0",
+            "count": 3589872,
+            "cost": 331217288
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/string/../sysdeps/x86_64/multiarch/strlen-avx2.S",
+            "function_name": "__strlen_avx2",
+            "count": 3352183,
+            "cost": 60898997
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::ScheduleManager::GetCurrentScheduleValue(EnergyPlus::EnergyPlusData&, int)",
+            "count": 3012066,
+            "cost": 92028636
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "ObjexxFCL::Array1S<double> ObjexxFCL::Array1<double>::operator()<int, void>(std::initializer_list<int>) [clone .constprop.81]",
+            "count": 2389200,
+            "cost": 138573600
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "doj::(anonymous namespace)::alphanum_impl(char const*, char const*)",
+            "count": 2382620,
+            "cost": 370355051
+          },
+          {
+            "object_file": "???",
+            "source_file": "???",
+            "function_name": "0x00000000050c93e0",
+            "count": 2217208,
+            "cost": 41545468
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/io/../sysdeps/unix/sysv/linux/close.c",
+            "function_name": "_int_malloc",
+            "count": 2174202,
+            "cost": 401607647
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/w_pow_compat.c",
+            "function_name": "pow",
+            "count": 1982823,
+            "cost": 526038111
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/../sysdeps/ieee754/dbl-64/e_exp.c",
+            "function_name": "__exp1_fma",
+            "count": 1958874,
+            "cost": 141919090
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/../sysdeps/ieee754/dbl-64/s_sincos.c",
+            "function_name": "sincos",
+            "count": 1839746,
+            "cost": 372507179
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "ObjexxFCL::Array1D<double>::operator=(ObjexxFCL::Array1D<double> const&)",
+            "count": 1826908,
+            "cost": 197529159
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::DataSurfaces::SurfaceData::getInsideAirTemperature(EnergyPlus::EnergyPlusData&, int) const",
+            "count": 1739393,
+            "cost": 26090895
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)",
+            "count": 1512547,
+            "cost": 80094784
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/w_log_compat.c",
+            "function_name": "log",
+            "count": 1509752,
+            "cost": 201056744
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "IdfParser::increment_both_index(unsigned long&, unsigned long&)",
+            "count": 1504247,
+            "cost": 4512741
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/../sysdeps/ieee754/dbl-64/s_sin.c",
+            "function_name": "__cos_fma",
+            "count": 1430409,
+            "cost": 156056121
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libc-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/string/../sysdeps/x86_64/multiarch/memset-vec-unaligned-erms.S",
+            "function_name": "__memset_avx2_unaligned_erms",
+            "count": 1378188,
+            "cost": 212155996
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::Psychrometrics::PsyPsatFnTemp_raw(EnergyPlus::EnergyPlusData&, double, std::basic_string_view<char, std::char_traits<char> >)",
+            "count": 1360389,
+            "cost": 394289205
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/energyplus-22.1.0",
+            "source_file": "???",
+            "function_name": "std::char_traits<char>::length(char const*)",
+            "count": 1124724,
+            "cost": 23628784
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/../sysdeps/ieee754/dbl-64/e_asin.c",
+            "function_name": "__ieee754_acos_fma",
+            "count": 1094788,
+            "cost": 80612764
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/w_acos_compat.c",
+            "function_name": "acos",
+            "count": 1094787,
+            "cost": 87181395
+          },
+          {
+            "object_file": "/lib/x86_64-linux-gnu/libm-2.27.so",
+            "source_file": "/build/glibc-2ORdQG/glibc-2.27/math/../sysdeps/ieee754/dbl-64/s_sin.c",
+            "function_name": "__sin_fma",
+            "count": 1093244,
+            "cost": 120899516
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >::cend() const",
+            "count": 1059188,
+            "cost": 13794092
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/energyplus-22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >::json_value::destroy(nlohmann::detail::value_t)'2",
+            "count": 1022144,
+            "cost": 84574001
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) [clone .isra.264]",
+            "count": 977955,
+            "cost": 56902559
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::General::Iterate(double&, double, double, double, double&, double&, int, int&)",
+            "count": 977402,
+            "cost": 26415994
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > >, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > >, doj::alphanum_less<void>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > > > >::find(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)",
+            "count": 918460,
+            "cost": 328405409
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "ObjexxFCL::Array1S<double>::operator=(ObjexxFCL::Array1S<double> const&)",
+            "count": 895701,
+            "cost": 99422958
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "bool nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > const>::operator==<nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > const>, (decltype(nullptr))0>(nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > const> const&) const",
+            "count": 891420,
+            "cost": 8983318
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::CurveManager::PerformanceCurveObject(EnergyPlus::EnergyPlusData&, int, double, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>)",
+            "count": 793764,
+            "cost": 41543671
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::CurveManager::CurveValue(EnergyPlus::EnergyPlusData&, int, double, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>, ObjexxFCL::Optional<double const>)",
+            "count": 793764,
+            "cost": 127120925
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::ConvectionCoefficients::CalcASHRAETARPNatural(double, double, double)",
+            "count": 759542,
+            "cost": 230372260
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "ObjexxFCL::Array<double>::Array(ObjexxFCL::Array<double> const&)",
+            "count": 683999,
+            "cost": 387000642
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "fmt::v8::detail::iterator_buffer<std::back_insert_iterator<fmt::v8::basic_memory_buffer<char, 500ul, std::allocator<char> > >, char, fmt::v8::detail::buffer_traits>::grow(unsigned long)",
+            "count": 652959,
+            "cost": 14365173
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .constprop.717]",
+            "count": 594818,
+            "cost": 49621575
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > > const> nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer, std::vector<unsigned char, std::allocator<unsigned char> > >::find<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const",
+            "count": 594733,
+            "cost": 109506686
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::ConvectionCoefficients::CalcASHRAEDetailedIntConvCoeff(EnergyPlus::EnergyPlusData&, int, double, double)",
+            "count": 589253,
+            "cost": 195142593
+          },
+          {
+            "object_file": "/home/decent/ci/clone_branch/build/Products/libenergyplusapi.so.22.1.0",
+            "source_file": "???",
+            "function_name": "EnergyPlus::HeatBalanceSurfaceManager::GetQdotConvOutPerArea(EnergyPlus::EnergyPlusData&, int)",
+            "count": 589253,
+            "cost": 13552819
+          },
+          {
+            "object_file": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25",
+            "source_file": "???",
+            "function_name": "std::_Rb_tree_increment(std::_Rb_tree_node_base*)",
+            "count": 546206,
+            "cost": 6043372
+          }
+        ],
+        "test_name": "performance.30zonePSZ"
+      },
+      {
+        "data": [
+
+        ],
+        "test_name": "performance.Benchmarklargeofficenew_usa_ca_san_francisco_no_reports"
+      },
+      {
+        "data": [
+
+        ],
+        "test_name": "performance.30zonePVAV"
+      },
+      {
+        "data": [
+
+        ],
+        "test_name": "performance.PipingSystem_Underground_FHX"
+      },
+      {
+        "data": [
+
+        ],
+        "test_name": "performance.15zonePTAC"
+      },
+      {
+        "data": [
+
+        ],
+        "test_name": "performance.BenchmarkHospitalNew_USA_CA_SAN_FRANCISCO"
+      }
+    ]
+  }
 }
