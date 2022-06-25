@@ -3,9 +3,9 @@ title: EnergyPlus-2a5547a6debcf2cf92edc5191af258fbe6418c03-x86_64-Linux-Ubuntu-1
 permalink: EnergyPlus-2a5547a6debcf2cf92edc5191af258fbe6418c03-x86_64-Linux-Ubuntu-18.04-gcc-7.5.html
 tags: data
 layout: ci_results
-date: '2022-06-25 14:40:08'
+date: '2022-06-25 14:48:50'
 unhandled_failure: false
-build_error_count: 0
+build_error_count: 1
 build_warning_count: 0
 package_error_count: 0
 package_warning_count: 0
@@ -29,10 +29,10 @@ pull_request_issue_id: ''
 pull_request_base_repository: ''
 pull_request_base_ref: ''
 device_id: x86_64-Linux-Ubuntu-18.04-gcc-7.5
-pending: true
+pending: false
 analyze_only: false
-build_time: 
-test_time: 
+build_time: 247.473527662
+test_time: 1.008646438
 package_time: 
 install_time: 
 results_repository: NREL/EnergyPlusBuildResults
@@ -49,13 +49,19 @@ coverage_functions: 0
 coverage_total_functions: 0
 coverage_url: 
 asset_url: 
-performance_total_time: 
+performance_total_time: 0
 performance_test_count: 0
 
 ---
 {
   "build_results": [
-
+    {
+      "filename": "../../../../../usr/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake",
+      "linenumber": "230",
+      "colnumber": 0,
+      "messagetype": "error",
+      "message": ""
+    }
   ],
   "test_results": [
 
@@ -69,9 +75,9 @@ performance_test_count: 0
     "permalink": "EnergyPlus-2a5547a6debcf2cf92edc5191af258fbe6418c03-x86_64-Linux-Ubuntu-18.04-gcc-7.5.html",
     "tags": "data",
     "layout": "ci_results",
-    "date": "2022-06-25 14:40:08",
+    "date": "2022-06-25 14:48:50",
     "unhandled_failure": false,
-    "build_error_count": 0,
+    "build_error_count": 1,
     "build_warning_count": 0,
     "package_error_count": 0,
     "package_warning_count": 0,
@@ -95,10 +101,10 @@ performance_test_count: 0
     "pull_request_base_repository": "",
     "pull_request_base_ref": "",
     "device_id": "x86_64-Linux-Ubuntu-18.04-gcc-7.5",
-    "pending": true,
+    "pending": false,
     "analyze_only": false,
-    "build_time": null,
-    "test_time": null,
+    "build_time": 247.473527662,
+    "test_time": 1.008646438,
     "package_time": null,
     "install_time": null,
     "results_repository": "NREL/EnergyPlusBuildResults",
@@ -115,8 +121,15 @@ performance_test_count: 0
     "coverage_total_functions": 0,
     "coverage_url": null,
     "asset_url": null,
-    "performance_total_time": null,
+    "performance_total_time": 0,
     "performance_test_count": 0
   },
-  "performance_results": null
+  "performance_results": {
+    "object_files": [
+
+    ],
+    "test_files": [
+
+    ]
+  }
 }
