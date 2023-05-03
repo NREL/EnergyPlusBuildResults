@@ -16,7 +16,7 @@ title: EnergyPlus CI Dashboard
 		}
 	</style>
 </head>
-
+ 
 {% for post in site.posts %}
   {% if post.pull_request_issue_id == "" and post.repository %}
     {% capture base_repository %}{{ post.repository }}{% endcapture %}
